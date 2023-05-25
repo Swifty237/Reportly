@@ -7,7 +7,7 @@ import java.util.Date;
 public class ContractDetails {
 	
     @Id
-    @GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Temporal(TemporalType.DATE)

@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.contract;
+package fr.isika.cda.entities.activity;
 
 import java.io.Serializable;
 
@@ -10,20 +10,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Contract implements Serializable {
-	
-    /**
+public class Absence implements Serializable {
+
+	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4201743641123277277L;
-
+	private static final long serialVersionUID = -7508142804908681675L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Enumerated(EnumType.STRING)
-    private ContractState stateOfContract;
-    
- 
+	private Long id;
+
+	@Enumerated(EnumType.STRING)
+	private AbsenceType typeOfAbsence;
+
 }

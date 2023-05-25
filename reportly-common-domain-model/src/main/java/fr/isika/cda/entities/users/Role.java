@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.contract;
+package fr.isika.cda.entities.users;
 
 import java.io.Serializable;
 
@@ -8,22 +8,21 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Contract implements Serializable {
-	
-    /**
+@Table(name = "user_role")
+public class Role implements Serializable {
+
+	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4201743641123277277L;
-
+	private static final long serialVersionUID = 1019901252900786537L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Enumerated(EnumType.STRING)
-    private ContractState stateOfContract;
-    
- 
+	private Long id;
+	
+	@Enumerated(EnumType.STRING)
+	private UserRole userRole;
 }
