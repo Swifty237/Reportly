@@ -8,12 +8,15 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_account")
-public class UserAccount implements Serializable {
+@Inheritance(strategy=InheritanceType.JOINED)  
+public abstract class UserAccount implements Serializable {
 
 	/**
 	 * 
@@ -22,7 +25,7 @@ public class UserAccount implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Long userId;
+	protected Long userId;
 
 	private String email;
 	private String password;
