@@ -20,5 +20,5 @@ public abstract class Payment implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Long Id;
+	protected Long id;
 }

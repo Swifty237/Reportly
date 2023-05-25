@@ -23,17 +23,17 @@ public class ServiceDetails implements Serializable {
 	private Long id;
 
 	@Column(name = "users_limitation")
-	private int UsersLimitation;
+	private int usersLimitation;
 
 	@Column(name = "contracts_limitation")
-	private int ContractsLimitation;
+	private int contractsLimitation;
 
 	@Column(name = "active_expense_report")
-	private boolean ActiveExpenseReport;
+	private boolean activeExpenseReport;
 
 	@Column(name = "active_statistic_report")
-	private boolean ActiveStatisticReport;
+	private boolean activeStatisticReport;
 
 	@Column(name = "active_custom_design")
-	private boolean ActiveCustomDesign;
+	private boolean activeCustomDesign;
 }

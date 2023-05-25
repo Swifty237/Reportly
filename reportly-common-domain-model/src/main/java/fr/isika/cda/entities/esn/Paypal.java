@@ -14,6 +14,6 @@ public class Paypal extends Payment implements Serializable {
 	 */
 	private static final long serialVersionUID = 5073928922012336232L;
 	
-	private String EmailPaypal;
-	private String PasswordPaypal;
+	private String emailPaypal;
+	private String passwordPaypal;
 }

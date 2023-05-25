@@ -16,10 +16,10 @@ public class AdressDetails implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private String Adress;
-	private String PostalCode;
-	private String City;
-	private String Country;
+	private Long id;
+	private String adress;
+	private String postalCode;
+	private String city;
+	private String country;
 
 }

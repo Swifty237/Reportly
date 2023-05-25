@@ -17,9 +17,9 @@ public class CompanyDetails implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private Date CreationDate;
-	private String Brand;
-	private String Email;
+	private Long id;
+	private Date creationDate;
+	private String brand;
+	private String email;
 
 }
