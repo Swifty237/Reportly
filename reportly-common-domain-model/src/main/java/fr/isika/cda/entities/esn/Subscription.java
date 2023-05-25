@@ -3,6 +3,7 @@ package fr.isika.cda.entities.esn;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -18,6 +19,7 @@ import javax.persistence.TemporalType;
 public class Subscription implements Serializable {
 	
 	
+
 	/**
 	 * 
 	 */
@@ -26,6 +28,9 @@ public class Subscription implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
+	
+	@Column
+	private String name;
 	
 	@Enumerated(EnumType.STRING)
 	private SubscriptionState StateOfSubscription;
@@ -40,4 +45,16 @@ public class Subscription implements Serializable {
 	
 	@Enumerated(EnumType.STRING)
 	private PaymentChoice TypeOfPayment;
+
+	@Column(name = "start_at")
+	private Date startAt;
+
+	@Column(name = "end_at")
+	private Date endAt;
+
+	@Column(name = "automatic_renewal")
+	private boolean automaticRenewal;
+
+	@Column(name = "type_of_payment")
+	private PaymentChoice typeOfPayment;
 }

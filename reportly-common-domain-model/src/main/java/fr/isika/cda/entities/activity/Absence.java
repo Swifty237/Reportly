@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.users;
+package fr.isika.cda.entities.activity;
 
 import java.io.Serializable;
 
@@ -8,21 +8,20 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_role")
-public class Role implements Serializable {
+public class Absence implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1019901252900786537L;
+	private static final long serialVersionUID = -7508142804908681675L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Enumerated(EnumType.STRING)
-	private UserRole userRole;
+	private AbsenceType typeOfAbsence;
+
 }
