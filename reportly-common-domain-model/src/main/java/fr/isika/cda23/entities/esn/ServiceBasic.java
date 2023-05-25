@@ -35,6 +35,4 @@ public class ServiceBasic implements Serializable {
 	
 	@Column(name = "price")
 	 private double price;
-	
-	
 }
