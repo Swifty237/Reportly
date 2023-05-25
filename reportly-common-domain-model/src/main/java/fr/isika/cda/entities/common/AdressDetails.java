@@ -1,7 +1,6 @@
 package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +16,7 @@ public class AdressDetails implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String Id;
+	private Long Id;
 	private String Adress;
 	private String PostalCode;
 	private String City;

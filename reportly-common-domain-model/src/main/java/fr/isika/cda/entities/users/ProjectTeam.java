@@ -3,6 +3,7 @@ package fr.isika.cda.entities.users;
 import java.io.Serializable;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class ProjectTeam implements Serializable{
@@ -14,7 +15,7 @@ public class ProjectTeam implements Serializable{
 
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
 	
 	private String projecName;

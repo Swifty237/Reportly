@@ -14,7 +14,7 @@ public class ESN implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8800472236917589265L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;

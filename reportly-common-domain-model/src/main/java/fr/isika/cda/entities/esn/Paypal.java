@@ -3,8 +3,10 @@ package fr.isika.cda.entities.esn;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@PrimaryKeyJoinColumn(name="id")
 public class Paypal extends Payment implements Serializable {
 
 	/**

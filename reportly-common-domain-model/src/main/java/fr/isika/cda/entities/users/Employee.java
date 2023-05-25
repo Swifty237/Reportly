@@ -8,18 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="userId")
-public class Employee extends UserAccount implements Serializable{
+@PrimaryKeyJoinColumn(name = "userId")
+public class Employee extends UserAccount implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6240533294536565573L;
-	
+
 	private int tjm;
 	private boolean busy;
 	private String skills;
-	
-	
 
 }
