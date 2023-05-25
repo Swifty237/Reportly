@@ -18,7 +18,7 @@ public class UserDao {
 		UserAccount account = new UserAccount();
 		
 		// 2 - Mapper le contenu du vm dans l'entité
-		account.setUsername(viewModel.getUsername());
+//		account.setUsername(viewModel.getUsername());
 		account.setPassword(viewModel.getPassword());
 
 		
