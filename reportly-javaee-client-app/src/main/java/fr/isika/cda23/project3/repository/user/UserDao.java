@@ -3,7 +3,7 @@ package fr.isika.cda23.project3.repository.user;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda23.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
 
 
