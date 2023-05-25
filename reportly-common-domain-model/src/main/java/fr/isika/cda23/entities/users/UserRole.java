@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.users;
+package fr.isika.cda23.entities.users;
 
 public enum UserRole {
 

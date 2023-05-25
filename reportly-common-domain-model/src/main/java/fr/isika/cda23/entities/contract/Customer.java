@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.contract;
+package fr.isika.cda23.entities.contract;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

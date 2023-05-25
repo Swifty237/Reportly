@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.contract;
+package fr.isika.cda23.entities.contract;
 
 public enum ContractState {
 	

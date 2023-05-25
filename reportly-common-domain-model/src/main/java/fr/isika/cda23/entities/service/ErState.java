@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.service;
+package fr.isika.cda23.entities.service;
 
 public enum ErState {
 
