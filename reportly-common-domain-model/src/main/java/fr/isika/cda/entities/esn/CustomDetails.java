@@ -17,9 +17,9 @@ public class CustomDetails implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private String TextColor;
-	private String BackgroundColor;
-	private String Logo;
-	private String TextDescription;
+	private Long id;
+	private String textColor;
+	private String backgroundColor;
+	private String logo;
+	private String textDescription;
 }

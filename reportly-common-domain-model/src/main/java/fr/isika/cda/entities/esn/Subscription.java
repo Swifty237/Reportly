@@ -47,9 +47,11 @@ public class Subscription implements Serializable {
 	private PaymentChoice TypeOfPayment;
 
 	@Column(name = "start_at")
+	@Temporal(TemporalType.DATE)
 	private Date startAt;
 
 	@Column(name = "end_at")
+	@Temporal(TemporalType.DATE)
 	private Date endAt;
 
 	@Column(name = "automatic_renewal")

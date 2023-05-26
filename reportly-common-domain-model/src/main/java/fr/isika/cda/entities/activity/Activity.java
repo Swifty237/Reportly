@@ -7,11 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import fr.isika.cda.entities.users.Employee;
+
 @Entity
-public class Activity implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Activity implements Serializable {
+	
+	@ManyToOne
+	public Cra Cra ; 
 
 	private static final long serialVersionUID = -8098047044102899069L;
 

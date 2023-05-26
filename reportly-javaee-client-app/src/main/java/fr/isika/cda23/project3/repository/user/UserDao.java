@@ -13,19 +13,20 @@ public class UserDao {
 	private EntityManager entityManager;
 	
 	public Long register(RegisterUserViewModel viewModel) {
+		return null;
 		
 		// 1 - Créer mon entité UserAccount
-		Employee account = new Employee();
+//		Employee account = new Employee();
 		
 		// 2 - Mapper le contenu du vm dans l'entité
 //		account.setUsername(viewModel.getUsername());
-		account.setPassword(viewModel.getPassword());
+//		account.setPassword(viewModel.getPassword());
 
 		
 		// 3 - persister l'entité
-		entityManager.persist(account);
+//		entityManager.persist(account);
 		
 		// 4 - renvoyer son id (ici qui devrait être généré auto, après le persist)
-		return account.getUserId();
+//		return account.getUserId();
 	}
 }
