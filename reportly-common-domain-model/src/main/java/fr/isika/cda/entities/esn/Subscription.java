@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "subscription")
@@ -29,9 +31,11 @@ public class Subscription implements Serializable {
 	private SubscriptionState state;
 
 	@Column(name = "start_at")
+	@Temporal(TemporalType.DATE)
 	private Date startAt;
 
 	@Column(name = "end_at")
+	@Temporal(TemporalType.DATE)
 	private Date endAt;
 
 	@Column(name = "automatic_renewal")
