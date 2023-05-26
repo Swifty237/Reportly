@@ -28,7 +28,8 @@ public class Activity implements Serializable {
 	protected int overtime;
 
 	protected String description;
-
+	
+	@Temporal(TemporalType.DATE)
 	protected Date createDate;
 
 	protected Boolean onCall;

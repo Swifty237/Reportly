@@ -2,7 +2,6 @@ package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +12,19 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class PersonalDetails implements Serializable {
-
-	private static final long serialVersionUID = -620077995332155980L;
-
+//	L'interface "Serializable" est utilisée pour indiquer
+//	que les objets de cette classe peuvent convertis en une représentation pouvant être stockée ou transférée
+	
+	
+	
+//	déclaration d'un identifiant unique pour cette version spécifique de la classe lors de la sérialisation.
+   
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1058842310211418354L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
