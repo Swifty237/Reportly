@@ -9,11 +9,15 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Contract implements Serializable {
 	
+	
+
     /**
 	 * 
 	 */
@@ -26,6 +30,10 @@ public class Contract implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private ContractDetails contractDetails;
+	
+	@ManyToOne
+	public Customer customer;
+    @PrimaryKeyJoinColumn(name = "id")
     
     @Enumerated(EnumType.STRING)
     private ContractState stateOfContract;
