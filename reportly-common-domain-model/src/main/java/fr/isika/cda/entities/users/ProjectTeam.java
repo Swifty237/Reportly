@@ -2,10 +2,17 @@ package fr.isika.cda.entities.users;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "project_team")
 public class ProjectTeam implements Serializable{
 
 	/**
@@ -18,6 +25,8 @@ public class ProjectTeam implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
 	
-	private String projecName;
+	private String projectName;
+	
+	
 	
 }

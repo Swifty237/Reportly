@@ -1,20 +1,26 @@
-//package fr.isika.cda.entities;
+package fr.isika.cda.entities;
+
 //
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 //import static org.junit.jupiter.api.Assertions.assertNull;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
 //
-//import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
+
+import fr.isika.cda.entities.users.Employee;
+
 //
 //import fr.isika.cda.entities.users.UserAccount;
 //import fr.isika.cda.entities.users.UserProfile;
 //
-//class CreateUserTestCase {
+class CreateUserTestCase {
 //
-//	@Test
-//	void createDefaultUser() throws Exception {
-//		
+	@Test
+	void createDefaultUser() {
+//	System.out.println("jajaj");
+//	Employee emp=new Employee("jinz0920@yahoo.fr","1010",300,"haha");
+	
 //		UserAccount defaultUser = new UserAccount()
 //				.withDefaultPropertiesAndProfile();
 //		
@@ -30,7 +36,7 @@
 //		assertTrue(profile.getAvatar().isEmpty());
 //		
 //		assertNull(profile.getContact(), "User created by default does not have a contact object by default");
-//	}
+	}
 //	
 //	@Test
 //	void createUserWithGivenProperties() throws Exception {
@@ -57,4 +63,4 @@
 //		assertNull(profile.getContact(), "User created by default does not have a contact object by default");
 //	}
 //
-//}
+}
