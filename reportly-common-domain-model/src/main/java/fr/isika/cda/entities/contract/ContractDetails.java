@@ -11,6 +11,10 @@ public class ContractDetails implements Serializable{
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @OneToOne
+    @JoinColumn(name = "contract_id")
+    private Contract contract;
 
     @Temporal(TemporalType.DATE)
     private Date creationDate;
