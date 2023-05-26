@@ -2,12 +2,17 @@ package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import fr.isika.cda.entities.esn.ESN;
 
 @Entity
 public class CompanyDetails implements Serializable {
@@ -25,5 +30,11 @@ public class CompanyDetails implements Serializable {
 	private Date creationDate;
 	private String brand;
 	private String email;
+	
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+  
+    private ESN esn;
 
 }
