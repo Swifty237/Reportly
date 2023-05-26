@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import fr.isika.cda.entities.activity.Cra;
+import fr.isika.cda.entities.users.Employee;
 
 @Entity
 public class ExpenseReport implements Serializable {
@@ -20,6 +24,9 @@ public class ExpenseReport implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@ManyToOne
+	public Employee employee;
+	
 	private Date expenseDate;
 	private Date creationDate;
 	private String reason;

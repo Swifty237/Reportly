@@ -28,32 +28,15 @@ public abstract class UserAccount implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long userId;
 
-	private String email;
-	private String password;
+	protected String email;
+	protected String password;
 
 //	@Enumerated(EnumType.STRING)
 //	private UserRole primaryRole;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserProfile userProfile;
-
-	public Long getUserId() {
-		return userId;
-	}
-
-//	public String getUsername() {
-//		return username;
-//	}
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
 	
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
