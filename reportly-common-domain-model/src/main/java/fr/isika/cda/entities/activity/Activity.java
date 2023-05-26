@@ -3,57 +3,34 @@ package fr.isika.cda.entities.activity;
 import java.io.Serializable;
 import java.util.Date;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Activity implements Serializable{
-	
-	
-	
-	
-/**
-	 * 
-	 */
+public class Activity implements Serializable {
+
 	private static final long serialVersionUID = -8098047044102899069L;
 
-@Id
-@GeneratedValue
-	protected Long id ; 
-	
-@Temporal(TemporalType.DATE)
-    protected Date StartAt ;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected Long id;
 
+	@Temporal(TemporalType.DATE)
+	protected Date startAt;
 
-@Temporal(TemporalType.DATE)
-    protected Date EndAt; 
+	@Temporal(TemporalType.DATE)
+	protected Date endAt;
 
-   
+	protected int overtime;
 
-    protected int Overtime ;
-   
+	protected String description;
 
+	protected Date createDate;
 
-protected String Description ;  
+	protected Boolean onCall;
 
-protected Date CreateDate; 
-
-protected Boolean OnCall ; 
-
-
-
-
-  
-    
-
-     
-     
-    
-		
-	}
-
-
+}

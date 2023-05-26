@@ -1,4 +1,4 @@
-package fr.isika.cda.entities.activity;
+package fr.isika.cda.entities.users;
 
 import java.io.Serializable;
 
@@ -6,19 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class OtherActivity implements Serializable {
+@Table(name = "team_manager")
+public class TeamManager implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3488616321439609965L;
+	private static final long serialVersionUID = 8716418227477090060L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String name;
-
+	private Long userId;
 }

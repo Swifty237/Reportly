@@ -7,13 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_account")
-public class UserAccount implements Serializable {
+@Inheritance(strategy=InheritanceType.JOINED)  
+public abstract class UserAccount implements Serializable {
 
 	/**
 	 * 
@@ -21,14 +25,14 @@ public class UserAccount implements Serializable {
 	private static final long serialVersionUID = -8632944335273962858L;
 
 	@Id
-	@GeneratedValue
-	private Long userId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected Long userId;
 
-	private String username;
+	private String email;
 	private String password;
 
-	@Enumerated(EnumType.STRING)
-	private UserRole primaryRole;
+//	@Enumerated(EnumType.STRING)
+//	private UserRole primaryRole;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserProfile userProfile;
@@ -37,12 +41,12 @@ public class UserAccount implements Serializable {
 		return userId;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+//	public String getUsername() {
+//		return username;
+//	}
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
 	
 	public String getPassword() {
 		return password;
@@ -56,17 +60,17 @@ public class UserAccount implements Serializable {
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-	public UserRole getPrimaryRole() {
-		return primaryRole;
-	}
-	public void setPrimaryRole(UserRole primaryRole) {
-		this.primaryRole = primaryRole;
-	}
+//	public UserRole getPrimaryRole() {
+//		return primaryRole;
+//	}
+//	public void setPrimaryRole(UserRole primaryRole) {
+//		this.primaryRole = primaryRole;
+//	}
 	
-	public UserAccount withUsername(String username) {
-		this.username = username;
-		return this;
-	}
+//	public UserAccount withUsername(String username) {
+//		this.username = username;
+//		return this;
+//	}
 
 	public UserAccount withPassword(String password) {
 		this.password = password;
@@ -78,13 +82,13 @@ public class UserAccount implements Serializable {
 		return this;
 	}
 
-	public UserAccount withPrimaryRole(UserRole role) {
-		primaryRole = role;
-		return this;
-	}
+//	public UserAccount withPrimaryRole(UserRole role) {
+//		primaryRole = role;
+//		return this;
+//	}
 
 	public UserAccount withDefaultPropertiesAndProfile() {
-		this.username = DefaultValues.DEFAULT_USERNAME;
+//		this.username = DefaultValues.DEFAULT_USERNAME;
 		this.password = DefaultValues.DEFAULT_PASSWORD;
 		this.userProfile = new UserProfile();
 		return this;

@@ -3,7 +3,7 @@ package fr.isika.cda23.project3.repository.user;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
 
 
@@ -15,10 +15,10 @@ public class UserDao {
 	public Long register(RegisterUserViewModel viewModel) {
 		
 		// 1 - Créer mon entité UserAccount
-		UserAccount account = new UserAccount();
+		Employee account = new Employee();
 		
 		// 2 - Mapper le contenu du vm dans l'entité
-		account.setUsername(viewModel.getUsername());
+//		account.setUsername(viewModel.getUsername());
 		account.setPassword(viewModel.getPassword());
 
 		

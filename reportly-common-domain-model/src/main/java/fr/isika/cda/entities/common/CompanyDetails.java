@@ -1,24 +1,25 @@
-package fr.isika.cda.entities.activity;
+package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class OtherActivity implements Serializable {
+public class CompanyDetails implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3488616321439609965L;
-
+	private static final long serialVersionUID = 7519432927046386372L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private String name;
+	private Date creationDate;
+	private String brand;
+	private String email;
 
 }
