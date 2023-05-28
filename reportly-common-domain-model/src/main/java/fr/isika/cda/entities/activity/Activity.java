@@ -15,7 +15,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-<<<<<<< HEAD
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.contract.Customer;
 import fr.isika.cda.entities.users.Employee;
