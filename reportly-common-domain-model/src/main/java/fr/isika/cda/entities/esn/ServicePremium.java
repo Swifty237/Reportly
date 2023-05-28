@@ -15,5 +15,6 @@ public class ServicePremium extends ServiceBasic implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3535761202462835710L;
+	
     
 }

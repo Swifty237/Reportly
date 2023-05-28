@@ -4,15 +4,16 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import fr.isika.cda.entities.esn.ESN;
 
 @Entity
 @Table(name = "user_account")
@@ -28,8 +29,17 @@ public abstract class UserAccount implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long userId;
 
+
 	protected String email;
 	protected String password;
+	
+	@ManyToOne
+	public ESN esn;
+	
+	
+	
+	
+
 
 //	@Enumerated(EnumType.STRING)
 //	private UserRole primaryRole;

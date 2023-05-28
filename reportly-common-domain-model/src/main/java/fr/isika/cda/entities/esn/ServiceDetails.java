@@ -2,11 +2,13 @@ package fr.isika.cda.entities.esn;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -36,4 +38,11 @@ public class ServiceDetails implements Serializable {
 
 	@Column(name = "active_custom_design")
 	private boolean activeCustomDesign;
+	
+	
+
+	@OneToOne(cascade = CascadeType.ALL ) 
+	public ServiceBasic serviceBasic;
+	
+	
 }

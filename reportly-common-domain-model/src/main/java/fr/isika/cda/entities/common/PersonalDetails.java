@@ -2,13 +2,19 @@ package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import fr.isika.cda.entities.esn.Subscription;
+import fr.isika.cda.entities.users.UserAccount;
 
 @Entity
 public class PersonalDetails implements Serializable {
@@ -45,6 +51,12 @@ public class PersonalDetails implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "creation_date")
 	private Date creationDate;
+	
+
+	@OneToOne(cascade = CascadeType.ALL ) 
+	public UserAccount UserAccount;
+	
+	
 
 	public PersonalDetails(Long id, String name, String firstname, Date birdhday, int phoneNumber, String jobTitle,
 			Date creationDate) {
