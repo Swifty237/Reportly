@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class CustomDetails implements Serializable {
+public class CustomDesignDetails implements Serializable {
 
 	/**
 	 * 
@@ -24,12 +24,5 @@ public class CustomDetails implements Serializable {
 	private String backgroundColor;
 	private String logo;
 	private String textDescription;
-	
-	
 
-	@OneToOne(cascade = CascadeType.ALL ) 
-	public ServicePremium servicePremium;
-	
-	
-	
 }

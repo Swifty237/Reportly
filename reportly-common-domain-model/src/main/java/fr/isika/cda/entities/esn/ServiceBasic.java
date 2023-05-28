@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "service_basic")
-@Inheritance(strategy=InheritanceType.JOINED)  
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ServiceBasic implements Serializable {
 
 	/**
@@ -36,9 +36,7 @@ public abstract class ServiceBasic implements Serializable {
 
 	@Column(name = "price")
 	private double price;
-	
 
-	@OneToOne(cascade = CascadeType.ALL ) 
-	public Subscription subscription;
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	public ServiceDetails serviceDetails;
 }

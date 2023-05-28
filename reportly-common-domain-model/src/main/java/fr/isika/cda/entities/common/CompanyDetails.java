@@ -15,7 +15,6 @@ import javax.persistence.TemporalType;
 
 import fr.isika.cda.entities.contract.Customer;
 
-import fr.isika.cda.entities.esn.ESN;
 
 
 @Entity
@@ -35,13 +34,7 @@ public class CompanyDetails implements Serializable {
 	private String brand;
 	private String email;
 	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Document document;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)
-  
-    private ESN esn;
-
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	public Customer customer;
 }

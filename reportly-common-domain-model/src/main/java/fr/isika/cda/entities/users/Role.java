@@ -25,8 +25,6 @@ public class Role implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne @JoinColumn(name="user_id")
-	public UserAccount user;
 	
 	@Enumerated(EnumType.STRING)
 	private UserRole userRole;

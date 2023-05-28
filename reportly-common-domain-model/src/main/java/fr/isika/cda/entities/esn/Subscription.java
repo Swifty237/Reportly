@@ -49,15 +49,11 @@ public class Subscription implements Serializable {
 
 	@Column(name = "type_of_payment")
 	private PaymentChoice typeOfPayment;
-	
-	@OneToOne(cascade = CascadeType.ALL )
-	public ESN esn;
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private Payment payment;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	public ServiceBasic serviceBasic;
+
 }

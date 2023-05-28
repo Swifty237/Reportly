@@ -24,8 +24,5 @@ public class AdressDetails implements Serializable {
 	private String postalCode;
 	private String city;
 	private String country;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	public PersonalDetails personalDetails;
 	
 }
