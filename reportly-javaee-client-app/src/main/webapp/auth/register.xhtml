@@ -30,5 +30,30 @@
 	        
 	        <p:commandButton type="submit" value="Register" action="#{registerUserBean.register()}" />
         </h:form>
+        
+           <h:form id="registrationForm">
+        <p:growl id="messages" showDetail="true" />
+
+        <p:panel header="User Registration Form">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Username:" />
+                <p:inputText id="username" required="true" />
+
+                <h:outputLabel for="password" value="Password:" />
+                <p:password id="password" required="true" />
+
+                <h:outputLabel for="email" value="Email:" />
+                <p:inputText id="email" required="true" />
+
+                <h:outputLabel for="firstName" value="First Name:" />
+                <p:inputText id="firstName" required="true" />
+
+                <h:outputLabel for="lastName" value="Last Name:" />
+                <p:inputText id="lastName" required="true" />
+            </h:panelGrid>
+
+            <p:commandButton value="Register" action="#" />
+        </p:panel>
+    </h:form>
 </h:body>
 </html>

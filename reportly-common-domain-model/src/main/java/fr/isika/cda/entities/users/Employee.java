@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import fr.isika.cda.entities.common.PersonalDetails;
+
 @Entity
 @PrimaryKeyJoinColumn(name = "userId")
 public class Employee extends UserAccount implements Serializable {
@@ -22,15 +24,18 @@ public class Employee extends UserAccount implements Serializable {
 	private double tjm;
 	private boolean busy;
 	private String skills;
-	
-	@ManyToOne @JoinColumn(name="projectTeam_id")
+
+	@ManyToOne
+	@JoinColumn(name = "projectTeam_id")
 	public ProjectTeam projectTeam;
 
-	public Employee(String email, String password, int tjm, String skills) {
+	public Employee(String email, String password, int tjm, String skills, String name, String firstname) {
 		this.password = password;
 		this.email = email;
 		this.tjm = tjm;
 		this.skills = skills;
+
+		this.pers = new PersonalDetails(name, firstname);
 
 	}
 

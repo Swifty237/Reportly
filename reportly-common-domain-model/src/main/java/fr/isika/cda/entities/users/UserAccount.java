@@ -14,6 +14,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import fr.isika.cda.entities.common.PersonalDetails;
+
 @Entity
 @Table(name = "user_account")
 @Inheritance(strategy=InheritanceType.JOINED)  
@@ -36,6 +38,9 @@ public abstract class UserAccount implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserProfile userProfile;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true ) 
+	protected PersonalDetails pers;
 	
 	public UserProfile getUserProfile() {
 		return userProfile;

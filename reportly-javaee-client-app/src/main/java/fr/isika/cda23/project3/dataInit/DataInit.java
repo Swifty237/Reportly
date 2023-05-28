@@ -6,6 +6,7 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda.entities.common.PersonalDetails;
 import fr.isika.cda.entities.users.Employee;
 
 @Singleton
@@ -17,8 +18,7 @@ public class DataInit {
 	
 	@PostConstruct
 	public void init() {
-		System.out.println("haha");
-		Employee emp=new Employee("jinz0920@yahoo.com","1010",300,"haha");
+		Employee emp=new Employee("jinz0920@yahoo.com","1010",1010,"haha","jin","zhang");
 		em.persist(emp);
 	}
 	
