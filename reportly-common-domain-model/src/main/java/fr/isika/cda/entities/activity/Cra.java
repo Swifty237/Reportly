@@ -27,8 +27,7 @@ public class Cra implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	public Employee employee;
+	
 
 	@Enumerated(EnumType.STRING)
 	private CraState state;

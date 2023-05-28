@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+<<<<<<< HEAD
 import fr.isika.cda.entities.common.AdressDetails;
 
 @Entity
@@ -38,6 +39,12 @@ public class UserContact implements Serializable {
 //	@AttributeOverride(name = "country", column = @Column(name = "uc_address_country")) 
 	private AdressDetails address;
  
+//	private Address address;
+
+//	@Embedded
+//	@AttributeOverride(name = "countryCode", column = @Column(name = "uc_phone_countryCode"))
+//	@AttributeOverride(name = "phoneNumber", column = @Column(name = "uc_phone_phoneNumber")) 
+//	private Phone phone;
 
 	public Long getId() {
 		return id;
@@ -58,4 +65,19 @@ public class UserContact implements Serializable {
 	public void setAddress(AdressDetails address) {
 		this.address = address;
 	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
+//
+//	public Phone getPhone() {
+//		return phone;
+//	}
+//
+//	public void setPhone(Phone phone) {
+//		this.phone = phone;
+//	}
 }

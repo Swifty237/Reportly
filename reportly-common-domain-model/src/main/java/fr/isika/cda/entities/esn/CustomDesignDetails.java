@@ -2,13 +2,15 @@ package fr.isika.cda.entities.esn;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class CustomDetails implements Serializable {
+public class CustomDesignDetails implements Serializable {
 
 	/**
 	 * 
@@ -22,4 +24,5 @@ public class CustomDetails implements Serializable {
 	private String backgroundColor;
 	private String logo;
 	private String textDescription;
+
 }
