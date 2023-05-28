@@ -1,6 +1,8 @@
 package fr.isika.cda.entities.activity;
+
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +11,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import fr.isika.cda.entities.common.Document;
+=======
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+>>>>>>> 60f67bc (bug resolving commit)
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 public class Absence extends Activity implements Serializable {

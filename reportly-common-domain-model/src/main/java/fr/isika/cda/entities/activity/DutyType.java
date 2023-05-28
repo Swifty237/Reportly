@@ -1,10 +1,10 @@
 package fr.isika.cda.entities.activity;
 
 
-
 public enum DutyType {
 
-	SERVICE, JOBINTERVIEW, INTERCONTRAT,
-
-	
+	SERVICE, 
+	JOB_INTERVIEW, 
+	INTERCONTRAT, 
+	ON_CALL
 }

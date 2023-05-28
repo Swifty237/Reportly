@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+<<<<<<< HEAD
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.contract.Customer;
 import fr.isika.cda.entities.users.Employee;
@@ -39,14 +40,13 @@ public abstract class Activity implements Serializable {
 	protected Date endAt;
 
 	protected int overtime;
-
 	protected String description;
-
 	protected Date createDate;
-
 	protected Boolean onCall;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Customer customer;
 
+	@ManyToOne
+	public Cra Cra ; 
 }
