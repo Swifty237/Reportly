@@ -12,8 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import fr.isika.cda.entities.contract.Customer;
+import fr.isika.cda.entities.users.UserAccount;
+
 
 @Entity
 public class PersonalDetails implements Serializable {
@@ -51,9 +52,17 @@ public class PersonalDetails implements Serializable {
 	@Column(name = "creation_date")
 	private Date creationDate;
 	
+
 	
 	@OneToOne(cascade = CascadeType.ALL)
     public Customer customer;
+
+
+	@OneToOne(cascade = CascadeType.ALL ) 
+	public UserAccount UserAccount;
+	
+	
+
 
 	public PersonalDetails(Long id, String name, String firstname, Date birdhday, int phoneNumber, String jobTitle,
 			Date creationDate) {

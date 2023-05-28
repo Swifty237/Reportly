@@ -8,7 +8,12 @@ import java.util.Date;
 @Entity
 public class ContractDetails implements Serializable{
 	
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2897179663026584445L;
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

@@ -11,10 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import fr.isika.cda.entities.contract.Contract;
+
 @Entity
 @Table(name = "project_team")
 public class ProjectTeam implements Serializable{
 
+	@OneToOne
+	public Contract contract;
 	/**
 	 * 
 	 */
@@ -23,7 +27,7 @@ public class ProjectTeam implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long userId;
+	private Long id ;
 	
 	private String projectName;
 	
