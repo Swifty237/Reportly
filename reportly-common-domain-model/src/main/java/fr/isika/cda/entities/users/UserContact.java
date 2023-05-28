@@ -29,18 +29,15 @@ public class UserContact implements Serializable {
 	private String primaryEmail;
 	private String secondaryEmail;
 
-	@Embedded
-	@AttributeOverride(name = "lineOne", column = @Column(name = "uc_address_lineOne"))
-	@AttributeOverride(name = "lineTwe", column = @Column(name = "uc_address_lineTwo"))
-	@AttributeOverride(name = "zipCode", column = @Column(name = "uc_address_zipCode"))
-	@AttributeOverride(name = "city", column = @Column(name = "uc_address_city"))
-	@AttributeOverride(name = "state", column = @Column(name = "uc_address_state"))
-	@AttributeOverride(name = "country", column = @Column(name = "uc_address_country")) 
+//	@Embedded
+//	@AttributeOverride(name = "lineOne", column = @Column(name = "uc_address_lineOne"))
+//	@AttributeOverride(name = "lineTwe", column = @Column(name = "uc_address_lineTwo"))
+//	@AttributeOverride(name = "zipCode", column = @Column(name = "uc_address_zipCode"))
+//	@AttributeOverride(name = "city", column = @Column(name = "uc_address_city"))
+//	@AttributeOverride(name = "state", column = @Column(name = "uc_address_state"))
+//	@AttributeOverride(name = "country", column = @Column(name = "uc_address_country")) 
 	private AdressDetails address;
-
-	@Embedded
-	@AttributeOverride(name = "countryCode", column = @Column(name = "uc_phone_countryCode"))
-	@AttributeOverride(name = "phoneNumber", column = @Column(name = "uc_phone_phoneNumber")) 
+ 
 
 	public Long getId() {
 		return id;

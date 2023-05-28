@@ -7,7 +7,7 @@
    <persistence-unit name="jee">
    <!-- BDD for demo and quick dev -->
       <jta-data-source>java:jboss/datasources/cda-final-project-datasource</jta-data-source>
-<!--       <jar-file>lib/reportly-common-domain-model-1.0.0.jar</jar-file> -->
+	<jar-file>lib/reportly-common-domain-model-1.0.0.jar</jar-file>
       <properties>
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
          <property name="hibernate.show_sql" value="true" />

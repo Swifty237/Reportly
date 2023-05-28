@@ -23,7 +23,8 @@ public class Employee extends UserAccount implements Serializable {
 	private boolean busy;
 	private String skills;
 	
-	@ManyToOne @JoinColumn(name="projectTeam_id")
+	@ManyToOne 
+	@JoinColumn(name="projectTeam_id")
 	public ProjectTeam projectTeam;
 
 	public Employee(String email, String password, int tjm, String skills) {
