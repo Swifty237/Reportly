@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-<<<<<<< HEAD
 import fr.isika.cda.entities.common.AdressDetails;
 
 @Entity
