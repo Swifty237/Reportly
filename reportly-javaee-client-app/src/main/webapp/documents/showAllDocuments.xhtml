@@ -9,10 +9,10 @@
 <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
 	<h:head>
 		<h:outputStylesheet library="css" name="bootstrap.min.css" />
-		
 	</h:head>
+
 	<h:body>
-	<h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
 		<ul>
 			<li><h:link outcome="/index.xhtml">Back to home</h:link></li>
 		</ul>
@@ -21,43 +21,43 @@
 		<h1>All Documents</h1>
 		<hr />
 
-		<div class="ui-g">
-			<div class="ui-g-5">
+		<div class="row justify-content-around">
+			<div class="col-5">
 
 				<h:dataTable value="#{showAllDocumentsManagedBean.getListDocs()}"
 					var="doc">
 					<h:column>
 						<f:facet name="header">
-				Id
-			</f:facet>
-			#{doc.id}
-		</h:column>
+							Id
+						</f:facet>
+						#{doc.id}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Name
-			</f:facet>
-			#{doc.name}
-		</h:column>
+							Name
+						</f:facet>
+						#{doc.name}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Date de création
-			</f:facet>
-			#{doc.docCreation}
-		</h:column>
+							Date de création
+						</f:facet>
+						#{doc.docCreation}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Type de doc
-			</f:facet>
-			#{doc.typeOfDoc}
-		</h:column>
+							Type de doc
+						</f:facet>
+						#{doc.typeOfDoc}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Supprimer
-			</f:facet>
+							Supprimer
+						</f:facet>
 
 						<h:form>
 							<h:commandButton
@@ -70,7 +70,7 @@
 
 			</div>
 
-			<div class="ui-g-5">
+			<div class="col-5">
 
 				<h:form id="addDocumentForm">
 					<h:panelGrid columns="2">
@@ -84,15 +84,18 @@
 
 						<h:outputLabel id="typeLbl" value="Type de Document : " />
 
-						<h:selectOneMenu value="#{addDocumentManagedBean.getAdvm().typeOfDoc}">
+						<h:selectOneMenu
+							value="#{addDocumentManagedBean.getAdvm().typeOfDoc}">
 							<f:selectItem itemLabel="Kbis" itemValue="ESN_CERTIFICATION" />
 							<f:selectItem itemLabel="Arrêt maladie" itemValue="SICK_LEAVE" />
 							<f:selectItem itemLabel="Autre" itemValue="OTHER_ACTIVITY" />
-							<f:selectItem itemLabel="Note de frais" itemValue="EXPENSE_REPORT_INVOICE" />
-							<f:selectItem itemLabel="Facture abonnement" itemValue="SUBSCRIPTION_INVOICE" />
+							<f:selectItem itemLabel="Note de frais"
+								itemValue="EXPENSE_REPORT_INVOICE" />
+							<f:selectItem itemLabel="Facture abonnement"
+								itemValue="SUBSCRIPTION_INVOICE" />
 						</h:selectOneMenu>
-						
-<!-- 						 <p:calendar value="#{bean.selectedDate}" pattern="yyyy-MM-dd" /> -->
+
+						<!-- 						 <p:calendar value="#{bean.selectedDate}" pattern="yyyy-MM-dd" /> -->
 
 					</h:panelGrid>
 
