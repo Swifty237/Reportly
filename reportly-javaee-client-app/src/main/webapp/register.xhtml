@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="registerUserForm">
+			<h:panelGrid columns="2">
+
+				<!-- Col 1, Lig 1 -->
+				<h:outputLabel id="usernameLabel" value="Username :" />
+
+				<!-- Col 2, Lig 1 -->
+				<h:inputText id="usernameTxt" size="30"
+					value="#{registerUserBean.registerUserVm.username}" />
+
+
+				<!-- Col 1, Lig 2 -->
+				<h:outputLabel id="passwordLabel" value="Password :" />
+
+				<!-- Col 2, Lig 2 -->
+				<h:inputSecret id="passwordTxt" size="15"
+					value="#{registerUserBean.registerUserVm.password}" />
+
+
+			</h:panelGrid>
+
+			<p:commandButton type="submit" value="Register"
+				action="#{registerUserBean.register()}" />
+		</h:form>
+
+		<h:form id="registrationForm">
+			<p:growl id="messages" showDetail="true" />
+
+			<p:panel header="User Registration Form">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="username" value="Username:" />
+					<p:inputText id="username" required="true" />
+
+					<h:outputLabel for="password" value="Password:" />
+					<p:password id="password" required="true" />
+
+					<h:outputLabel for="email" value="Email:" />
+					<p:inputText id="email" required="true" />
+
+					<h:outputLabel for="firstName" value="First Name:" />
+					<p:inputText id="firstName" required="true" />
+
+					<h:outputLabel for="lastName" value="Last Name:" />
+					<p:inputText id="lastName" required="true" />
+				</h:panelGrid>
+
+				<p:commandButton value="Register" action="#" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
