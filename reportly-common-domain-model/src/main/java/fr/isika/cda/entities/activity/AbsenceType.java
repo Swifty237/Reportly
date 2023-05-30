@@ -2,6 +2,8 @@ package fr.isika.cda.entities.activity;
 
 public enum AbsenceType {
 
-	RTT, HOLIDAYS, SICKLEAVE,
+	RTT, 
+	HOLIDAYS, 
+	SICK_LEAVE
 
 }

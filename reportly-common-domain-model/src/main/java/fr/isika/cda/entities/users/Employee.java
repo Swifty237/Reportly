@@ -29,7 +29,10 @@ public class Employee extends UserAccount implements Serializable {
 	private double tjm;
 	private boolean busy;
 	private String skills;
-
+	
+	@ManyToOne 
+	@JoinColumn(name="projectTeam_id")
+	public ProjectTeam projectTeam;
 	
 	@OneToMany
 	private List<Cra> craList=new ArrayList<>();
@@ -44,7 +47,6 @@ public class Employee extends UserAccount implements Serializable {
 		this.skills = skills;
 
 		this.pers = new PersonalDetails(name, firstname);
-
 	}
 
 }

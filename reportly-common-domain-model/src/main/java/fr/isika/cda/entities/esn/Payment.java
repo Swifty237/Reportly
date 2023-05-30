@@ -14,8 +14,9 @@ import javax.persistence.OneToOne;
 import fr.isika.cda.entities.common.Document;
 
 
+
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)  
+@Inheritance(strategy = InheritanceType.JOINED)   
 public abstract class Payment implements Serializable {
 	
 	/**
