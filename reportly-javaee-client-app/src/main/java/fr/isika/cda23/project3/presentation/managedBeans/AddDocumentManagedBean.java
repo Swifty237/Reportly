@@ -1,7 +1,5 @@
 package fr.isika.cda23.project3.presentation.managedBeans;
 
-import java.io.IOException;
-
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
@@ -19,12 +17,8 @@ public class AddDocumentManagedBean {
 	
 	public void addDocument() throws Exception {
 		adService.addDocument(advm);
-		
 		clear();
-		
-		NavigationUtils.redirectToUserList("documents/showAllDocuments.xhtml");
-		
-		System.out.println(advm.toString());
+		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
 	}
 	
 	public void clear() {

@@ -15,14 +15,21 @@ public class RegisterUserBean {
 
 	private RegisterUserViewModel registerUserVm = new RegisterUserViewModel();
 
-	// Première méthode à appeler depuis la vue
-	public void register() {
-		ruService.register(registerUserVm);
-
-		// après le register je vais réinitialiser le modèle du formulaire
-		clear();
+	public String register() {
+		Long id = ruService.register(registerUserVm);
+		if(id != null) {
+			
+			clear();
+			
+			System.out.println("User registered with id = " + id);
+			System.out.println("redirecting to login .....");
+			
+			// Si le user est créé faudra rediriger vers login page
+			return "login";
+		}
 		
-		System.out.println(registerUserVm.toString());
+		// On reste sur la même page si le user n'a pas été créé (pour X raisons ?)
+		return "";
 	}
 
 	// Effacer les champs du view model

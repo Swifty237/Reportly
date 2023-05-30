@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="registrationForm">
+			<p:growl id="messages" showDetail="true" />
+
+			<p:panel header="User Registration Form">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="username" value="Username:" />
+					<p:inputText id="usernameTxt" size="25" value="#{registerUserBean.registerUserVm.username}" />
+
+					<h:outputLabel for="password" value="Password:" />
+					<p:password id="passwordTxt" size="20" value="#{registerUserBean.registerUserVm.password}" />
+
+					<h:outputLabel for="email" value="Email:" />
+					<p:inputText id="email" required="true" size="30" value="#{registerUserBean.registerUserVm.email}"/>
+
+					<h:outputLabel for="firstName" value="First Name:" />
+					<p:inputText id="firstName" required="true" size="15" />
+
+					<h:outputLabel for="lastName" value="Last Name:" />
+					<p:inputText id="lastName" required="true" size="15" />
+				</h:panelGrid>
+
+				<p:commandButton type="submit" value="Clear fields" action="#{registerUserBean.clear()}" class="btn btn-secondary" />
+				<p:commandButton type="submit" value="Register" action="#{registerUserBean.register()}" class="btn btn-primary" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
