@@ -23,8 +23,6 @@ import fr.isika.cda.entities.users.Employee;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Activity implements Serializable {
 	
-	@ManyToOne
-	public Cra cra ; 
 
 	private static final long serialVersionUID = -8098047044102899069L;
 
@@ -47,5 +45,7 @@ public abstract class Activity implements Serializable {
 	private Customer customer;
 
 	@ManyToOne
-	public Cra Cra ; 
+	public Cra Cra; 
+	
+	
 }
