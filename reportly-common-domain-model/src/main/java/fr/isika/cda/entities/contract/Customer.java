@@ -16,7 +16,7 @@ import fr.isika.cda.entities.common.PersonalDetails;
 
 
 import javax.persistence.ManyToOne;
-import fr.isika.cda.entities.esn.ESN;
+import fr.isika.cda.entities.esn.Esn;
 
 @Entity
 public class Customer implements Serializable {

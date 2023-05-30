@@ -7,7 +7,9 @@
 </h:head>
 
 <h:body>
-	<p:spinner />
-	<li><h:link outcome="auth/register.xhtml">Sign UUUUp</h:link></li>
+<h:form style="display: grid;">
+  <p:commandLink value="Sign UUUUp" action="#{registerUserBean.clear}" />
+  <p:link outcome="listUser/index.xhtml">showUsers</p:link>
+</h:form>
 </h:body>
 </html>

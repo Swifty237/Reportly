@@ -1,6 +1,7 @@
 package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -39,7 +40,7 @@ public class PersonalDetails implements Serializable {
 	private String firstname;
 
 	@Temporal(TemporalType.DATE)
-	private Date birdhday;
+	private Date birthday;
 
 	@Column(name = "phone_number")
 	private int phoneNumber;
@@ -54,9 +55,88 @@ public class PersonalDetails implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	public AdressDetails adressDetails;
 
-	public PersonalDetails(String name, String firstname) {
+	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle) {
 		this.name = name;
 		this.firstname = firstname;
+		this.birthday = birdhday;
+		this.phoneNumber = phoneNumber;
+		this.jobTitle = jobTitle;
+		
 	}
+	
+	public PersonalDetails() {
+		
+	}
+	
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public AdressDetails getAdressDetails() {
+		return adressDetails;
+	}
+
+	public void setAdressDetails(AdressDetails adressDetails) {
+		this.adressDetails = adressDetails;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PersonalDetails [name=");
+		builder.append(name);
+		builder.append(", firstname=");
+		builder.append(firstname);
+		builder.append(", birdhday=");
+		builder.append(birthday);
+		builder.append(", phoneNumber=");
+		builder.append(phoneNumber);
+		builder.append(", jobTitle=");
+		builder.append(jobTitle);
+		builder.append(", adressDetails=");
+		builder.append(adressDetails);
+		builder.append("]");
+		return builder.toString();
+	}
+
+
 
 }
