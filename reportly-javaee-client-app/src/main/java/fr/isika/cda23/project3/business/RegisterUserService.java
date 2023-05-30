@@ -12,9 +12,8 @@ public class RegisterUserService {
 	@Inject
 	private UserDao userDao;
 	
-	public void register(RegisterUserViewModel registerUserVm) {
-		Long id = userDao.register(registerUserVm);
-		System.out.println("Created user with id : " + id);
+	public Long register(RegisterUserViewModel registerUserVm) {
+		return userDao.register(registerUserVm);
 	}
 
 }

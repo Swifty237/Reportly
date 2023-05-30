@@ -15,9 +15,7 @@ public class DeleteDocumentManagedBean {
 	private DeleteDocumentService rmDocService;
 		
 	public void deleteDoc(Long id) throws IOException {
-		System.out.println("================== deleteDoc");
 		rmDocService.deleteDoc(id);
-		
-		NavigationUtils.redirectToUserList("documents/showAllDocuments.xhtml");
+		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
 	}
 }

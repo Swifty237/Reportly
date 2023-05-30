@@ -5,12 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import fr.isika.cda.entities.activity.Cra;
@@ -40,12 +37,15 @@ public class Employee extends UserAccount implements Serializable {
 	@OneToMany
 	private List<ExpenseReport> expenseReportsList=new ArrayList<>();
 
+	public Employee() {
+		super();
+	}
+	
 	public Employee(String email, String password, int tjm, String skills, String name, String firstname) {
 		this.password = password;
 		this.email = email;
 		this.tjm = tjm;
 		this.skills = skills;
-
 		this.pers = new PersonalDetails(name, firstname);
 	}
 

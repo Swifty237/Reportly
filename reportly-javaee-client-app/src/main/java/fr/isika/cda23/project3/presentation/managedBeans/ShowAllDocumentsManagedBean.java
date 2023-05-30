@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda23.project3.business.ShowAllDocumentsService;
-import fr.isika.cda23.project3.repository.common.DocumentDao;
 
 @ManagedBean
 public class ShowAllDocumentsManagedBean {

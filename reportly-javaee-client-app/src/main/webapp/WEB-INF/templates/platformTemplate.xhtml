@@ -8,10 +8,11 @@
 <h:head>
     <title>Reportly App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
 </h:head>
 
 <h:body>
-	
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"/>
     <div id="container">
 		    
         <div id="header" style="background-color: lightblue; border: double; padding: 5px;">
@@ -29,6 +30,12 @@
 						</li>
 						<li>
 							<h:link outcome="register.xhtml">Sign UUUUp</h:link>
+						</li>
+						<li>
+							<h:link outcome="login.xhtml">SignIn</h:link>
+						</li>
+						<li>
+							<h:link outcome="showAllDocuments.xhtml">Show All Documents</h:link>
 						</li>
 					</ui:fragment>
 
