@@ -4,9 +4,7 @@ public class RegisterUserViewModel {
 
 	private String username;
 	private String password;
-
 	
-
 	public String getUsername() {
 		return username;
 	}
@@ -19,6 +17,7 @@ public class RegisterUserViewModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -29,6 +28,4 @@ public class RegisterUserViewModel {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
 }

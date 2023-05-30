@@ -1,7 +1,5 @@
 package fr.isika.cda23.project3.dataInit;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.annotation.PostConstruct;
@@ -11,81 +9,38 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.contract.Contract;
-import fr.isika.cda.entities.contract.ContractDetails;
-import fr.isika.cda.entities.contract.ContractState;
-import fr.isika.cda.entities.contract.ContractType;
-import fr.isika.cda.entities.contract.Customer;
-import fr.isika.cda.entities.users.ProjectTeam;
-import fr.isika.cda23.project3.presentation.viewModels.AddContractDetailsViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.AddContractViewModel;
-import fr.isika.cda23.project3.repository.Contract.ContractDao;
-import fr.isika.cda23.project3.repository.Contract.ContractDetailsDao;
+import fr.isika.cda.entities.common.Document;
+import fr.isika.cda.entities.common.DocumentType;
 
 @Singleton
 @Startup
 public class DataInit {
-		
-	@Inject
-	private ContractDetailsDao contractDetailsDao;
 	
-	@Inject
-	private ContractDao contractDao;
-	
-	AddContractDetailsViewModel acdvm = new AddContractDetailsViewModel();
-	AddContractViewModel acvm = new AddContractViewModel();
-
 	@PersistenceContext
 	private EntityManager em;
 
 	@PostConstruct
 	public void init() {
 		
-		
-		// Test AddContractDetails
-		SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY");
-		
-		acdvm.setCreationDate(new Date());
-		
-		try {
-			acdvm.setStartAt(dateFormat.parse("10-12-2022"));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		acdvm.setTypeOfContract(ContractType.FIXED_PRICE);
-		
-		Long id = contractDetailsDao.addContractDetails(acdvm);
-		ContractDetails contractDetails = contractDetailsDao.findContractDetailsById(id);
-		
-		Customer customer = new Customer();
-		em.persist(customer);
-		ProjectTeam projectTeam = new ProjectTeam();
-		em.persist(projectTeam);
-		
-		acvm.setCustomer(customer);
-		acvm.setContractDetails(contractDetails);		
-		acvm.setProjectTeam(projectTeam );
-		acvm.setStateOfContract(ContractState.CREATION);
-		
-		contractDao.addContract(acvm);
-		
-		
-		//	Test findAllContracts
-		for (Contract contract : contractDao.findAllContracts()) {
-			System.out.println(contract);
-		}
-		
-		// Test findContractById
-		System.out.println(contractDao.findContractById(1L));
-		
-		// Test removeDocument
-//		documentDao.removeDocument(documentDao.findDocumentById(2L));
-		
-//		for (Document document : documentDao.findAllDocuments()) {
-//			System.out.println(document);
-//		}
+//		Document document1 = new Document();
+//		document1.setName("Document 1");
+//		document1.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
+//		document1.setDocCreation(new Date());
 //		
-		
+//		Document document2 = new Document();
+//		document2.setName("Document 2");
+//		document2.setTypeOfDoc(DocumentType.SICK_LEAVE);
+//		document2.setDocCreation(new Date());
+//
+//		Document document3 = new Document();
+//		document3.setName("Document 3");
+//		document3.setTypeOfDoc(DocumentType.OTHER_ACTIVITY);
+//		document3.setDocCreation(new Date());
+//		
+//		em.persist(document1);
+//		em.persist(document2);
+//		em.persist(document3);
+
+
 	}
 }

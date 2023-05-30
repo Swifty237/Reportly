@@ -11,13 +11,13 @@ import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
 public class RegisterUserBean {
 
 	@Inject
-	private RegisterUserService rus;
+	private RegisterUserService ruService;
 
 	private RegisterUserViewModel registerUserVm = new RegisterUserViewModel();
 
 	// Première méthode à appeler depuis la vue
 	public void register() {
-		rus.register(registerUserVm);
+		ruService.register(registerUserVm);
 
 		// après le register je vais réinitialiser le modèle du formulaire
 		clear();

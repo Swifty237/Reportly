@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class ContractDetails implements Serializable{
+public class ContractDetails implements Serializable {
 	
     /**
 	 * 
