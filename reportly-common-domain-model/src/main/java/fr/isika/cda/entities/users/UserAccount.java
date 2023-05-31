@@ -11,15 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import fr.isika.cda.entities.esn.ESN;
-
 import fr.isika.cda.entities.common.PersonalDetails;
+import fr.isika.cda.entities.esn.ESN;
 
 @Entity
 @Table(name = "user_account")
@@ -53,6 +51,10 @@ public abstract class UserAccount implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	protected PersonalDetails pers;
 
+	public Long getUserId() {
+		return userId;
+	}
+	
 //	public UserProfile getUserProfile() {
 //		return userProfile;
 //	}
@@ -66,10 +68,10 @@ public abstract class UserAccount implements Serializable {
 //		this.primaryRole = primaryRole;
 //	}
 
-//	public UserAccount withUsername(String username) {
-//		this.username = username;
-//		return this;
-//	}
+	public UserAccount withEmail(String email) {
+		this.email = email;
+		return this;
+	}
 
 	public UserAccount withPassword(String password) {
 		this.password = password;

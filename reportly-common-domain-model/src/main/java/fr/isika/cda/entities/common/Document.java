@@ -25,13 +25,62 @@ public class Document implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	
-	private String Name;
+	private String name;
 	
 	@Enumerated(EnumType.STRING)
 	private DocumentType TypeOfDoc;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date DocCreation;
+	private Date docCreation;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public DocumentType getTypeOfDoc() {
+		return TypeOfDoc;
+	}
+
+	public void setTypeOfDoc(DocumentType typeOfDoc) {
+		TypeOfDoc = typeOfDoc;
+	}
+
+	public Date getDocCreation() {
+		return docCreation;
+	}
+
+	public void setDocCreation(Date docCreation) {
+		this.docCreation = docCreation;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Document [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", TypeOfDoc=");
+		builder.append(TypeOfDoc);
+		builder.append(", docCreation=");
+		builder.append(docCreation);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

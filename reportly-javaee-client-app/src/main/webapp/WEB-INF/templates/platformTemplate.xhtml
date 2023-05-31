@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets" lang="en">
+
+<h:head>
+    <title>Reportly App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>
+
+<h:body>
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+    <div id="container">
+		    
+        <div id="header" style="background-color: lightblue; border: double; padding: 5px;">
+           	
+           	<div>
+           		<h:graphicImage library="images" name="logo.png" alt="Wildfly dual brand logo" width="15%;" height="15%;"/>
+           	</div>
+           	
+           	<div>
+	           	<ul>
+	           		<!-- Affiché tout le temps (fragment de page) -->
+	           		<ui:fragment>
+	           			<li>
+							<h:link outcome="index.xhtml">Home</h:link>
+						</li>
+						<li>
+							<h:link outcome="register.xhtml">Sign UUUUp</h:link>
+						</li>
+						<li>
+							<h:link outcome="login.xhtml">SignIn</h:link>
+						</li>
+						<li>
+							<h:link outcome="showAllDocuments.xhtml">Show All Documents</h:link>
+						</li>
+					</ui:fragment>
+
+					<ui:fragment rendered="true">
+						<li>
+							<h:link outcome="examplePageOfTemplate.xhtml">Example empty page</h:link>
+						</li>
+					</ui:fragment>
+				</ul>
+			</div>
+        </div>
+    
+        <div id="content" style="border: double; padding: 10px;margin: 10px;">
+            <ui:insert name="content">
+                [Template content will be inserted here]
+         	</ui:insert>
+        </div>
+    
+        <div id="footer" style="background-color: lightgray;border: double; padding: 5px;">
+        	<div>
+	            <p>You have successfully deployed a Java EE 7 Enterprise Application.</p>
+	            <h:graphicImage library="images" name="wildfly_400x130.jpg" alt="Wildfly logo"/>
+	        </div>
+        </div>
+    </div>
+</h:body>
+</html>
