@@ -1,6 +1,6 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
-public class AddPayPalViewModel {
+public class AddPaypalViewModel {
 
 	private String EmailPaypal;
 	private String PasswordPaypal;

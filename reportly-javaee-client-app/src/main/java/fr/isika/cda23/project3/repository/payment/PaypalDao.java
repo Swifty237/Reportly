@@ -4,8 +4,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.esn.BankCard;
-import fr.isika.cda23.project3.presentation.viewModels.AddBankCardViewModel;
+import fr.isika.cda.entities.esn.Paypal;
+import fr.isika.cda23.project3.presentation.viewModels.AddPaypalViewModel;
 
 	@Stateless
 	public class PaypalDao {
@@ -13,32 +13,30 @@ import fr.isika.cda23.project3.presentation.viewModels.AddBankCardViewModel;
 		@PersistenceContext
 		private EntityManager entityManager;
 		
-		public Long addPaypal(AddPayPalViewModel appvm) {
+		public Long Paypal(AddPaypalViewModel appvm) {
 			
-			BankCard bankcard = new BankCard();
+			Paypal paypal = new Paypal();
 			
-			bankcard.setOwnerName(appvm.getOwnerName());
-			bankcard.setBankCardNumber(appvm.getBankCardNumber());
-			bankcard.setSecurityNumber(appvm.getSecurityNumber());
-			bankcard.setDateExpiration(appvm.getDateExpiration());
+			paypal.setEmailPaypal(appvm.getEmailPaypal());
+			paypal.setPasswordPaypal(appvm.getPasswordPaypal());
 			
-			entityManager.persist(bankcard);
+			entityManager.persist(paypal);
 			
-			System.out.println("Carte : " + appvm.toString() + " persistée");
+			System.out.println("Paypal : " + appvm.toString() + " persistée");
 			
-			return bankcard.getId();
+			return paypal.getId();
 		}
 		
-		public void removeBankCard(BankCard bankcard) {
-			entityManager.remove(bankcard);
+		public void removeBankCard(Paypal paypal) {
+			entityManager.remove(paypal);
 			System.out.println("Carte bancaire supprimée ================================================");
 		}
 		
-		public void updateBankCard(BankCard bankcard) {
+		public void updateBankCard(Paypal paypal) {
 			// A faire en fonction de la propriété (ou des propriétés) qu'on aura besoin de modifier
 		}
 		
-		public BankCard findBankCardById(Long id) {
-		    return entityManager.getReference(BankCard.class, id);
+		public Paypal findBankCardById(Long id) {
+		    return entityManager.getReference(Paypal.class, id);
 		}
 	}
