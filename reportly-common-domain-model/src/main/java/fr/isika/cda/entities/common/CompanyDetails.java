@@ -12,7 +12,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import fr.isika.cda.entities.esn.ESN;
+
+import fr.isika.cda.entities.contract.Customer;
+
+
 
 @Entity
 public class CompanyDetails implements Serializable {
@@ -31,11 +34,10 @@ public class CompanyDetails implements Serializable {
 	private String brand;
 	private String email;
 	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Document document;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)
-  
-    private ESN esn;
+
 
 
 
@@ -45,4 +47,5 @@ public class CompanyDetails implements Serializable {
 	}
 
 	
+
 }

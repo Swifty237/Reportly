@@ -24,11 +24,6 @@ public class CustomDesignDetails implements Serializable {
 	private String backgroundColor;
 	private String logo;
 	private String textDescription;
-	
-	
-
-	@OneToOne(cascade = CascadeType.ALL ) 
-	public ServicePremium servicePremium;
 
 
 
@@ -39,4 +34,5 @@ public class CustomDesignDetails implements Serializable {
 	
 	
 	
+
 }

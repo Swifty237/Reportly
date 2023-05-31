@@ -11,6 +11,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
+import fr.isika.cda.entities.common.Document;
+
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)  
 public abstract class Payment implements Serializable {
@@ -23,10 +26,9 @@ public abstract class Payment implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
-	
-	
-	@OneToOne(cascade = CascadeType.ALL) 
-    private ESN esn;
+
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Document document;
 
 
 	public Payment() {

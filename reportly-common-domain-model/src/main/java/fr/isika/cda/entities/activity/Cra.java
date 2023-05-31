@@ -9,8 +9,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import fr.isika.cda.entities.users.Employee;
 
 @Entity
 public class Cra implements Serializable {
@@ -18,11 +21,13 @@ public class Cra implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8983186402469938698L;
+	private static final long serialVersionUID = -1890621899272474554L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	
 
 	@Enumerated(EnumType.STRING)
 	private CraState state;

@@ -2,7 +2,9 @@ package fr.isika.cda.entities.esn;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -21,5 +23,7 @@ public class ServicePremium extends ServiceBasic implements Serializable{
 		
 	}
 	
-    
+
+	@OneToOne(cascade = CascadeType.ALL ) 
+	public CustomDesignDetails customDesignDetails;
 }

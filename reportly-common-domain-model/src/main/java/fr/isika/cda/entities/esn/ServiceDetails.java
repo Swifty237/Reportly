@@ -38,11 +38,6 @@ public class ServiceDetails implements Serializable {
 
 	@Column(name = "active_custom_design")
 	private boolean activeCustomDesign;
-	
-	
-
-	@OneToOne(cascade = CascadeType.ALL ) 
-	public ServiceBasic serviceBasic;
 
 
 
