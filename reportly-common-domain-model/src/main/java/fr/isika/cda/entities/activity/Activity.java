@@ -45,5 +45,7 @@ public abstract class Activity implements Serializable {
 
 	private Cra cra;
 
-	
+	public Long getId() {
+		return id;
+	}
 }

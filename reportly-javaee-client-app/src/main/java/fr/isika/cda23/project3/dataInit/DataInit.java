@@ -1,18 +1,11 @@
 package fr.isika.cda23.project3.dataInit;
 
-import java.util.Date;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.common.CompanyDetails;
-import fr.isika.cda.entities.common.Document;
-import fr.isika.cda.entities.common.DocumentType;
-import fr.isika.cda.entities.common.PersonalDetails;
 import fr.isika.cda.entities.contract.Customer;
 
 @Singleton
@@ -22,23 +15,19 @@ public class DataInit {
 	@PersistenceContext
 	private EntityManager em;
 
-
-	
-	//public void init() {
-		
-//System.out.println("Test persist ---------------------------------------------------------");
-	//	CompanyDetails companyDetails = new CompanyDetails();
-		
-		//PersonalDetails personalDetails = new PersonalDetails();		
-	//	Customer customer = new Customer();
-		
-		//customer.setCompanyDetails(companyDetails);
-		//customer.setPersonalDetails(personalDetails);
-		
-	//	em.persist(customer);
-		
 	@PostConstruct
 	public void init() {
+	
+	//System.out.println("Test persist ---------------------------------------------------------");
+		//	CompanyDetails companyDetails = new CompanyDetails();
+			
+			//PersonalDetails personalDetails = new PersonalDetails();		
+		//	Customer customer = new Customer();
+			
+			//customer.setCompanyDetails(companyDetails);
+			//customer.setPersonalDetails(personalDetails);
+			
+		//	em.persist(customer);
 		
 		
 		// Supprimer un client existant
@@ -51,6 +40,5 @@ public class DataInit {
 			System.out.println("Client introuvable");
 		}
 	}
-
 	
 }

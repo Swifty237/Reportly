@@ -22,29 +22,38 @@
            	</div>
            	
            	<div>
+           		<h:form>
 	           	<ul>
 	           		<!-- Affiché tout le temps (fragment de page) -->
-	           		<ui:fragment>
-	           			<li>
-							<h:link outcome="index.xhtml">Home</h:link>
-						</li>
+           			<li>
+						<h:link outcome="index.xhtml">Home</h:link>
+					</li>
+					<li>
+						<h:link outcome="register.xhtml">Sign Up</h:link>
+					</li>
+					
+					<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 						<li>
-							<h:link outcome="register.xhtml">Sign UUUUp</h:link>
-						</li>
-						<li>
-							<h:link outcome="login.xhtml">SignIn</h:link>
+							<h:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</h:commandLink>
 						</li>
 						<li>
 							<h:link outcome="showAllDocuments.xhtml">Gestion des documents</h:link>
 						</li>
 					</ui:fragment>
-
+					
+					<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
+						<li>
+							<h:link outcome="login.xhtml">SignIn</h:link>
+						</li>
+					</ui:fragment>
+					
 					<ui:fragment rendered="true">
 						<li>
 							<h:link outcome="examplePageOfTemplate.xhtml">Example empty page</h:link>
 						</li>
 					</ui:fragment>
 				</ul>
+				</h:form>
 			</div>
         </div>
     

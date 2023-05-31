@@ -13,16 +13,12 @@
 			<p:panel header="User Sign In">
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="username" value="Username:" />
-					<p:inputText id="usernameTxt" size="25" />
+					<p:inputText id="usernameTxt" size="25" value="#{loginBean.loginViewModel.email}"/>
 
 					<h:outputLabel for="password" value="Password:" />
-					<p:password id="passwordTxt" size="20" />
-
-					<h:outputLabel for="email" value="Email:" />
-					<p:inputText id="email" required="true" size="30" />
-
+					<p:password id="passwordTxt" size="20" value="#{loginBean.loginViewModel.password}"/>
 				</h:panelGrid>
-				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" />
+				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" action="#{loginBean.login()}" />
 			</p:panel>
 		</h:form>
 	</ui:define>
