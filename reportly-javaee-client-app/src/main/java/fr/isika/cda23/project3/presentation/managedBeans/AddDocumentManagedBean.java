@@ -1,64 +1,52 @@
 package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
+import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda23.project3.business.AddDocumentService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
+import fr.isika.cda23.project3.utils.FileUploadUtils;
 import fr.isika.cda23.project3.utils.NavigationUtils;
 
 @ManagedBean
+@SessionScoped
 public class AddDocumentManagedBean {
-
+	
 	@Inject
 	private AddDocumentService adService;
 	
 	private AddDocumentViewModel advm = new AddDocumentViewModel();
 	
-//	private String uploadDirectory = "/chemin/vers/repertoire/destination";
-	
-//	public void addDocument() throws Exception {
-//		adService.addDocument(advm);
-//		clear();
-//		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
-//	}
+	public void addDocument() throws IOException {
+		adService.addDocument(advm);
+		advm = new AddDocumentViewModel();
+		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
+	}
 	
     public void uploadFile(FileUploadEvent event) throws Exception {
-    	
-        UploadedFile uploadedFile = event.getFile();
-        String fileName = uploadedFile.getFileName();
-        
-        advm.setName(fileName);
-        
-		adService.addDocument(advm);
-		clear();
-		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
+    	String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyyHHmmss"));
 
-        // Enregistrez le fichier dans votre répertoire webapp/resources/documents
-        String targetFolder = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/resources/documents/");
+    	UploadedFile uploadedFile = event.getFile();
+		String fileName = String.join("_", timestamp, uploadedFile.getFileName());
         
-        try (InputStream inputStream = uploadedFile.getInputStream()) {
-          Files.copy(inputStream, Paths.get(targetFolder, fileName), StandardCopyOption.REPLACE_EXISTING);
-          
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
+		advm.setName(fileName);
+
+		FileUploadUtils.uploadFileToApp(uploadedFile, fileName);
     }
 	
-	public void clear() {
-		advm = new AddDocumentViewModel();
-	}
-
+    public DocumentType[] typesOfDocuments() {
+    	return DocumentType.values();
+    }
+    
 	public AddDocumentViewModel getAdvm() {
 		return advm;
 	}
