@@ -7,49 +7,49 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
-		<hr />
-		<h1>All Documents</h1>
-		<hr />
 
-		<div class="ui-g">
-			<div class="ui-g-5">
+		<h2 class="text-center">Gestion des documents</h2>
+		<hr />		
+		
+		<div class="row justify-content-around">
+			<div class="col-5">
 
-				<h:dataTable value="#{showAllDocumentsManagedBean.getListDocs()}"
+				<h:dataTable class="table table-hover" value="#{showAllDocumentsManagedBean.getListDocs()}"
 					var="doc">
 					<h:column>
 						<f:facet name="header">
-				Id
-			</f:facet>
-			#{doc.id}
-		</h:column>
+							Id
+						</f:facet>
+						#{doc.id}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Name
-			</f:facet>
-			#{doc.name}
-		</h:column>
+							Name
+						</f:facet>
+						#{doc.name}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Date de création
-			</f:facet>
-			#{doc.docCreation}
-		</h:column>
+							Date de création
+						</f:facet>
+						#{doc.docCreation}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Type de doc
-			</f:facet>
-			#{doc.typeOfDoc}
-		</h:column>
+							Type de doc
+						</f:facet>
+						#{doc.typeOfDoc}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
-				Supprimer
-			</f:facet>
+							Supprimer
+						</f:facet>
 
-						<h:form>
+						<h:form class="d-flex justify-content-center">
 							<h:commandButton
 								action="#{deleteDocumentManagedBean.deleteDoc(doc.id)}"
 								value="X" />
@@ -59,18 +59,20 @@
 				</h:dataTable>
 
 			</div>
+			
+			<!-- <p:divider /> -->
 
-			<div class="ui-g-5">
+			<div class="col-5">
 
-				<h:form id="addDocumentForm">
-					<h:panelGrid columns="2">
+				<h:form id="addDocumentForm" enctype="multipart/form-data">
+					<h:panelGrid columns="1">
 
 						<!-- Col 1, Lig 1 -->
-						<h:outputLabel id="nameLbl" value="Nom du Document : " />
+								
+						<p:fileUpload fileUploadListener="#{addDocumentManagedBean.uploadFile}" mode="simple" />
 
 						<!-- Col 2, Lig 1 -->
-						<h:inputText id="nameTxt"
-							value="#{addDocumentManagedBean.getAdvm().name}" />
+<!-- 						<h:inputText id="nameTxt" value="#{addDocumentManagedBean.getAdvm().name}" /> -->
 
 						<h:outputLabel id="typeLbl" value="Type de Document : " />
 
@@ -85,17 +87,20 @@
 								itemValue="SUBSCRIPTION_INVOICE" />
 						</h:selectOneMenu>
 
-						<!-- 						 <p:calendar value="#{bean.selectedDate}" pattern="yyyy-MM-dd" /> -->
+						<!-- <p:calendar value="#{bean.selectedDate}" pattern="yyyy-MM-dd" /> -->
 
 					</h:panelGrid>
+					
+					<div class="d-flex justify-content-end">
+						<h:commandButton value="Enregistrer" class="btn btn-primary me-3" action="#{addDocumentManagedBean.addDocument()}" />
+						<h:commandButton value="Annuler" class="btn btn-secondary" action="#{addDocumentManagedBean.clear()}" />
+					</div>
 
-					<h:commandButton value="Clear"
-						action="#{addDocumentManagedBean.clear()}" />
-					<h:commandButton value="Register" class="btn btn-primary"
-						action="#{addDocumentManagedBean.addDocument()}" />
 				</h:form>
 			</div>
 		</div>
-		</h:body>
+		
+		<hr />
+
 	</ui:define>
 </ui:composition>
