@@ -27,16 +27,16 @@ import fr.isika.cda23.project3.presentation.viewModels.AddPaypalViewModel;
 			return paypal.getId();
 		}
 		
-		public void removeBankCard(Paypal paypal) {
+		public void removePaypal(Paypal paypal) {
 			entityManager.remove(paypal);
-			System.out.println("Carte bancaire supprimée ================================================");
+			System.out.println("Compte paypal supprimé ================================================");
 		}
 		
-		public void updateBankCard(Paypal paypal) {
+		public void updatePaypal(Paypal paypal) {
 			// A faire en fonction de la propriété (ou des propriétés) qu'on aura besoin de modifier
 		}
 		
-		public Paypal findBankCardById(Long id) {
+		public Paypal findPaypalById(Long id) {
 		    return entityManager.getReference(Paypal.class, id);
 		}
 	}
