@@ -7,28 +7,29 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.esn.Subscription;
+import fr.isika.cda23.project3.presentation.viewModels.RegisterSubsciptionViewModel;
 @Stateless
-public class SubscriptionDao implements SubscriptionIDao  {
+public class SubscriptionDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public SubscriptionDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+//	public SubscriptionDao(EntityManager entityManager) {
+//		this.entityManager = entityManager;
+//	}
 	
-	public Long persister() {
+	public Long register(RegisterSubsciptionViewModel viewModelSubscription) {
 		Subscription subscription = new Subscription();
-		
-		subscription.getState();
-		subscription.getEndAt();
-		subscription.getStartAt();
-		subscription.getTypeOfPayment();
+		subscription.setEndAt(viewModelSubscription.getEndAt());
+		subscription.setStateOfSubscription(viewModelSubscription.getStateOfSubscription());
+		subscription.setTypeOfPayment(viewModelSubscription.getTypeOfPayment());
+		subscription.setAutomaticRenewal(viewModelSubscription.isAutomaticRenewal());
 		
 		entityManager.persist(subscription);
-		System.out.println(" Abonnement : " +subscription.toString() + "persisté");
+		
 		
 		return subscription.getId();
+
 	}
 	
 	public void UpDate(Subscription subscription) {
