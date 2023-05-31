@@ -31,6 +31,7 @@ public class CompanyDetails implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date creationDate;
+	
 	private String brand;
 	private String email;
 	

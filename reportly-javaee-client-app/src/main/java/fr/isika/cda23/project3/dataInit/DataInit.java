@@ -12,12 +12,13 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.DocumentType;
 
-@Singleton
-@Startup
+//@Singleton
+//@Startup
 public class DataInit {
 	
 	@PersistenceContext
 	private EntityManager em;
+
 
 	@PostConstruct
 	public void init() {
@@ -43,4 +44,6 @@ public class DataInit {
 
 
 	}
+
+	
 }

@@ -7,6 +7,11 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
-		<p:spinner />
+		<h:form style="display: grid;">
+  <p:commandLink value="Sign UUUUp" action="#{registerUserBean.clear}" />
+  <p:link outcome="listUser.xhtml">showUsers</p:link>
+</h:form>
 	</ui:define>
 </ui:composition>
+
+
