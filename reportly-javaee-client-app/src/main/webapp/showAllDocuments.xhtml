@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+
+		<h2 class="text-center">Gestion des documents</h2>
+		<hr />		
+		
+		<div class="row justify-content-around">
+			<div class="col-5">
+
+				<h:dataTable class="table table-hover" value="#{showAllDocumentsManagedBean.getListDocs()}"
+					var="doc">
+					<h:column>
+						<f:facet name="header">
+							Id
+						</f:facet>
+						#{doc.id}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Name
+						</f:facet>
+						#{doc.name}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Date de création
+						</f:facet>
+						#{doc.docCreation}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Type de doc
+						</f:facet>
+						#{doc.typeOfDoc}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Supprimer
+						</f:facet>
+
+						<h:form class="d-flex justify-content-center">
+							<h:commandButton
+								action="#{deleteDocumentManagedBean.deleteDoc(doc.id)}"
+								value="X" />
+						</h:form>
+					</h:column>
+
+				</h:dataTable>
+
+			</div>
+			
+			<!-- <p:divider /> -->
+
+			<div class="col-5">
+
+				<h:form id="addDocumentForm" enctype="multipart/form-data">
+					<h:panelGrid columns="1">
+
+						<!-- Col 1, Lig 1 -->
+								
+						<p:fileUpload fileUploadListener="#{addDocumentManagedBean.uploadFile}" mode="simple" />
+
+						<!-- Col 2, Lig 1 -->
+<!-- 						<h:inputText id="nameTxt" value="#{addDocumentManagedBean.getAdvm().name}" /> -->
+
+						<h:outputLabel id="typeLbl" value="Type de Document : " />
+
+						<h:selectOneMenu
+							value="#{addDocumentManagedBean.getAdvm().typeOfDoc}">
+							<f:selectItem itemLabel="Kbis" itemValue="ESN_CERTIFICATION" />
+							<f:selectItem itemLabel="Arrêt maladie" itemValue="SICK_LEAVE" />
+							<f:selectItem itemLabel="Autre" itemValue="OTHER_ACTIVITY" />
+							<f:selectItem itemLabel="Note de frais"
+								itemValue="EXPENSE_REPORT_INVOICE" />
+							<f:selectItem itemLabel="Facture abonnement"
+								itemValue="SUBSCRIPTION_INVOICE" />
+						</h:selectOneMenu>
+
+						<!-- <p:calendar value="#{bean.selectedDate}" pattern="yyyy-MM-dd" /> -->
+
+					</h:panelGrid>
+					
+					<div class="d-flex justify-content-end">
+						<h:commandButton value="Enregistrer" class="btn btn-primary me-3" action="#{addDocumentManagedBean.addDocument()}" />
+						<h:commandButton value="Annuler" class="btn btn-secondary" action="#{addDocumentManagedBean.clear()}" />
+					</div>
+
+				</h:form>
+			</div>
+		</div>
+		
+		<hr />
+
+	</ui:define>
+</ui:composition>

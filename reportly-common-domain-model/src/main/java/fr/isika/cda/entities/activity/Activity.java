@@ -39,15 +39,13 @@ public abstract class Activity implements Serializable {
 	protected Date endAt;
 
 	protected int overtime;
-
 	protected String description;
-
 	protected Date createDate;
-
 	protected Boolean onCall;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Customer customer;
+
 
 	public Activity() {
 		super();
@@ -56,4 +54,8 @@ public abstract class Activity implements Serializable {
 
 	
 	
+
+	@ManyToOne
+	public Cra Cra ; 
+
 }

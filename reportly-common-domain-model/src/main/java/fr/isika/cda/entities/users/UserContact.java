@@ -11,8 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import fr.isika.cda.entities.common.Address;
-import fr.isika.cda.entities.common.Phone;
+import fr.isika.cda.entities.common.AdressDetails;
 
 @Entity
 @Table(name = "user_contact")
@@ -30,19 +29,21 @@ public class UserContact implements Serializable {
 	private String primaryEmail;
 	private String secondaryEmail;
 
-	@Embedded
-	@AttributeOverride(name = "lineOne", column = @Column(name = "uc_address_lineOne"))
-	@AttributeOverride(name = "lineTwe", column = @Column(name = "uc_address_lineTwo"))
-	@AttributeOverride(name = "zipCode", column = @Column(name = "uc_address_zipCode"))
-	@AttributeOverride(name = "city", column = @Column(name = "uc_address_city"))
-	@AttributeOverride(name = "state", column = @Column(name = "uc_address_state"))
-	@AttributeOverride(name = "country", column = @Column(name = "uc_address_country")) 
-	private Address address;
+//	@Embedded
+//	@AttributeOverride(name = "lineOne", column = @Column(name = "uc_address_lineOne"))
+//	@AttributeOverride(name = "lineTwe", column = @Column(name = "uc_address_lineTwo"))
+//	@AttributeOverride(name = "zipCode", column = @Column(name = "uc_address_zipCode"))
+//	@AttributeOverride(name = "city", column = @Column(name = "uc_address_city"))
+//	@AttributeOverride(name = "state", column = @Column(name = "uc_address_state"))
+//	@AttributeOverride(name = "country", column = @Column(name = "uc_address_country")) 
+	private AdressDetails address;
+ 
+//	private Address address;
 
-	@Embedded
-	@AttributeOverride(name = "countryCode", column = @Column(name = "uc_phone_countryCode"))
-	@AttributeOverride(name = "phoneNumber", column = @Column(name = "uc_phone_phoneNumber")) 
-	private Phone phone;
+//	@Embedded
+//	@AttributeOverride(name = "countryCode", column = @Column(name = "uc_phone_countryCode"))
+//	@AttributeOverride(name = "phoneNumber", column = @Column(name = "uc_phone_phoneNumber")) 
+//	private Phone phone;
 
 	public Long getId() {
 		return id;
@@ -56,19 +57,26 @@ public class UserContact implements Serializable {
 		return secondaryEmail;
 	}
 
-	public Address getAddress() {
+	public AdressDetails getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(AdressDetails address) {
 		this.address = address;
 	}
-
-	public Phone getPhone() {
-		return phone;
-	}
-
-	public void setPhone(Phone phone) {
-		this.phone = phone;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
+//
+//	public Phone getPhone() {
+//		return phone;
+//	}
+//
+//	public void setPhone(Phone phone) {
+//		this.phone = phone;
+//	}
 }

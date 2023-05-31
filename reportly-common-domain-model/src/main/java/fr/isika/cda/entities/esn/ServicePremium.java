@@ -23,7 +23,6 @@ public class ServicePremium extends ServiceBasic implements Serializable{
 		
 	}
 	
-
 	@OneToOne(cascade = CascadeType.ALL ) 
 	public CustomDesignDetails customDesignDetails;
 }

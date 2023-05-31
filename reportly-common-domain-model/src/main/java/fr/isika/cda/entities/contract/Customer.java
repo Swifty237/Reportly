@@ -16,7 +16,7 @@ import fr.isika.cda.entities.common.PersonalDetails;
 
 
 import javax.persistence.ManyToOne;
-import fr.isika.cda.entities.esn.ESN;
+import fr.isika.cda.entities.esn.Esn;
 
 @Entity
 public class Customer implements Serializable {
@@ -30,17 +30,48 @@ public class Customer implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	// Constructeur
-	public Customer(Long id) {
-		this.id = id;
-	}
-
 	@OneToOne(cascade = CascadeType.ALL)
 	public CompanyDetails companyDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	public PersonalDetails personalDetails;
-	
-	
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public CompanyDetails getCompanyDetails() {
+		return companyDetails;
+	}
+
+	public void setCompanyDetails(CompanyDetails companyDetails) {
+		this.companyDetails = companyDetails;
+	}
+
+	public PersonalDetails getPersonalDetails() {
+		return personalDetails;
+	}
+
+	public void setPersonalDetails(PersonalDetails personalDetails) {
+		this.personalDetails = personalDetails;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Customer [id=");
+		builder.append(id);
+		builder.append(", companyDetails=");
+		builder.append(companyDetails);
+		builder.append(", personalDetails=");
+		builder.append(personalDetails);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	
 }

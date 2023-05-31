@@ -18,28 +18,61 @@ import fr.isika.cda.entities.contract.Contract;
 
 @Entity
 @Table(name = "project_team")
-public class ProjectTeam implements Serializable{
+public class ProjectTeam implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7890800222969685493L;
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id ;
-	
+	private Long id;
+
 	private String projectName;
-	
+
 	@OneToMany
-	private List<Employee> employeeList=new ArrayList<>();
-	
+	private List<Employee> employeeList = new ArrayList<>();
 
 	public ProjectTeam() {
 		super();
-		
-	}
-	
 
-	
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+	public List<Employee> getEmployeeList() {
+		return employeeList;
+	}
+
+	public void setEmployeeList(List<Employee> employeeList) {
+		this.employeeList = employeeList;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ProjectTeam [id=");
+		builder.append(id);
+		builder.append(", projectName=");
+		builder.append(projectName);
+		builder.append(", employeeList=");
+		builder.append(employeeList);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

@@ -16,7 +16,7 @@ public class CustomDesignDetails implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4977514293438720436L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
