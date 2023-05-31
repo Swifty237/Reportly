@@ -33,24 +33,11 @@ public class Subscription implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	
-	@Column
-	private String name;
 	
 	@Enumerated(EnumType.STRING)
 	private SubscriptionState StateOfSubscription;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date StartAt;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date EndAt;
-	
-	private boolean AutomaticRenewal;
-	
-	@Enumerated(EnumType.STRING)
-	private PaymentChoice TypeOfPayment;
 
 	@Column(name = "start_at")
 	@Temporal(TemporalType.DATE)
@@ -67,6 +54,11 @@ public class Subscription implements Serializable {
 	private PaymentChoice typeOfPayment;
 
 
+	
+	
+	
+	
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Payment payment;
 
@@ -81,13 +73,7 @@ public class Subscription implements Serializable {
 		return id;
 	}
 
-	public SubscriptionState getState() {
-		return state;
-	}
-
-	public void setState(SubscriptionState state) {
-		this.state = state;
-	}
+	
 
 	public Date getStartAt() {
 		return startAt;
@@ -113,13 +99,33 @@ public class Subscription implements Serializable {
 		this.typeOfPayment = typeOfPayment;
 	}
 
+	public SubscriptionState getStateOfSubscription() {
+		return StateOfSubscription;
+	}
+
+	public void setStateOfSubscription(SubscriptionState stateOfSubscription) {
+		StateOfSubscription = stateOfSubscription;
+	}
+
+	public boolean isAutomaticRenewal() {
+		return automaticRenewal;
+	}
+
+	public void setAutomaticRenewal(boolean automaticRenewal) {
+		this.automaticRenewal = automaticRenewal;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Subscription [id=");
 		builder.append(id);
-		builder.append(", state=");
-		builder.append(state);
+		builder.append(", StateOfSubscription=");
+		builder.append(StateOfSubscription);
 		builder.append(", startAt=");
 		builder.append(startAt);
 		builder.append(", endAt=");
@@ -128,11 +134,15 @@ public class Subscription implements Serializable {
 		builder.append(automaticRenewal);
 		builder.append(", typeOfPayment=");
 		builder.append(typeOfPayment);
-		builder.append(", esn=");
-		builder.append(esn);
+		builder.append(", payment=");
+		builder.append(payment);
+		builder.append(", serviceBasic=");
+		builder.append(serviceBasic);
 		builder.append("]");
 		return builder.toString();
 	}
+
+
 	
 	
 
