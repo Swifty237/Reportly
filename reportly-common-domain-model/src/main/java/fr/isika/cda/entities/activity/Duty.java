@@ -24,4 +24,10 @@ public class Duty implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private DutyType typeOfDuty;
 
+	public Duty() {
+		super();
+		
+	}
+
+	
 }

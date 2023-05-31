@@ -38,5 +38,12 @@ public class Document implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "doc_creation")
 	private Date docCreation;
+
+	public Document() {
+		super();
+		
+	}
+	
+	
 	
 }

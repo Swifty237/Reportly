@@ -19,5 +19,13 @@ public class Employee extends UserAccount implements Serializable {
 	private double tjm;
 	private boolean busy;
 	private String skills;
+	
+	
+	public Employee() {
+		super();
+		
+	}
 
+	
+	
 }

@@ -34,4 +34,11 @@ public class Activity implements Serializable {
 
 	protected Boolean onCall;
 
+	public Activity() {
+		super();
+		
+	}
+
+	
+	
 }

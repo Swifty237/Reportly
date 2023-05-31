@@ -43,6 +43,13 @@ public class ServiceDetails implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL ) 
 	public ServiceBasic serviceBasic;
+
+
+
+	public ServiceDetails() {
+		super();
+		
+	}
 	
 	
 }

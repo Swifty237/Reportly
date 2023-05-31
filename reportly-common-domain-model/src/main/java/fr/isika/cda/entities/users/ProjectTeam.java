@@ -19,5 +19,12 @@ public class ProjectTeam implements Serializable{
 	private Long userId;
 	
 	private String projecName;
+
+	public ProjectTeam() {
+		super();
+		
+	}
+	
+	
 	
 }

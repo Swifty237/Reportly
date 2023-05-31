@@ -28,4 +28,13 @@ public class ExpenseReport implements Serializable {
 	private String reason;
 	private double amount;
 	private ErState PaidState;
+	
+	
+	public ExpenseReport() {
+		super();
+		
+	}
+	
+	
+	
 }

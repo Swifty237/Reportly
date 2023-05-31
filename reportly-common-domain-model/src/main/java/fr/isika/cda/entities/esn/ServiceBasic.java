@@ -40,5 +40,13 @@ public abstract class ServiceBasic implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL ) 
 	public Subscription subscription;
+
+
+	public ServiceBasic() {
+		super();
+		
+	}
+	
+	
 	
 }

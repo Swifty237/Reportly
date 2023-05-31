@@ -33,4 +33,9 @@ public class Cra implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modificationDate;
 
+	public Cra() {
+		super();
+		
+	}
+
 }

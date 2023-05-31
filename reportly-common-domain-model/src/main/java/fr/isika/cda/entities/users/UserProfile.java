@@ -29,6 +29,14 @@ public class UserProfile implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserContact contact;
+	
+	
+	
+
+	public UserProfile() {
+		super();
+		
+	}
 
 	public Long getId() {
 		return id;

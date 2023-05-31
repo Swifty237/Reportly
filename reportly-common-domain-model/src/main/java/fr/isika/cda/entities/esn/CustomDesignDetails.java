@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class CustomDetails implements Serializable {
+public class CustomDesignDetails implements Serializable {
 
 	/**
 	 * 
@@ -29,6 +29,13 @@ public class CustomDetails implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL ) 
 	public ServicePremium servicePremium;
+
+
+
+	public CustomDesignDetails() {
+		super();
+	
+	}
 	
 	
 	

@@ -20,4 +20,12 @@ public class TeamManager implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
+
+	public TeamManager() {
+		super();
+		
+	}
+	
+	
+	
 }

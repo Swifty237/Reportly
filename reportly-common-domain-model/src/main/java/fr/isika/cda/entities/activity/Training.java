@@ -24,4 +24,10 @@ public class Training implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TrainingType typeOfTraining;
 
+	public Training() {
+		super();
+		
+	}
+
+	
 }

@@ -34,9 +34,9 @@ public class PersonalDetails implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	@Column
+	
 	private String name;
-	@Column
+	
 	private String firstname;
 
 	@Temporal(TemporalType.DATE)
@@ -56,17 +56,12 @@ public class PersonalDetails implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL ) 
 	public UserAccount UserAccount;
 	
-	
 
-	public PersonalDetails(Long id, String name, String firstname, Date birdhday, int phoneNumber, String jobTitle,
-			Date creationDate) {
+
+	public PersonalDetails() {
 		super();
-		Id = id;
-		this.name = name;
-		this.firstname = firstname;
-		this.birdhday = birdhday;
-		this.phoneNumber = phoneNumber;
-		this.jobTitle = jobTitle;
-		this.creationDate = creationDate;
+		
 	}
+	
+	
 }

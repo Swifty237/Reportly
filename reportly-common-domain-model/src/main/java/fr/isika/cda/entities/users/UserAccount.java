@@ -40,11 +40,19 @@ public abstract class UserAccount implements Serializable {
 	
 	
 	
+	public UserAccount() {
+		super();
+		
+	}
+	
+	
+	
 	
 
 //	@Enumerated(EnumType.STRING)
 //	private UserRole primaryRole;
 	
+
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private UserProfile userProfile;
 

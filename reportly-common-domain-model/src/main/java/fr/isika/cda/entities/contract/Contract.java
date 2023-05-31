@@ -24,6 +24,11 @@ public class Contract implements Serializable {
     
     @Enumerated(EnumType.STRING)
     private ContractState stateOfContract;
+
+	public Contract() {
+		super();
+		
+	}
     
  
 }

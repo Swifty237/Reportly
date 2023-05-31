@@ -21,4 +21,11 @@ public class OtherActivity implements Serializable {
 
 	private String name;
 
+	public OtherActivity() {
+		super();
+		
+	}
+
+	
+	
 }

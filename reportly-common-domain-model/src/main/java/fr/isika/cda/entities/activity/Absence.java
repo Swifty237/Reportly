@@ -24,4 +24,9 @@ public class Absence implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private AbsenceType typeOfAbsence;
 
+	public Absence() {
+		super();
+	}
+
+	
 }

@@ -16,4 +16,12 @@ public class Paypal extends Payment implements Serializable {
 	
 	private String emailPaypal;
 	private String passwordPaypal;
+	
+	public Paypal() {
+		super();
+		
+	}
+	
+	
+	
 }

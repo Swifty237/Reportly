@@ -37,4 +37,12 @@ public class CompanyDetails implements Serializable {
   
     private ESN esn;
 
+
+
+	public CompanyDetails() {
+		super();
+		
+	}
+
+	
 }

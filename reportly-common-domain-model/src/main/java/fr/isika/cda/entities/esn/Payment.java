@@ -28,4 +28,12 @@ public abstract class Payment implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL) 
     private ESN esn;
 
+
+	public Payment() {
+		super();
+		
+	}
+
+	
+	
 }

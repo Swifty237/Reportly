@@ -23,5 +23,12 @@ public class BankCard extends Payment implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateExpiration;
+
+	public BankCard() {
+		super();
+		
+	}
+	
+	
 	
 }
