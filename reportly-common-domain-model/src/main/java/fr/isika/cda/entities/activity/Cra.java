@@ -33,4 +33,42 @@ public class Cra implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modificationDate;
 
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public CraState getState() {
+		return state;
+	}
+
+	public void setState(CraState state) {
+		this.state = state;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Date getModificationDate() {
+		return modificationDate;
+	}
+
+	public void setModificationDate(Date modificationDate) {
+		this.modificationDate = modificationDate;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 }

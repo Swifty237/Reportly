@@ -18,10 +18,28 @@ public class Absence extends Activity implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = -7508142804908681675L;
+	
 
+	
 	@Enumerated(EnumType.STRING)
 	private AbsenceType typeOfAbsence;
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Document document;
-}
+
+
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+
+
+
+	
+	
+
+	
+	}

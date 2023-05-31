@@ -42,6 +42,8 @@ public abstract class Activity implements Serializable {
 	private Customer customer;
 
 	@ManyToOne
+
 	private Cra cra;
+
 	
 }
