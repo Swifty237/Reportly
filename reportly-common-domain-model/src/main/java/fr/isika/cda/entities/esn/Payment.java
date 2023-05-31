@@ -46,4 +46,5 @@ public abstract class Payment implements Serializable {
 	public void setDocument(Document document) {
 		this.document = document;
 	}
+
 }

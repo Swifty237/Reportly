@@ -17,4 +17,17 @@ public class Paypal extends Payment implements Serializable {
 	
 	private String emailPaypal;
 	private String passwordPaypal;
+	
+	public String getEmailPaypal() {
+		return emailPaypal;
+	}
+	public void setEmailPaypal(String emailPaypal) {
+		this.emailPaypal = emailPaypal;
+	}
+	public String getPasswordPaypal() {
+		return passwordPaypal;
+	}
+	public void setPasswordPaypal(String passwordPaypal) {
+		this.passwordPaypal = passwordPaypal;
+	}
 }

@@ -23,5 +23,39 @@ public class BankCard extends Payment implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateExpiration;
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public String getBankCardNumber() {
+		return bankCardNumber;
+	}
+
+	public void setBankCardNumber(String bankCardNumber) {
+		this.bankCardNumber = bankCardNumber;
+	}
+
+	public int getSecurityNumber() {
+		return securityNumber;
+	}
+
+	public void setSecurityNumber(int securityNumber) {
+		this.securityNumber = securityNumber;
+	}
+
+	public Date getDateExpiration() {
+		return dateExpiration;
+	}
+
+	public void setDateExpiration(Date dateExpiration) {
+		this.dateExpiration = dateExpiration;
+	}
+	
+	
 	
 }
