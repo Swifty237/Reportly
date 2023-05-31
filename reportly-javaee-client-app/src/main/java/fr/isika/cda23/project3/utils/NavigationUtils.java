@@ -4,7 +4,6 @@ import java.io.IOException;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-
 //Permet de faire un RedirectTo
 public class NavigationUtils {
 	public static void redirectToUserList(String url) throws IOException {
