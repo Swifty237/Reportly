@@ -43,4 +43,5 @@ public abstract class Activity implements Serializable {
 
 	@ManyToOne
 	private Cra cra;
+	
 }

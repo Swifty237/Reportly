@@ -29,7 +29,7 @@ public class Customer implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private PersonalDetails personalDetails;
-
+	
 	public Long getId() {
 		return id;
 	}
