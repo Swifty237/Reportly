@@ -47,5 +47,11 @@ public abstract class Activity implements Serializable {
 	private Customer customer;
 
 	@ManyToOne
-	public Cra Cra ; 
+	public Cra Cra ;
+
+	public Long getId() {
+		return id;
+	}
+
+	
 }
