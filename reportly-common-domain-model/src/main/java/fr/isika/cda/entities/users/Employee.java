@@ -2,7 +2,6 @@ package fr.isika.cda.entities.users;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,9 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import fr.isika.cda.entities.activity.Cra;
-import fr.isika.cda.entities.common.AdressDetails;
 import fr.isika.cda.entities.common.ExpenseReport;
-import fr.isika.cda.entities.common.PersonalDetails;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "userId")
@@ -28,31 +25,19 @@ public class Employee extends UserAccount implements Serializable {
 	private double tjm;
 	private boolean busy;
 	private String skills;
-	
-	@ManyToOne 
-	@JoinColumn(name="projectTeam_id")
-	public ProjectTeam projectTeam;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "projectTeam_id")
+	private ProjectTeam projectTeam;
+
 	@OneToMany
-	private List<Cra> craList=new ArrayList<>();
-	
+	private List<Cra> craList = new ArrayList<>();
+
 	@OneToMany
-	private List<ExpenseReport> expenseReportsList=new ArrayList<>();
-	
+	private List<ExpenseReport> expenseReportsList = new ArrayList<>();
+
 	public Employee() {
 		super();
-	}
-	
-
-	public Employee(String email, String password, double tjm, String name, String firstname,String adress,String city,String country,String postalCode,Date birthday, int phoneNumber, String jobTitle) {
-		this.password = password;
-		this.email = email;
-		this.tjm = tjm;
-		this.skills = null;
-		this.busy=false;
-
-		this.pers = new PersonalDetails(name,firstname,birthday,phoneNumber,jobTitle);
-		this.pers.adressDetails=new AdressDetails(adress,postalCode,city,country);
 	}
 
 	@Override
@@ -99,9 +84,5 @@ public class Employee extends UserAccount implements Serializable {
 	public void setSkills(String skills) {
 		this.skills = skills;
 	}
-
-
-	
-	
 
 }

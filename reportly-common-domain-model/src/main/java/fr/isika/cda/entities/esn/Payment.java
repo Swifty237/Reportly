@@ -13,17 +13,15 @@ import javax.persistence.OneToOne;
 
 import fr.isika.cda.entities.common.Document;
 
-
-
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)   
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Payment implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8429719138674322450L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;

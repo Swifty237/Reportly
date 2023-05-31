@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 import fr.isika.cda.entities.users.ProjectTeam;
 
@@ -31,7 +30,7 @@ public class Contract implements Serializable {
 	private ContractDetails contractDetails;
 
 	@ManyToOne
-	public Customer customer;
+	private Customer customer;
 
 	@Enumerated(EnumType.STRING)
 	private ContractState stateOfContract;

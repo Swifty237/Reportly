@@ -23,7 +23,7 @@
 
 				<h:outputLabel for="password" value="Mot de passe :" />
 				<p:password id="password"
-					value="#{registerUserBean.registerUserVm.password}" feedback="true" />
+					value="#{registerUserBean.registerUserVm.password}" feedback="true" redisplay="true" toggleMask="true" />
 
 				<h:outputLabel for="dateNaissance" value="Date de naissance :" />
 				<p:calendar id="dateNaissance" locale="fr"

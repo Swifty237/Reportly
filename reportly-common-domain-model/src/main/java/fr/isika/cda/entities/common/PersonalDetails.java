@@ -1,7 +1,6 @@
 package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -13,11 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import fr.isika.cda.entities.contract.Customer;
-import fr.isika.cda.entities.users.UserAccount;
-
-import fr.isika.cda.entities.users.Employee;
-import fr.isika.cda.entities.users.UserAccount;
 
 @Entity
 public class PersonalDetails implements Serializable {
@@ -34,6 +28,7 @@ public class PersonalDetails implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
+
 	@Column
 	private String name;
 	@Column
@@ -53,7 +48,7 @@ public class PersonalDetails implements Serializable {
 	private Date creationDate;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	public AdressDetails adressDetails;
+	private AdressDetails adressDetails;
 
 	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle) {
 		this.name = name;
@@ -61,14 +56,10 @@ public class PersonalDetails implements Serializable {
 		this.birthday = birdhday;
 		this.phoneNumber = phoneNumber;
 		this.jobTitle = jobTitle;
-		
 	}
-	
+
 	public PersonalDetails() {
-		
 	}
-	
-	
 
 	public String getName() {
 		return name;
@@ -136,7 +127,5 @@ public class PersonalDetails implements Serializable {
 		builder.append("]");
 		return builder.toString();
 	}
-
-
 
 }

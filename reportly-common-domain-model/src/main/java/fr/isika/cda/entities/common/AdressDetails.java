@@ -2,12 +2,10 @@ package fr.isika.cda.entities.common;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class AdressDetails implements Serializable {
@@ -34,7 +32,6 @@ public class AdressDetails implements Serializable {
 	}
 	
 	public AdressDetails() {
-		
 	}
 
 	

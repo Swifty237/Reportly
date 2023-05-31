@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import fr.isika.cda.entities.common.AdressDetails;
+import fr.isika.cda.entities.common.PersonalDetails;
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
@@ -17,22 +19,36 @@ public class RegisterUserService {
 	private UserDao userDao;
 
 	public void register(RegisterUserViewModel viewModel) {
-		Employee emp = new Employee(viewModel.getEmail(), viewModel.getPassword(), viewModel.getTjm(),
-				viewModel.getName(), viewModel.getFirstname(), viewModel.getAdress(), viewModel.getCity(),
-				viewModel.getCountry(), viewModel.getPostalCode(), viewModel.getBirthday(), viewModel.getPhoneNumber(),
-				viewModel.getJobTitle());
+		Employee emp = new Employee();
+		emp.setEmail(viewModel.getEmail());
+		emp.setPassword(viewModel.getPassword());
+		emp.setTjm(viewModel.getTjm());
+
+		AdressDetails adressDetails = new AdressDetails();
+		adressDetails.setAdress(viewModel.getAdress());
+		adressDetails.setCity(viewModel.getCity());
+		adressDetails.setCountry(viewModel.getCountry());
+		adressDetails.setPostalCode(viewModel.getPostalCode());
+
+		PersonalDetails personalDetails = new PersonalDetails();
+		personalDetails.setName(viewModel.getName());
+		personalDetails.setFirstname(viewModel.getFirstname());
+		personalDetails.setBirthday(viewModel.getBirthday());
+		personalDetails.setJobTitle(viewModel.getJobTitle());
+		personalDetails.setPhoneNumber(viewModel.getPhoneNumber());
+		personalDetails.setAdressDetails(adressDetails);
+
+		emp.setPers(personalDetails);
 
 		viewModel.setEmp(emp);
 
 		Long id = userDao.register(viewModel);
-		System.out.println("Created user with id : " + id);
 	}
 
 	public List<UserAccount> findAllUsers() {
 		return userDao.findAllUsers();
 	}
 
-//	find un user avec son id 
 	public UserAccount findOneUser(long id) {
 		return userDao.findOneUser(id);
 	}
@@ -62,7 +78,7 @@ public class RegisterUserService {
 	public void deleteUser(long id) {
 		UserAccount user = userDao.findOneUser(id);
 		userDao.deleteUser(user);
-		
+
 	}
 
 }

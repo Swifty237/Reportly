@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda.entities.common.PersonalDetails;
 
-
 @Entity
 @Table(name = "user_account")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -38,41 +37,12 @@ public abstract class UserAccount implements Serializable {
 
 	@ManyToOne
 	public Esn esn;
-	
-	@OneToMany
-	protected List<Role> roleList=new ArrayList<>();
-	
-//	@Enumerated(EnumType.STRING)
-//	private UserRole primaryRole;
 
-//	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-//	private UserProfile userProfile;
-//	
+	@OneToMany
+	protected List<Role> roleList = new ArrayList<>();
+
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	protected PersonalDetails pers;
-	
-//	public UserProfile getUserProfile() {
-//		return userProfile;
-//	}
-//	public void setUserProfile(UserProfile userProfile) {
-//		this.userProfile = userProfile;
-//	}
-//	public UserRole getPrimaryRole() {
-//		return primaryRole;
-//	}
-//	public void setPrimaryRole(UserRole primaryRole) {
-//		this.primaryRole = primaryRole;
-//	}
-
-	public UserAccount withEmail(String email) {
-		this.email = email;
-		return this;
-	}
-
-	public UserAccount withPassword(String password) {
-		this.password = password;
-		return this;
-	}
 
 	public Long getUserId() {
 		return userId;
@@ -104,31 +74,5 @@ public abstract class UserAccount implements Serializable {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
-	}
-	
-	
-
-//	public UserAccount withProfile(UserProfile profile) {
-//		userProfile = profile;
-//		return this;
-}
-
-//	public UserAccount withPrimaryRole(UserRole role) {
-//		primaryRole = role;
-//		return this;
-//	}
-
-//	public UserAccount withDefaultPropertiesAndProfile() {
-////		this.username = DefaultValues.DEFAULT_USERNAME;
-//		this.password = DefaultValues.DEFAULT_PASSWORD;
-//		this.userProfile = new UserProfile();
-//		return this;
-//	}
-
-class DefaultValues {
-	public static final String DEFAULT_USERNAME = "user";
-	public static final String DEFAULT_PASSWORD = "password";
-
-	private DefaultValues() {
 	}
 }

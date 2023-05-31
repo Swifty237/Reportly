@@ -38,5 +38,5 @@ public abstract class ServiceBasic implements Serializable {
 	private double price;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	public ServiceDetails serviceDetails;
+	private ServiceDetails serviceDetails;
 }

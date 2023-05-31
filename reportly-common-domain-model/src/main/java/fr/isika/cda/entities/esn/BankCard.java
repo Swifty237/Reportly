@@ -9,19 +9,20 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 public class BankCard extends Payment implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7870002736397125650L;
-	
+
 	private String ownerName;
 	private String bankCardNumber;
-	private int securityNumber;
-	
+
+	private Integer securityNumber;
+
 	@Temporal(TemporalType.DATE)
 	private Date dateExpiration;
-	
+
 }
