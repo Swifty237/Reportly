@@ -16,7 +16,7 @@ public class CraDao {
 
 	
 	@PersistenceContext
-	private EntityManager entityManager ;
+	private static EntityManager entityManager ;
 	
 	
 	public CraDao(EntityManager entityManager ) {
@@ -47,7 +47,7 @@ public class CraDao {
 					
 		}
 
-		public List<Cra> findAllCra() {
+		public static List<Cra> findAllCra() {
 			return entityManager.createQuery("Votre Liste", Cra.class).getResultList() ;
 		}
 }

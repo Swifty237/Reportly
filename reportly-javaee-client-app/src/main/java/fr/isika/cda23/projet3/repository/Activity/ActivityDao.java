@@ -20,10 +20,10 @@ public class ActivityDao {
 		this.entityManager =entityManager;
 	}
 
-		public Long persist (ActivityDao activityDao ) {
+		public void persist (ActivityDao activityDao ) {
 			
 	    entityManager.persist(activityDao);
-		return activityDao.getId();
+		
 		
 		}
 		

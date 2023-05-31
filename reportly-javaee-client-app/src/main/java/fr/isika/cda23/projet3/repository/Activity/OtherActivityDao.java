@@ -22,10 +22,10 @@ public class OtherActivityDao {
 		this.entityManager =entityManager;
 	}
 
-		public Long persist (OtherActivityDao otherActivityDao ) {
+		public void persist (OtherActivityDao otherActivityDao ) {
 			
 	    entityManager.persist(otherActivityDao);
-		return otherActivityDao.getId();
+	
 		
 		}
 		

@@ -19,10 +19,10 @@ public class TrainingDao {
 		this.entityManager =entityManager;
 	}
 
-		public Long persist (TrainingDao trainingDao ) {
+		public void persist (TrainingDao trainingDao ) {
 			
 	    entityManager.persist(trainingDao  );
-		return trainingDao .getId();
+		
 		
 		}
 		

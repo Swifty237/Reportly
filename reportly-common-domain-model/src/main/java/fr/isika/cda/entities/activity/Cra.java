@@ -38,6 +38,9 @@ public class Cra implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modificationDate;
 
+
+
+
 	public Long getId() {
 		return id;
 	}
