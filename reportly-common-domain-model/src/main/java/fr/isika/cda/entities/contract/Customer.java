@@ -15,8 +15,6 @@ import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.common.PersonalDetails;
 
 
-import javax.persistence.ManyToOne;
-import fr.isika.cda.entities.esn.Esn;
 
 @Entity
 public class Customer implements Serializable {
@@ -36,6 +34,8 @@ public class Customer implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	public PersonalDetails personalDetails;
 
+	
+	
 	public Long getId() {
 		return id;
 	}
