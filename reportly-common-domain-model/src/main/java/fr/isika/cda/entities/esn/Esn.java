@@ -17,7 +17,7 @@ import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.contract.Customer;
 
 @Entity
-public class ESN implements Serializable {
+public class Esn implements Serializable {
 
 	/**
 	 * 

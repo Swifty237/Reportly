@@ -15,9 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda.entities.common.PersonalDetails;
-import fr.isika.cda.entities.esn.ESN;
+
 
 @Entity
 @Table(name = "user_account")
@@ -37,10 +37,10 @@ public abstract class UserAccount implements Serializable {
 	protected String password;
 
 	@ManyToOne
-	public ESN esn;
+	public Esn esn;
 	
 	@OneToMany
-	private List<Role> roleList=new ArrayList<>();
+	protected List<Role> roleList=new ArrayList<>();
 	
 //	@Enumerated(EnumType.STRING)
 //	private UserRole primaryRole;
@@ -50,10 +50,6 @@ public abstract class UserAccount implements Serializable {
 //	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	protected PersonalDetails pers;
-
-	public Long getUserId() {
-		return userId;
-	}
 	
 //	public UserProfile getUserProfile() {
 //		return userProfile;
@@ -77,6 +73,40 @@ public abstract class UserAccount implements Serializable {
 		this.password = password;
 		return this;
 	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public PersonalDetails getPers() {
+		return pers;
+	}
+
+	public void setPers(PersonalDetails pers) {
+		this.pers = pers;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	
+	
 
 //	public UserAccount withProfile(UserProfile profile) {
 //		userProfile = profile;

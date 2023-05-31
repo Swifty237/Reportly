@@ -20,9 +20,71 @@ public class AdressDetails implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String adress;
 	private String postalCode;
 	private String city;
 	private String country;
+	
+	public AdressDetails(String adress, String postalCode, String city, String country) {
+		this.adress = adress;
+		this.postalCode = postalCode;
+		this.city = city;
+		this.country = country;
+	}
+	
+	public AdressDetails() {
+		
+	}
+
+	
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("AdressDetails [adress=");
+		builder.append(adress);
+		builder.append(", postalCode=");
+		builder.append(postalCode);
+		builder.append(", city=");
+		builder.append(city);
+		builder.append(", country=");
+		builder.append(country);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 	
 }
