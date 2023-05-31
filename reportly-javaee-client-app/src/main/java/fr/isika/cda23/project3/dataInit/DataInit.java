@@ -9,40 +9,47 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.DocumentType;
+import fr.isika.cda.entities.common.PersonalDetails;
+import fr.isika.cda.entities.contract.Customer;
 
-//@Singleton
-//@Startup
+@Singleton
+@Startup
 public class DataInit {
 	
 	@PersistenceContext
 	private EntityManager em;
 
 
+	
+	//public void init() {
+		
+//System.out.println("Test persist ---------------------------------------------------------");
+	//	CompanyDetails companyDetails = new CompanyDetails();
+		
+		//PersonalDetails personalDetails = new PersonalDetails();		
+	//	Customer customer = new Customer();
+		
+		//customer.setCompanyDetails(companyDetails);
+		//customer.setPersonalDetails(personalDetails);
+		
+	//	em.persist(customer);
+		
 	@PostConstruct
 	public void init() {
 		
-//		Document document1 = new Document();
-//		document1.setName("Document 1");
-//		document1.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
-//		document1.setDocCreation(new Date());
-//		
-//		Document document2 = new Document();
-//		document2.setName("Document 2");
-//		document2.setTypeOfDoc(DocumentType.SICK_LEAVE);
-//		document2.setDocCreation(new Date());
-//
-//		Document document3 = new Document();
-//		document3.setName("Document 3");
-//		document3.setTypeOfDoc(DocumentType.OTHER_ACTIVITY);
-//		document3.setDocCreation(new Date());
-//		
-//		em.persist(document1);
-//		em.persist(document2);
-//		em.persist(document3);
-
-
+		
+		// Supprimer un client existant
+		Long customerIdToDelete = 1L; // Remplacez "1L" par l'identifiant du client à supprimer
+		Customer customer = em.find(Customer.class, customerIdToDelete);
+		if (customer != null) {
+			em.remove(customer);
+			System.out.println("Client supprimé avec succès");
+		} else {
+			System.out.println("Client introuvable");
+		}
 	}
 
 	

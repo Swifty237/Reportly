@@ -16,13 +16,16 @@ public class CustomerDao {
 	
 	public Long register(RegisterCustomerViewModel rcvm) {
 		
+		Customer customer = new Customer();
 		
+		customer.setCompanyDetails(rcvm.getCompanyDetails());
+		customer.setPersonalDetails(rcvm.getPersonalDetails());
 		
-		entityManager.persist(rcvm.getCustomerId());
+		entityManager.persist(customer);
 		
 		System.out.println("Customer : " + rcvm.toString() + " persisté");
 		
-		return rcvm.getCustomerId();
+		return customer.getId();
 		
 	}
 	
@@ -42,8 +45,8 @@ public class CustomerDao {
 		
 	}
 	
-	public List<Customer> findAllDocuments(){
-		return entityManager.createQuery("Customer", Customer.class).getResultList();
+	public List<Customer> findAllCustomer(){
+		return entityManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
 	}
 
 }
