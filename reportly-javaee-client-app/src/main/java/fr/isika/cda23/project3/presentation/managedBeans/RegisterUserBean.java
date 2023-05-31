@@ -3,7 +3,7 @@ package fr.isika.cda23.project3.presentation.managedBeans;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-import fr.isika.cda23.project3.business.RegisterUserService;
+import fr.isika.cda23.project3.controllers.RegisterUserService;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
 
 
