@@ -32,6 +32,9 @@ public class CompanyDetails implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Document document;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AdressDetails adressDetails;
 
 	public Long getId() {
 		return id;
@@ -71,6 +74,15 @@ public class CompanyDetails implements Serializable {
 
 	public void setDocument(Document document) {
 		this.document = document;
+	}
+	
+
+	public AdressDetails getAdressDetails() {
+		return adressDetails;
+	}
+
+	public void setAdressDetails(AdressDetails adressDetails) {
+		this.adressDetails = adressDetails;
 	}
 
 	@Override

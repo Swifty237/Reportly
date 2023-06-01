@@ -18,11 +18,13 @@ public class RegisterEsnService {
 	public void register(RegisterEsnViewModel viewModel) {
 		Esn esn = new Esn();
 		
-		AdressDetails adressDetails = new AdressDetails();
-		adressDetails.setAdress(viewModel.getAdress());
-		adressDetails.setCity(viewModel.getCity());
-		adressDetails.setCountry(viewModel.getCountry());
-		adressDetails.setPostalCode(viewModel.getPostalCode());
+//		AdressDetails adressDetails = new AdressDetails();
+//		adressDetails.setAdress(viewModel.getAdress());
+//		adressDetails.setCity(viewModel.getCity());
+//		adressDetails.setCountry(viewModel.getCountry());
+//		adressDetails.setPostalCode(viewModel.getPostalCode());
+//		
+//		CompanyDetails
 
 	}
 }
