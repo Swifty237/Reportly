@@ -18,50 +18,41 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="nom" value="Nom d'Entreprise :" />
 					<p:inputText id="nom"
-						value="#{registerEsnBean.registerUserVm.name}" />
+						value="#{registerEsnBean.registerEsnVm.brand}" />
 
 					<h:outputLabel for="email" value="Email :" />
 					<p:inputText id="email"
-						value="#{registerEsnBean.registerUserVm.email}" />
+						value="#{registerEsnBean.registerEsnVm.email}" />
 
 					<h:outputLabel for="password" value="Mot de passe :" />
 					<p:password id="password"
-						value="#{registerEsnBean.registerUserVm.password}" feedback="true"
+						value="#{registerEsnBean.registerEsnVm.password}" feedback="true"
 						redisplay="true" toggleMask="true" />
 
 					<h:outputLabel for="rue" value="Rue :" />
 					<p:inputText id="rue"
-						value="#{registerEsnBean.registerUserVm.adress}" />
+						value="#{registerEsnBean.registerEsnVm.adress}" />
 
 					<h:outputLabel for="ville" value="Ville :" />
 					<p:inputText id="ville"
-						value="#{registerEsnBean.registerUserVm.city}" />
+						value="#{registerEsnBean.registerEsnVm.city}" />
 
 					<h:outputLabel for="codePostal" value="Code Postal :" />
 					<p:inputText id="codePostal"
-						value="#{registerEsnBean.registerUserVm.postalCode}" />
+						value="#{registerEsnBean.registerEsnVm.postalCode}" />
 
 					<h:outputLabel for="pays" value="Pays :" />
 					<p:inputText id="pays"
-						value="#{registerEsnBean.registerUserVm.country}" />
+						value="#{registerEsnBean.registerEsnVm.country}" />
 
-					<h:outputLabel for="kbis" value="Kbis :" />
-					<h:selectOneMenu value="#{addDocumentManagedBean.advm.typeOfDoc}">
-						<f:selectItem itemLabel="Sélection" itemValue="null"
-							noSelectionOption="true" />
-						<f:selectItems var="type" itemLabel="#{type.label}"
-							itemValue="#{type}"
-							value="#{addDocumentManagedBean.typesOfDocuments()}" />
-					</h:selectOneMenu>
-
-					<h:outputLabel id="fileUploadLbl" value="Document : " />
+					<h:outputLabel id="fileUploadLbl" value="Kbis : " />
 					<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
 						mode="advanced" dragDropSupport="false" update="messages" />
 
 				</h:panelGrid>
 				<h:panelGroup>
 					<p:commandButton type="submit" value="Enregistrer"
-						style="margin-right: 10px;" />
+						style="margin-right: 10px;" action="#{registerEsnBean.register()}"/>
 					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
 						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
 				</h:panelGroup>
