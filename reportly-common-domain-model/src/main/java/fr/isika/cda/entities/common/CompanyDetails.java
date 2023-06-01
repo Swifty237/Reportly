@@ -85,6 +85,7 @@ public class CompanyDetails implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 84f94f9 (register esn ok)
 =======
@@ -107,6 +108,8 @@ public class CompanyDetails implements Serializable {
 >>>>>>> d3087e5 (subscription company)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> aa13acd (subscription company)
 	public AdressDetails getAdressDetails() {
 		return adressDetails;
 	}

@@ -124,6 +124,7 @@ public class RegisterEsnService {
 	public void register(RegisterEsnViewModel viewModel) {
 		Esn esn = new Esn();
 		
+<<<<<<< HEAD
 >>>>>>> b7c6b2a (user)
 		AdressDetails adressDetails = new AdressDetails();
 		adressDetails.setAdress(viewModel.getAdress());
@@ -135,6 +136,8 @@ public class RegisterEsnService {
 =======
 		Esn esn = new Esn();
 		
+=======
+>>>>>>> aa13acd (subscription company)
 //		AdressDetails adressDetails = new AdressDetails();
 //		adressDetails.setAdress(viewModel.getAdress());
 //		adressDetails.setCity(viewModel.getCity());
@@ -142,6 +145,7 @@ public class RegisterEsnService {
 //		adressDetails.setPostalCode(viewModel.getPostalCode());
 //		
 //		CompanyDetails
+<<<<<<< HEAD
 >>>>>>> d3087e5 (subscription company)
 
 		CompanyDetails companyDetails = new CompanyDetails();
@@ -211,6 +215,8 @@ public class RegisterEsnService {
 		Long id = esnDao.register(esn);
 
 		System.out.println("Esn vient d'etre crée avec :" + id);
+=======
+>>>>>>> aa13acd (subscription company)
 
 	}
 
