@@ -24,18 +24,17 @@ public class ExpenseReport implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Document document;
-	
+
 	private Date expenseDate;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date creationDate;
-	
+
 	private String reason;
-	
+
 	private Double amount;
-	
+
 	private ErState PaidState;
 }
