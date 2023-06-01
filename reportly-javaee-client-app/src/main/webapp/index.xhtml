@@ -7,10 +7,18 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
-		<h:form style="display: grid;">
-  <p:commandLink value="Sign UUUUp" action="#{registerUserBean.clear}" />
-  <p:link outcome="listUser.xhtml">showUsers</p:link>
-</h:form>
+		<h:form style="display: grid; grid-template-columns: auto auto;">
+			<p:commandLink value="Sign UUUUp" action="#{registerUserBean.clear}" />
+			<p:link outcome="listUser.xhtml">showUsers</p:link>
+		</h:form>
+		<h:form>
+		<p:panel header="Page d'accueil">
+			<p>Welcome sur notre site !</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+				rhoncus enim nec ligula viverra, ac bibendum mauris pharetra.</p>
+			<p>Nulla facilisi. Vestibulum sodales consectetur maximus.</p>
+		</p:panel>
+		</h:form>
 	</ui:define>
 </ui:composition>
 
