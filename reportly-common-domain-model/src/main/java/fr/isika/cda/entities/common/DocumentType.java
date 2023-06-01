@@ -6,8 +6,7 @@ public enum DocumentType {
 	SICK_LEAVE ("Sickness Leave"),
 	OTHER_ACTIVITY ("Other Activity"),
 	EXPENSE_REPORT_INVOICE ("Invoice for an expense report"), 
-	SUBSCRIPTION_INVOICE ("Invoice for subscription")
-	;
+	SUBSCRIPTION_INVOICE ("Invoice for subscription");
 	
 	private String label;
 	
