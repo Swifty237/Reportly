@@ -12,21 +12,18 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import fr.isika.cda.entities.common.Document;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 public class Absence extends Activity implements Serializable {
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = -7508142804908681675L;
-	
 
-	
 	@Enumerated(EnumType.STRING)
 	private AbsenceType typeOfAbsence;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Document document;
-
 
 	public Document getDocument() {
 		return document;
@@ -36,10 +33,7 @@ public class Absence extends Activity implements Serializable {
 		this.document = document;
 	}
 
-
-
-	
-	
-
-	
+	public Long getId() {
+		return super.id;
 	}
+}
