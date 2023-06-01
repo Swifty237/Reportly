@@ -11,6 +11,7 @@
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="all.min.css" />
 	<h:outputStylesheet library="css" name="template.css" />
+	<ui:insert name="styles" />
 </h:head>
 
 <h:body>
@@ -37,8 +38,6 @@
 
 							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
 
-
-							<p:link outcome="showAllDocuments.xhtml">Gestion des documents</p:link>
 						</ui:fragment>
 
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
