@@ -27,6 +27,7 @@ public class FileUploadUtils {
 		
 		// Check if /../documents exists , create the dir if not !!
 		File documentsDirFile = new File(documentsDir);
+		System.out.println("hahah+++++++"+resourcesDir);
 		if(!documentsDirFile.exists()) {
 			documentsDirFile.mkdirs();
 		}

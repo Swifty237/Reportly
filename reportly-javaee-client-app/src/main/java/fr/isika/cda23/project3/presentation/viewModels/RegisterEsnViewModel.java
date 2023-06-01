@@ -1,5 +1,7 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
+import java.util.Date;
+
 public class RegisterEsnViewModel {
 
 	private String brand;
@@ -9,6 +11,15 @@ public class RegisterEsnViewModel {
 	private String city;
 	private String postalCode;
 	private String country;
+	private Date creationDate;
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
 	public String getBrand() {
 		return brand;
@@ -65,5 +76,30 @@ public class RegisterEsnViewModel {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("RegisterEsnViewModel [brand=");
+		builder.append(brand);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", adress=");
+		builder.append(adress);
+		builder.append(", city=");
+		builder.append(city);
+		builder.append(", postalCode=");
+		builder.append(postalCode);
+		builder.append(", country=");
+		builder.append(country);
+		builder.append(", creationDate=");
+		builder.append(creationDate);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 
 }

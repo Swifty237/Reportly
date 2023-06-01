@@ -23,7 +23,21 @@ public class RegisterEsnBean implements Serializable {
 
 	private RegisterEsnViewModel registerEsnVm = new RegisterEsnViewModel();
 
-	public void register() {
+	public String register() {
 		reService.register(registerEsnVm);
+		
+		registerEsnVm = new RegisterEsnViewModel();
+		
+		return "index.xhtml";
+		
 	}
+
+	public RegisterEsnViewModel getRegisterEsnVm() {
+		return registerEsnVm;
+	}
+
+	public void setRegisterEsnVm(RegisterEsnViewModel registerEsnVm) {
+		this.registerEsnVm = registerEsnVm;
+	}
+
 }
