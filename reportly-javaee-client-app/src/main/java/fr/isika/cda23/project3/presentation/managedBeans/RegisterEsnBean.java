@@ -27,6 +27,7 @@ public class RegisterEsnBean implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public String register() {
 		reService.register(registerEsnVm);
 		
@@ -94,4 +95,9 @@ public class RegisterEsnBean implements Serializable {
 	}
 
 >>>>>>> ab3abe1 (register esn ok)
+=======
+	public void register() {
+		reService.register(registerEsnVm);
+	}
+>>>>>>> b7c6b2a (user)
 }

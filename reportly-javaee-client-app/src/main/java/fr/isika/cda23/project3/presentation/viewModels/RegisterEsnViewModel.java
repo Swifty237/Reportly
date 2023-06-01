@@ -4,6 +4,7 @@ package fr.isika.cda23.project3.presentation.viewModels;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Date;
 
 =======
@@ -18,6 +19,8 @@ import java.util.Date;
 import java.util.Date;
 
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> b7c6b2a (user)
 public class RegisterEsnViewModel {
 
 	private String brand;
@@ -27,6 +30,7 @@ public class RegisterEsnViewModel {
 	private String city;
 	private String postalCode;
 	private String country;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -54,6 +58,8 @@ public class RegisterEsnViewModel {
 >>>>>>> 3d333c7 (user)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> b7c6b2a (user)
 
 	public String getBrand() {
 		return brand;
@@ -115,6 +121,7 @@ public class RegisterEsnViewModel {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 84f94f9 (register esn ok)
 =======
@@ -154,4 +161,6 @@ public class RegisterEsnViewModel {
 >>>>>>> 3d333c7 (user)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> b7c6b2a (user)
 }

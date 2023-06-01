@@ -4,6 +4,7 @@ package fr.isika.cda23.project3.business;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Date;
 
 =======
@@ -18,10 +19,13 @@ import java.util.Date;
 import java.util.Date;
 
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> b7c6b2a (user)
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.AdressDetails;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -68,6 +72,12 @@ import fr.isika.cda23.project3.repository.user.UserDao;
 =======
 import fr.isika.cda23.project3.repository.company.EsnDao;
 >>>>>>> ab3abe1 (register esn ok)
+=======
+import fr.isika.cda.entities.esn.Esn;
+import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
+import fr.isika.cda23.project3.repository.EsnDao;
+import fr.isika.cda23.project3.repository.user.UserDao;
+>>>>>>> b7c6b2a (user)
 
 @Stateless
 public class RegisterEsnService {
@@ -75,6 +85,7 @@ public class RegisterEsnService {
 	@Inject
 	private EsnDao esnDao;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -109,11 +120,17 @@ public class RegisterEsnService {
 =======
 >>>>>>> ab3abe1 (register esn ok)
 
+=======
+	public void register(RegisterEsnViewModel viewModel) {
+		Esn esn = new Esn();
+		
+>>>>>>> b7c6b2a (user)
 		AdressDetails adressDetails = new AdressDetails();
 		adressDetails.setAdress(viewModel.getAdress());
 		adressDetails.setCity(viewModel.getCity());
 		adressDetails.setCountry(viewModel.getCountry());
 		adressDetails.setPostalCode(viewModel.getPostalCode());
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 		Esn esn = new Esn();
@@ -212,5 +229,8 @@ public class RegisterEsnService {
 >>>>>>> 3d333c7 (user)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+
+>>>>>>> b7c6b2a (user)
 	}
 }
