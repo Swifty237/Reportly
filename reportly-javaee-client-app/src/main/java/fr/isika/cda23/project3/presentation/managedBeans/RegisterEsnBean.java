@@ -23,6 +23,7 @@ public class RegisterEsnBean implements Serializable {
 
 	private RegisterEsnViewModel registerEsnVm = new RegisterEsnViewModel();
 
+<<<<<<< HEAD
 	public String register() {
 		reService.register(registerEsnVm);
 		
@@ -40,4 +41,9 @@ public class RegisterEsnBean implements Serializable {
 		this.registerEsnVm = registerEsnVm;
 	}
 
+=======
+	public void register() {
+		reService.register(registerEsnVm);
+	}
+>>>>>>> 54dbdcd (user)
 }

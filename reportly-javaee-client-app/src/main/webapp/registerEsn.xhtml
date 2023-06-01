@@ -18,6 +18,7 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="nom" value="Nom d'Entreprise :" />
 					<p:inputText id="nom"
+<<<<<<< HEAD
 						value="#{registerEsnBean.registerEsnVm.brand}" />
 
 					<h:outputLabel for="email" value="Email :" />
@@ -27,10 +28,22 @@
 					<h:outputLabel for="password" value="Mot de passe :" />
 					<p:password id="password"
 						value="#{registerEsnBean.registerEsnVm.password}" feedback="true"
+=======
+						value="#{registerEsnBean.registerUserVm.name}" />
+
+					<h:outputLabel for="email" value="Email :" />
+					<p:inputText id="email"
+						value="#{registerEsnBean.registerUserVm.email}" />
+
+					<h:outputLabel for="password" value="Mot de passe :" />
+					<p:password id="password"
+						value="#{registerEsnBean.registerUserVm.password}" feedback="true"
+>>>>>>> 54dbdcd (user)
 						redisplay="true" toggleMask="true" />
 
 					<h:outputLabel for="rue" value="Rue :" />
 					<p:inputText id="rue"
+<<<<<<< HEAD
 						value="#{registerEsnBean.registerEsnVm.adress}" />
 
 					<h:outputLabel for="ville" value="Ville :" />
@@ -46,13 +59,43 @@
 						value="#{registerEsnBean.registerEsnVm.country}" />
 
 					<h:outputLabel id="fileUploadLbl" value="Kbis : " />
+=======
+						value="#{registerEsnBean.registerUserVm.adress}" />
+
+					<h:outputLabel for="ville" value="Ville :" />
+					<p:inputText id="ville"
+						value="#{registerEsnBean.registerUserVm.city}" />
+
+					<h:outputLabel for="codePostal" value="Code Postal :" />
+					<p:inputText id="codePostal"
+						value="#{registerEsnBean.registerUserVm.postalCode}" />
+
+					<h:outputLabel for="pays" value="Pays :" />
+					<p:inputText id="pays"
+						value="#{registerEsnBean.registerUserVm.country}" />
+
+					<h:outputLabel for="kbis" value="Kbis :" />
+					<h:selectOneMenu value="#{addDocumentManagedBean.advm.typeOfDoc}">
+						<f:selectItem itemLabel="Sélection" itemValue="null"
+							noSelectionOption="true" />
+						<f:selectItems var="type" itemLabel="#{type.label}"
+							itemValue="#{type}"
+							value="#{addDocumentManagedBean.typesOfDocuments()}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel id="fileUploadLbl" value="Document : " />
+>>>>>>> 54dbdcd (user)
 					<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
 						mode="advanced" dragDropSupport="false" update="messages" />
 
 				</h:panelGrid>
 				<h:panelGroup>
 					<p:commandButton type="submit" value="Enregistrer"
+<<<<<<< HEAD
 						style="margin-right: 10px;" action="#{registerEsnBean.register()}"/>
+=======
+						style="margin-right: 10px;" />
+>>>>>>> 54dbdcd (user)
 					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
 						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
 				</h:panelGroup>
