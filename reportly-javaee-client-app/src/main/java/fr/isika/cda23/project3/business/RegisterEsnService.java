@@ -3,6 +3,7 @@ package fr.isika.cda23.project3.business;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Date;
 
 =======
@@ -13,10 +14,15 @@ import java.util.Date;
 >>>>>>> 84f94f9 (register esn ok)
 =======
 >>>>>>> 3d333c7 (user)
+=======
+import java.util.Date;
+
+>>>>>>> ab3abe1 (register esn ok)
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.AdressDetails;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -44,11 +50,21 @@ import fr.isika.cda23.project3.repository.user.UserDao;
 import fr.isika.cda23.project3.repository.company.EsnDao;
 >>>>>>> 84f94f9 (register esn ok)
 =======
+=======
+import fr.isika.cda.entities.common.CompanyDetails;
+import fr.isika.cda.entities.common.Document;
+import fr.isika.cda.entities.common.DocumentType;
+>>>>>>> ab3abe1 (register esn ok)
 import fr.isika.cda.entities.esn.Esn;
+import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
+<<<<<<< HEAD
 import fr.isika.cda23.project3.repository.EsnDao;
 import fr.isika.cda23.project3.repository.user.UserDao;
 >>>>>>> 3d333c7 (user)
+=======
+import fr.isika.cda23.project3.repository.company.EsnDao;
+>>>>>>> ab3abe1 (register esn ok)
 
 @Stateless
 public class RegisterEsnService {
@@ -59,12 +75,18 @@ public class RegisterEsnService {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //	@Inject
 //	private AddDocumentManagedBean addDocumentManagedBean;
+=======
+	@Inject
+	private AddDocumentManagedBean addDocumentManagedBean;
+>>>>>>> ab3abe1 (register esn ok)
 
 	private static Document document;
 
 	public void register(RegisterEsnViewModel viewModel) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -76,12 +98,15 @@ public class RegisterEsnService {
 
 >>>>>>> 84f94f9 (register esn ok)
 	public void register(RegisterEsnViewModel viewModel) {
+=======
+>>>>>>> ab3abe1 (register esn ok)
 
 		AdressDetails adressDetails = new AdressDetails();
 		adressDetails.setAdress(viewModel.getAdress());
 		adressDetails.setCity(viewModel.getCity());
 		adressDetails.setCountry(viewModel.getCountry());
 		adressDetails.setPostalCode(viewModel.getPostalCode());
+<<<<<<< HEAD
 =======
 		Esn esn = new Esn();
 		
@@ -142,6 +167,19 @@ public class RegisterEsnService {
 		Esn esn = new Esn();
 =======
 >>>>>>> 84f94f9 (register esn ok)
+=======
+
+		CompanyDetails companyDetails = new CompanyDetails();
+		companyDetails.setBrand(viewModel.getBrand());
+		companyDetails.setEmail(viewModel.getEmail());
+		companyDetails.setPassword(viewModel.getPassword());
+		companyDetails.setCreationDate(new Date());
+		companyDetails.setAdressDetails(adressDetails);
+
+		companyDetails.setDocument(document);
+
+		Esn esn = new Esn();
+>>>>>>> ab3abe1 (register esn ok)
 
 		esn.setCompanyDetails(companyDetails);
 
@@ -156,6 +194,7 @@ public class RegisterEsnService {
 		doc.setDocCreation(new Date());
 		document = doc;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 54dbdcd (user)
 =======
@@ -163,5 +202,7 @@ public class RegisterEsnService {
 =======
 
 >>>>>>> 3d333c7 (user)
+=======
+>>>>>>> ab3abe1 (register esn ok)
 	}
 }

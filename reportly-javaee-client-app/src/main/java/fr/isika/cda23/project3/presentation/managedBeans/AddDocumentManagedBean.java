@@ -2,9 +2,13 @@ package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.IOException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.Serializable;
 =======
 >>>>>>> 3d333c7 (user)
+=======
+import java.io.Serializable;
+>>>>>>> ab3abe1 (register esn ok)
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -16,14 +20,20 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ab3abe1 (register esn ok)
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda23.project3.business.AddDocumentService;
 import fr.isika.cda23.project3.business.RegisterEsnService;
+<<<<<<< HEAD
 =======
 import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda23.project3.business.AddDocumentService;
 >>>>>>> 3d333c7 (user)
+=======
+>>>>>>> ab3abe1 (register esn ok)
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 import fr.isika.cda23.project3.utils.FileUploadUtils;
 import fr.isika.cda23.project3.utils.NavigationUtils;
@@ -31,6 +41,9 @@ import fr.isika.cda23.project3.utils.NavigationUtils;
 @ManagedBean
 @SessionScoped
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ab3abe1 (register esn ok)
 public class AddDocumentManagedBean implements Serializable {
 
 	/**
@@ -38,6 +51,7 @@ public class AddDocumentManagedBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -7894012894065522183L;
 
+<<<<<<< HEAD
 	@Inject
 	private AddDocumentService adService;
 
@@ -54,10 +68,19 @@ public class AddDocumentManagedBean {
 	
 	public static void addDocument() throws IOException {
 >>>>>>> 3d333c7 (user)
+=======
+	@Inject
+	private AddDocumentService adService;
+
+	private AddDocumentViewModel advm = new AddDocumentViewModel();
+
+	public void addDocument() throws IOException {
+>>>>>>> ab3abe1 (register esn ok)
 		adService.addDocument(advm);
 		advm = new AddDocumentViewModel();
 		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 	public void uploadFile(FileUploadEvent event) throws Exception {
@@ -83,13 +106,23 @@ public class AddDocumentManagedBean {
 	
     public void uploadFile(FileUploadEvent event) throws Exception {
     	String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyyHHmmss"));
+=======
+>>>>>>> ab3abe1 (register esn ok)
 
-    	UploadedFile uploadedFile = event.getFile();
+	public void uploadFile(FileUploadEvent event) throws Exception {
+		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyyHHmmss"));
+
+		UploadedFile uploadedFile = event.getFile();
 		String fileName = String.join("_", timestamp, uploadedFile.getFileName());
-        
+
 		advm.setName(fileName);
+		
+		Document document = new Document();
+		document.setName(fileName);
+		RegisterEsnService.getDoc(document);
 
 		FileUploadUtils.uploadFileToApp(uploadedFile, fileName);
+<<<<<<< HEAD
     }
 	
     public DocumentType[] typesOfDocuments() {
@@ -97,6 +130,14 @@ public class AddDocumentManagedBean {
     }
     
 >>>>>>> 3d333c7 (user)
+=======
+	}
+
+	public DocumentType[] typesOfDocuments() {
+		return DocumentType.values();
+	}
+
+>>>>>>> ab3abe1 (register esn ok)
 	public AddDocumentViewModel getAdvm() {
 		return advm;
 	}

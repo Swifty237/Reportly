@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.common.Document;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 =======
@@ -17,10 +18,16 @@ import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 =======
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 =======
+import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
+>>>>>>> ab3abe1 (register esn ok)
+=======
 import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 >>>>>>> 1289ec2 (register esn ok)
+<<<<<<< HEAD
 >>>>>>> 84f94f9 (register esn ok)
+=======
+>>>>>>> ab3abe1 (register esn ok)
 
 @Stateless
 public class DocumentDao {
@@ -29,6 +36,7 @@ public class DocumentDao {
 	private EntityManager entityManager;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	public Long addDocument(AddDocumentViewModel advm) {
 
@@ -42,11 +50,19 @@ public class DocumentDao {
 	public Long addDocument(DocumentViewModel advm) {
 		
 =======
+	
+	public Long addDocument(DocumentViewModel advm) {
+		
+>>>>>>> ab3abe1 (register esn ok)
+=======
 
 	public Long addDocument(AddDocumentViewModel advm) {
 
 >>>>>>> 1289ec2 (register esn ok)
+<<<<<<< HEAD
 >>>>>>> 84f94f9 (register esn ok)
+=======
+>>>>>>> ab3abe1 (register esn ok)
 		Document document = new Document();
 
 		document.setName(advm.getName());
