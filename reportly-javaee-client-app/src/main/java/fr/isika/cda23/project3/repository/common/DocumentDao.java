@@ -15,6 +15,7 @@ import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 =======
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
+<<<<<<< HEAD
 >>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
 =======
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
@@ -33,6 +34,9 @@ import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 import fr.isika.cda23.project3.business.RegisterEsnService;
 >>>>>>> e2bb782 (Refactoring)
+=======
+import fr.isika.cda23.project3.business.RegisterEsnService;
+>>>>>>> a6ba52f (register esn ok)
 
 @Stateless
 public class DocumentDao {
@@ -49,6 +53,7 @@ public class DocumentDao {
 =======
 	
 	public Long addDocument(DocumentViewModel advm) {
+<<<<<<< HEAD
 		
 >>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
 =======
@@ -74,6 +79,8 @@ public class DocumentDao {
 	public Long addDocument(DocumentViewModel advm) {
 		
 >>>>>>> e2bb782 (Refactoring)
+=======
+>>>>>>> a6ba52f (register esn ok)
 		Document document = new Document();
 
 		document.setName(advm.getName());

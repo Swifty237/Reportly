@@ -23,6 +23,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						value="#{registerEsnBean.registerEsnVm.brand}" />
 
 					<h:outputLabel for="email" value="Email :" />
@@ -70,19 +71,27 @@
 >>>>>>> ab3abe1 (register esn ok)
 =======
 						value="#{registerEsnBean.registerUserVm.name}" />
+=======
+						value="#{registerEsnBean.registerEsnVm.brand}" />
+>>>>>>> a6ba52f (register esn ok)
 
 					<h:outputLabel for="email" value="Email :" />
 					<p:inputText id="email"
-						value="#{registerEsnBean.registerUserVm.email}" />
+						value="#{registerEsnBean.registerEsnVm.email}" />
 
 					<h:outputLabel for="password" value="Mot de passe :" />
 					<p:password id="password"
+<<<<<<< HEAD
 						value="#{registerEsnBean.registerUserVm.password}" feedback="true"
 >>>>>>> b7c6b2a (user)
+=======
+						value="#{registerEsnBean.registerEsnVm.password}" feedback="true"
+>>>>>>> a6ba52f (register esn ok)
 						redisplay="true" toggleMask="true" />
 
 					<h:outputLabel for="rue" value="Rue :" />
 					<p:inputText id="rue"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -144,19 +153,23 @@
 >>>>>>> 3d333c7 (user)
 =======
 						value="#{registerEsnBean.registerUserVm.adress}" />
+=======
+						value="#{registerEsnBean.registerEsnVm.adress}" />
+>>>>>>> a6ba52f (register esn ok)
 
 					<h:outputLabel for="ville" value="Ville :" />
 					<p:inputText id="ville"
-						value="#{registerEsnBean.registerUserVm.city}" />
+						value="#{registerEsnBean.registerEsnVm.city}" />
 
 					<h:outputLabel for="codePostal" value="Code Postal :" />
 					<p:inputText id="codePostal"
-						value="#{registerEsnBean.registerUserVm.postalCode}" />
+						value="#{registerEsnBean.registerEsnVm.postalCode}" />
 
 					<h:outputLabel for="pays" value="Pays :" />
 					<p:inputText id="pays"
-						value="#{registerEsnBean.registerUserVm.country}" />
+						value="#{registerEsnBean.registerEsnVm.country}" />
 
+<<<<<<< HEAD
 >>>>>>> b7c6b2a (user)
 					<h:outputLabel for="kbis" value="Kbis :" />
 					<h:selectOneMenu value="#{addDocumentManagedBean.advm.typeOfDoc}">
@@ -181,12 +194,16 @@
 >>>>>>> ab3abe1 (register esn ok)
 =======
 >>>>>>> b7c6b2a (user)
+=======
+					<h:outputLabel id="fileUploadLbl" value="Kbis : " />
+>>>>>>> a6ba52f (register esn ok)
 					<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
 						mode="advanced" dragDropSupport="false" update="messages" />
 
 				</h:panelGrid>
 				<h:panelGroup>
 					<p:commandButton type="submit" value="Enregistrer"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -208,6 +225,9 @@
 =======
 						style="margin-right: 10px;" />
 >>>>>>> b7c6b2a (user)
+=======
+						style="margin-right: 10px;" action="#{registerEsnBean.register()}"/>
+>>>>>>> a6ba52f (register esn ok)
 					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
 						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
 				</h:panelGroup>

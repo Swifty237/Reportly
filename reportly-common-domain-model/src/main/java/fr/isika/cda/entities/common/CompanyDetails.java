@@ -86,10 +86,13 @@ public class CompanyDetails implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 84f94f9 (register esn ok)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> a6ba52f (register esn ok)
 	public String getPassword() {
 		return password;
 	}
@@ -98,6 +101,7 @@ public class CompanyDetails implements Serializable {
 		this.password = password;
 	}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -110,6 +114,8 @@ public class CompanyDetails implements Serializable {
 >>>>>>> ab3abe1 (register esn ok)
 =======
 >>>>>>> aa13acd (subscription company)
+=======
+>>>>>>> a6ba52f (register esn ok)
 	public AdressDetails getAdressDetails() {
 		return adressDetails;
 	}

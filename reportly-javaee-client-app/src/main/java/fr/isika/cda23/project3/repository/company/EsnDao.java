@@ -8,6 +8,7 @@ import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.esn.Esn;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 =======
 import fr.isika.cda.entities.users.UserAccount;
@@ -19,6 +20,11 @@ import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
 >>>>>>> ab3abe1 (register esn ok)
+=======
+import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
+import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
+>>>>>>> a6ba52f (register esn ok)
 
 public class EsnDao {
 
@@ -27,12 +33,16 @@ public class EsnDao {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 //	Enregistrer un user
 >>>>>>> 84f94f9 (register esn ok)
 =======
 //	Enregistrer un user
 >>>>>>> ab3abe1 (register esn ok)
+=======
+//	Enregistrer un user
+>>>>>>> a6ba52f (register esn ok)
 	public Long register(Esn esn) {
 //		 - persister l'entité
 		entityManager.persist(esn);
@@ -54,6 +64,7 @@ public class EsnDao {
 		}
 	}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	public Long getESNIdByEmail(String email) {
@@ -78,4 +89,6 @@ public class EsnDao {
 >>>>>>> 84f94f9 (register esn ok)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+>>>>>>> a6ba52f (register esn ok)
 }
