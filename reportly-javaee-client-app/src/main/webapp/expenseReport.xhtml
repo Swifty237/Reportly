@@ -5,11 +5,11 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Expense Report</title>
-	<h:outputStylesheet name="expense-report.css" />
+	<h:outputStylesheet library="css" name="expenseStyle.css" />
 </h:head>
 <h:body>
 	<div id="expense-container">
-		<div id="form-container">
+		<div id="form-expense-container">
 			<h:form id="expenseForm" enctype="multipart/form-data">
 				<p:panel header="Expense Report">
 					<p:messages id="messages" showDetail="true" autoUpdate="true"
@@ -54,7 +54,7 @@
 			</h:form>
 		</div>
 
-		<div id="table-container">
+		<div id="table-expense-container">
 			<p:dataTable id="expenseTable" var="expense"
 				value="#{expenseBean.expenses}" emptyMessage="No expenses found">
 				<p:column headerText="Date">
