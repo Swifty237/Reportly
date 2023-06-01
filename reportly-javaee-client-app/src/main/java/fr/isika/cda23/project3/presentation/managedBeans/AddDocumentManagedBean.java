@@ -22,11 +22,11 @@ import fr.isika.cda23.project3.utils.NavigationUtils;
 public class AddDocumentManagedBean {
 	
 	@Inject
-	private AddDocumentService adService;
+	private static AddDocumentService adService;
 	
-	private AddDocumentViewModel advm = new AddDocumentViewModel();
+	private static AddDocumentViewModel advm = new AddDocumentViewModel();
 	
-	public void addDocument() throws IOException {
+	public static void addDocument() throws IOException {
 		adService.addDocument(advm);
 		advm = new AddDocumentViewModel();
 		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");

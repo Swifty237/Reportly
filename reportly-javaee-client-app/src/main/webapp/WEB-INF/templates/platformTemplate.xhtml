@@ -10,6 +10,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="template.css" />
+	<ui:insert name="styles" />
 </h:head>
 
 <h:body>
@@ -48,6 +49,7 @@
 
 						<ui:fragment rendered="true">
 							<p:link outcome="examplePageOfTemplate.xhtml">Example empty page</p:link>
+							<p:link outcome="registerEsn.xhtml">registerEsn</p:link>
 
 						</ui:fragment>
 					</div>
