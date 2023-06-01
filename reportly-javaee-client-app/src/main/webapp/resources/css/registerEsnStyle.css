@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.registration-form {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.registration-panel {
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	padding: 20px;
+
+}
