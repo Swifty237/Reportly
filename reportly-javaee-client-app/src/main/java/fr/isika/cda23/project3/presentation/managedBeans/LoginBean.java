@@ -30,10 +30,13 @@ public class LoginBean implements Serializable {
 	@Inject
 	private EsnDao esnDao;
 
+<<<<<<< HEAD
 	private Long id;
 
 	private String esnName;
 
+=======
+>>>>>>> 84f94f9 (register esn ok)
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
 	public String login() {
@@ -57,6 +60,7 @@ public class LoginBean implements Serializable {
 			if (esn != null) {
 				System.out.println("esn ok");
 				SessionUtils.setUserEmailIntoSession(esn.getEmail());
+<<<<<<< HEAD
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
@@ -69,6 +73,9 @@ public class LoginBean implements Serializable {
 					e.printStackTrace();
 				}
 				return "";
+=======
+				return "index.xhtml";
+>>>>>>> 84f94f9 (register esn ok)
 			}
 			System.out.println("not login 1");
 		}
@@ -82,7 +89,11 @@ public class LoginBean implements Serializable {
 		loginViewModel = new LoginViewModel();
 		// vider la session http
 		SessionUtils.resetSession();
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 84f94f9 (register esn ok)
 		NavigationUtils.redirectToUserList("index.xhtml");
 	}
 

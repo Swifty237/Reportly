@@ -6,13 +6,23 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.esn.Esn;
+<<<<<<< HEAD
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
+=======
+import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
+import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
+>>>>>>> 84f94f9 (register esn ok)
 
 public class EsnDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
+<<<<<<< HEAD
+=======
+//	Enregistrer un user
+>>>>>>> 84f94f9 (register esn ok)
 	public Long register(Esn esn) {
 //		 - persister l'entité
 		entityManager.persist(esn);
@@ -34,6 +44,7 @@ public class EsnDao {
 		}
 	}
 
+<<<<<<< HEAD
 	public Long getESNIdByEmail(String email) {
 		try {
 			return entityManager
@@ -52,4 +63,6 @@ public class EsnDao {
 			return null;
 		}
 	}
+=======
+>>>>>>> 84f94f9 (register esn ok)
 }

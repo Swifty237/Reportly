@@ -1,10 +1,15 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Date;
 
 =======
 >>>>>>> 54dbdcd (user)
+=======
+import java.util.Date;
+
+>>>>>>> 84f94f9 (register esn ok)
 public class RegisterEsnViewModel {
 
 	private String brand;
@@ -15,6 +20,9 @@ public class RegisterEsnViewModel {
 	private String postalCode;
 	private String country;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 84f94f9 (register esn ok)
 	private Date creationDate;
 
 	public Date getCreationDate() {
@@ -24,8 +32,11 @@ public class RegisterEsnViewModel {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+<<<<<<< HEAD
 =======
 >>>>>>> 54dbdcd (user)
+=======
+>>>>>>> 84f94f9 (register esn ok)
 
 	public String getBrand() {
 		return brand;
@@ -84,6 +95,9 @@ public class RegisterEsnViewModel {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 84f94f9 (register esn ok)
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -109,6 +123,9 @@ public class RegisterEsnViewModel {
 	
 	
 
+<<<<<<< HEAD
 =======
 >>>>>>> 54dbdcd (user)
+=======
+>>>>>>> 84f94f9 (register esn ok)
 }

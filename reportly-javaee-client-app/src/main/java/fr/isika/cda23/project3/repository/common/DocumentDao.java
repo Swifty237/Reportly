@@ -8,17 +8,26 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.Document;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 =======
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 >>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
+=======
+import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
+=======
+import fr.isika.cda23.project3.business.RegisterEsnService;
+import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
+>>>>>>> 1289ec2 (register esn ok)
+>>>>>>> 84f94f9 (register esn ok)
 
 @Stateless
 public class DocumentDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 	public Long addDocument(AddDocumentViewModel advm) {
@@ -28,6 +37,16 @@ public class DocumentDao {
 	public Long addDocument(DocumentViewModel advm) {
 		
 >>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
+=======
+	
+	public Long addDocument(DocumentViewModel advm) {
+		
+=======
+
+	public Long addDocument(AddDocumentViewModel advm) {
+
+>>>>>>> 1289ec2 (register esn ok)
+>>>>>>> 84f94f9 (register esn ok)
 		Document document = new Document();
 
 		document.setName(advm.getName());
