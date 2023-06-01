@@ -65,6 +65,7 @@ public class RegisterEsnService {
 	private static Document document;
 
 	public void register(RegisterEsnViewModel viewModel) {
+<<<<<<< HEAD
 
 =======
 =======
@@ -81,6 +82,17 @@ public class RegisterEsnService {
 		adressDetails.setCity(viewModel.getCity());
 		adressDetails.setCountry(viewModel.getCountry());
 		adressDetails.setPostalCode(viewModel.getPostalCode());
+=======
+		Esn esn = new Esn();
+		
+//		AdressDetails adressDetails = new AdressDetails();
+//		adressDetails.setAdress(viewModel.getAdress());
+//		adressDetails.setCity(viewModel.getCity());
+//		adressDetails.setCountry(viewModel.getCountry());
+//		adressDetails.setPostalCode(viewModel.getPostalCode());
+//		
+//		CompanyDetails
+>>>>>>> d3087e5 (subscription company)
 
 		CompanyDetails companyDetails = new CompanyDetails();
 		companyDetails.setBrand(viewModel.getBrand());
