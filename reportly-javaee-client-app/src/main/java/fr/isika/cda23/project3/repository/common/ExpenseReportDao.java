@@ -17,7 +17,6 @@ public class ExpenseReportDao {
 
 		ExpenseReport expensereport = new ExpenseReport();
 
-		expensereport.setId(ervm.getId());
 		expensereport.setExpenseDate(ervm.getExpenseDate());
 		expensereport.setCreationDate(ervm.getCreationDate());
 		expensereport.setReason(ervm.getReason());
