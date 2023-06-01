@@ -42,12 +42,22 @@ public class RegisterEsnService {
 	public void register(RegisterEsnViewModel viewModel) {
 		Esn esn = new Esn();
 		
+<<<<<<< HEAD
 >>>>>>> 54dbdcd (user)
 		AdressDetails adressDetails = new AdressDetails();
 		adressDetails.setAdress(viewModel.getAdress());
 		adressDetails.setCity(viewModel.getCity());
 		adressDetails.setCountry(viewModel.getCountry());
 		adressDetails.setPostalCode(viewModel.getPostalCode());
+=======
+//		AdressDetails adressDetails = new AdressDetails();
+//		adressDetails.setAdress(viewModel.getAdress());
+//		adressDetails.setCity(viewModel.getCity());
+//		adressDetails.setCountry(viewModel.getCountry());
+//		adressDetails.setPostalCode(viewModel.getPostalCode());
+//		
+//		CompanyDetails
+>>>>>>> 3cd4aa3 (subscription company)
 
 <<<<<<< HEAD
 		CompanyDetails companyDetails = new CompanyDetails();

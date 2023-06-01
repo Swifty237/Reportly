@@ -80,6 +80,7 @@ public class CompanyDetails implements Serializable {
 	}
 	
 
+<<<<<<< HEAD
 	public String getPassword() {
 		return password;
 	}
@@ -88,6 +89,8 @@ public class CompanyDetails implements Serializable {
 		this.password = password;
 	}
 
+=======
+>>>>>>> 3cd4aa3 (subscription company)
 	public AdressDetails getAdressDetails() {
 		return adressDetails;
 	}
