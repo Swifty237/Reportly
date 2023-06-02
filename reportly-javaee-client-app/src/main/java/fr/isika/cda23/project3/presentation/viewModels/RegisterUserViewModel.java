@@ -3,8 +3,10 @@ package fr.isika.cda23.project3.presentation.viewModels;
 import java.util.Date;
 import java.util.List;
 
+import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserRole;
 
 public class RegisterUserViewModel {
 	private long userId;
@@ -19,8 +21,11 @@ public class RegisterUserViewModel {
 	private String country;
 	private int phoneNumber;
 	private String jobTitle;
+	private UserRole userRole;
+	private Esn esn;
 	private double tjm;
 	private Employee emp;
+
 	List<UserAccount> userAccounts;
 
 //	
@@ -71,7 +76,6 @@ public class RegisterUserViewModel {
 		this.firstname = firstname;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
@@ -79,10 +83,11 @@ public class RegisterUserViewModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -149,6 +154,22 @@ public class RegisterUserViewModel {
 
 	public void setTjm(double tjm) {
 		this.tjm = tjm;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
+	public Esn getEsn() {
+		return esn;
+	}
+
+	public void setEsn(Esn esn) {
+		this.esn = esn;
 	}
 
 	@Override

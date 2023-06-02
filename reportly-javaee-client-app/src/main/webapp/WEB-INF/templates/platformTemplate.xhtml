@@ -29,10 +29,18 @@
 					<div class="lien">
 						<!-- Affiché tout le temps (fragment de page) -->
 
-						<p:link outcome="index.xhtml">Home</p:link>
 
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="index.xhtml">Home</p:link>
+						</ui:fragment>
 
-						<p:link outcome="register.xhtml">Sign Up</p:link>
+						<ui:fragment rendered="#{loginBean.id !=null}">
+							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
+						</ui:fragment>
 
                         <p:link outcome="subscription.xhtml">Abonnement</p:link>
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
@@ -45,12 +53,6 @@
 
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
 							<p:link outcome="login.xhtml">SignIn</p:link>
-						</ui:fragment>
-
-						<ui:fragment rendered="true">
-							<p:link outcome="examplePageOfTemplate.xhtml">Example empty page</p:link>
-							<p:link outcome="registerEsn.xhtml">registerEsn</p:link>
-
 						</ui:fragment>
 					</div>
 				</h:form>

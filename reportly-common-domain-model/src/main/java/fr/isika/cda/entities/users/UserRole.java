@@ -2,7 +2,7 @@ package fr.isika.cda.entities.users;
 
 public enum UserRole {
 
-	EMPLOYEE ("Salarié"), TEAM_MANAGER("Manager"), ESN_MANAGER("Admin");
+	EMPLOYEE ("Salarié"), TEAM_MANAGER("Manager");
 
 	private final String label;
 
