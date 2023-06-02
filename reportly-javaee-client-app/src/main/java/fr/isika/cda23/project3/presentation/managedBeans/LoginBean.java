@@ -49,7 +49,7 @@ public class LoginBean implements Serializable {
 			if (esn != null) {
 				System.out.println("esn ok");
 				SessionUtils.setUserEmailIntoSession(esn.getEmail());
-				return "index.xhtml";
+				return "ecranEsn.xhtml";
 			}
 			System.out.println("not login 1");
 		}
