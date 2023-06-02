@@ -116,14 +116,6 @@
 								<h:outputLabel for="expenseDate" value="Date : " />
 								<p:calendar id="expenseDate" showOn="button" />
 
-								<h:outputLabel for="expenseType" value="Type : " />
-								<p:selectOneMenu id="expenseType">
-									<f:selectItem itemLabel="Type de document" itemValue=""
-										noSelectionOption="true" />
-									<f:selectItems var="type" itemLabel="#{type.label}"
-										itemValue="#{type.value}" />
-								</p:selectOneMenu>
-
 								<h:outputLabel for="expenseAmount" value="Amount:" />
 								<p:inputText id="expenseAmount"
 									validatorMessage="Invalid amount">
