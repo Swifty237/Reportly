@@ -113,7 +113,7 @@
 					<div class="col-8 shadow">
 
 						<h:dataTable class="table table-hover"
-							value="#{showAllDocumentsManagedBean.getListDocs()}" var="doc">
+							value="#{documentBean.getListDocs()}" var="doc">
 							<h:column>
 								<f:facet name="header">
 							Id
@@ -149,7 +149,7 @@
 
 								<h:form class="d-flex justify-content-center">
 									<h:commandButton
-										action="#{deleteDocumentManagedBean.deleteDoc(doc.id)}"
+										action="#{documentBean.deleteDoc(doc.id)}"
 										value="X" />
 								</h:form>
 							</h:column>
@@ -168,24 +168,24 @@
 								<h:outputLabel id="typeLbl" value="Type du document : " />
 
 								<h:selectOneMenu
-									value="#{addDocumentManagedBean.advm.typeOfDoc}">
+									value="#{documentBean.documentVm.typeOfDoc}">
 									<f:selectItem itemLabel="Sélection" itemValue="null"
 										noSelectionOption="true" />
 									<f:selectItems var="type" itemLabel="#{type.label}"
 										itemValue="#{type}"
-										value="#{addDocumentManagedBean.typesOfDocuments()}" />
+										value="#{documentBean.typesOfDocuments()}" />
 								</h:selectOneMenu>
 
 								<h:outputLabel id="fileUploadLbl"
 									value="Document à télécharger : " />
-								<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
+								<p:fileUpload listener="#{documentBean.uploadFile}"
 									mode="advanced" dragDropSupport="false" />
 
 							</h:panelGrid>
 							<div class="d-flex m-4">
 								<h:commandButton value="Enregistrer"
 									class="btn btn-primary me-3"
-									action="#{addDocumentManagedBean.addDocument()}" />
+									action="#{documentBean.addDocument()}" />
 							</div>
 
 						</h:form>

@@ -7,17 +7,27 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.Document;
+<<<<<<< HEAD
 import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
+=======
+import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
+>>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
 
 @Stateless
 public class DocumentDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+<<<<<<< HEAD
 
 	public Long addDocument(AddDocumentViewModel advm) {
 
+=======
+	
+	public Long addDocument(DocumentViewModel advm) {
+		
+>>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
 		Document document = new Document();
 
 		document.setName(advm.getName());
