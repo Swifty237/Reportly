@@ -66,6 +66,7 @@ public class LoginBean implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
@@ -87,6 +88,9 @@ public class LoginBean implements Serializable {
 =======
 				return "index.xhtml";
 >>>>>>> ab3abe1 (register esn ok)
+=======
+				return "ecranEsn.xhtml";
+>>>>>>> ec41cd3 (redirection des pages)
 			}
 			System.out.println("not login 1");
 		}
