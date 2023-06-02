@@ -15,18 +15,18 @@ public class ExpenseReportDao {
 
 	public Long addExpenseReport(ExpenseReportViewModel ervm) {
 
-		ExpenseReport expensereport = new ExpenseReport();
+		ExpenseReport expenseReport = new ExpenseReport();
 
-		expensereport.setExpenseDate(ervm.getExpenseDate());
-		expensereport.setCreationDate(ervm.getCreationDate());
-		expensereport.setReason(ervm.getReason());
-		expensereport.setAmount(ervm.getAmount());
+		expenseReport.setExpenseDate(ervm.getExpenseDate());
+		expenseReport.setCreationDate(ervm.getCreationDate());
+		expenseReport.setReason(ervm.getReason());
+		expenseReport.setAmount(ervm.getAmount());
 
-		entityManager.persist(expensereport);
+		entityManager.persist(expenseReport);
 
 		System.out.println("ExpenseReport : " + ervm.toString() + " persisté");
 
-		return expensereport.getId();
+		return expenseReport.getId();
 	}
 
 	public ExpenseReport getExpenseReportById(Long id) {
@@ -39,27 +39,32 @@ public class ExpenseReportDao {
 	}
 
 	public void updateExpenseReport(ExpenseReportViewModel ervm) {
-		ExpenseReport expensereport = entityManager.find(ExpenseReport.class, ervm.getId());
+		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, ervm.getId());
 
-		if (expensereport != null) {
-			expensereport.setExpenseDate(ervm.getExpenseDate());
-			expensereport.setCreationDate(ervm.getCreationDate());
-			expensereport.setReason(ervm.getReason());
-			expensereport.setAmount(ervm.getAmount());
+		if (expenseReport != null) {
+			expenseReport.setExpenseDate(ervm.getExpenseDate());
+			expenseReport.setCreationDate(ervm.getCreationDate());
+			expenseReport.setReason(ervm.getReason());
+			expenseReport.setAmount(ervm.getAmount());
 
-			entityManager.merge(expensereport);
+			entityManager.merge(expenseReport);
 
 			System.out.println("ExpenseReport: " + ervm.toString() + " updated");
 		}
 	}
 
-	public void deleteExpenseReport(Long id) {
-		ExpenseReport expensereport = entityManager.find(ExpenseReport.class, id);
-
-		if (expensereport != null) {
-			entityManager.remove(expensereport);
-
-			System.out.println("ExpenseReport with ID " + id + " deleted");
-		}
+//	public void deleteExpenseReport(Long id) {
+//		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, id);
+//
+//		if (expenseReport != null) {
+//			entityManager.remove(expenseReport);
+//
+//			System.out.println("ExpenseReport with ID " + id + " deleted");
+//		}
+//	}
+	
+	public void deleteExpenseReport(ExpenseReport expenseReport) {
+			entityManager.remove(expenseReport);
+			System.out.println("Note de frais supprimé ================================================");
 	}
 }
