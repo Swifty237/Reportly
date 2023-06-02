@@ -7,6 +7,70 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
-		<h2></h2>
+		<h:form id="userTableForm">
+			<p:panel header="Administrator" styleClass="panel">
+				<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
+					var="user" emptyMessage="No users found" lazy="false">
+
+					<p:column headerText="Nom">
+						<h:outputText value="#{user.pers.name}" />
+					</p:column>
+
+					<p:column headerText="Prénom">
+						<h:outputText value="#{user.pers.firstname}" />
+					</p:column>
+
+					<p:column headerText="Email">
+						<h:outputText value="#{user.email}" />
+					</p:column>
+
+					<p:column headerText="Date de naissance">
+						<h:outputText value="#{user.pers.birthday}" />
+					</p:column>
+
+					<p:column headerText="Rue">
+						<h:outputText value="#{user.pers.adressDetails.adress}" />
+					</p:column>
+
+					<p:column headerText="Ville">
+						<h:outputText value="#{user.pers.adressDetails.city}" />
+					</p:column>
+
+					<p:column headerText="Code Postal">
+						<h:outputText value="#{user.pers.adressDetails.postalCode}" />
+					</p:column>
+
+					<p:column headerText="Pays">
+						<h:outputText value="#{user.pers.adressDetails.country}" />
+					</p:column>
+
+					<p:column headerText="Téléphone">
+						<h:outputText value="#{user.pers.phoneNumber}" />
+					</p:column>
+
+					<p:column headerText="Poste">
+						<h:outputText value="#{user.pers.jobTitle}" />
+					</p:column>
+
+					<p:column headerText="Tjm">
+						<h:outputText value="#{user.tjm}" />
+					</p:column>
+
+					<p:column style="width: 70px;">
+						<p:commandButton value="modify"
+							action="#{registerUserBean.viewUser(user.userId)}"
+							icon="pi pi-search" styleClass="ui-button-raised ui-button-info">
+							<f:param name="userId" value="#{user.userId}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width: 70px;">
+						<p:commandButton value="delete"
+							action="#{registerUserBean.deleteUser(user.userId)}"
+							icon="pi pi-trash" styleClass="ui-button-raised ui-button-danger" />
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+		</h:form>
 	</ui:define>
 </ui:composition>

@@ -3,8 +3,7 @@ package fr.isika.cda23.project3.utils;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-public final class SessionUtils {
-
+public final class SessionUtils {	
 	public static String getUserEmailFromSession() {
 		HttpSession session = getSession();
 		// Lire une propriété depuis la session 
@@ -15,6 +14,17 @@ public final class SessionUtils {
 		HttpSession session = getSession();
 		// Ajoute une entrée (clé, valeur) dans la map de la session
 		session.setAttribute("email", email);
+	}
+	public static Long getEsnIdFromSession() {
+		HttpSession session = getSession();
+		// Lire une propriété depuis la session 
+		return (Long) session.getAttribute("esnId");
+	}
+	
+	public static void seEsnIdIntoSession(final Long esnId) {
+		HttpSession session = getSession();
+		// Ajoute une entrée (clé, valeur) dans la map de la session
+		session.setAttribute("esnId", esnId);
 	}
 	
 //	public static List<Role> getUserRolesFromSession() {

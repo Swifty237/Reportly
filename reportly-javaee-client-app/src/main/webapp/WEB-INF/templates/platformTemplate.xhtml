@@ -36,6 +36,18 @@
 							<p:link outcome="register.xhtml">Sign up <i class="fa-solid fa-user-plus text-white p-2"></i></p:link>
 						</div>
 
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="index.xhtml">Home</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{loginBean.id !=null}">
+							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
+						</ui:fragment>
+
 
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 
