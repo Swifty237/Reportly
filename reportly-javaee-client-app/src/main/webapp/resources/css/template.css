@@ -84,6 +84,7 @@ body {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	bottom: 0;
 }
 =======
@@ -109,3 +110,8 @@ body {
 =======
 }
 >>>>>>> 54dbdcd (user)
+=======
+	position: sticky;
+	bottom: 0;
+}
+>>>>>>> d9ca59d (redirection des pages)
