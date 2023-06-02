@@ -87,6 +87,7 @@ body {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	bottom: 0;
 }
 =======
@@ -127,3 +128,8 @@ body {
 	margin-top: auto;
 }
 >>>>>>> b7c6b2a (user)
+=======
+	position: sticky;
+	bottom: 0;
+}
+>>>>>>> be3e6c2 (redirection des pages)
