@@ -67,4 +67,17 @@ public class Esn implements Serializable {
 	public void setCustomerList(List<Customer> customerList) {
 		this.customerList = customerList;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Esn [id=");
+		builder.append(id);
+		builder.append(", companyDetails=");
+		builder.append(companyDetails);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

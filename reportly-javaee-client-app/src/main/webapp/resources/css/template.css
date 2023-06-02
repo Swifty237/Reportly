@@ -9,6 +9,13 @@
 	margin-bottom: 20px;
 }
 
+#content {
+	border: double;
+	padding: 10px;
+	margin: 10px;
+	min-height: calc(100vh - 20px - 10px - 5px); /* 计算剩余空间的高度 */
+}
+
 .logo {
 	width: 20%;
 	height: 20%;
@@ -34,6 +41,5 @@
 	background-color: #f8f4f4;
 	padding: 5px;
 	text-align: center;
-	position: sticky;
 	bottom: 0;
 }
