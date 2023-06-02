@@ -29,6 +29,7 @@ public class CompanyDetails implements Serializable {
 
 	private String brand;
 	private String email;
+	
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Document document;
