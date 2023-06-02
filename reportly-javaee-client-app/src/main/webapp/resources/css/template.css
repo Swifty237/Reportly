@@ -20,7 +20,7 @@ body {
 	height: 40px;
 }
 
-.user-image {
+.profile-image-size {
 	width: 80%;
 	height: 80%;
 }
@@ -50,8 +50,18 @@ body {
 	height: 18vh;
 }
 
+.speedometer-size {
+	height: 40%;
+	width: 40%;
+}
+
 .side-nav {
 	height: 90%;
+}
+
+.bg-reportly-lbl {
+	background-color: #34495e;
+	border-color: #34495e;
 }
 
 #navbarNav {
