@@ -84,10 +84,24 @@ public class RegisterUserBean implements Serializable {
 
 //	clear tous les champs du formulaire de register
 	public void clear() {
+<<<<<<< HEAD
 		registerUserVm = new RegisterUserViewModel();
 		try {
 			NavigationUtils.redirectToUserList("ecranEsn.xhtml");
 		} catch (IOException e) {
+=======
+		try {
+			if (registerUserVm == null) {
+
+				System.out.println("lolo++++++++++++++++++++++++++++++++++++++++++");
+				NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+			} else {
+				registerUserVm = new RegisterUserViewModel();
+				NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+>>>>>>> b72d5bc (ecranEsn)
 			e.printStackTrace();
 		}
 	}

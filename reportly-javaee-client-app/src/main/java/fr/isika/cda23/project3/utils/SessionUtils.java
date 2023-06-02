@@ -17,6 +17,7 @@ public final class SessionUtils {
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 2043bae (Fixed some conflicts after merging)
@@ -24,6 +25,18 @@ public final class SessionUtils {
 		HttpSession session = getSession();
 		// Lire une propriété depuis la session 
 		return (String) session.getAttribute("nameEsn");
+=======
+	public static Long getEsnIdFromSession() {
+		HttpSession session = getSession();
+		// Lire une propriété depuis la session 
+		return (Long) session.getAttribute("esnId");
+	}
+	
+	public static void seEsnIdIntoSession(final Long esnId) {
+		HttpSession session = getSession();
+		// Ajoute une entrée (clé, valeur) dans la map de la session
+		session.setAttribute("esnId", esnId);
+>>>>>>> b72d5bc (ecranEsn)
 	}
 	
 	public static void setEsnNameIntoSession(final String nameEsn) {

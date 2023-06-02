@@ -61,9 +61,24 @@
 						</div>
 >>>>>>> 2b0ee29 (Refactoring navigation of the template in WEB-INDEX folder and refactoring all xhtml files for uc_manage_cra_activity)
 
+<<<<<<< HEAD
 >>>>>>> d87f7d0 (dashboard navigation done -- todo - dashboard content and managed bean)
 =======
 >>>>>>> 2043bae (Fixed some conflicts after merging)
+=======
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="index.xhtml">Home</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{loginBean.id !=null}">
+							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
+						</ui:fragment>
+
+>>>>>>> b72d5bc (ecranEsn)
 
                         <p:link outcome="subscription.xhtml">Abonnement</p:link>
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">

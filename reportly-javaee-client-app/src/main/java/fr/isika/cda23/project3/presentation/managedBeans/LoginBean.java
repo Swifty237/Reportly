@@ -33,6 +33,7 @@ public class LoginBean implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private Long id;
 
 	private String esnName;
@@ -43,6 +44,10 @@ public class LoginBean implements Serializable {
 >>>>>>> ab3abe1 (register esn ok)
 =======
 >>>>>>> a6ba52f (register esn ok)
+=======
+	private Long id;
+
+>>>>>>> b72d5bc (ecranEsn)
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
 	public String login() {
@@ -72,17 +77,24 @@ public class LoginBean implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
 				SessionUtils.setEsnNameIntoSession(esn.getBrand());
 				setEsnName(esn.getBrand());
+=======
+				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
+				SessionUtils.seEsnIdIntoSession(esnId);
+				id = esnId;
+>>>>>>> b72d5bc (ecranEsn)
 				try {
 					NavigationUtils.redirectToUserList("ecranEsn.xhtml");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+<<<<<<< HEAD
 				return "";
 =======
 				return "index.xhtml";
@@ -102,6 +114,9 @@ public class LoginBean implements Serializable {
 =======
 				return "ecranEsn.xhtml";
 >>>>>>> be3e6c2 (redirection des pages)
+=======
+				return"" ;
+>>>>>>> b72d5bc (ecranEsn)
 			}
 			System.out.println("not login 1");
 		}
@@ -118,6 +133,7 @@ public class LoginBean implements Serializable {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 		
@@ -128,6 +144,9 @@ public class LoginBean implements Serializable {
 =======
 		
 >>>>>>> a6ba52f (register esn ok)
+=======
+
+>>>>>>> b72d5bc (ecranEsn)
 		NavigationUtils.redirectToUserList("index.xhtml");
 	}
 
@@ -151,6 +170,7 @@ public class LoginBean implements Serializable {
 		this.id = id;
 	}
 
+<<<<<<< HEAD
 	public String getEsnName() {
 		return esnName;
 	}
@@ -159,4 +179,6 @@ public class LoginBean implements Serializable {
 		this.esnName = esnName;
 	}
 
+=======
+>>>>>>> b72d5bc (ecranEsn)
 }
