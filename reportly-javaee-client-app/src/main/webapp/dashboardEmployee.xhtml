@@ -8,7 +8,7 @@
 
 	<ui:define name="content">
 
-		<div class="row">
+		<div class="row bg-light">
 
 			<div class="col-2 border-end border-dark">
 
@@ -28,10 +28,11 @@
 
 			<div class="col-10">
 
-				<div class="row justify-content-between">
+				<div class="row justify-content-between align-items-center">
 					<div class="col-4">
 						<ul class="nav">
-							<li class="nav-item px-2 me-2 border-end"><p:link outcome="dashboardEmployee.xhtml">Mon Espace</p:link></li>
+							<li class="nav-item px-2 me-2 border-end"><p:link
+									outcome="dashboardEmployee.xhtml">Mon Espace</p:link></li>
 							<li class="nav-item px-2 me-2 border-end"><p:link>Planning</p:link></li>
 							<li class="nav-item px-2 me-2 border-end"><p:link>Documents</p:link></li>
 							<li class="nav-item px-2 me-2 border-end"><p:link>Formation</p:link></li>
@@ -53,11 +54,20 @@
 						<div class="row justify-content-end">
 							<div class="col-7">
 								<div class="d-flex justify-content-center">
-									<p:graphicImage name="default-image.png" library="images"
-										alt="User image" class="user-image" />
+
+									<p:card styleClass="profile-card mb-4">
+										<f:facet name="header">
+											<p:graphicImage name="default-image.png" library="images"
+												alt="User image" class="user-image" />
+										</f:facet>
+
+										<f:facet name="title">
+											<h6 class="text-center">Paul Martin</h6>
+										</f:facet>
+
+									</p:card>
 								</div>
-								
-								<h6 class="mt-2 text-center">Paul Martin</h6>
+
 							</div>
 
 							<div class="col-3 d-flex flex-column justify-content-around">
@@ -65,7 +75,7 @@
 									<i class="fa-solid fa-gear"></i>
 								</button>
 
-								<button class="btn btn-danger">
+								<button class="btn btn-outline-secondary">
 									<i class="fa-solid fa-arrow-right-from-bracket"></i>
 								</button>
 							</div>
@@ -73,15 +83,109 @@
 
 					</div>
 				</div>
-				
-				<div class="row justify-content-around height-60-vh">
-					<div class="col-9 bg-secondary">
-												
+
+				<div class="row justify-content-around">
+					<div class="col-9">
+						<div class="row justify-content-around border shadow">
+
+							<div
+								class="col-3 d-flex flex-column justify-content-around height-60-vh">
+								<p:card styleClass="border border-2 border-dark row shadow">
+									<div class="border border-2 rounded border-dark mb-2">
+										<h5 class="text-center">Note de frais</h5>
+									</div>
+
+									<div class="d-flex align-items-center mt-4 mb-2">
+										<i class="fa-solid fa-circle-plus text-success fs-4 me-4"></i>
+										<span>Nouvelle note</span>
+									</div>
+
+									<div class="d-flex align-items-center">
+										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
+										<span class="me-2">Note (s) à valider</span>
+										<span class="bg-danger px-2 border border-danger text-light rounded rounde-circle">2</span>
+									</div>
+								</p:card>
+
+								<p:card styleClass="border border-2 border-dark row m-2">
+									<div class="border border-2 rounded border-dark mb-2">
+										<h5 class="text-center">Congés et absences</h5>
+									</div>
+
+									<div class="d-flex align-items-center mt-4 mb-2">
+										<i class="fa-solid fa-circle-plus text-success fs-4 me-4"></i>
+										<span>Nouvelle demande</span>
+									</div>
+
+									<div class="d-flex align-items-center">
+										<i class="fa-solid fa-calendar-days text-primary fs-4 me-4"></i>
+										<span>Planning absences</span>
+									</div>
+								</p:card>
+							</div>
+
+							<div
+								class="col-3 d-flex flex-column justify-content-around height-60-vh">
+								<p:card styleClass="border border-2 border-dark row m-2">
+									<div class="border border-2 rounded border-dark mb-2">
+										<h5 class="text-center">Temps et activités</h5>
+									</div>
+
+									<div class="d-flex align-items-center mt-4 mb-2">
+										<i class="fa-solid fa-circle-plus text-success fs-4 me-4"></i>
+										<span>Nouvelle activité</span>
+									</div>
+
+									<div class="d-flex align-items-center">
+										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
+										<span class="me-2">Complet </span>
+										<span class="bg-warning px-2 border border-warning text-white rounded rounde-circle">60%</span>
+									</div>
+								</p:card>
+
+								<p:card styleClass="border border-2 border-dark row m-2">
+									<div class="border border-2 rounded border-dark mb-2">
+										<h5 class="text-center">Formations</h5>
+									</div>
+
+									<div class="d-flex align-items-center mt-4 mb-2">
+										<i class="fa-solid fa-circle-plus text-success fs-4 me-4"></i>
+										<span>Nouvelle demande</span>
+									</div>
+
+									<div class="d-flex align-items-center">
+										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
+										<span class="me-2">En cours</span>
+										<span class="bg-primary px-2 border border-primary text-light rounded rounde-circle">1</span>
+									</div>
+								</p:card>
+							</div>
+
+							<div
+								class="col-3 d-flex flex-column justify-content-around height-60-vh">
+								<p:card styleClass="border border-2  border-dark row m-2">
+									<div class="border border-dark border-2 rounded mb-2">
+										<h5 class="text-center">Projets</h5>
+									</div>
+
+									<div class="d-flex align-items-center mt-4 mb-2">
+										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
+										<span class="me-2">En cours</span>
+										<span class="bg-primary px-2 border border-primary text-light rounded rounde-circle">1</span>
+									</div>
+									
+									<div class="d-flex align-items-center mt-4 mb-2">
+										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
+										<span class="me-2">Terminé(s)</span>
+										<span class="bg-success px-2 border border-success text-light rounded rounde-circle">4</span>
+									</div>
+								</p:card>
+							</div>
+
+						</div>
 					</div>
-					
-					<div class="col-2 bg-info">
-					
-					</div>
+
+					<div class="col-2 bg-info"></div>
 				</div>
 
 			</div>
