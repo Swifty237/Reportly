@@ -44,6 +44,7 @@ public class RegisterUserService {
 		viewModel.setEmp(emp);
 
 		Long id = userDao.register(viewModel);
+		System.out.println("register =========================================================================================");
 	}
 
 	public List<UserAccount> findAllUsers(Long id) {
