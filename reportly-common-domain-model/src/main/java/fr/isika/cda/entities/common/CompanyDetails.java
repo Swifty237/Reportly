@@ -28,10 +28,16 @@ public class CompanyDetails implements Serializable {
 	private Date creationDate;
 
 	private String brand;
+	
+	private String password;
+	
 	private String email;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Document document;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private AdressDetails adressDetails;
 
 	public Long getId() {
 		return id;
@@ -71,6 +77,23 @@ public class CompanyDetails implements Serializable {
 
 	public void setDocument(Document document) {
 		this.document = document;
+	}
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public AdressDetails getAdressDetails() {
+		return adressDetails;
+	}
+
+	public void setAdressDetails(AdressDetails adressDetails) {
+		this.adressDetails = adressDetails;
 	}
 
 	@Override

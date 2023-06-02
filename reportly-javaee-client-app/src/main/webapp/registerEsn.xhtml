@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="styles">
+		<h:outputStylesheet library="css" name="registerEsnStyle.css" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="registrationForm" class="registration-form">
+			<p:panel header="Formulaire d'inscription Esn"
+				class="registration-panel">
+				<p:growl id="messages" showDetail="true" />
+
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="nom" value="Nom d'Entreprise :" />
+					<p:inputText id="nom"
+						value="#{registerEsnBean.registerEsnVm.brand}" />
+
+					<h:outputLabel for="email" value="Email :" />
+					<p:inputText id="email"
+						value="#{registerEsnBean.registerEsnVm.email}" />
+
+					<h:outputLabel for="password" value="Mot de passe :" />
+					<p:password id="password"
+						value="#{registerEsnBean.registerEsnVm.password}" feedback="true"
+						redisplay="true" toggleMask="true" />
+
+					<h:outputLabel for="rue" value="Rue :" />
+					<p:inputText id="rue"
+						value="#{registerEsnBean.registerEsnVm.adress}" />
+
+					<h:outputLabel for="ville" value="Ville :" />
+					<p:inputText id="ville"
+						value="#{registerEsnBean.registerEsnVm.city}" />
+
+					<h:outputLabel for="codePostal" value="Code Postal :" />
+					<p:inputText id="codePostal"
+						value="#{registerEsnBean.registerEsnVm.postalCode}" />
+
+					<h:outputLabel for="pays" value="Pays :" />
+					<p:inputText id="pays"
+						value="#{registerEsnBean.registerEsnVm.country}" />
+
+					<h:outputLabel id="fileUploadLbl" value="Kbis : " />
+					<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
+						mode="advanced" dragDropSupport="false" update="messages" />
+
+				</h:panelGrid>
+				<h:panelGroup>
+					<p:commandButton type="submit" value="Enregistrer"
+						style="margin-right: 10px;" action="#{registerEsnBean.register()}"/>
+					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
+						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
+				</h:panelGroup>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
