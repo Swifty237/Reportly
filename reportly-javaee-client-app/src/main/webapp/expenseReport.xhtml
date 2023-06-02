@@ -6,6 +6,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
+<<<<<<< HEAD
 	<ui:define name="content">
 
 		<div class="row bg-light">
@@ -185,3 +186,55 @@
 
 	</ui:define>
 </ui:composition>
+=======
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="expenseDate" value="Date:" />
+						<p:calendar id="expenseDate"
+							value="#{expenseBean.expenseReport.expenseDate}" showOn="button" />
+
+						<h:outputLabel for="expenseAmount" value="Amount:" />
+						<p:inputText id="expenseAmount"
+							value="#{expenseBean.expenseReport.amount}"
+							validatorMessage="Invalid amount">
+							<f:convertNumber maxFractionDigits="2" />
+							<f:validateDoubleRange minimum="0.01" />
+						</p:inputText>
+
+						<h:outputLabel for="expenseDescription" value="Description:" />
+						<p:inputTextarea id="expenseDescription"
+							value="#{expenseBean.expenseReport.reason}" rows="6" cols="30" />
+
+						<p:commandButton value="Submit"
+							action="#{expenseBean.addExpenseReport}"
+							update="messages expenseTable" process="@form" />
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</div>
+
+		<div id="table-expense-container">
+			<p:dataTable id="expenseTable" var="expense"
+				value="#{expenseBean.getExpenseReports()}"
+				emptyMessage="No expenses found">
+				<p:column headerText="Date">
+					<h:outputText value="#{expense.expenseDate}">
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Type">
+					<h:outputText value="#{expense.reason}" />
+				</p:column>
+				<p:column headerText="Amount">
+					<h:outputText value="#{expense.amount}">
+						<f:convertNumber currencySymbol="€" type="currency" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Description">
+					<h:outputText value="#{expense.reason}" />
+				</p:column>
+			</p:dataTable>
+		</div>
+	</div>
+</h:body>
+</html>
+>>>>>>> 5f75810 (Latest changes)
