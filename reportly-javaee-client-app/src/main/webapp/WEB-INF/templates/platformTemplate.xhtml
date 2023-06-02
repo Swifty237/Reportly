@@ -9,12 +9,14 @@
 	<title>Reportly App</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="all.min.css" />
 	<h:outputStylesheet library="css" name="template.css" />
 	<ui:insert name="styles" />
 </h:head>
 
 <h:body>
 	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+	<script src="https://kit.fontawesome.com/64a8132751.js" crossorigin="anonymous"></script>
 	<div id="container">
 
 		<div id="header">
@@ -24,13 +26,10 @@
 					alt="Wildfly dual brand logo" class="logo" />
 			</div>
 
-			<div>
+			<div class="me-4">
 				<h:form>
 					<div class="lien">
 						<!-- Affiché tout le temps (fragment de page) -->
-
-						<p:link outcome="index.xhtml">Home</p:link>
-
 
 						<p:link outcome="register.xhtml">Sign Up</p:link>
 
@@ -48,7 +47,10 @@
 						</ui:fragment>
 
 						<ui:fragment rendered="true">
+
 							<p:link outcome="registerCustomer.xhtml">Example empty page</p:link>
+
+							<p:link outcome="examplePageOfTemplate.xhtml">Help</p:link>
 
 						</ui:fragment>
 					</div>
