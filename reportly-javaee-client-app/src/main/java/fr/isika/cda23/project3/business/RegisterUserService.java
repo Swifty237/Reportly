@@ -1,10 +1,8 @@
 package fr.isika.cda23.project3.business;
 
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-
 import fr.isika.cda.entities.common.AdressDetails;
 import fr.isika.cda.entities.common.PersonalDetails;
 import fr.isika.cda.entities.users.Employee;
