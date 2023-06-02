@@ -10,7 +10,7 @@ import fr.isika.cda.entities.contract.Customer;
 import fr.isika.cda23.project3.business.ShowAllCustomerService;
 
 @ManagedBean
-public class ShowAllCustomerManagedBean {
+public class ShowAllCustomerBean {
 	@Inject
 	private ShowAllCustomerService sacService;
 	

@@ -4,12 +4,18 @@ import java.util.Date;
 
 import fr.isika.cda.entities.common.DocumentType;
 
-public class AddDocumentViewModel {
+public class DocumentViewModel {
 
+	private Long id;
 	private String name;
 	private DocumentType typeOfDoc;
 	private Date docCreation = new Date();
-		
+	
+	
+	public Long getId() {
+		return id;
+	}
+	
 	public String getName() {
 		return name;
 	}
