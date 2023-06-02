@@ -46,6 +46,10 @@ body {
 	min-height: 60vh;
 }
 
+.profile-card {
+	height: 18vh;
+}
+
 .side-nav {
 	height: 90%;
 }
