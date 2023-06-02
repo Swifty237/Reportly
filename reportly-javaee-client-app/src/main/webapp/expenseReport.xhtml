@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Expense Report</title>
+	<h:outputStylesheet library="css" name="expenseStyle.css" />
+</h:head>
+<h:body>
+	<div id="expense-container">
+		<div id="form-expense-container">
+			<h:form id="expenseForm" enctype="multipart/form-data">
+				<p:panel header="Expense Report">
+					<p:messages id="messages" showDetail="true" autoUpdate="true"
+						closable="true" />
+
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="expenseDate" value="Date:" />
+						<p:calendar id="expenseDate" value="#{expenseBean.expenseDate}"
+							showOn="button" />
+
+						<h:outputLabel for="expenseType" value="Type:" />
+						<p:selectOneMenu id="expenseType"
+							value="#{expenseBean.expenseType}">
+							<f:selectItem itemLabel="Select Type" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems value="#{expenseBean.expenseTypes}" var="type"
+								itemLabel="#{type.label}" itemValue="#{type.value}" />
+						</p:selectOneMenu>
+
+						<h:outputLabel for="expenseAmount" value="Amount:" />
+						<p:inputText id="expenseAmount"
+							value="#{expenseBean.expenseAmount}"
+							validatorMessage="Invalid amount">
+							<f:convertNumber maxFractionDigits="2" />
+							<f:validateDoubleRange minimum="0.01" />
+						</p:inputText>
+
+						<h:outputLabel for="expenseDescription" value="Description:" />
+						<p:inputTextarea id="expenseDescription"
+							value="#{expenseBean.expenseDescription}" rows="6" cols="30" />
+
+						<h:outputLabel for="expenseDocument" value="Document:" />
+						<p:fileUpload id="expenseDocument"
+							value="#{expenseBean.uploadedFile}" mode="simple"
+							allowTypes="/(\.|\/)(pdf|doc|docx)$/" />
+
+						<p:commandButton value="Submit"
+							action="#{expenseBean.saveExpense}"
+							update="messages expenseTable" process="@form" />
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</div>
+
+		<div id="table-expense-container">
+			<p:dataTable id="expenseTable" var="expense"
+				value="#{expenseBean.expenses}" emptyMessage="No expenses found">
+				<p:column headerText="Date">
+					<h:outputText value="#{expense.expenseDate}">
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Type">
+					<h:outputText value="#{expense.expenseType.label}" />
+				</p:column>
+				<p:column headerText="Amount">
+					<h:outputText value="#{expense.expenseAmount}">
+						<f:convertNumber currencySymbol="€" type="currency" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Description">
+					<h:outputText value="#{expense.expenseDescription}" />
+				</p:column>
+			</p:dataTable>
+		</div>
+	</div>
+</h:body>
+</html>
