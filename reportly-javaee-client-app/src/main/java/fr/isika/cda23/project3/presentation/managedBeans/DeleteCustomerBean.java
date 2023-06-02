@@ -17,7 +17,7 @@ public class DeleteCustomerBean {
 	
 	public void deleteCustomer(Long id) throws IOException{
 		rmCustomerService.deleteCustomer(id);
-		NavigationUtils.redirectToUserList("showAllDocuments.Xhtml");
+		NavigationUtils.redirectToUserList("showAllCustomer.Xhtml");
 	}
 
 }
