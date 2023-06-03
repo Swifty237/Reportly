@@ -13,12 +13,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda.entities.contract.Customer;
 import fr.isika.cda.entities.esn.ServiceBasic;
 import fr.isika.cda.entities.esn.ServiceDetails;
 import fr.isika.cda.entities.esn.ServicePremium;
 =======
 import fr.isika.cda.entities.common.ErState;
+=======
+import fr.isika.cda.entities.common.ExpenseReportState;
+>>>>>>> 8d57b80 (Renaming ErState to ExpenseReportState in all project)
 import fr.isika.cda.entities.common.ExpenseReport;
 >>>>>>> b62d91c (Backend card - Note de frais - done)
 

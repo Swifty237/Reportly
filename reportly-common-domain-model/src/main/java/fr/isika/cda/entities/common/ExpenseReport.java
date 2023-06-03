@@ -36,7 +36,7 @@ public class ExpenseReport implements Serializable {
 
 	private Double amount;
 
-	private ErState PaidState;
+	private ExpenseReportState expenseReportState;
 
 	public Long getId() {
 		return id;
@@ -86,12 +86,13 @@ public class ExpenseReport implements Serializable {
 		this.amount = amount;
 	}
 
-	public ErState getPaidState() {
-		return PaidState;
+	public ExpenseReportState getExpenseReportState() {
+		return expenseReportState;
 	}
 
-	public void setPaidState(ErState paidState) {
-		PaidState = paidState;
+	public void setExpenseReportState(ExpenseReportState expenseReportState) {
+		this.expenseReportState = expenseReportState;
 	}
+
 
 }
