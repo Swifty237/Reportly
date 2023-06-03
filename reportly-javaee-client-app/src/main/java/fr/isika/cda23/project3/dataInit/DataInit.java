@@ -336,8 +336,12 @@ public class DataInit {
 //	        em.persist(expenseReport2);
 //	        em.persist(expenseReport3);
 //	        em.persist(expenseReport4);
+<<<<<<< HEAD
     }
 		
 >>>>>>> 3a690c2 (Modifying ExpenseReportState values - many other adjustements to create expenseReport.xhtml done)
+=======
+    }		
+>>>>>>> cfae081 (ecran Esn former les équipes)
 }
 	

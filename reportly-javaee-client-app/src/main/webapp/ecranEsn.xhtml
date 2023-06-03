@@ -25,7 +25,7 @@
 <<<<<<< HEAD
 =======
 		<h:form id="userTableForm">
-			<p:panel header="Administrator" styleClass="panel">
+			<p:panel header="Liste des collaborateurs de #{loginBean.esnName}" styleClass="panel">
 				<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
 					var="user" emptyMessage="No users found" lazy="false">
 >>>>>>> b72d5bc (ecranEsn)
@@ -43,6 +43,7 @@
 					</p:column>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 					<p:column headerText="Nom">
 						<h:outputText value="#{user.pers.name}" />
@@ -54,11 +55,14 @@
 						<h:outputText value="#{user.email}" />
 					</p:column>
 >>>>>>> 2043bae (Fixed some conflicts after merging)
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 					<p:column headerText="Rôle">
 						<h:outputText value="Employé"
 							rendered="#{user.userRole eq 'EMPLOYEE'}" />
 						<h:outputText value="Manager"
 							rendered="#{user.userRole ne 'EMPLOYEE'}" />
+<<<<<<< HEAD
 					</p:column>
 <<<<<<< HEAD
 =======
@@ -80,6 +84,8 @@
 
 					<p:column headerText="Pays">
 						<h:outputText value="#{user.pers.adressDetails.country}" />
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 					</p:column>
 >>>>>>> b72d5bc (ecranEsn)
 
@@ -101,11 +107,14 @@
 						<h:outputText value="#{user.busy ? 'Non' : 'Oui'}" />
 					</p:column>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 					<p:column headerText="Poste">
 						<h:outputText value="#{user.pers.jobTitle}" />
 					</p:column>
 >>>>>>> b72d5bc (ecranEsn)
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 
 					<p:column headerText="Tjm">
 						<h:outputText value="#{user.tjm}" />

@@ -1,5 +1,6 @@
 package fr.isika.cda23.project3.repository.company;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.List;
 
@@ -87,3 +88,14 @@ public class TeamDao {
 		return entityManager.createQuery(query, ProjectTeam.class).setParameter("esnId", id).getResultList();
 	}
 }
+=======
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+public class TeamDao {
+
+
+	@PersistenceContext
+	private EntityManager entityManager;
+}
+>>>>>>> cfae081 (ecran Esn former les équipes)

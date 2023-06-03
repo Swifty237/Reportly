@@ -1,5 +1,6 @@
 package fr.isika.cda23.project3.business;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -75,4 +76,11 @@ public class TeamService {
 		teamDao.removeProjectTeam(id);
 
 	}
+=======
+import javax.ejb.Stateless;
+
+@Stateless
+public class TeamService {
+
+>>>>>>> cfae081 (ecran Esn former les équipes)
 }

@@ -38,6 +38,7 @@ public class LoginBean implements Serializable {
 
 	private String esnName;
 
+<<<<<<< HEAD
 =======
 >>>>>>> 84f94f9 (register esn ok)
 =======
@@ -48,6 +49,8 @@ public class LoginBean implements Serializable {
 	private Long id;
 
 >>>>>>> b72d5bc (ecranEsn)
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
 	public String login() {
@@ -83,17 +86,21 @@ public class LoginBean implements Serializable {
 				id = esnId;
 				SessionUtils.setEsnNameIntoSession(esn.getBrand());
 				setEsnName(esn.getBrand());
+<<<<<<< HEAD
 =======
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
 >>>>>>> b72d5bc (ecranEsn)
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 				try {
 					NavigationUtils.redirectToUserList("ecranEsn.xhtml");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+<<<<<<< HEAD
 <<<<<<< HEAD
 				return "";
 =======
@@ -117,6 +124,9 @@ public class LoginBean implements Serializable {
 =======
 				return"" ;
 >>>>>>> b72d5bc (ecranEsn)
+=======
+				return "";
+>>>>>>> cfae081 (ecran Esn former les équipes)
 			}
 			System.out.println("not login 1");
 		}
@@ -171,6 +181,9 @@ public class LoginBean implements Serializable {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 	public String getEsnName() {
 		return esnName;
 	}
@@ -179,6 +192,9 @@ public class LoginBean implements Serializable {
 		this.esnName = esnName;
 	}
 
+<<<<<<< HEAD
 =======
 >>>>>>> b72d5bc (ecranEsn)
+=======
+>>>>>>> cfae081 (ecran Esn former les équipes)
 }
