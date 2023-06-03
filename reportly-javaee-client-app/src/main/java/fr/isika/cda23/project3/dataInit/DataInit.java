@@ -24,19 +24,6 @@ public class DataInit {
 	@PostConstruct
 	public void init() {
 	
-	//System.out.println("Test persist ---------------------------------------------------------");
-		//	CompanyDetails companyDetails = new CompanyDetails();
-			
-			//PersonalDetails personalDetails = new PersonalDetails();		
-		//	Customer customer = new Customer();
-			
-			//customer.setCompanyDetails(companyDetails);
-			//customer.setPersonalDetails(personalDetails);
-			
-		//	em.persist(customer);
-		
-		// Créer les 3 types de services
-		
 		int nbservices = em.createQuery("SELECT count(s) FROM ServiceBasic s").getFirstResult();
 		if( nbservices <= 0 ) {
 			ServiceDetails serviceDetails = new ServiceDetails();
@@ -80,13 +67,5 @@ public class DataInit {
 		} else {
 			System.out.println("Client introuvable");
 		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }

@@ -32,10 +32,10 @@ public class RegisterUserService {
 		adressDetails.setPostalCode(viewModel.getPostalCode());
 
 		PersonalDetails personalDetails = new PersonalDetails();
-		personalDetails.setName(viewModel.getName());
-		personalDetails.setFirstname(viewModel.getFirstname());
+		personalDetails.setName(viewModel.getName().toUpperCase());
+		personalDetails.setFirstname(viewModel.getFirstname().toLowerCase());
 		personalDetails.setBirthday(viewModel.getBirthday());
-		personalDetails.setJobTitle(viewModel.getJobTitle());
+		personalDetails.setJobTitle(viewModel.getJobTitle().toUpperCase());
 		personalDetails.setPhoneNumber(viewModel.getPhoneNumber());
 		personalDetails.setAdressDetails(adressDetails);
 
@@ -46,8 +46,8 @@ public class RegisterUserService {
 		Long id = userDao.register(viewModel);
 	}
 
-	public List<UserAccount> findAllUsers() {
-		return userDao.findAllUsers();
+	public List<UserAccount> findAllUsers(Long id) {
+		return userDao.findAllUsers(id);
 	}
 
 	public UserAccount findOneUser(long id) {
@@ -71,6 +71,7 @@ public class RegisterUserService {
 			employee.getPers().setPhoneNumber(registerUserVm.getPhoneNumber());
 			employee.getPers().setJobTitle(registerUserVm.getJobTitle());
 			employee.setTjm(registerUserVm.getTjm());
+			employee.setUserRole(registerUserVm.getUserRole());
 			userDao.modifyUser(employee);
 		}
 
