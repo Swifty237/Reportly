@@ -10,6 +10,7 @@ import fr.isika.cda23.project3.presentation.viewModels.CreateAbsenceViewModel;
 
 
 @Stateless
+<<<<<<< HEAD:reportly-javaee-client-app/src/main/java/fr/isika/cda23/projet3/repository/Activity/AbsenceDao.java
 public class AbsenceDao  {
 	
 	
@@ -50,4 +51,7 @@ public class AbsenceDao  {
 	
 	
 	
+=======
+public class AbsenceRepositoryDao extends GenericDao<Absence, Long> {
+>>>>>>> f3ef2fd (Creation all managedBeans - xhtml files - services classes and repositories for uc_manage_cra_activity):reportly-javaee-client-app/src/main/java/fr/isika/cda23/projet3/repository/Activity/AbsenceRepositoryDao.java
 }
