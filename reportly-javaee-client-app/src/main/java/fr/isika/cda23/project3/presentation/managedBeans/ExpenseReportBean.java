@@ -1,5 +1,6 @@
 package fr.isika.cda23.project3.presentation.managedBeans;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.inject.Inject;
 import fr.isika.cda.entities.common.ExpenseReport;
 import fr.isika.cda23.project3.business.ExpenseReportServices;
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
+import fr.isika.cda23.project3.utils.NavigationUtils;
 
 @ManagedBean
 @SessionScoped
@@ -39,6 +41,11 @@ public class ExpenseReportBean implements Serializable {
 		expenseReportServices.addExpenseReportService(expenseReportViewModel);
 		expenseReportViewModel = new ExpenseReportViewModel();
 		return "expenseReport.xhtml";
+	}
+	
+	public void deleteExpenseReport(Long id) throws IOException {
+		expenseReportServices.deleteExpenseReportService(id);
+		NavigationUtils.redirectToUserList("expenseReport.xhtml");
 	}
 
 	public List<ExpenseReport> getListExpenseReports() {

@@ -141,34 +141,40 @@
 
 					<div class="col-7 shadow">
 					
-						<p:dataTable id="expenseTable" var="expense" emptyMessage="No expenses found">
-							<p:column headerText="Date">
-								<h:outputText value="#{expense.expenseDate}">
+						<h:dataTable class="table table-hover" id="expenseTable" value="#{expenseReportBean.listExpenseReports}" var="expReport" emptyMessage="No expenses found">
+						
+							<p:column>
+								<f:facet name="header"> Date </f:facet>
+								<h:outputText value="#{expReport.expenseDate}">
 									<f:convertDateTime pattern="MM/dd/yyyy" />
 								</h:outputText>
 							</p:column>
 							
-							<p:column headerText="Amount">
-								<h:outputText value="#{expense.expenseAmount}">
+							<p:column>
+							<f:facet name="header"> Amount </f:facet>
+								<h:outputText value="#{expReport.amount}">
 									<f:convertNumber currencySymbol="€" type="currency" />
 								</h:outputText>
 							</p:column>
 							
-							<p:column headerText="Description">
-								<h:outputText value="#{expense.expenseDescription}" />
+							<p:column>
+								<f:facet name="header"> Description </f:facet>
+								<h:outputText value="#{expReport.reason}" />
 							</p:column>
 							
-							<p:column headerText="Etat">
-								<h:outputText value="#{expense.expenseDescription}" />
+							<p:column>
+								<f:facet name="header"> Etat </f:facet>
+								<h:outputText value="#{expReport.expenseReportState}" />
 							</p:column>
 							
-							<p:column headerText="Supprimer">
-								<h:form class="d-flex justify-content-center">
-									<p:commandButton action="#{documentBean.deleteDoc(doc.id)}" value="X" />
+							<p:column>
+								<f:facet name="header"> Supprimer </f:facet>
+								<h:form styleClass="d-flex justify-content-center">
+									<h:commandButton action="#{expenseReportBean.deleteExpenseReport(expReport.id)}" value="X" />
 								</h:form>
 							</p:column>
 							
-						</p:dataTable>
+						</h:dataTable>
 						
 					</div>
 

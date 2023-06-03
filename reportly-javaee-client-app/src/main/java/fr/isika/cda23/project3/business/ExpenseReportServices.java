@@ -20,7 +20,7 @@ public class ExpenseReportServices {
 		System.out.println("Note de frais avec id : " + id + "enregistrée");
 	}
 	
-	public void DeleteExpenseReportService(Long id) {
+	public void deleteExpenseReportService(Long id) {
 		ExpenseReport expenseReport = expenseReportDao.getExpenseReportById(id);
 		expenseReportDao.deleteExpenseReport(expenseReport);
 	}
