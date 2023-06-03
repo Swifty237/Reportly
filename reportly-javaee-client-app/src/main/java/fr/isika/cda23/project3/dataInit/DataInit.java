@@ -8,7 +8,7 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.common.ErState;
+import fr.isika.cda.entities.common.ExpenseReportState;
 import fr.isika.cda.entities.common.ExpenseReport;
 
 @Singleton
