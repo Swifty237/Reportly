@@ -29,7 +29,7 @@ public class Contract implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private ContractDetails contractDetails;
 
-	@ManyToOne
+	@OneToOne
 	private Customer customer;
 
 	@Enumerated(EnumType.STRING)

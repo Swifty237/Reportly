@@ -108,7 +108,7 @@
 
 				<div id="expense-container" class="row justify-content-around mb-4">
 
-					<div class="col-5 shadow d-flex justify-content-center">
+					<div class="col-4 shadow d-flex justify-content-center">
 						<h:form id="expenseForm" enctype="multipart/form-data">
 
 							<h:panelGrid columns="2" cellpadding="5">
@@ -139,7 +139,7 @@
 
 					</div>
 
-					<div class="col-5 shadow">
+					<div class="col-7 shadow">
 					
 						<p:dataTable id="expenseTable" var="expense" emptyMessage="No expenses found">
 							<p:column headerText="Date">
@@ -157,6 +157,17 @@
 							<p:column headerText="Description">
 								<h:outputText value="#{expense.expenseDescription}" />
 							</p:column>
+							
+							<p:column headerText="Etat">
+								<h:outputText value="#{expense.expenseDescription}" />
+							</p:column>
+							
+							<p:column headerText="Supprimer">
+								<h:form class="d-flex justify-content-center">
+									<p:commandButton action="#{documentBean.deleteDoc(doc.id)}" value="X" />
+								</h:form>
+							</p:column>
+							
 						</p:dataTable>
 						
 					</div>

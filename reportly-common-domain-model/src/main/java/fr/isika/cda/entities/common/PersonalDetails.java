@@ -109,6 +109,14 @@ public class PersonalDetails implements Serializable {
 		this.adressDetails = adressDetails;
 	}
 
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
