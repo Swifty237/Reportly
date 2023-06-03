@@ -241,7 +241,6 @@ public class DataInit {
 //	        em.persist(expenseReport2);
 //	        em.persist(expenseReport3);
 //	        em.persist(expenseReport4);
-    }
-		
+    }		
 }
 	

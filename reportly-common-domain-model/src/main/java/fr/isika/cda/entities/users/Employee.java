@@ -74,7 +74,7 @@ public class Employee extends UserAccount implements Serializable {
 		this.tjm = tjm;
 	}
 
-	public boolean isBusy() {
+	public boolean getBusy() {
 		return busy;
 	}
 

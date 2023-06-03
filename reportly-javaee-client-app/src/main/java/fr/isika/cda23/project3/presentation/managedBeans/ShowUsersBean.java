@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.business.RegisterUserService;
+import fr.isika.cda23.project3.utils.SessionUtils;
 
 @ManagedBean
 public class ShowUsersBean {
@@ -19,8 +20,8 @@ public class ShowUsersBean {
 
 	@PostConstruct
 	public void init() {
-		accounts = rus.findAllUsers();		
-		accounts.forEach(System.out::println);
+		System.out.println("id Esn++++++++++++"+SessionUtils.getEsnIdFromSession());
+		accounts = rus.findAllUsers(SessionUtils.getEsnIdFromSession());		
 	}
 
 	public List<UserAccount> getAccounts() {
