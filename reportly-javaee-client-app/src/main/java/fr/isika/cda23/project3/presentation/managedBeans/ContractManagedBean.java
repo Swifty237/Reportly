@@ -12,7 +12,7 @@ import fr.isika.cda.entities.contract.ContractType;
 import fr.isika.cda23.project3.business.ContractServices;
 
 @ManagedBean
-public class ContractBean {
+public class ContractManagedBean {
 
 	@Inject
 	private ContractServices contractServices;

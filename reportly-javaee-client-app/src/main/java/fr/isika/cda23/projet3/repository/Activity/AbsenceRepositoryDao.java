@@ -6,5 +6,5 @@ import fr.isika.cda.entities.activity.Absence;
 import fr.isika.cda23.projet3.repository.GenericDao;
 
 @Stateless
-public class AbsenceDao extends GenericDao<Absence, Long> {
+public class AbsenceRepositoryDao extends GenericDao<Absence, Long> {
 }
