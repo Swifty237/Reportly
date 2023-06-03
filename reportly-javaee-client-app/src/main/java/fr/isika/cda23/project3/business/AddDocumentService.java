@@ -14,6 +14,6 @@ public class AddDocumentService {
 	
 	public void addDocument(AddDocumentViewModel advm) {
 		Long id = documentDao.addDocument(advm);
-		System.out.println("Document avec id : " + id + "enregistré");
+//		System.out.println("Document avec id : " + id + "enregistré");
 	}
 }

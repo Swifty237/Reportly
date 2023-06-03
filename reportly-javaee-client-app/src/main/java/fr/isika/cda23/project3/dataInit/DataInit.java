@@ -31,14 +31,14 @@ public class DataInit {
 		
 		
 		// Supprimer un client existant
-		Long customerIdToDelete = 1L; // Remplacez "1L" par l'identifiant du client à supprimer
-		Customer customer = em.find(Customer.class, customerIdToDelete);
-		if (customer != null) {
-			em.remove(customer);
-			System.out.println("Client supprimé avec succès");
-		} else {
-			System.out.println("Client introuvable");
-		}
+//		Long customerIdToDelete = 1L; // Remplacez "1L" par l'identifiant du client à supprimer
+//		Customer customer = em.find(Customer.class, customerIdToDelete);
+//		if (customer != null) {
+//			em.remove(customer);
+//			System.out.println("Client supprimé avec succès");
+//		} else {
+//			System.out.println("Client introuvable");
+//		}
 	}
 	
 }

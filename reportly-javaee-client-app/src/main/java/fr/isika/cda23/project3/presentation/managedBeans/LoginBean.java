@@ -32,6 +32,8 @@ public class LoginBean implements Serializable {
 
 	private Long id;
 
+	private String esnName;
+
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
 	public String login() {
@@ -54,13 +56,15 @@ public class LoginBean implements Serializable {
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
+				SessionUtils.setEsnNameIntoSession(esn.getBrand());
+				setEsnName(esn.getBrand());
 				try {
 					NavigationUtils.redirectToUserList("ecranEsn.xhtml");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				return"" ;
+				return "";
 			}
 			System.out.println("not login 1");
 		}
@@ -96,6 +100,14 @@ public class LoginBean implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getEsnName() {
+		return esnName;
+	}
+
+	public void setEsnName(String esnName) {
+		this.esnName = esnName;
 	}
 
 }
