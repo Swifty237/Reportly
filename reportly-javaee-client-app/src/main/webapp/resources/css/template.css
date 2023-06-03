@@ -23,11 +23,12 @@ body {
 .lien {
 	display: flex;
 	align-items: center;
+	width: 25vw;
 }
 
 .lien a {
 	margin: 0 10px;
-	font-size: 16px;
+	font-size: 14px;
 	text-decoration: none;
 	color: white;
 }
