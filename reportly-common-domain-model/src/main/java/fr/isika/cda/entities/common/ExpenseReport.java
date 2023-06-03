@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,6 +38,7 @@ public class ExpenseReport implements Serializable {
 
 	private Double amount;
 
+	@Enumerated(EnumType.STRING)
 	private ExpenseReportState expenseReportState;
 
 	public Long getId() {

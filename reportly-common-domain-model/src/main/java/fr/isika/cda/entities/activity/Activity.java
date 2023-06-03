@@ -38,11 +38,10 @@ public abstract class Activity implements Serializable {
 	protected Date createDate;
 	protected Boolean onCall;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Customer customer;
 
 	@ManyToOne
-
 	private Cra cra;
 
 	public Long getId() {

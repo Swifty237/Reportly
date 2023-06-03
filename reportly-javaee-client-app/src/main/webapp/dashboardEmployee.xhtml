@@ -8,7 +8,7 @@
 
 	<ui:define name="content">
 
-		<div class="row bg-light">
+		<div class="row bg-light h-size">
 
 			<div class="col-2 border-end shadow bg-light">
 
@@ -108,8 +108,8 @@
 						<div class="row justify-content-around border shadow">
 
 							<div
-								class="col-3 d-flex flex-column justify-content-around height-60-vh">
-								<p:card styleClass="border border-2 border-dark row shadow">
+								class="col-3 d-flex flex-column justify-content-around my-4">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Note de frais</h5>
 									</div>
@@ -126,7 +126,7 @@
 									</div>
 								</p:card>
 
-								<p:card styleClass="border border-2 border-dark row m-2">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Congés / absences</h5>
 									</div>
@@ -144,8 +144,8 @@
 							</div>
 
 							<div
-								class="col-3 d-flex flex-column justify-content-around height-60-vh">
-								<p:card styleClass="border border-2 border-dark row m-2">
+								class="col-3 d-flex flex-column justify-content-around">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Temps / activités</h5>
 									</div>
@@ -162,7 +162,7 @@
 									</div>
 								</p:card>
 
-								<p:card styleClass="border border-2 border-dark row m-2">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Formations</h5>
 									</div>
@@ -181,9 +181,9 @@
 							</div>
 
 							<div
-								class="col-3 d-flex flex-column justify-content-around height-60-vh">
-								<p:card styleClass="border border-2  border-dark row m-2">
-									<div class="border border-dark border-2 rounded mb-2">
+								class="col-3 d-flex flex-column justify-content-around">
+								<p:card styleClass="border border-2  border-dark row">
+									<div class="border border-dark border-2 rounded">
 										<h5 class="text-center">Projets</h5>
 									</div>
 
@@ -193,7 +193,7 @@
 											class="bg-primary px-2 border border-primary text-light rounded rounde-circle">#{contractBean.countContracts}</span>
 									</div>
 
-									<div class="d-flex align-items-center mt-4 mb-2">
+									<div class="d-flex align-items-center mt-2 mb-2">
 										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
 										<span class="me-2">Terminé(s)</span> <span
 											class="bg-success px-2 border border-success text-light rounded rounde-circle">#{contractBean.countContracts}</span>
