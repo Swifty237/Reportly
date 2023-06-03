@@ -160,14 +160,14 @@
 								<f:facet name="header">
 							Client
 						</f:facet>
-							#{contractBean.getCustomerBrand()}
+							#{contractBean.getCustomerBrand(contract.id)}
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">
 							Nom du référent
 						</f:facet>
-							#{contractBean.getReferentName()}
+							#{contractBean.getReferentName(contract.id)}
 							</h:column>
 
 						</h:dataTable>
