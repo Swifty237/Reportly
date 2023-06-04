@@ -10,7 +10,7 @@ public class RegisterPersonalDetailsViewModel {
 	private String name;
 	private String firstname;
 	private Date birthday;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String jobTitle;
 	private Date creationDate;
 	public String getName() {
@@ -31,10 +31,10 @@ public class RegisterPersonalDetailsViewModel {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getJobTitle() {
