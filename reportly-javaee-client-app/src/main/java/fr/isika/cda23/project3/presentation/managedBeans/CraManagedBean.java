@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import fr.isika.cda23.project3.business.CraService;
+import fr.isika.cda23.project3.business.CraServices;
 
-public class CraBean implements Serializable{
+public class CraManagedBean implements Serializable{
 
 	/**
 	 * 
@@ -14,6 +14,6 @@ public class CraBean implements Serializable{
 	private static final long serialVersionUID = 1763744904674552554L;
 
 	@Inject
-	private CraService craService ; 
+	private CraServices craService ; 
 	
 }

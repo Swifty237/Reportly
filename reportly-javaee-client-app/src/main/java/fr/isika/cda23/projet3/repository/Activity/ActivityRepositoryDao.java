@@ -7,20 +7,20 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.activity.Activity;
 
 @Stateless
-public class ActivityDao {
+public class ActivityRepositoryDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(ActivityDao activityDao) {
+	public void persist(ActivityRepositoryDao activityDao) {
 		entityManager.persist(activityDao);
 	}
 
-	public void update(ActivityDao activityDao) {
+	public void update(ActivityRepositoryDao activityDao) {
 		entityManager.merge(activityDao);
 	}
 
-	public void remove(ActivityDao activityDao) {
+	public void remove(ActivityRepositoryDao activityDao) {
 		entityManager.remove(activityDao);
 	}
 

@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.activity.Cra;
 
 @Stateless
-public class CraDao {
+public class CraRepositoryDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;

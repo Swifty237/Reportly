@@ -5,25 +5,25 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class TrainingDao {
+public class TrainingRepositoryDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(TrainingDao trainingDao) {
+	public void persist(TrainingRepositoryDao trainingDao) {
 		entityManager.persist(trainingDao);
 	}
 
-	public void update(TrainingDao trainingDao) {
+	public void update(TrainingRepositoryDao trainingDao) {
 		entityManager.merge(trainingDao);
 	}
 
-	public void remove(TrainingDao trainingDao) {
+	public void remove(TrainingRepositoryDao trainingDao) {
 		entityManager.remove(trainingDao);
 	}
 
-	public TrainingDao findById(Long id) {
-		return entityManager.find(TrainingDao.class, id);
+	public TrainingRepositoryDao findById(Long id) {
+		return entityManager.find(TrainingRepositoryDao.class, id);
 	}
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.activity.Duty;
 
 @Stateless
-public class DutyDao {
+public class DutyRepositoryDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
