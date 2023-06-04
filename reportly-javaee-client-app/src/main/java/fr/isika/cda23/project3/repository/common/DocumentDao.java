@@ -10,6 +10,7 @@ import fr.isika.cda.entities.common.Document;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 =======
@@ -28,6 +29,10 @@ import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 >>>>>>> 84f94f9 (register esn ok)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
+import fr.isika.cda23.project3.business.RegisterEsnService;
+>>>>>>> e2bb782 (Refactoring)
 
 @Stateless
 public class DocumentDao {
@@ -37,6 +42,7 @@ public class DocumentDao {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	public Long addDocument(AddDocumentViewModel advm) {
 
@@ -63,6 +69,11 @@ public class DocumentDao {
 >>>>>>> 84f94f9 (register esn ok)
 =======
 >>>>>>> ab3abe1 (register esn ok)
+=======
+	
+	public Long addDocument(DocumentViewModel advm) {
+		
+>>>>>>> e2bb782 (Refactoring)
 		Document document = new Document();
 
 		document.setName(advm.getName());
