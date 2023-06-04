@@ -31,10 +31,6 @@ public class Employee extends UserAccount implements Serializable {
 	private boolean busy;
 	private String skills;
 
-	@ManyToOne
-	@JoinColumn(name = "projectTeam_id")
-	private ProjectTeam projectTeam;
-
 	@OneToMany
 	private List<Cra> craList = new ArrayList<>();
 

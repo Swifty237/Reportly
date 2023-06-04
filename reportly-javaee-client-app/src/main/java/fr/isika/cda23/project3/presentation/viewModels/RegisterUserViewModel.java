@@ -19,7 +19,7 @@ public class RegisterUserViewModel {
 	private String city;
 	private String postalCode;
 	private String country;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String jobTitle;
 	private UserRole userRole;
 	private Esn esn;
@@ -132,11 +132,11 @@ public class RegisterUserViewModel {
 		this.country = country;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
