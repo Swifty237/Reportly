@@ -50,15 +50,34 @@ public class PersonalDetails implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private AdressDetails adressDetails;
 
-	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle) {
+	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle, Date creationDate) {
 		this.name = name;
 		this.firstname = firstname;
 		this.birthday = birdhday;
 		this.phoneNumber = phoneNumber;
 		this.jobTitle = jobTitle;
+		this.creationDate = creationDate;
 	}
 
 	public PersonalDetails() {
+	}
+	
+	
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	public String getName() {
