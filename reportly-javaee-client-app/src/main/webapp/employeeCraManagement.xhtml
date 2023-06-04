@@ -43,11 +43,8 @@
 
 			<div class="col-10">
 			
-			<h4 class="text-secondary text-center">Gestions des documents</h4>
+			<h4 class="text-secondary text-center">Edition compte Rendu d'activités</h4>
 			
-				<!-- <h4 class="text-secondary text-center">Gestions des documents
-					(for user #{loginBean.loginViewModel.email})</h4> -->
-
 				<div class="row justify-content-between align-items-center">
 					<div class="col-4">
 						<ul class="nav">
@@ -108,83 +105,12 @@
 					</div>
 				</div>
 
-				<div class="row justify-content-around mb-4">
-
-					<div class="col-8 shadow">
-
-						<h:dataTable class="table table-hover"
-							value="#{documentBean.listDocs}" var="doc">
-							<h:column>
-								<f:facet name="header">
-							Id
-						</f:facet>
-						#{doc.id}
-					</h:column>
-
-							<h:column>
-								<f:facet name="header">
-							Name
-						</f:facet>
-						#{doc.name}
-					</h:column>
-
-							<h:column>
-								<f:facet name="header">
-							Date de création
-						</f:facet>
-						#{doc.docCreation}
-					</h:column>
-
-							<h:column>
-								<f:facet name="header">
-							Type de document
-						</f:facet>
-						#{doc.typeOfDoc}
-					</h:column>
-
-						</h:dataTable>
-
-					</div>
-
-					<div class="col-3 shadow d-flex justify-content-center">
-
-						<h:form id="addDocumentForm" enctype="multipart/form-data">
-
-							<!-- <p:growl id="messages" showDetail="true" /> -->
-
-							<h:panelGrid columns="1">
-								<h:outputLabel id="typeLbl" value="Type du document : " />
-
-								<h:selectOneMenu
-									value="#{documentBean.documentVm.typeOfDoc}">
-									<f:selectItem itemLabel="Sélection" itemValue="null"
-										noSelectionOption="true" />
-									<f:selectItems var="type" itemLabel="#{type.label}"
-										itemValue="#{type}"
-										value="#{documentBean.typesOfDocuments()}" />
-								</h:selectOneMenu>
-
-								<h:outputLabel id="fileUploadLbl"
-									value="Document à télécharger : " />
-								<p:fileUpload listener="#{documentBean.uploadFile}"
-									mode="advanced" dragDropSupport="false" />
-
-							</h:panelGrid>
-							<div class="d-flex m-4">
-								<h:commandButton value="Enregistrer"
-									class="btn btn-primary me-3"
-									action="#{documentBean.addDocument()}" />
-							</div>
-
-						</h:form>
+				<div class="row justify-content-around mb-4 bg-info">
 
 
-					</div>
 				</div>
-
-			</div>
 		</div>
-
+</div>
 
 	</ui:define>
 </ui:composition>

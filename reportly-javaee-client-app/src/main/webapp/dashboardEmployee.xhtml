@@ -8,52 +8,52 @@
 
 	<ui:define name="content">
 
-		<div class="row bg-light">
+		<div class="row bg-light h-size">
 
 			<div class="col-2 border-end shadow bg-light">
 
-				<h2 class="text-center fw-bold text-decoration-underline border bg-reportly-lbl py-2 rounded text-white mt-4">REPORTLY</h2>
+				<h2
+					class="text-center fw-bold text-decoration-underline border bg-reportly-lbl py-2 rounded text-white mt-4">REPORTLY</h2>
 
 				<div class="d-flex side-nav align-items-center">
 					<ul class="nav flex-column ms-4">
-						<li class="nav-item mb-3">
-							<i class="fa-solid fa-house text-primary me-2"></i>
-							<p:link outcome="index.xhtml">Accueil</p:link>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-house text-primary me-2"></i> <p:link
+								outcome="index.xhtml">Accueil</p:link></li>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-business-time text-primary me-2"></i> <p:link>Temps et activités</p:link>
 						</li>
-						<li class="nav-item mb-3">
-							<i class="fa-solid fa-business-time text-primary me-2"></i>
-							<p:link>Temps et activités</p:link>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-circle-stop text-primary me-2"></i> <p:link>Congé et Absences</p:link>
 						</li>
-						<li class="nav-item mb-3">
-							<i class="fa-solid fa-circle-stop text-primary me-2"></i>
-							<p:link>Congé et Absences</p:link>
+
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-euro-sign text-primary me-3"></i> <p:link outcome="expenseReport.xhtml">Notes de frais</p:link>
 						</li>
-						
-						<li class="nav-item mb-3">
-							<i class="fa-solid fa-euro-sign text-primary me-3"></i>
-							<p:link>Notes de frais</p:link>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-kitchen-set text-primary me-2"></i> <p:link>Compétences</p:link>
 						</li>
-						<li class="nav-item mb-3">
-							<i class="fa-solid fa-kitchen-set text-primary me-2"></i>
-							<p:link>Compétences</p:link>
-						</li>
-						<li class="nav-item mb-3">
-							<i class="fa-solid fa-diagram-project text-primary me-2"></i>
-							<p:link>Projets</p:link>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-diagram-project text-primary me-2"></i> <p:link>Projets</p:link>
 						</li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="col-10">
+				<h4 class="text-secondary text-center">Tableau de bord</h4>
 
 				<div class="row justify-content-between align-items-center">
 					<div class="col-4">
 						<ul class="nav">
 							<li class="nav-item px-2 me-2 border-end"><p:link
 									outcome="dashboardEmployee.xhtml">Mon Espace</p:link></li>
+
 							<li class="nav-item px-2 me-2 border-end"><p:link>Planning</p:link></li>
-							<li class="nav-item px-2 me-2 border-end"><p:link>Documents</p:link></li>
+
+							<li class="nav-item px-2 me-2 border-end"><p:link
+									outcome="showAllDocuments">Documents</p:link></li>
+
 							<li class="nav-item px-2 me-2 border-end"><p:link>Formation</p:link></li>
 						</ul>
 					</div>
@@ -108,25 +108,25 @@
 						<div class="row justify-content-around border shadow">
 
 							<div
-								class="col-3 d-flex flex-column justify-content-around height-60-vh">
-								<p:card styleClass="border border-2 border-dark row shadow">
+								class="col-3 d-flex flex-column justify-content-around my-4">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Note de frais</h5>
 									</div>
 
 									<div class="d-flex align-items-center mt-4 mb-2">
 										<i class="fa-solid fa-circle-plus text-success fs-4 me-4"></i>
-										<span>Nouvelle note</span>
+										<p:link styleClass="text-dark" outcome="expenseReport.xhtml">Nouvelle note</p:link>
 									</div>
 
 									<div class="d-flex align-items-center">
 										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
 										<span class="me-2">Note (s) à valider</span> <span
-											class="bg-danger px-2 border border-danger text-light rounded rounde-circle">2</span>
+											class="bg-danger px-2 border border-danger text-light rounded">#{expenseReportBean.countExpenseReports}</span>
 									</div>
 								</p:card>
 
-								<p:card styleClass="border border-2 border-dark row m-2">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Congés / absences</h5>
 									</div>
@@ -144,8 +144,8 @@
 							</div>
 
 							<div
-								class="col-3 d-flex flex-column justify-content-around height-60-vh">
-								<p:card styleClass="border border-2 border-dark row m-2">
+								class="col-3 d-flex flex-column justify-content-around">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Temps / activités</h5>
 									</div>
@@ -162,7 +162,7 @@
 									</div>
 								</p:card>
 
-								<p:card styleClass="border border-2 border-dark row m-2">
+								<p:card styleClass="border border-2 border-dark row my-4">
 									<div class="border border-2 rounded border-dark mb-2">
 										<h5 class="text-center">Formations</h5>
 									</div>
@@ -181,22 +181,22 @@
 							</div>
 
 							<div
-								class="col-3 d-flex flex-column justify-content-around height-60-vh">
-								<p:card styleClass="border border-2  border-dark row m-2">
-									<div class="border border-dark border-2 rounded mb-2">
+								class="col-3 d-flex flex-column justify-content-around">
+								<p:card styleClass="border border-2  border-dark row">
+									<div class="border border-dark border-2 rounded">
 										<h5 class="text-center">Projets</h5>
 									</div>
 
 									<div class="d-flex align-items-center mt-4 mb-2">
 										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
-										<span class="me-2">En cours</span> <span
-											class="bg-primary px-2 border border-primary text-light rounded rounde-circle">1</span>
+										<p:link outcome="showAllContracts.xhtml" styleClass="text-dark me-2">En cours</p:link>
+										<span class="bg-primary px-2 border border-primary text-light rounded rounde-circle">#{contractBean.countContracts}</span>
 									</div>
 
-									<div class="d-flex align-items-center mt-4 mb-2">
+									<div class="d-flex align-items-center mt-2 mb-2">
 										<i class="fa-solid fa-arrow-right text-primary fs-4 me-4"></i>
-										<span class="me-2">Terminé(s)</span> <span
-											class="bg-success px-2 border border-success text-light rounded rounde-circle">4</span>
+										<p:link outcome="showAllContracts.xhtml" styleClass="text-dark me-2"> Terminé (s)</p:link>
+										<span class="bg-success px-2 border border-success text-light rounded rounde-circle">#{contractBean.countContracts}</span>
 									</div>
 								</p:card>
 							</div>
@@ -213,13 +213,40 @@
 
 						<div class="row justify-content-center">
 							<ul class="flex-column list-group">
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Heures travaillées : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">120 </span><span class="fst-italic">heure (s)</span></li>
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Heures Supplémentaires : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">30 </span><span class="fst-italic">heure (s)</span></li>
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Jours de congés : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">22 </span><span class="fst-italic">jour (s)</span></li>
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Heures de formations : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">15 </span><span class="fst-italic">heure (s)</span></li>
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Arrêts maladie : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">8 </span><span class="fst-italic">heure (s)</span></li>
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Intercontrats : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">0 </span><span class="fst-italic">jour (s)</span></li>
-								<li class="border-0 mb-3 list-group-item d-flex justify-content-center"><span class="me-2">Projets : </span><span class="me-2 border border-primary text-primary rounded rounde-circle px-2">5</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Heures travaillées : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">120
+								</span><span class="fst-italic">heure (s)</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Heures Supplémentaires : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">30
+								</span><span class="fst-italic">heure (s)</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Jours de congés : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">22
+								</span><span class="fst-italic">jour (s)</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Heures de formations : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">15
+								</span><span class="fst-italic">heure (s)</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Arrêts maladie : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">8
+								</span><span class="fst-italic">heure (s)</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Intercontrats : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">0
+								</span><span class="fst-italic">jour (s)</span></li>
+								<li
+									class="border-0 mb-3 list-group-item d-flex justify-content-center"><span
+									class="me-2">Projets : </span><span
+									class="me-2 border border-primary text-primary rounded rounde-circle px-2">5</span></li>
 							</ul>
 						</div>
 					</div>

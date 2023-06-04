@@ -64,14 +64,6 @@ public class PersonalDetails implements Serializable {
 	
 	
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
 	public Long getId() {
 		return Id;
 	}
@@ -126,6 +118,14 @@ public class PersonalDetails implements Serializable {
 
 	public void setAdressDetails(AdressDetails adressDetails) {
 		this.adressDetails = adressDetails;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	@Override
