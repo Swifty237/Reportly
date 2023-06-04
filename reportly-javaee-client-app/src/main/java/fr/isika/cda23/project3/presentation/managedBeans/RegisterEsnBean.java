@@ -18,6 +18,7 @@ public class RegisterEsnBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -5469910363275392680L;
 
+<<<<<<< HEAD
 	@Inject
 	private RegisterEsnService reService;
 
@@ -45,6 +46,29 @@ public class RegisterEsnBean implements Serializable {
 	public void setRegisterEsnVm(RegisterEsnViewModel registerEsnVm) {
 		this.registerEsnVm = registerEsnVm;
 	}
+=======
+//	@Inject
+//	private RegisterEsnService reService;
+//
+//	private RegisterEsnViewModel registerEsnVm = new RegisterEsnViewModel();
+//
+//	public String register() {
+//		reService.register(registerEsnVm);
+//		
+//		registerEsnVm = new RegisterEsnViewModel();
+//		
+//		return "index.xhtml";
+//		
+//	}
+//
+//	public RegisterEsnViewModel getRegisterEsnVm() {
+//		return registerEsnVm;
+//	}
+//
+//	public void setRegisterEsnVm(RegisterEsnViewModel registerEsnVm) {
+//		this.registerEsnVm = registerEsnVm;
+//	}
+>>>>>>> 15eb741 (Suppression not use files)
 
 =======
 	public void register() {

@@ -41,9 +41,12 @@ import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda.entities.esn.Esn;
 <<<<<<< HEAD
+<<<<<<< HEAD
 //import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
 =======
 >>>>>>> e2bb782 (Refactoring)
+=======
+>>>>>>> 15eb741 (Suppression not use files)
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
 import fr.isika.cda23.project3.repository.company.EsnDao;
 =======
@@ -101,6 +104,7 @@ public class RegisterEsnService {
 	@Inject
 	private EsnDao esnDao;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -179,11 +183,21 @@ public class RegisterEsnService {
 		
 =======
 >>>>>>> aa13acd (subscription company)
+=======
+//	@Inject
+//	private AddDocumentManagedBean addDocumentManagedBean;
+//
+//	private static Document document;
+//
+//	public void register(RegisterEsnViewModel viewModel) {
+//
+>>>>>>> 15eb741 (Suppression not use files)
 //		AdressDetails adressDetails = new AdressDetails();
 //		adressDetails.setAdress(viewModel.getAdress());
 //		adressDetails.setCity(viewModel.getCity());
 //		adressDetails.setCountry(viewModel.getCountry());
 //		adressDetails.setPostalCode(viewModel.getPostalCode());
+<<<<<<< HEAD
 //		
 //		CompanyDetails
 <<<<<<< HEAD
@@ -288,4 +302,31 @@ public class RegisterEsnService {
 =======
 >>>>>>> a6ba52f (register esn ok)
 	}
+=======
+//
+//		CompanyDetails companyDetails = new CompanyDetails();
+//		companyDetails.setBrand(viewModel.getBrand());
+//		companyDetails.setEmail(viewModel.getEmail());
+//		companyDetails.setPassword(viewModel.getPassword());
+//		companyDetails.setCreationDate(new Date());
+//		companyDetails.setAdressDetails(adressDetails);
+//
+//		companyDetails.setDocument(document);
+//
+//		Esn esn = new Esn();
+//
+//		esn.setCompanyDetails(companyDetails);
+//
+//		Long id = esnDao.register(esn);
+//
+//		System.out.println("Esn vient d'etre crée avec :" + id);
+//
+//	}
+//
+//	public static void getDoc(Document doc) {
+//		doc.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
+//		doc.setDocCreation(new Date());
+//		document = doc;
+//	}
+>>>>>>> 15eb741 (Suppression not use files)
 }
