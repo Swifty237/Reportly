@@ -14,10 +14,13 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+
+ 
 @Entity
 @Table(name = "service_basic")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class ServiceBasic implements Serializable {
+public class ServiceBasic implements Serializable {
 
 	/**
 	 * 
@@ -39,4 +42,54 @@ public abstract class ServiceBasic implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private ServiceDetails serviceDetails;
+
+	public ServiceBasic() {
+		super();
+	}
+	
+	public ServiceBasic(Long id) {
+		super();
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public ServiceDetails getServiceDetails() {
+		return serviceDetails;
+	}
+
+	public void setServiceDetails(ServiceDetails serviceDetails) {
+		this.serviceDetails = serviceDetails;
+	}
+
 }

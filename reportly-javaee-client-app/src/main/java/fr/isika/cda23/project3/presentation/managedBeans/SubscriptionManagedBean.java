@@ -17,6 +17,7 @@ public class SubscriptionManagedBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4423980414704486126L;
+	
 	@Inject
 	private SubscriptionService subscriptionService;
 
