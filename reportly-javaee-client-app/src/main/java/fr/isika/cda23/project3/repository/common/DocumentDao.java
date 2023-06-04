@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.Document;
-import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
+import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 
 @Stateless
 public class DocumentDao {
@@ -15,7 +15,7 @@ public class DocumentDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public Long addDocument(AddDocumentViewModel advm) {
+	public Long addDocument(DocumentViewModel advm) {
 		
 		Document document = new Document();
 		

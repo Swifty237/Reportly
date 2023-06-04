@@ -7,10 +7,8 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.activity.Absence;
 import fr.isika.cda23.project3.presentation.viewModels.CreateAbsenceViewModel;
 
-
-
 @Stateless
-public class AbsenceDao  {
+public class AbsenceRepositoryDao  {
 	
 	
 	
@@ -46,8 +44,7 @@ public class AbsenceDao  {
 		return null ;
 		
 	}
-	
-	
-	
-	
 }
+	
+	
+

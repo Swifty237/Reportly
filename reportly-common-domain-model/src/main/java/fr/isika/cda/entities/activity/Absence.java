@@ -36,10 +36,5 @@ public class Absence extends Activity implements Serializable {
 		this.document = document;
 	}
 
-
-
-	
-	
-
 	
 	}

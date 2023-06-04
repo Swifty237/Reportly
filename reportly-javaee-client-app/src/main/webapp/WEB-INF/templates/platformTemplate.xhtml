@@ -9,11 +9,14 @@
 	<title>Reportly App</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="all.min.css" />
 	<h:outputStylesheet library="css" name="template.css" />
 </h:head>
 
 <h:body>
 	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+	<script src="https://kit.fontawesome.com/64a8132751.js"
+		crossorigin="anonymous"></script>
 	<div id="container">
 
 		<div id="header">
@@ -23,31 +26,36 @@
 					alt="Wildfly dual brand logo" class="logo" />
 			</div>
 
-			<div>
+			<div class="me-4">
 				<h:form>
-					<div class="lien">
+					<div class="row lien">
 						<!-- Affiché tout le temps (fragment de page) -->
 
-						<p:link outcome="index.xhtml">Home</p:link>
-
-
-						<p:link outcome="register.xhtml">Sign Up</p:link>
+						<div class="col-4">
+							<p:link outcome="register.xhtml">Sign up <i class="fa-solid fa-user-plus text-white p-2"></i></p:link>
+						</div>
 
 
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 
 							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
 
-
-							<p:link outcome="showAllDocuments.xhtml">Gestion des documents</p:link>
 						</ui:fragment>
 
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
-							<p:link outcome="login.xhtml">SignIn</p:link>
+
+							<div class="col-4">
+								<p:link outcome="login.xhtml">Sign in <i class="fa-solid fa-arrow-right-to-bracket text-white p-2"></i></p:link>
+							</div>
+
 						</ui:fragment>
 
 						<ui:fragment rendered="true">
-							<p:link outcome="examplePageOfTemplate.xhtml">Example empty page</p:link>
+
+							<div class="col-4 d-flex flex-column align-items-center">
+								<i class="fa-solid fa-circle-info text-white"></i>
+								<p:link outcome="examplePageOfTemplate.xhtml">Help</p:link>
+							</div>
 
 						</ui:fragment>
 					</div>

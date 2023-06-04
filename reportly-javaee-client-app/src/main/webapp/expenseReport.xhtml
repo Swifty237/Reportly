@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+
+		<div class="row bg-light">
+
+			<div class="col-2 border-end shadow bg-light">
+
+				<h2 class="text-center fw-bold text-decoration-underline border bg-reportly-lbl py-2 rounded text-white mt-4">REPORTLY</h2>
+
+				<div class="d-flex side-nav align-items-center">
+					<ul class="nav flex-column ms-4">
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-house text-primary me-2"></i> <p:link
+								outcome="index.xhtml">Accueil</p:link></li>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-business-time text-primary me-2"></i> <p:link>Temps et activités</p:link>
+						</li>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-circle-stop text-primary me-2"></i> <p:link>Congé et Absences</p:link>
+						</li>
+
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-euro-sign text-primary me-3"></i> <p:link outcome="expenseReport.xhtml">Notes de frais</p:link>
+						</li>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-kitchen-set text-primary me-2"></i> <p:link>Compétences</p:link>
+						</li>
+						<li class="nav-item mb-3"><i
+							class="fa-solid fa-diagram-project text-primary me-2"></i> <p:link>Projets</p:link>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-10">
+
+				<div class="row justify-content-between align-items-center">
+					<h4 class="text-secondary text-center">Notes de frais</h4>
+
+					<div class="col-4">
+						<ul class="nav">
+							<li class="nav-item px-2 me-2 border-end">
+								<p:link outcome="dashboardEmployee.xhtml">Mon Espace</p:link>
+							</li>
+							
+							<li class="nav-item px-2 me-2 border-end"><p:link>Planning</p:link></li>
+							
+							<li class="nav-item px-2 me-2 border-end">
+								<p:link outcome="showAllDocuments">Documents</p:link>
+							</li>
+							
+							<li class="nav-item px-2 me-2 border-end"><p:link>Formation</p:link></li>
+						</ul>
+					</div>
+
+					<div class="d-flex col-5">
+						<p:inputText id="search-input" placeholder="Recherche..."
+							type="search" size="50" />
+
+						<div>
+							<button class="btn btn-light">
+								<i class="fa-solid fa-magnifying-glass fs-4"></i>
+							</button>
+						</div>
+					</div>
+
+					<div class="col-2 me-3">
+
+						<div class="row justify-content-end">
+							<div class="col-7">
+								<div class="d-flex justify-content-center">
+
+									<p:card styleClass="profile-card mb-4">
+										<f:facet name="header">
+											<p:graphicImage name="default-image.png" library="images"
+												alt="User image" class="profile-image-size" />
+										</f:facet>
+
+										<f:facet name="title">
+											<h6 class="text-center">Paul Martin</h6>
+										</f:facet>
+
+									</p:card>
+								</div>
+
+							</div>
+
+							<div class="col-3 d-flex flex-column justify-content-center">
+								<button class="btn btn-outline-secondary mb-2">
+									<i class="fa-solid fa-gear"></i>
+								</button>
+
+								<button class="btn btn-outline-secondary">
+									<i class="fa-solid fa-arrow-right-from-bracket"></i>
+								</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="expense-container" class="row justify-content-around mb-4">
+
+					<div class="col-4 shadow d-flex justify-content-center">
+						<h:form id="expenseForm" enctype="multipart/form-data">
+
+							<h:panelGrid columns="2" cellpadding="5">
+
+								<h:outputLabel for="expenseDate" value="Date : " />
+								<p:calendar id="expenseDate" showOn="button" />
+
+								<h:outputLabel for="expenseAmount" value="Amount:" />
+								<p:inputText id="expenseAmount"
+									validatorMessage="Invalid amount">
+									<f:convertNumber maxFractionDigits="2" />
+									<f:validateDoubleRange minimum="0.01" />
+								</p:inputText>
+
+								<h:outputLabel for="expenseDescription" value="Description:" />
+								<p:inputTextarea id="expenseDescription" rows="6" cols="30" />
+
+								<h:outputLabel for="expenseDocument" value="Document:" />
+								<p:fileUpload id="expenseDocument" mode="simple" />
+
+							</h:panelGrid>
+							
+							<div class="d-flex justify-content-end m-4">
+								<h:commandButton value="Enregistrer" class="btn btn-primary me-3" />
+							</div>
+
+						</h:form>
+
+					</div>
+
+					<div class="col-7 shadow">
+					
+						<h:dataTable class="table table-hover" id="expenseTable" value="#{expenseReportBean.listExpenseReports}" var="expReport" emptyMessage="No expenses found">
+						
+							<p:column>
+								<f:facet name="header"> Date </f:facet>
+								<h:outputText value="#{expReport.expenseDate}">
+									<f:convertDateTime pattern="MM/dd/yyyy" />
+								</h:outputText>
+							</p:column>
+							
+							<p:column>
+							<f:facet name="header"> Amount </f:facet>
+								<h:outputText value="#{expReport.amount}">
+									<f:convertNumber currencySymbol="€" type="currency" />
+								</h:outputText>
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header"> Description </f:facet>
+								<h:outputText value="#{expReport.reason}" />
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header"> Etat </f:facet>
+								<h:outputText value="#{expReport.expenseReportState}" />
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header"> Supprimer </f:facet>
+								<h:form styleClass="d-flex justify-content-center">
+									<h:commandButton action="#{expenseReportBean.deleteExpenseReport(expReport.id)}" value="X" />
+								</h:form>
+							</p:column>
+							
+						</h:dataTable>
+						
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

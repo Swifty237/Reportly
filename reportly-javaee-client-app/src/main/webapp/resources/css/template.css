@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
+body {
+	height: 100vh;	
+}
+
 #header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px;
-	background-color: lightblue;
-	margin-bottom: 20px;
+	background-color: #34495e;
 }
 
 .logo {
@@ -14,14 +16,19 @@
 	height: 20%;
 }
 
+#search-input {
+	height: 40px;
+}
+
 .lien {
 	display: flex;
 	align-items: center;
+	width: 25vw;
 }
 
 .lien a {
 	margin: 0 10px;
-	font-size: 16px;
+	font-size: 14px;
 	text-decoration: none;
 	color: white;
 }
@@ -30,10 +37,41 @@
 	color: #f5f5f5;
 }
 
+.profile-image-size {
+	width: 80%;
+	height: 80%;
+}
+
+.profile-card {
+	height: 18vh;
+}
+
+.speedometer-size {
+	height: 40%;
+	width: 40%;
+}
+
+.h-size {
+	min-height: 67vh;
+}
+
+.side-nav {
+	height: 90%;
+}
+
+.bg-reportly-lbl {
+	background-color: #34495e;
+	border-color: #34495e;
+}
+
+#navbarNav {
+	width: 20vw;
+}
+
+/* footer */
+
 #footer {
 	background-color: #f8f4f4;
 	padding: 5px;
 	text-align: center;
-	margin-top: auto;
-}
 }
