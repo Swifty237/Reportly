@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.esn.Esn;
+import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
@@ -52,11 +53,11 @@ public class UserDao {
 	}
 
 //	find all Manager not busy with EsnId
-	public List<UserAccount> getManagerNotBusy(Long id) {
+	public List<Employee> getManagerNotBusy(Long id) {
 		try {
 			return entityManager.createQuery(
-					"SELECT u FROM UserAccount u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
-					UserAccount.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
+					"SELECT u FROM Employee u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
+					Employee.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
 					.setParameter("id", id).getResultList();
 		} catch (NoResultException e) {
 			return null;
@@ -65,6 +66,11 @@ public class UserDao {
 
 	public void modifyUser(UserAccount user) {
 		entityManager.merge(user);
+	}
+	public Long modifyEmployee(Employee emp) {
+		entityManager.merge(emp);
+		
+		return emp.getUserId();
 	}
 
 	public void deleteUser(UserAccount user) {
