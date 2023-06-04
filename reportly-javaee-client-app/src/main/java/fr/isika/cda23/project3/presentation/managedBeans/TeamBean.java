@@ -8,6 +8,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+<<<<<<< HEAD
+=======
+import javax.transaction.Transactional;
+>>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;
@@ -39,6 +43,7 @@ public class TeamBean implements Serializable {
 
 	private List<Object[]> teamMembers;
 
+<<<<<<< HEAD
 	private List<ProjectTeam> listProjectTeams;
 
 	@PostConstruct
@@ -71,6 +76,29 @@ public class TeamBean implements Serializable {
 		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
 		teamMembers = tService.getProjectTeamsWithManagerByEsnId(SessionUtils.getEsnIdFromSession());
 		listProjectTeams = tService.getProjectTeamByEsnId(SessionUtils.getEsnIdFromSession());
+=======
+	@PostConstruct
+	public void init() {
+		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
+		teamMembers = tService.getProjectTeamsWithMembersByEsnId(SessionUtils.getEsnIdFromSession());
+	}
+
+	public void addToTeam() {
+		ProjectTeam pTeam = new ProjectTeam();
+		pTeam.setProjectName(teamName);
+		employee.setBusy(true);
+		pTeam.getEmployeeList().add(employee);
+		tService.modifyEmployee(employee);
+		tService.addToTeam(pTeam);
+		this.employee = null;
+		this.teamName = null;
+		try {
+			NavigationUtils.redirectToUserList("team.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+>>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 	}
 
 	public List<Employee> getUserAccounts() {
@@ -105,6 +133,7 @@ public class TeamBean implements Serializable {
 		this.teamMembers = teamMembers;
 	}
 
+<<<<<<< HEAD
 	public List<ProjectTeam> getListProjectTeams() {
 		return listProjectTeams;
 	}
@@ -113,4 +142,6 @@ public class TeamBean implements Serializable {
 		this.listProjectTeams = listProjectTeams;
 	}
 
+=======
+>>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 }

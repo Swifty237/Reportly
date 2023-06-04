@@ -8,9 +8,13 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.esn.Esn;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda.entities.users.Employee;
 =======
 >>>>>>> cfae081 (ecran Esn former les équipes)
+=======
+import fr.isika.cda.entities.users.Employee;
+>>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
@@ -78,6 +82,7 @@ public class UserDao {
 
 //	find all Manager not busy with EsnId
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public List<Employee> getManagerNotBusy(Long id) {
 		try {
 			return entityManager.createQuery(
@@ -90,6 +95,13 @@ public class UserDao {
 					"SELECT u FROM UserAccount u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
 					UserAccount.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
 >>>>>>> cfae081 (ecran Esn former les équipes)
+=======
+	public List<Employee> getManagerNotBusy(Long id) {
+		try {
+			return entityManager.createQuery(
+					"SELECT u FROM Employee u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
+					Employee.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
+>>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 					.setParameter("id", id).getResultList();
 		} catch (NoResultException e) {
 			return null;

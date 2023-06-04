@@ -5,6 +5,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
+	<f:metadata>
+		<f:viewAction action="#{teamBean.init}" />
+	</f:metadata>
 
 <<<<<<< HEAD
 	<f:metadata>
@@ -123,92 +126,40 @@
 	</ui:define>
 =======
 	<ui:define name="content">
-		<h:form id="registrationForm">
-			<p:panel header="Formulaire d'inscription utilisateur">
+		<h:form id="addTeamForm">
+			<p:panel header="Création d'un team">
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="nom" value="Nom du Team :" />
-					<p:inputText id="nom"
-						value="#{registerUserBean.registerUserVm.name}" />
+					<p:inputText id="projectTeam" value="#{teamBean.teamName}" />
 
-					<h:outputLabel for="manager" value="Manager :" />
-					<h:selectOneMenu
-						value="#{registerUserBean.registerUserVm.userRole}">
-						<f:selectItem itemLabel="sélection" itemValue="null"
+					<h:outputLabel for="employee" value="Manager :" />
+					<p:selectOneMenu value="#{teamBean.employee}"
+						converter="employeeConverter">
+						<f:selectItem itemLabel="sélection" itemValue="#{null}"
 							noSelectionOption="true" />
-						<f:selectItems value="#{teamBean.managerNames}" var="fullName" />
-					</h:selectOneMenu>
-
-					<h:outputLabel for="tjm" value="Tjm :" />
-					<p:inputText id="tjm"
-						value="#{registerUserBean.registerUserVm.tjm}" />
-
+						<f:selectItems id="employee" value="#{teamBean.userAccounts}"
+							var="user" itemLabel="#{user.pers.firstname} #{user.pers.name}"
+							itemValue="#{user}" />
+					</p:selectOneMenu>
 				</h:panelGrid>
 
 				<h:panelGroup>
-					<p:commandButton type="submit" value="Enregistrer"
-						action="#{registerUserBean.register()}"
-						style="margin-right: 10px;" />
-					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
-						action="#{registerUserBean.clear()}" />
+					<p:commandButton value="Enregistrer" update="@form"
+						action="#{teamBean.addToTeam()}" style="margin-right: 10px;" />
 				</h:panelGroup>
 			</p:panel>
 		</h:form>
-		<h:form id="userTableForm">
-			<p:panel header="Liste des collaborateurs de #{loginBean.esnName}"
-				styleClass="panel">
-				<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
-					var="user" emptyMessage="No users found" lazy="false">
-
-					<p:column headerText="Nom">
-						<h:outputText value="#{user.pers.name}" />
-					</p:column>
-
-					<p:column headerText="Prénom">
-						<h:outputText value="#{user.pers.firstname}" />
-					</p:column>
-
-					<p:column headerText="Email">
-						<h:outputText value="#{user.email}" />
-					</p:column>
-
-					<p:column headerText="Rôle">
-						<h:outputText value="Employé"
-							rendered="#{user.userRole eq 'EMPLOYEE'}" />
-						<h:outputText value="Manager"
-							rendered="#{user.userRole ne 'EMPLOYEE'}" />
-					</p:column>
-
-					<p:column headerText="Téléphone">
-						<h:outputText value="#{user.pers.phoneNumber}" />
-					</p:column>
-
-					<p:column headerText="Poste">
-						<h:outputText value="#{user.pers.jobTitle}" />
-					</p:column>
-
-					<p:column headerText="Disponibilité">
-						<h:outputText value="#{user.busy ? 'Non' : 'Oui'}" />
-					</p:column>
-
-					<p:column headerText="Tjm">
-						<h:outputText value="#{user.tjm}" />
-					</p:column>
-
-					<p:column style="width: 70px;">
-						<p:commandButton value="modify"
-							action="#{registerUserBean.viewUser(user.userId)}"
-							icon="pi pi-search" styleClass="ui-button-raised ui-button-info">
-							<f:param name="userId" value="#{user.userId}" />
-						</p:commandButton>
-					</p:column>
-					<p:column style="width: 70px;">
-						<p:commandButton value="delete"
-							action="#{registerUserBean.deleteUser(user.userId)}"
-							icon="pi pi-trash" styleClass="ui-button-raised ui-button-danger" />
-					</p:column>
-
-				</p:dataTable>
-			</p:panel>
+		<h:form id="teamTableForm">
+			<ui:repeat value="#{teamBean.teamMembers}" var="team">
+				<p:panel header="Team de #{team[0]}">
+					<!-- <p:dataTable value="#{team}" var="user"
+						emptyMessage="No Team found" lazy="false">
+						<p:column headerText="Nom du ProjectTeam">
+							<h:outputText value="#{user}" />
+						</p:column>
+					</p:dataTable> -->
+				</p:panel>
+			</ui:repeat>
 		</h:form>
 	</ui:define>
 >>>>>>> cfae081 (ecran Esn former les équipes)

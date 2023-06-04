@@ -51,6 +51,7 @@ public class PersonalDetails implements Serializable {
 	private AdressDetails adressDetails;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public PersonalDetails(String name, String firstname, Date birdhday, String phoneNumber, String jobTitle) {
 =======
 	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle, Date creationDate) {
@@ -76,6 +77,8 @@ public class PersonalDetails implements Serializable {
 		this.creationDate = creationDate;
 	}
 
+=======
+>>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 	public Long getId() {
 		return Id;
 	}
