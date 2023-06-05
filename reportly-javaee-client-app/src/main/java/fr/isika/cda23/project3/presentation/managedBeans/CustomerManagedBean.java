@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.contract.Customer;
+import fr.isika.cda23.project3.business.AdressDetailsServices;
 import fr.isika.cda23.project3.business.CompanyDetailsServices;
 import fr.isika.cda23.project3.business.CustomerServices;
 import fr.isika.cda23.project3.business.PersonalDetailsServices;
@@ -35,6 +36,11 @@ public class CustomerManagedBean {
 	@Inject
 	private PersonalDetailsBean personalDetailsBean;
 	
+	@Inject
+	private AdressDetailsServices adressDetailsServices;
+	
+	private AdressDetailsBean adressDetailsBean;
+	
 	private CustomerViewModel customerVm = new CustomerViewModel();
 	
 	private List<Customer> listCustomers;
@@ -48,6 +54,7 @@ public class CustomerManagedBean {
 		
 		companyDetailsServices.registerCompanyDetails(customerVm, companyDetailsBean.getCompanyDetailsVm());
 		personalDetailsServices.registerPersonalDetails(customerVm, personalDetailsBean.getPersonalDetailsVm());
+		adressDetailsServices.registerAdressDetails(customerVm, adressDetailsBean.getAdressDetailsVm());
 		
 		customerServices.registerCustomerService(customerVm);
 		customerVm = new CustomerViewModel();
