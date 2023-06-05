@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -32,30 +31,32 @@ public class TeamEmployeeBean implements Serializable {
 	private TeamViewModel tvm = new TeamViewModel();
 
 	private List<Employee> employeesOfSelectedProjectTeam;
-	
+
 	private List<Employee> availableEmployees;
 
-	@PostConstruct
-	public void init() {
+	public void init() throws IOException {
 		availableEmployees = tService.getAvailableEmployees();
-		
+
 		// Récupérer le f:param transmis depuis le bouton de la vue team.xhtml
-		Map<String,String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String teamIdParamValue = map.get("teamId");
-		if(teamIdParamValue != null ) {
+		if (teamIdParamValue != null) {
 			Long teamId = Long.parseLong(teamIdParamValue);
 			tvm.setId(teamId);
 			tvm.setProjectTeam(tService.getProjectTeamById(teamId));
 			employeesOfSelectedProjectTeam = tService.getEmployeesByProjectTeamId(teamId);
 		}
+
+		NavigationUtils.redirectToUserList("teamEmployee.xhtml");
 	}
 
 	public void addToTeam() throws IOException {
+		tvm.getEmployee().setTjm(tvm.getTjm());
 		tService.addEmployeeToTeam(tvm.getId(), tvm.getEmployee());
-		
+
 		reloadViewModel();
 		reloadEmployeesAndAvailableUsers();
-		
+
 		NavigationUtils.redirectToUserList("teamEmployee.xhtml");
 	}
 
@@ -70,7 +71,7 @@ public class TeamEmployeeBean implements Serializable {
 		tvm.setId(projectTeamById.getId());
 		tvm.setTjm(Double.valueOf(0));
 	}
-	
+
 	public TeamViewModel getTvm() {
 		return tvm;
 	}
@@ -82,12 +83,15 @@ public class TeamEmployeeBean implements Serializable {
 	public List<Employee> getAvailableEmployees() {
 		return availableEmployees;
 	}
+
 	public void setAvailableEmployees(List<Employee> availableEmployees) {
 		this.availableEmployees = availableEmployees;
 	}
+
 	public List<Employee> getEmployeesOfSelectedProjectTeam() {
 		return employeesOfSelectedProjectTeam;
 	}
+
 	public void setEmployeesOfSelectedProjectTeam(List<Employee> employeesOfSelectedProjectTeam) {
 		this.employeesOfSelectedProjectTeam = employeesOfSelectedProjectTeam;
 	}

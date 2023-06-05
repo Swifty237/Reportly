@@ -31,8 +31,8 @@ public class TeamService {
 		System.out.println("emp modifié avec id: " + id);
 	}
 
-	public List<Object[]> getProjectTeamsWithMembersByEsnId(Long esnId) {
-		return teamDao.getProjectTeamsWithMembersByEsnId(esnId);
+	public List<Object[]> getProjectTeamsWithManagerByEsnId(Long esnId) {
+		return teamDao.getProjectTeamsWithManagerByEsnId(esnId);
 	}
 
 	public List<Employee> getEmployeesByProjectTeamId(Long projectId) {

@@ -42,7 +42,7 @@ public class TeamBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
-		teamMembers = tService.getProjectTeamsWithMembersByEsnId(SessionUtils.getEsnIdFromSession());
+		teamMembers = tService.getProjectTeamsWithManagerByEsnId(SessionUtils.getEsnIdFromSession());
 	}
 
 	public void addToTeam() throws IOException {
@@ -66,7 +66,7 @@ public class TeamBean implements Serializable {
 		this.teamName = null;
 		
 		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
-		teamMembers = tService.getProjectTeamsWithMembersByEsnId(SessionUtils.getEsnIdFromSession());
+		teamMembers = tService.getProjectTeamsWithManagerByEsnId(SessionUtils.getEsnIdFromSession());
 	}
 
 	public List<Employee> getUserAccounts() {
