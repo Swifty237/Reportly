@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;
+import fr.isika.cda.entities.users.UserRole;
 
 public class TeamDao {
 
@@ -21,10 +22,11 @@ public class TeamDao {
 		return team.getId();
 	}
 
-	public List<Object[]> getProjectTeamsWithMembersByEsnId(Long esnId) {
-		String query = "SELECT pt.id, pt.projectName, e.pers.firstname, e.pers.name, e.userRole FROM ProjectTeam pt JOIN pt.employeeList e JOIN e.esn es WHERE es.id = :esnId";
+	public List<Object[]> getProjectTeamsWithManagerByEsnId(Long esnId) {
+		String query = "SELECT pt.id, pt.projectName, e.pers.firstname, e.pers.name, e.userRole FROM ProjectTeam pt JOIN pt.employeeList e JOIN e.esn es WHERE es.id = :esnId AND e.userRole = :userRole";
 		TypedQuery<Object[]> typedQuery = entityManager.createQuery(query, Object[].class);
 		typedQuery.setParameter("esnId", esnId);
+		typedQuery.setParameter("userRole", UserRole.TEAM_MANAGER);
 		return typedQuery.getResultList();
 	}
 
@@ -40,9 +42,7 @@ public class TeamDao {
 
 	public List<Employee> getEmployeesByProjectTeamId(Long projectId) {
 		String query = "SELECT p FROM ProjectTeam p LEFT JOIN FETCH p.employeeList WHERE p.id = :projectId";
-		ProjectTeam project = entityManager
-				.createQuery(query, ProjectTeam.class)
-				.setParameter("projectId", projectId)
+		ProjectTeam project = entityManager.createQuery(query, ProjectTeam.class).setParameter("projectId", projectId)
 				.getSingleResult();
 		return project != null ? project.getEmployeeList() : Collections.emptyList();
 	}
@@ -51,17 +51,15 @@ public class TeamDao {
 		String query = "SELECT e FROM Employee e WHERE e.busy = false AND e.userRole = 'EMPLOYEE'";
 		return entityManager.createQuery(query, Employee.class).getResultList();
 	}
-	
+
 	public void addEmployeeToTeam(final Long id, final Employee employee) {
 		// Fetch le projet avec les employés pour évoiter le lazy load
 		String query = "SELECT p FROM ProjectTeam p LEFT JOIN FETCH p.employeeList WHERE p.id = :projectId";
-		ProjectTeam project = entityManager
-				.createQuery(query, ProjectTeam.class)
-				.setParameter("projectId", id)
+		ProjectTeam project = entityManager.createQuery(query, ProjectTeam.class).setParameter("projectId", id)
 				.getSingleResult();
-		
+
 		project.addEmployee(employee);
-		
+
 		entityManager.merge(employee);
 		entityManager.merge(project);
 	}

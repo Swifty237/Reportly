@@ -5,65 +5,99 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
+
 	<f:metadata>
 		<f:viewAction action="#{teamBean.init}" />
 	</f:metadata>
 
 	<ui:define name="content">
-		<h:form id="addTeamForm">
-			<p:panel header="Création d'un team">
+		<h:form id="addTeamForm" styleClass="team-form">
+			<p:panel header="Création d'une équipe" styleClass="team-panel">
 				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="nom" value="Nom du Team :" />
-					<p:inputText id="projectTeam" value="#{teamBean.teamName}" />
+					<h:outputLabel for="nom" value="Nom de l'équipe :" styleClass="team-label" />
+					<p:inputText id="projectTeam" value="#{teamBean.teamName}" disabled="#{empty teamBean.userAccounts}" styleClass="team-input"/>
 
-					<h:outputLabel for="employee" value="Manager :" />
-					<p:selectOneMenu value="#{teamBean.employee}"
-						converter="employeeConverter">
-						<f:selectItem itemLabel="sélection" itemValue="#{null}"
-							noSelectionOption="true" />
-						<f:selectItems id="employee" value="#{teamBean.userAccounts}"
-							var="user" itemLabel="#{user.pers.firstname} #{user.pers.name}"
-							itemValue="#{user}" />
+					<h:outputLabel for="employee" value="Responsable :" styleClass="team-label" />
+					<p:selectOneMenu value="#{teamBean.employee}" converter="employeeConverter" disabled="#{empty teamBean.userAccounts}" styleClass="team-input">
+						<f:selectItem itemLabel="Sélection" itemValue="#{null}" noSelectionOption="true" />
+						<f:selectItems id="employee" value="#{teamBean.userAccounts}" var="user"
+							itemLabel="#{user.pers.firstname} #{user.pers.name}" itemValue="#{user}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 
 				<h:panelGroup>
-					<p:commandButton value="Enregistrer" update="@form"
-						action="#{teamBean.addToTeam()}" style="margin-right: 10px;" />
+					<p:commandButton value="Enregistrer" update="@form" action="#{teamBean.addToTeam()}"
+						styleClass="team-button" disabled="#{empty teamBean.userAccounts}" />
 				</h:panelGroup>
 			</p:panel>
 		</h:form>
+
 		<h:form id="teamTableForm">
 			<ui:repeat value="#{teamBean.teamMembers}" var="team">
-				<p:panel header="Team de #{team[1]}">
-					<!-- 						<p:outputLabel value="Prénom" /> -->
-					<!-- 						<p:outputLabel value="Nom" /> -->
-					<!-- 						<p:outputLabel value="Rôle" /> -->
-					<p:panelGrid columns="4" rendered="#{not empty team}">
-						<h:outputText value="#{team[2]}" />
-						<h:outputText value="#{team[3]}" />
-						<h:outputText value="#{team[4]}" />
-						<p:commandButton value="Ajouter un membre"
-							action="teamEmployee.xhtml"
-							style="margin-right: 10px;">
-							<f:param name="teamId" value="#{team[0]}"/>
-							</p:commandButton>
+				<p:panel header="Équipe de #{team[1]}" styleClass="team-member-panel">
+					<p:panelGrid columns="4" rendered="#{not empty team}" styleClass="team-member-grid">
+						<h:outputText value="Prénom:" styleClass="team-member-label" />
+						<h:outputText value="#{team[2]}" styleClass="team-member-value" />
+						<h:outputText value="Nom:" styleClass="team-member-label" />
+						<h:outputText value="#{team[3]}" styleClass="team-member-value" />
+						<h:outputText value="Rôle:" styleClass="team-member-label" />
+						<h:outputText value="#{(team[4] eq 'EMPLOYEE') ? 'Salarié' : 'Manager'}" styleClass="team-member-value" />
+						<p:commandButton value="Ajouter un membre" action="#{teamEmployeeBean.init()}"
+							styleClass="team-member-button">
+							<f:param name="teamId" value="#{team[0]}" />
+						</p:commandButton>
+						<p:commandButton value="Voir les membres" action="#{teamEmployeeBean.init()}"
+							styleClass="team-member-button">
+							<f:param name="teamId" value="#{team[0]}" />
+						</p:commandButton>
 					</p:panelGrid>
-					<!-- 					<p:dataTable value="#{teamBean.teamMembers}" var="team" -->
-					<!-- 						emptyMessage="No Team found" lazy="false" > -->
-					<!-- 						<p:column headerText="Prénom"> -->
-					<!-- 							<h:outputText value="#{team[1]}" /> -->
-					<!-- 						</p:column> -->
-					<!-- 						<p:column headerText="Nom"> -->
-					<!-- 							<h:outputText value="#{team[2]}" /> -->
-					<!-- 						</p:column> -->
-					<!-- 						<p:column headerText="Rôle"> -->
-					<!-- 							<h:outputText value="#{team[3]}" /> -->
-					<!-- 						</p:column> -->
-
-					<!-- 					</p:dataTable> -->
 				</p:panel>
 			</ui:repeat>
 		</h:form>
+	</ui:define>
+	<ui:define name="styles">
+		<style>
+			.team-form {
+				margin-bottom: 20px;
+			}
+
+			.team-panel {
+				width: 400px;
+				margin: 20px auto;
+			}
+
+			.team-label {
+				width: 150px;
+			}
+
+			.team-input {
+				width: 200px;
+			}
+
+			.team-button {
+				margin-top: 10px;
+			}
+
+			.team-member-panel {
+				width: 600px;
+				margin: 20px auto;
+			}
+
+			.team-member-grid {
+				margin-top: 10px;
+			}
+
+			.team-member-label {
+				font-weight: bold;
+			}
+
+			.team-member-value {
+				margin-left: 10px;
+			}
+
+			.team-member-button {
+				margin-top: 10px;
+			}
+		</style>
 	</ui:define>
 </ui:composition>

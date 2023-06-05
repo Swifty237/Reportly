@@ -8,71 +8,72 @@
 
 	<ui:define name="content">
 		<h:form id="registrationForm">
-			<p:panel header="Formulaire d'inscription utilisateur">
+			<p:panel header="Formulaire d'inscription utilisateur" styleClass="registration-panel">
 				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="nom" value="Nom :" />
+					<h:outputLabel for="nom" value="Nom :" styleClass="label" />
 					<p:inputText id="nom"
-						value="#{registerUserBean.registerUserVm.name}" />
-					<h:outputLabel for="prenom" value="Prénom :" />
+						value="#{registerUserBean.registerUserVm.name}" styleClass="input" />
+
+					<h:outputLabel for="prenom" value="Prénom :" styleClass="label" />
 					<p:inputText id="prenom"
-						value="#{registerUserBean.registerUserVm.firstname}" />
+						value="#{registerUserBean.registerUserVm.firstname}" styleClass="input" />
 
-					<h:outputLabel for="email" value="Email :" />
+					<h:outputLabel for="email" value="Email :" styleClass="label" />
 					<p:inputText id="email"
-						value="#{registerUserBean.registerUserVm.email}" />
+						value="#{registerUserBean.registerUserVm.email}" styleClass="input" />
 
-					<h:outputLabel for="password" value="Mot de passe :" />
+					<h:outputLabel for="password" value="Mot de passe :" styleClass="label" />
 					<p:password id="password"
 						value="#{registerUserBean.registerUserVm.password}"
-						feedback="true" redisplay="true" toggleMask="true" />
+						feedback="true" redisplay="true" toggleMask="true" styleClass="input" />
 
-					<h:outputLabel for="dateNaissance" value="Date de naissance :" />
+					<h:outputLabel for="dateNaissance" value="Date de naissance :" styleClass="label" />
 					<p:calendar id="dateNaissance" locale="fr"
-						value="#{registerUserBean.registerUserVm.birthday}" />
+						value="#{registerUserBean.registerUserVm.birthday}" styleClass="input" />
 
-					<h:outputLabel for="rue" value="Rue :" />
+					<h:outputLabel for="rue" value="Rue :" styleClass="label" />
 					<p:inputText id="rue"
-						value="#{registerUserBean.registerUserVm.adress}" />
+						value="#{registerUserBean.registerUserVm.adress}" styleClass="input" />
 
-					<h:outputLabel for="ville" value="Ville :" />
+					<h:outputLabel for="ville" value="Ville :" styleClass="label" />
 					<p:inputText id="ville"
-						value="#{registerUserBean.registerUserVm.city}" />
+						value="#{registerUserBean.registerUserVm.city}" styleClass="input" />
 
-					<h:outputLabel for="codePostal" value="Code Postal :" />
+					<h:outputLabel for="codePostal" value="Code Postal :" styleClass="label" />
 					<p:inputText id="codePostal"
-						value="#{registerUserBean.registerUserVm.postalCode}" />
+						value="#{registerUserBean.registerUserVm.postalCode}" styleClass="input" />
 
-					<h:outputLabel for="pays" value="Pays :" />
+					<h:outputLabel for="pays" value="Pays :" styleClass="label" />
 					<p:inputText id="pays"
-						value="#{registerUserBean.registerUserVm.country}" />
+						value="#{registerUserBean.registerUserVm.country}" styleClass="input" />
 
-					<h:outputLabel for="telephone" value="Téléphone :" />
+					<h:outputLabel for="telephone" value="Téléphone :" styleClass="label" />
 					<p:inputText id="telephone"
-						value="#{registerUserBean.registerUserVm.phoneNumber}" />
+						value="#{registerUserBean.registerUserVm.phoneNumber}" styleClass="input" />
 
-					<h:outputLabel for="poste" value="Poste :" />
+					<h:outputLabel for="poste" value="Poste :" styleClass="label" />
 					<p:inputText id="poste"
-						value="#{registerUserBean.registerUserVm.jobTitle}" />
+						value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" />
 
-					<h:outputLabel for="role" value="Rôle du Membre :" />
-					<h:selectOneMenu
-						value="#{registerUserBean.registerUserVm.userRole}">
+					<h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
+					<p:selectOneMenu
+						value="#{registerUserBean.registerUserVm.userRole}" styleClass="input">
 						<f:selectItem itemLabel="sélection" itemValue="null" noSelectionOption="true" />
 						<f:selectItems var="type" itemLabel="#{type.label}"
 							itemValue="#{type}" value="#{registerUserBean.typesOfRoles()}" />
-					</h:selectOneMenu>
+					</p:selectOneMenu>
 
-					<h:outputLabel for="tjm" value="Tjm :" />
+					<h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
 					<p:inputText id="tjm"
-						value="#{registerUserBean.registerUserVm.tjm}" />
+						value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" />
 
 				</h:panelGrid>
 
 				<h:panelGroup>
 					<p:commandButton type="submit" value="Enregistrer"
 						action="#{registerUserBean.register()}"
-						style="margin-right: 10px;" />
-					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
+						styleClass="ui-button-raised ui-button-primary" style="margin-right:5px;"/>
+					<p:commandButton value="Annuler" styleClass="ui-button-raised ui-button-secondary"
 						action="#{registerUserBean.clear()}" immediate="true"/>
 				</h:panelGroup>
 			</p:panel>
