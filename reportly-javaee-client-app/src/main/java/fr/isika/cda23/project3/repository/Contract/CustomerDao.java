@@ -5,8 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import fr.isika.cda.entities.contract.Customer;
-
-import fr.isika.cda23.project3.presentation.viewModels.RegisterCustomerViewModel;
+import fr.isika.cda23.project3.presentation.viewModels.CustomerViewModel;
 
 
 public class CustomerDao {
@@ -14,16 +13,16 @@ public class CustomerDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public Long register(RegisterCustomerViewModel rcvm) {
+	public Long register(CustomerViewModel cvm) {
 		
 		Customer customer = new Customer();
 		
-		customer.setCompanyDetails(rcvm.getCompanyDetails());
-		customer.setPersonalDetails(rcvm.getPersonalDetails());
+		customer.setCompanyDetails(cvm.getCompanyDetails());
+		customer.setPersonalDetails(cvm.getPersonalDetails());
 		
 		entityManager.persist(customer);
 		
-		System.out.println("Customer : " + rcvm.toString() + " persisté");
+		System.out.println("Customer : " + cvm.toString() + " persisté");
 		
 		return customer.getId();
 		

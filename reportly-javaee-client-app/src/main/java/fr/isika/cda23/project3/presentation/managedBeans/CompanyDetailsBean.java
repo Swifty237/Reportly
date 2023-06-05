@@ -2,39 +2,27 @@ package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.IOException;
 
-import fr.isika.cda23.project3.business.RegisterCompanyDetailsService;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterCompanyDetailsViewModel;
-import fr.isika.cda23.project3.utils.NavigationUtils;
+import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 
-public class RegisterCompanyDetailsBean {
+import fr.isika.cda23.project3.business.CompanyDetailsServices;
+import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
+
+@ManagedBean
+public class CompanyDetailsBean {
 	
-	private RegisterCompanyDetailsService rcdService;
-	private RegisterCompanyDetailsViewModel rcdvm = new RegisterCompanyDetailsViewModel();
+//	@Inject
+//	private CompanyDetailsServices companyDetailsServices;
 	
-	public void registerCompanyDetails()throws IOException{
-		
-		rcdService.registerCompanyDetails(rcdvm);
-		rcdvm = new RegisterCompanyDetailsViewModel();
-		
-		NavigationUtils.redirectToUserList("");
+	private CompanyDetailsViewModel companyDetailsVm = new CompanyDetailsViewModel();
+
+	public CompanyDetailsViewModel getCompanyDetailsVm() {
+		return companyDetailsVm;
 	}
 
-	public RegisterCompanyDetailsService getRcdService() {
-		return rcdService;
-	}
-
-	public void setRcdService(RegisterCompanyDetailsService rcdService) {
-		this.rcdService = rcdService;
-	}
-
-	public RegisterCompanyDetailsViewModel getRcdvm() {
-		return rcdvm;
-	}
-
-	public void setRcdvm(RegisterCompanyDetailsViewModel rcdvm) {
-		this.rcdvm = rcdvm;
+	public void setCompanyDetailsVm(CompanyDetailsViewModel companyDetailsVm) {
+		this.companyDetailsVm = companyDetailsVm;
 	}
 	
 	
-
 }
