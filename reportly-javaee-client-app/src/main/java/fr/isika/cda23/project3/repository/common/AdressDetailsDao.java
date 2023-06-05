@@ -9,9 +9,6 @@ import fr.isika.cda23.project3.presentation.viewModels.AdressDetailsViewModel;
 
 @Stateless
 public class AdressDetailsDao {
-
-	@PersistenceContext
-	private EntityManager entityManager;
 	
 	public AdressDetails registerAdressDetails(AdressDetailsViewModel advm) {
 		
@@ -22,7 +19,6 @@ public class AdressDetailsDao {
 		adressDetails.setCity(advm.getCity());
 		adressDetails.setCountry(advm.getCountry());
 		
-		entityManager.persist(adressDetails);
 		
 		return adressDetails;
 	}

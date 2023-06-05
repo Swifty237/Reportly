@@ -22,7 +22,7 @@ public class CompanyDetailsDao {
 		companyDetails.setCreationDate(cdvm.getCreationDate());
 		companyDetails.setEmail(cdvm.getEmail());
 		
-		entityManager.persist(companyDetails);
+//		entityManager.persist(companyDetails);
 		
 		System.out.println("CompanyDetails :" + cdvm.toString()+"persisté");
 		

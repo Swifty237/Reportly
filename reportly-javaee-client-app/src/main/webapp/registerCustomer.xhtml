@@ -6,49 +6,59 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
-   <ui:define name="content">
-   
+	<ui:define name="content">
+
 		<h:form id="registrationForm">
-		<p:panel header="Formulaire d'inscription client">
-			<h:panelGrid columns="2" cellpadding="5">
-			
-				<h:outputLabel for="brand" value="Raison Sociale:" />
-				<p:inputText id="brand" value="#{companyDetailsBean.companyDetailsVm.brand}" />
-				
-				<h:outputLabel for="rue" value="Rue :" />
-				<p:inputText id="rue" value="#{adressDetailsBean.adressDetailsVm.adress}"/>
+			<p:panel header="Formulaire d'inscription client">
+				<h:panelGrid columns="2" cellpadding="5">
 
-				<h:outputLabel for="ville" value="Ville :" />
-				<p:inputText id="ville" value="#{adressDetailsBean.adressDetailsVm.city}"/>
+					<h:outputLabel for="brand" value="Raison Sociale:" />
+					<p:inputText id="brand"
+						value="#{companyDetailsBean.companyDetailsVm.brand}" />
 
-				<h:outputLabel for="codePostal" value="Code Postal :" />
-				<p:inputText id="codePostal" value="#{adressDetailsBean.adressDetailsVm.postalCode}"/>
+					<h:outputLabel for="rue" value="Rue :" />
+					<p:inputText id="rue"
+						value="#{adressDetailsBean.adressDetailsVm.adress}" />
 
-				<h:outputLabel for="pays" value="Pays :" />
-				<p:inputText id="pays" value="#{adressDetailsBean.adressDetailsVm.country}"/>
+					<h:outputLabel for="ville" value="Ville :" />
+					<p:inputText id="ville"
+						value="#{adressDetailsBean.adressDetailsVm.city}" />
 
-				<h:outputLabel for="prenom" value="Prénom du représentant :" />
-				<p:inputText id="prenom" value="#{personalDetailsBean.personalDetailsVm.firstname}"/>
-				
-				<h:outputLabel for="nom" value="Nom du représentant  :" />
-				<p:inputText id="nom" value="#{personalDetailsBean.personalDetailsVm.name}"/>
+					<h:outputLabel for="codePostal" value="Code Postal :" />
+					<p:inputText id="codePostal"
+						value="#{adressDetailsBean.adressDetailsVm.postalCode}" />
 
-				<h:outputLabel for="email" value="Email :" />
-				<p:inputText id="email" value="#{companyDetailsBean.companyDetailsVm.email}"/>
+					<h:outputLabel for="pays" value="Pays :" />
+					<p:inputText id="pays"
+						value="#{adressDetailsBean.adressDetailsVm.country}" />
 
-                <h:outputLabel for="telephone" value="Téléphone :" />
-				<p:inputText id="telephone"/>
+					<h:outputLabel for="prenom" value="Prénom du représentant :" />
+					<p:inputText id="prenom"
+						value="#{personalDetailsBean.personalDetailsVm.firstname}" />
 
-			</h:panelGrid>
+					<h:outputLabel for="nom" value="Nom du représentant  :" />
+					<p:inputText id="nom"
+						value="#{personalDetailsBean.personalDetailsVm.name}" />
 
-			<h:panelGroup>
-				<p:commandButton type="submit" value="Enregistrer"
-                style="margin-right: 10px;" />
-				<p:commandButton value="Annuler"
-					styleClass="ui-button-secondary" onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'"/>
-			</h:panelGroup>
-		</p:panel>
-	</h:form>
-	
+					<h:outputLabel for="email" value="Email :" />
+					<p:inputText id="email"
+						value="#{companyDetailsBean.companyDetailsVm.email}" />
+
+					<h:outputLabel for="telephone" value="Téléphone :" />
+					<p:inputText id="telephone" />
+
+				</h:panelGrid>
+
+				<h:panelGroup>
+					<div class = "me-4">
+						<p:commandButton type="submit" value="Enregistrer"
+							class="btn btn-primary" onclick="#{customerManagedBean.registerCustomer()}"/>
+						<p:commandButton value="Annuler" class="btn btn-secondary"
+							onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
+					</div>
+				</h:panelGroup>
+			</p:panel>
+		</h:form>
+
 	</ui:define>
 </ui:composition>

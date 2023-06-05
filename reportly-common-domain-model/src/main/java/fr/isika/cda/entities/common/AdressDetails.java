@@ -24,17 +24,6 @@ public class AdressDetails implements Serializable {
 	private String city;
 	private String country;
 	
-	public AdressDetails(String adress, String postalCode, String city, String country) {
-		this.adress = adress;
-		this.postalCode = postalCode;
-		this.city = city;
-		this.country = country;
-	}
-	
-	public AdressDetails() {
-	}
-
-	
 	public String getAdress() {
 		return adress;
 	}
