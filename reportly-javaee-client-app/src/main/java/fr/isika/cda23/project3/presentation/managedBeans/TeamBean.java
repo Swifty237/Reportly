@@ -8,7 +8,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;
@@ -46,21 +45,28 @@ public class TeamBean implements Serializable {
 		teamMembers = tService.getProjectTeamsWithMembersByEsnId(SessionUtils.getEsnIdFromSession());
 	}
 
-	public void addToTeam() {
+	public void addToTeam() throws IOException {
+
+		employee.setBusy(true);
+
 		ProjectTeam pTeam = new ProjectTeam();
 		pTeam.setProjectName(teamName);
-		employee.setBusy(true);
-		pTeam.getEmployeeList().add(employee);
+		pTeam.addManager(employee);
+		
 		tService.modifyEmployee(employee);
 		tService.addToTeam(pTeam);
+		
+		resetFieldsAndReloadData();
+
+		NavigationUtils.redirectToUserList("team.xhtml");
+	}
+
+	private void resetFieldsAndReloadData() {
 		this.employee = null;
 		this.teamName = null;
-		try {
-			NavigationUtils.redirectToUserList("team.xhtml");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
+		teamMembers = tService.getProjectTeamsWithMembersByEsnId(SessionUtils.getEsnIdFromSession());
 	}
 
 	public List<Employee> getUserAccounts() {
