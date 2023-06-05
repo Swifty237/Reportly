@@ -35,7 +35,7 @@ public class CustomerManagedBean {
 	
 	public void deleteCustomer(Long id) throws IOException{
 		customerServices.deleteCustomerService(id);
-		NavigationUtils.redirectToUserList("showAllCustomer.Xhtml");
+		NavigationUtils.redirectToUserList("showAllCustomers.xhtml");
 	}
 
 	public CustomerViewModel getCustomerVm() {

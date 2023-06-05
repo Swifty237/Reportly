@@ -23,26 +23,33 @@
 						</f:facet>
 						#{customer.id}
 					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							Raison Sociale
+						</f:facet>
+						#{customer.companyDetails.brand}
+					</h:column>
 
 					<h:column>
 						<f:facet name="header">
 							Nom du client
 						</f:facet>
-						#{customer.name}
+						#{customer.personalDetails.name}
 					</h:column>
 
 					<h:column>
 						<f:facet name="header">
 							Date de création
 						</f:facet>
-						#{customer.CreationDate}
+						#{customer.companyDetails.creationDate}
 					</h:column>
 
 					<h:column>
 						<f:facet name="header">
 							Contact
 						</f:facet>
-						#{customer.Email}
+						#{customer.companyDetails.email}
 					</h:column>
 
 					<h:column>
@@ -52,7 +59,7 @@
 						
 						<h:form class="d-flex justify-content-center">
 							<h:commandButton
-								action="#{deleteCustomerManagedBean.deleteCustomer(customer.id)}"
+								action="#{customerManagedBean.deleteCustomer(customer.id)}"
 								value="X" />
 						</h:form>
 
