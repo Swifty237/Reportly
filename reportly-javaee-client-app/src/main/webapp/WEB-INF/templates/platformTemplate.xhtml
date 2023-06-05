@@ -67,7 +67,7 @@
 >>>>>>> 2043bae (Fixed some conflicts after merging)
 =======
 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-							<p:link outcome="index.xhtml">Home</p:link>
+<!-- 							<p:link outcome="index.xhtml">Home</p:link> -->
 						</ui:fragment>
 						
 						<!-- Ecran Admin d'Esn -->
@@ -77,17 +77,22 @@
 							<p:link outcome="team.xhtml">Former les équipes</p:link>
 						</ui:fragment>
 
-						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+<!-- 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
 							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
-						</ui:fragment>
+						</ui:fragment> -->
 
 >>>>>>> b72d5bc (ecranEsn)
 
                         <p:link outcome="subscription.xhtml">Abonnement</p:link>
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
+<<<<<<< HEAD
 							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
 <<<<<<< HEAD
 =======
+=======
+
+				<!-- <p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink> -->
+>>>>>>> 13ea0c5 (Refactoring)
 
 >>>>>>> 54dbdcd (user)
 						</ui:fragment>
@@ -112,12 +117,15 @@
 							<p:link outcome="registerCustomer.xhtml">Example empty page</p:link>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 85e442c (html-customer)
 =======
 							<p:link outcome="examplePageOfTemplate.xhtml">Example empty page</p:link>
 							<p:link outcome="registerEsn.xhtml">registerEsn</p:link>
 
 >>>>>>> b7c6b2a (user)
+=======
+>>>>>>> 13ea0c5 (Refactoring)
 						</ui:fragment>
 <<<<<<< HEAD
 >>>>>>> d87f7d0 (dashboard navigation done -- todo - dashboard content and managed bean)

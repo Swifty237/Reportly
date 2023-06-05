@@ -24,8 +24,7 @@ public class PersonalDetailsDao {
 		personalDetails.setPhoneNumber(pdvm.getPhoneNumber());
 		personalDetails.setCreationDate(pdvm.getCreationDate());
 
-//		entityManager.persist(personalDetails);
-
+		entityManager.persist(personalDetails);
 		return personalDetails;
 	}
 
