@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="addTeamForm">
+			<p:panel
+				header="Ajouter un membre dans l'équipe #{teamEmployeeBean.tvm.projectTeam.projectName}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="employee" value="Employé :" />
+					<p:selectOneMenu value="#{teamEmployeeBean.tvm.employee}" converter="userAvailableConverter">
+						<f:selectItem itemLabel="sélection" itemValue="#{null}"
+							noSelectionOption="true" />
+						<f:selectItems id="employee"
+							value="#{teamEmployeeBean.availableEmployees}" var="user"
+							itemLabel="#{user.pers.jobTitle}: #{user.pers.firstname}-#{user.pers.name}"
+							itemValue="#{user}" />
+					</p:selectOneMenu>
+
+					<h:outputLabel for="tjm" value="TJM :" />
+					<p:inputText id="tjm" value="#{teamEmployeeBean.tvm.tjm}" />
+
+				</h:panelGrid>
+
+				<h:panelGroup>
+					<p:commandButton value="Ajouter" update="@form"
+						action="#{teamEmployeeBean.addToTeam()}" style="margin-right: 10px;" />
+				</h:panelGroup>
+			</p:panel>
+		</h:form>
+		<h:form id="userTableForm">
+			<p:dataTable id="userTable" value="#{teamEmployeeBean.employeesOfSelectedProjectTeam}"
+				var="user" emptyMessage="No employees found for this project" lazy="false">
+
+				<p:column headerText="Nom">
+					<h:outputText value="#{user.pers.name}" />
+				</p:column>
+
+				<p:column headerText="Prénom">
+					<h:outputText value="#{user.pers.firstname}" />
+				</p:column>
+
+				<p:column headerText="Email">
+					<h:outputText value="#{user.email}" />
+				</p:column>
+				<p:column headerText="Téléphone">
+					<h:outputText value="#{user.pers.phoneNumber}" />
+				</p:column>
+
+				<p:column headerText="Poste">
+					<h:outputText value="#{user.pers.jobTitle}" />
+				</p:column>
+
+				<p:column headerText="Tjm">
+					<h:outputText value="#{user.tjm}" />
+				</p:column>
+
+				<p:column style="width: 70px;">
+					<p:commandButton value="show"
+						action="#{registerUserBean.viewUser(user.userId)}"
+						icon="pi pi-search" styleClass="ui-button-raised ui-button-info">
+						<f:param name="userId" value="#{user.userId}" />
+					</p:commandButton>
+				</p:column>
+				<p:column style="width: 70px;">
+					<p:commandButton value="delete"
+						action="#{registerUserBean.deleteUser(user.userId)}"
+						icon="pi pi-trash" styleClass="ui-button-raised ui-button-danger" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
