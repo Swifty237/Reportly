@@ -58,6 +58,19 @@
 					<p:inputText id="tjm"
 						value="#{registerUserBean.registerUserVm.tjm}" />
 
+					<h:outputLabel for="role" value="Rôle du Membre :" />
+					<h:selectOneMenu
+						value="#{registerUserBean.registerUserVm.userRole}">
+						<f:selectItem itemLabel="sélection" itemValue="null"
+							noSelectionOption="true" />
+						<f:selectItems var="type" itemLabel="#{type.label}"
+							itemValue="#{type}" value="#{registerUserBean.typesOfRoles()}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel for="tjm" value="Tjm :" />
+					<p:inputText id="tjm"
+						value="#{registerUserBean.registerUserVm.tjm}" />
+
 				</h:panelGrid>
 
 				<h:panelGroup>
@@ -65,7 +78,8 @@
 						action="#{registerUserBean.register()}"
 						style="margin-right: 10px;" />
 					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
-						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
+						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'"
+						action="#{registerUserBean.clear()}"/>
 				</h:panelGroup>
 			</p:panel>
 		</h:form>

@@ -17,7 +17,6 @@ public class DocumentDao {
 	private EntityManager entityManager;
 	
 	public Long addDocument(DocumentViewModel advm) {
-		
 		Document document = new Document();
 
 		document.setName(advm.getName());

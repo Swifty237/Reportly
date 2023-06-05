@@ -1,22 +1,22 @@
 package fr.isika.cda.entities.users;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import fr.isika.cda.entities.esn.Esn;
+
 import fr.isika.cda.entities.common.PersonalDetails;
+import fr.isika.cda.entities.esn.Esn;
 
 @Entity
 @Table(name = "user_account")
@@ -33,13 +33,14 @@ public abstract class UserAccount implements Serializable {
 	protected Long userId;
 
 	protected String email;
+
 	protected String password;
+
+	@Enumerated(EnumType.STRING)
+	protected UserRole userRole;
 
 	@ManyToOne
 	public Esn esn;
-
-	@OneToMany
-	protected List<Role> roleList = new ArrayList<>();
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	protected PersonalDetails pers;
@@ -75,4 +76,21 @@ public abstract class UserAccount implements Serializable {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
+	public Esn getEsn() {
+		return esn;
+	}
+
+	public void setEsn(Esn esn) {
+		this.esn = esn;
+	}
+
 }

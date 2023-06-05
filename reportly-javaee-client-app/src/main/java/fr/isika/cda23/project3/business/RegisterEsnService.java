@@ -56,4 +56,40 @@ public class RegisterEsnService {
 		doc.setDocCreation(new Date());
 		document = doc;
 	}
+	
+	
+//	private static Document document;
+//
+//	public void register(RegisterEsnViewModel viewModel) {
+//
+//		AdressDetails adressDetails = new AdressDetails();
+//		adressDetails.setAdress(viewModel.getAdress());
+//		adressDetails.setCity(viewModel.getCity());
+//		adressDetails.setCountry(viewModel.getCountry());
+//		adressDetails.setPostalCode(viewModel.getPostalCode());
+//
+//		CompanyDetails companyDetails = new CompanyDetails();
+//		companyDetails.setBrand(viewModel.getBrand());
+//		companyDetails.setEmail(viewModel.getEmail());
+//		companyDetails.setPassword(viewModel.getPassword());
+//		companyDetails.setCreationDate(new Date());
+//		companyDetails.setAdressDetails(adressDetails);
+//
+//		companyDetails.setDocument(document);
+//
+//		Esn esn = new Esn();
+//
+//		esn.setCompanyDetails(companyDetails);
+//
+//		Long id = esnDao.register(esn);
+//
+//		System.out.println("Esn vient d'etre crée avec :" + id);
+//
+//	}
+//
+//	public static void getDoc(Document doc) {
+//		doc.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
+//		doc.setDocCreation(new Date());
+//		document = doc;
+//	}
 }

@@ -7,6 +7,64 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
+	
 		<h2></h2>
+		<h:form id="userTableForm">
+			<p:panel header="Liste des collaborateurs de #{loginBean.esnName}" styleClass="panel">
+				<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
+					var="user" emptyMessage="No users found" lazy="false">
+
+					<p:column headerText="Nom">
+						<h:outputText value="#{user.pers.name}" />
+					</p:column>
+
+					<p:column headerText="Prénom">
+						<h:outputText value="#{user.pers.firstname}" />
+					</p:column>
+
+					<p:column headerText="Email">
+						<h:outputText value="#{user.email}" />
+					</p:column>
+
+					<p:column headerText="Rôle">
+						<h:outputText value="Employé"
+							rendered="#{user.userRole eq 'EMPLOYEE'}" />
+						<h:outputText value="Manager"
+							rendered="#{user.userRole ne 'EMPLOYEE'}" />
+					</p:column>
+
+					<p:column headerText="Téléphone">
+						<h:outputText value="#{user.pers.phoneNumber}" />
+					</p:column>
+
+					<p:column headerText="Poste">
+						<h:outputText value="#{user.pers.jobTitle}" />
+					</p:column>
+					
+					<p:column headerText="Disponibilité">
+						<h:outputText value="#{user.busy ? 'Non' : 'Oui'}" />
+					</p:column>
+
+					<p:column headerText="Tjm">
+						<h:outputText value="#{user.tjm}" />
+					</p:column>
+
+					<p:column style="width: 70px;">
+						<p:commandButton value="modify"
+							action="#{registerUserBean.viewUser(user.userId)}"
+							icon="pi pi-search" styleClass="ui-button-raised ui-button-info">
+							<f:param name="userId" value="#{user.userId}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width: 70px;">
+						<p:commandButton value="delete"
+							action="#{registerUserBean.deleteUser(user.userId)}"
+							icon="pi pi-trash" styleClass="ui-button-raised ui-button-danger" />
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+		
 	</ui:define>
 </ui:composition>

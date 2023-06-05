@@ -36,10 +36,25 @@
 							<p:link outcome="register.xhtml">Sign up <i class="fa-solid fa-user-plus text-white p-2"></i></p:link>
 						</div>
 
+						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+<!-- 							<p:link outcome="index.xhtml">Home</p:link> -->
+						</ui:fragment>
+						
+						<!-- Ecran Admin d'Esn -->
+						<ui:fragment rendered="#{loginBean.id !=null}">
+							<p:link outcome="ecranEsn.xhtml">Home</p:link>
+							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
+							<p:link outcome="team.xhtml">Former les équipes</p:link>
+						</ui:fragment>
+
+<!-- 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
+						</ui:fragment> -->
+
 
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 
-							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
+				<!-- <p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink> -->
 
 						</ui:fragment>
 

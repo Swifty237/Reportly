@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+
+		<h2 class="text-center">Gestion des clients</h2>
+		<hr />		
+		
+		<div class="row justify-content-around">
+			<div class="col-5">
+
+				<h:dataTable class="table table-hover" value="#{customerManagedBean.getListCustomers()}"
+					var="customer">
+				
+					<h:column>
+						<f:facet name="header">
+							Id
+						</f:facet>
+						#{customer.id}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Nom du client
+						</f:facet>
+						#{customer.companyDetails.brand}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Date de création
+						</f:facet>
+						#{customer.companyDetails.creationDate}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Contact
+						</f:facet>
+						#{customer.personalDetails.name}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							Supprimer
+						</f:facet>
+						
+						<h:form class="d-flex justify-content-center">
+							<h:commandButton
+								action="#{deleteCustomerManagedBean.deleteCustomer(customer.id)}"
+								value="X" />
+						</h:form>
+
+					</h:column>
+
+				</h:dataTable>
+
+			</div>
+			
+			<p:divider />
+
+			
+		</div>
+		
+		<hr />
+
+	</ui:define>
+</ui:composition>

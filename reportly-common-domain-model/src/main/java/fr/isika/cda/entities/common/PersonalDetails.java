@@ -38,7 +38,7 @@ public class PersonalDetails implements Serializable {
 	private Date birthday;
 
 	@Column(name = "phone_number")
-	private int phoneNumber;
+	private String phoneNumber;
 
 	@Column(name = "job_title")
 	private String jobTitle;
@@ -50,15 +50,12 @@ public class PersonalDetails implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private AdressDetails adressDetails;
 
-	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle) {
-		this.name = name;
-		this.firstname = firstname;
-		this.birthday = birdhday;
-		this.phoneNumber = phoneNumber;
-		this.jobTitle = jobTitle;
+	public Long getId() {
+		return Id;
 	}
 
-	public PersonalDetails() {
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	public String getName() {
@@ -85,11 +82,11 @@ public class PersonalDetails implements Serializable {
 		this.birthday = birthday;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
