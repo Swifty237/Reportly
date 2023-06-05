@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,7 +27,8 @@ public class ProjectTeam implements Serializable{
 	private String projectName;
 	
 	@OneToMany
-	private List<Employee> employeeList=new ArrayList<>();
+	@JoinColumn(name = "fk_project_team_id")
+	private List<Employee> employeeList = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -59,13 +61,15 @@ public class ProjectTeam implements Serializable{
 		builder.append(id);
 		builder.append(", projectName=");
 		builder.append(projectName);
-		builder.append(", employeeList=");
-		builder.append(employeeList);
 		builder.append("]");
 		return builder.toString();
 	}
 
 	public boolean addManager(Employee employee) {
 		return this.employeeList.add(employee);
+	}
+
+	public void addEmployee(Employee employee) {
+		this.employeeList.add(employee);
 	}
 }

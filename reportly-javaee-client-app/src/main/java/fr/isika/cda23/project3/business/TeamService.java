@@ -35,4 +35,20 @@ public class TeamService {
 		return teamDao.getProjectTeamsWithMembersByEsnId(esnId);
 	}
 
+	public List<Employee> getEmployeesByProjectTeamId(Long projectId) {
+		return teamDao.getEmployeesByProjectTeamId(projectId);
+	}
+
+	public void addEmployeeToTeam(final Long id, Employee employee) {
+		employee.setBusy(true);
+		teamDao.addEmployeeToTeam(id, employee);
+	}
+
+	public List<Employee> getAvailableEmployees() {
+		return teamDao.getAvailableEmployees();
+	}
+
+	public ProjectTeam getProjectTeamById(Long teamId) {
+		return teamDao.getProjectTeamById(teamId);
+	}
 }

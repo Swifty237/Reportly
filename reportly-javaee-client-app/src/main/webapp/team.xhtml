@@ -35,28 +35,33 @@
 		</h:form>
 		<h:form id="teamTableForm">
 			<ui:repeat value="#{teamBean.teamMembers}" var="team">
-				<p:panel header="Team de #{team[0]}">
-<!-- 						<p:outputLabel value="Prénom" /> -->
-<!-- 						<p:outputLabel value="Nom" /> -->
-<!-- 						<p:outputLabel value="Rôle" /> -->
-					<p:panelGrid columns="3" rendered="#{not empty team}">
-						<h:outputText value="#{team[1]}" />
+				<p:panel header="Team de #{team[1]}">
+					<!-- 						<p:outputLabel value="Prénom" /> -->
+					<!-- 						<p:outputLabel value="Nom" /> -->
+					<!-- 						<p:outputLabel value="Rôle" /> -->
+					<p:panelGrid columns="4" rendered="#{not empty team}">
 						<h:outputText value="#{team[2]}" />
 						<h:outputText value="#{team[3]}" />
+						<h:outputText value="#{team[4]}" />
+						<p:commandButton value="Ajouter un membre"
+							action="teamEmployee.xhtml"
+							style="margin-right: 10px;">
+							<f:param name="teamId" value="#{team[0]}"/>
+							</p:commandButton>
 					</p:panelGrid>
-<!-- 					<p:dataTable value="#{teamBean.teamMembers}" var="team" -->
-<!-- 						emptyMessage="No Team found" lazy="false" > -->
-<!-- 						<p:column headerText="Prénom"> -->
-<!-- 							<h:outputText value="#{team[1]}" /> -->
-<!-- 						</p:column> -->
-<!-- 						<p:column headerText="Nom"> -->
-<!-- 							<h:outputText value="#{team[2]}" /> -->
-<!-- 						</p:column> -->
-<!-- 						<p:column headerText="Rôle"> -->
-<!-- 							<h:outputText value="#{team[3]}" /> -->
-<!-- 						</p:column> -->
-						
-<!-- 					</p:dataTable> -->
+					<!-- 					<p:dataTable value="#{teamBean.teamMembers}" var="team" -->
+					<!-- 						emptyMessage="No Team found" lazy="false" > -->
+					<!-- 						<p:column headerText="Prénom"> -->
+					<!-- 							<h:outputText value="#{team[1]}" /> -->
+					<!-- 						</p:column> -->
+					<!-- 						<p:column headerText="Nom"> -->
+					<!-- 							<h:outputText value="#{team[2]}" /> -->
+					<!-- 						</p:column> -->
+					<!-- 						<p:column headerText="Rôle"> -->
+					<!-- 							<h:outputText value="#{team[3]}" /> -->
+					<!-- 						</p:column> -->
+
+					<!-- 					</p:dataTable> -->
 				</p:panel>
 			</ui:repeat>
 		</h:form>
