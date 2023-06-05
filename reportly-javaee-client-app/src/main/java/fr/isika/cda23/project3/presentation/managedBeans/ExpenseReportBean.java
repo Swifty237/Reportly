@@ -2,10 +2,15 @@ package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+=======
+import javax.faces.application.FacesMessage;
+>>>>>>> 2269e5e (Full ExpenseReport Page)
 import javax.faces.bean.ManagedBean;
 <<<<<<< HEAD
 import javax.inject.Inject;
@@ -14,7 +19,7 @@ import fr.isika.cda.entities.common.ExpenseReport;
 import fr.isika.cda23.project3.business.ExpenseReportServices;
 =======
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.ExpenseReport;
@@ -23,17 +28,21 @@ import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 import fr.isika.cda23.project3.utils.NavigationUtils;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @ManagedBean
 =======
 @ManagedBean(name = "expenseBean")
 >>>>>>> 5f75810 (Latest changes)
+=======
+@ManagedBean
+>>>>>>> 2269e5e (Full ExpenseReport Page)
 @SessionScoped
 public class ExpenseReportBean implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3346632683202219582L;
+	private static final long serialVersionUID = -4433798209344858186L;
 
 	@Inject
 <<<<<<< HEAD
@@ -78,13 +87,11 @@ public class ExpenseReportBean implements Serializable {
 =======
 	private ExpenseReportDao expenseReportDao;
 
-	private ExpenseReportViewModel expenseReportVm = new ExpenseReportViewModel();
-	private List<ExpenseReport> expenseReports;
+	private ExpenseReportViewModel expenseReportViewModel;
 
-	    public void setExpenseReportDao(ExpenseReportDao expenseReportDao) {
-	        this.expenseReportDao = expenseReportDao;
-	    }
+	private List<ExpenseReportViewModel> expenseReports;
 
+<<<<<<< HEAD
 	    public ExpenseReportViewModel getExpenseReport() {
 	        return expenseReportVm;
 	    }
@@ -116,4 +123,70 @@ public class ExpenseReportBean implements Serializable {
 	        expenseReports = null; // Invalidate the cached expenseReports list
 	    }
 >>>>>>> 5f75810 (Latest changes)
+=======
+	public ExpenseReportBean() {
+		expenseReportViewModel = new ExpenseReportViewModel();
+		expenseReports = new ArrayList<>();
+>>>>>>> 2269e5e (Full ExpenseReport Page)
 	}
+
+	public void addExpenseReport() {
+		Long id = expenseReportDao.addExpenseReport(expenseReportViewModel);
+		expenseReportViewModel.setId(id);
+		expenseReports.add(expenseReportViewModel);
+
+		expenseReportViewModel = new ExpenseReportViewModel(); // Reset the object
+
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Success", "Expense report added successfully!"));
+	}
+
+	public String editExpenseReport(ExpenseReportViewModel ervm) {
+		expenseReportViewModel = ervm;
+		return "editExpenseReport";
+	}
+
+	public String updateExpenseReport() {
+		expenseReportDao.updateExpenseReport(expenseReportViewModel);
+		expenseReportViewModel = new ExpenseReportViewModel();
+		return "expenseReports";
+	}
+
+	public void deleteExpenseReport(ExpenseReportViewModel ervm) {
+		ExpenseReport expenseReport = expenseReportDao.getExpenseReportById(ervm.getId());
+		expenseReportDao.deleteExpenseReport(expenseReport);
+		expenseReports.remove(ervm);
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Success", "Expense report deleted successfully!"));
+	}
+
+	public List<ExpenseReportViewModel> getExpenseReports() {
+		expenseReports = mapToViewModel(expenseReportDao.getAllExpenseReports());
+		return expenseReports;
+	}
+
+	private List<ExpenseReportViewModel> mapToViewModel(List<ExpenseReport> expenseReports) {
+		List<ExpenseReportViewModel> viewModels = new ArrayList<>();
+		for (ExpenseReport er : expenseReports) {
+			ExpenseReportViewModel viewModel = new ExpenseReportViewModel();
+			viewModel.setId(er.getId());
+			viewModel.setExpenseDate(er.getExpenseDate());
+			viewModel.setCreationDate(er.getCreationDate());
+			viewModel.setReason(er.getReason());
+			viewModel.setAmount(er.getAmount());
+			viewModels.add(viewModel);
+		}
+		return viewModels;
+	}
+
+	public ExpenseReportViewModel getExpenseReportViewModel() {
+		return expenseReportViewModel;
+	}
+
+	public void setExpenseReportViewModel(ExpenseReportViewModel expenseReportViewModel) {
+		this.expenseReportViewModel = expenseReportViewModel;
+	}
+}

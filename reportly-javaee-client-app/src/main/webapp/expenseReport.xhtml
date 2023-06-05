@@ -4,6 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+<<<<<<< HEAD
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 <<<<<<< HEAD
@@ -187,14 +188,28 @@
 	</ui:define>
 </ui:composition>
 =======
+=======
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Expense Report</title>
+	<h:outputStylesheet library="css" name="expenseStyle.css" />
+</h:head>
+<h:body>
+	<div id="expense-container">
+		<div id="form-expense-container">
+			<h:form id="expenseForm" enctype="multipart/form-data">
+				<p:panel header="Expense Report">
+					<p:growl id="messages" showDetail="true" sticky="false" life="3500" />
+>>>>>>> 2269e5e (Full ExpenseReport Page)
 					<h:panelGrid columns="2" cellpadding="5">
 						<h:outputLabel for="expenseDate" value="Date:" />
 						<p:calendar id="expenseDate"
-							value="#{expenseBean.expenseReport.expenseDate}" showOn="button" />
+							value="#{expenseReportBean.expenseReportViewModel.expenseDate}"
+							showOn="button" />
 
 						<h:outputLabel for="expenseAmount" value="Amount:" />
 						<p:inputText id="expenseAmount"
-							value="#{expenseBean.expenseReport.amount}"
+							value="#{expenseReportBean.expenseReportViewModel.amount}"
 							validatorMessage="Invalid amount">
 							<f:convertNumber maxFractionDigits="2" />
 							<f:validateDoubleRange minimum="0.01" />
@@ -202,10 +217,11 @@
 
 						<h:outputLabel for="expenseDescription" value="Description:" />
 						<p:inputTextarea id="expenseDescription"
-							value="#{expenseBean.expenseReport.reason}" rows="6" cols="30" />
+							value="#{expenseReportBean.expenseReportViewModel.reason}"
+							rows="6" cols="30" />
 
 						<p:commandButton value="Submit"
-							action="#{expenseBean.addExpenseReport}"
+							action="#{expenseReportBean.addExpenseReport}"
 							update="messages expenseTable" process="@form" />
 					</h:panelGrid>
 				</p:panel>
@@ -213,28 +229,45 @@
 		</div>
 
 		<div id="table-expense-container">
-			<p:dataTable id="expenseTable" var="expense"
-				value="#{expenseBean.getExpenseReports()}"
-				emptyMessage="No expenses found">
-				<p:column headerText="Date">
-					<h:outputText value="#{expense.expenseDate}">
-						<f:convertDateTime pattern="MM/dd/yyyy" />
-					</h:outputText>
-				</p:column>
-				<p:column headerText="Type">
-					<h:outputText value="#{expense.reason}" />
-				</p:column>
-				<p:column headerText="Amount">
-					<h:outputText value="#{expense.amount}">
-						<f:convertNumber currencySymbol="€" type="currency" />
-					</h:outputText>
-				</p:column>
-				<p:column headerText="Description">
-					<h:outputText value="#{expense.reason}" />
-				</p:column>
-			</p:dataTable>
+			<h:panelGroup id="expenseTablePanel">
+				<p:dataTable id="expenseTable" var="expense"
+					value="#{expenseReportBean.getExpenseReports()}"
+					emptyMessage="No expenses found">
+					<p:column headerText="Date">
+						<h:outputText value="#{expense.expenseDate}">
+							<f:convertDateTime pattern="MM/dd/yyyy" />
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Amount">
+						<h:outputText value="#{expense.amount}">
+							<f:convertNumber currencySymbol="€" type="currency" />
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Description">
+						<h:outputText value="#{expense.reason}" />
+					</p:column>
+					<p:column styleClass="delete-column">
+						<h:form>
+							<p:growl id="messages" showDetail="true" sticky="false"
+								life="3500" />
+							<p:commandButton icon="pi pi-trash" styleClass="delete-button"
+								action="#{expenseReportBean.deleteExpenseReport(expense)}"
+								update="messages expenseTablePanel" />
+						</h:form>
+						<h:form>
+							<p:commandButton icon="pi pi-pencil" styleClass="update-button"
+								action="#{expenseReportBean.deleteExpenseReport(expense)}"
+								update="expenseTablePanel" />
+						</h:form>
+					</p:column>
+				</p:dataTable>
+			</h:panelGroup>
 		</div>
 	</div>
 </h:body>
+<<<<<<< HEAD
 </html>
 >>>>>>> 5f75810 (Latest changes)
+=======
+</html>
+>>>>>>> 2269e5e (Full ExpenseReport Page)

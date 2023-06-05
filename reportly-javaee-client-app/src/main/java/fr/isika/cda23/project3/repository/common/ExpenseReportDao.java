@@ -2,14 +2,14 @@ package fr.isika.cda23.project3.repository.common;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
 import fr.isika.cda.entities.common.ExpenseReport;
 
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 
+@Stateless
 public class ExpenseReportDao {
 
 	@PersistenceContext
@@ -26,13 +26,17 @@ public class ExpenseReportDao {
 
 		entityManager.persist(expenseReport);
 
+<<<<<<< HEAD
 		System.out.println("ExpenseReport : " + ervm.toString() + " persisté");
 
 		return expenseReport.getId();
+=======
+		return expensereport.getId();
+>>>>>>> 2269e5e (Full ExpenseReport Page)
 	}
 
 	public ExpenseReport getExpenseReportById(Long id) {
-		return entityManager.find(ExpenseReport.class, id);
+	    return entityManager.find(ExpenseReport.class, id);
 	}
 
 	public List<ExpenseReport> getAllExpenseReports() {
@@ -55,6 +59,7 @@ public class ExpenseReportDao {
 		}
 	}
 
+<<<<<<< HEAD
 //	public void deleteExpenseReport(Long id) {
 //		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, id);
 //
@@ -68,5 +73,10 @@ public class ExpenseReportDao {
 	public void deleteExpenseReport(ExpenseReport expenseReport) {
 			entityManager.remove(expenseReport);
 			System.out.println("Note de frais supprimé ================================================");
+=======
+	public void deleteExpenseReport(ExpenseReport expenseReport) {
+	    ExpenseReport managedExpenseReport = entityManager.find(ExpenseReport.class, expenseReport.getId());
+	    entityManager.remove(managedExpenseReport);
+>>>>>>> 2269e5e (Full ExpenseReport Page)
 	}
 }
