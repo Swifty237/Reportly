@@ -36,12 +36,27 @@
 		<h:form id="teamTableForm">
 			<ui:repeat value="#{teamBean.teamMembers}" var="team">
 				<p:panel header="Team de #{team[0]}">
-					<!-- <p:dataTable value="#{team}" var="user"
-						emptyMessage="No Team found" lazy="false">
-						<p:column headerText="Nom du ProjectTeam">
-							<h:outputText value="#{user}" />
-						</p:column>
-					</p:dataTable> -->
+<!-- 						<p:outputLabel value="Prénom" /> -->
+<!-- 						<p:outputLabel value="Nom" /> -->
+<!-- 						<p:outputLabel value="Rôle" /> -->
+					<p:panelGrid columns="3" rendered="#{not empty team}">
+						<h:outputText value="#{team[1]}" />
+						<h:outputText value="#{team[2]}" />
+						<h:outputText value="#{team[3]}" />
+					</p:panelGrid>
+<!-- 					<p:dataTable value="#{teamBean.teamMembers}" var="team" -->
+<!-- 						emptyMessage="No Team found" lazy="false" > -->
+<!-- 						<p:column headerText="Prénom"> -->
+<!-- 							<h:outputText value="#{team[1]}" /> -->
+<!-- 						</p:column> -->
+<!-- 						<p:column headerText="Nom"> -->
+<!-- 							<h:outputText value="#{team[2]}" /> -->
+<!-- 						</p:column> -->
+<!-- 						<p:column headerText="Rôle"> -->
+<!-- 							<h:outputText value="#{team[3]}" /> -->
+<!-- 						</p:column> -->
+						
+<!-- 					</p:dataTable> -->
 				</p:panel>
 			</ui:repeat>
 		</h:form>

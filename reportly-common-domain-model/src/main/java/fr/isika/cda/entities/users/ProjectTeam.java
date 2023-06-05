@@ -64,4 +64,8 @@ public class ProjectTeam implements Serializable{
 		builder.append("]");
 		return builder.toString();
 	}
+
+	public boolean addManager(Employee employee) {
+		return this.employeeList.add(employee);
+	}
 }
