@@ -58,7 +58,7 @@ public class CustomerManagedBean {
 		System.out.println("register Customer ===========================================================================================================");
 		customerServices.registerCustomerService(customerVm);
 		System.out.println("register clear ===========================================================================================================");
-		customerVm = new CustomerViewModel();
+//		customerVm = new CustomerViewModel();
 		
 		NavigationUtils.redirectToUserList("showAllCustomers.xhtml");
 	}

@@ -37,7 +37,7 @@
 						</div>
 
 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-							<p:link outcome="index.xhtml">Home</p:link>
+<!-- 							<p:link outcome="index.xhtml">Home</p:link> -->
 						</ui:fragment>
 						
 						<!-- Ecran Admin d'Esn -->
@@ -47,14 +47,14 @@
 							<p:link outcome="team.xhtml">Former les équipes</p:link>
 						</ui:fragment>
 
-						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
+<!-- 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
 							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
-						</ui:fragment>
+						</ui:fragment> -->
 
 
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 
-							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
+				<!-- <p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink> -->
 
 						</ui:fragment>
 
@@ -72,9 +72,6 @@
 								<i class="fa-solid fa-circle-info text-white"></i>
 								<p:link outcome="examplePageOfTemplate.xhtml">Help</p:link>
 							</div>
-
-							<p:link outcome="examplePageOfTemplate.xhtml">Example empty page</p:link>
-							<p:link outcome="registerEsn.xhtml">registerEsn</p:link>
 
 						</ui:fragment>
 					</div>
