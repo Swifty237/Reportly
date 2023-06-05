@@ -16,9 +16,8 @@ public class CustomerServices {
 	@Inject
 	private CustomerDao customerDao;
 		
-	public void registerCustomerService(CustomerViewModel cvm) {
-				
-		Long id = customerDao.register(cvm);
+	public Long registerCustomerService(CustomerViewModel cvm) {
+		return customerDao.register(cvm);
 	}
 	
 	public void deleteCustomerService(Long id) {

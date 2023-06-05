@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.contract.Customer;
+<<<<<<< HEAD
 import fr.isika.cda23.project3.business.CompanyDetailsServices;
 import fr.isika.cda23.project3.business.CustomerServices;
 import fr.isika.cda23.project3.business.PersonalDetailsServices;
@@ -16,6 +17,9 @@ import fr.isika.cda23.project3.business.PersonalDetailsServices;
 import fr.isika.cda23.project3.presentation.viewModels.AdressDetailsViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
 >>>>>>> db8741c (Customer register - Work in progress : refactoring)
+=======
+import fr.isika.cda23.project3.business.CustomerServices;
+>>>>>>> b07525c (Refactoring register customer ok -- to be checked and tested)
 import fr.isika.cda23.project3.presentation.viewModels.CustomerViewModel;
 import fr.isika.cda23.project3.utils.NavigationUtils;
 
@@ -25,6 +29,7 @@ public class CustomerManagedBean {
 	@Inject
 	private CustomerServices customerServices;
 	
+<<<<<<< HEAD
 	@Inject
 	private CompanyDetailsServices companyDetailsServices;
 	
@@ -39,13 +44,11 @@ public class CustomerManagedBean {
 	private AdressDetailsServices adressDetailsServices;
 	
 >>>>>>> db8741c (Customer register - Work in progress : refactoring)
+=======
+>>>>>>> b07525c (Refactoring register customer ok -- to be checked and tested)
 	private CustomerViewModel customerVm = new CustomerViewModel();
-	private AdressDetailsViewModel adressDetailsVm = new AdressDetailsViewModel();
-	private CompanyDetailsViewModel companyDetailsVm = new CompanyDetailsViewModel();
-	private PersonalDetailsViewModel personalDetailsVm = new PersonalDetailsViewModel();
-	
+
 	private List<Customer> listCustomers;
-	
 	
 	@PostConstruct
 	public void init() {
@@ -53,6 +56,7 @@ public class CustomerManagedBean {
 	}
 	
 	public void registerCustomer() throws IOException{
+<<<<<<< HEAD
 		
 <<<<<<< HEAD
 		System.out.println("register adress ===========================================================================================================");
@@ -69,13 +73,14 @@ public class CustomerManagedBean {
 		personalDetailsServices.registerPersonalDetails(customerVm, personalDetailsBean.getPersonalDetailsVm());
 		
 		System.out.println("register Customer ===========================================================================================================");
+=======
+>>>>>>> b07525c (Refactoring register customer ok -- to be checked and tested)
 		customerServices.registerCustomerService(customerVm);
 		System.out.println("register clear ===========================================================================================================");
 //		customerVm = new CustomerViewModel();
 		
 		NavigationUtils.redirectToUserList("showAllCustomers.xhtml");
 	}
-	
 	
 	public void deleteCustomer(Long id) throws IOException{
 		customerServices.deleteCustomerService(id);
@@ -98,28 +103,4 @@ public class CustomerManagedBean {
 		this.listCustomers = listCustomers;
 	}
 	
-	public PersonalDetailsViewModel getPersonalDetailsVm() {
-		return personalDetailsVm;
-	}
-
-	public void setPersonalDetailsVm(PersonalDetailsViewModel personalDetailsVm) {
-		this.personalDetailsVm = personalDetailsVm;
-	}
-
-
-	public CompanyDetailsViewModel getCompanyDetailsVm() {
-		return companyDetailsVm;
-	}
-
-	public void setCompanyDetailsVm(CompanyDetailsViewModel companyDetailsVm) {
-		this.companyDetailsVm = companyDetailsVm;
-	}
-
-	public AdressDetailsViewModel getAdressDetailsVm() {
-		return adressDetailsVm;
-	}
-
-	public void setAdressDetailsVm(AdressDetailsViewModel adressDetailsVm) {
-		this.adressDetailsVm = adressDetailsVm;
-	}
 }
