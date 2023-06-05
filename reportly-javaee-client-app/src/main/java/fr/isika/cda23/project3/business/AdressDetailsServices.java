@@ -4,6 +4,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import fr.isika.cda23.project3.presentation.viewModels.AdressDetailsViewModel;
+import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.CustomerViewModel;
 import fr.isika.cda23.project3.repository.common.AdressDetailsDao;
 
@@ -13,7 +14,7 @@ public class AdressDetailsServices {
 	@Inject
 	private AdressDetailsDao adressDetailsDao;
 	
-	public void registerAdressDetails(CustomerViewModel cvm, AdressDetailsViewModel advm) {
-		cvm.setAdressDetails(adressDetailsDao.registerAdressDetails(advm));
+	public void registerAdressDetails(CompanyDetailsViewModel cdvm, AdressDetailsViewModel advm) {
+		cdvm.setAdressDetails(adressDetailsDao.registerAdressDetails(advm));
 	}
 }

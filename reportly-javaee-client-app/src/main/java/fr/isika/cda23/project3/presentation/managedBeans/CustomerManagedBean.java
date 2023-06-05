@@ -35,12 +35,7 @@ public class CustomerManagedBean {
 	
 	@Inject
 	private PersonalDetailsBean personalDetailsBean;
-	
-	@Inject
-	private AdressDetailsServices adressDetailsServices;
-	
-	private AdressDetailsBean adressDetailsBean;
-	
+		
 	private CustomerViewModel customerVm = new CustomerViewModel();
 	
 	private List<Customer> listCustomers;
@@ -52,12 +47,19 @@ public class CustomerManagedBean {
 	
 	public void registerCustomer() throws IOException{
 		
-		companyDetailsServices.registerCompanyDetails(customerVm, companyDetailsBean.getCompanyDetailsVm());
-		personalDetailsServices.registerPersonalDetails(customerVm, personalDetailsBean.getPersonalDetailsVm());
-		adressDetailsServices.registerAdressDetails(customerVm, adressDetailsBean.getAdressDetailsVm());
+		System.out.println("register adress ===========================================================================================================");
+		companyDetailsBean.registerAdressDetail();
 		
+		System.out.println("register company Details ===========================================================================================================");
+		companyDetailsServices.registerCompanyDetails(customerVm, companyDetailsBean.getCompanyDetailsVm());
+		System.out.println("register Personal Details ===========================================================================================================");
+		personalDetailsServices.registerPersonalDetails(customerVm, personalDetailsBean.getPersonalDetailsVm());
+		
+		System.out.println("register Customer ===========================================================================================================");
 		customerServices.registerCustomerService(customerVm);
+		System.out.println("register clear ===========================================================================================================");
 		customerVm = new CustomerViewModel();
+		
 		NavigationUtils.redirectToUserList("showAllCustomers.xhtml");
 	}
 	

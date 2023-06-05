@@ -28,21 +28,21 @@
 						<f:facet name="header">
 							Nom du client
 						</f:facet>
-						#{customer.name}
+						#{customer.companyDetails.brand}
 					</h:column>
 
 					<h:column>
 						<f:facet name="header">
 							Date de création
 						</f:facet>
-						#{customer.CreationDate}
+						#{customer.companyDetails.creationDate}
 					</h:column>
 
 					<h:column>
 						<f:facet name="header">
 							Contact
 						</f:facet>
-						#{customer.Email}
+						#{customer.personalDetails.name}
 					</h:column>
 
 					<h:column>

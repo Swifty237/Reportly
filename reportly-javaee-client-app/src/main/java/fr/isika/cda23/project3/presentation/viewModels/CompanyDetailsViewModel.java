@@ -2,11 +2,15 @@ package fr.isika.cda23.project3.presentation.viewModels;
 
 import java.util.Date;
 
+import fr.isika.cda.entities.common.AdressDetails;
+
 public class CompanyDetailsViewModel {
 	
 	private Date creationDate = new Date();
 	private String brand;
 	private String email;
+	private AdressDetails adressDetails;
+	
 	
 	public Date getCreationDate() {
 		return creationDate;
@@ -25,7 +29,13 @@ public class CompanyDetailsViewModel {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
 	
-	
+	public AdressDetails getAdressDetails() {
+		return adressDetails;
+	}
+
+	public void setAdressDetails(AdressDetails adressDetails) {
+		this.adressDetails = adressDetails;
+	}
 }
