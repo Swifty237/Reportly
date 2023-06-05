@@ -4,8 +4,7 @@ import java.util.Date;
 
 
 
-public class RegisterPersonalDetailsViewModel {
-	
+public class PersonalDetailsViewModel {
 	
 	private String name;
 	private String firstname;
@@ -13,6 +12,7 @@ public class RegisterPersonalDetailsViewModel {
 	private String phoneNumber;
 	private String jobTitle;
 	private Date creationDate;
+	
 	public String getName() {
 		return name;
 	}
@@ -49,25 +49,4 @@ public class RegisterPersonalDetailsViewModel {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("RegisterPersonalDetailsViewModel [name=");
-		builder.append(name);
-		builder.append(", firstname=");
-		builder.append(firstname);
-		builder.append(", birthday=");
-		builder.append(birthday);
-		builder.append(", phoneNumber=");
-		builder.append(phoneNumber);
-		builder.append(", jobTitle=");
-		builder.append(jobTitle);
-		builder.append(", creationDate=");
-		builder.append(creationDate);
-		builder.append("]");
-		return builder.toString();
-	}
-	
-	
-
 }

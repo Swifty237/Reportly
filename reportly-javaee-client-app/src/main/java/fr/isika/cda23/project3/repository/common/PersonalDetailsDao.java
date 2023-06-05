@@ -5,47 +5,43 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.PersonalDetails;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterPersonalDetailsViewModel;
+import fr.isika.cda23.project3.presentation.viewModels.PersonalDetailsViewModel;
 
 @Stateless
 public class PersonalDetailsDao {
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
-	public Long registerPersonalDetails(RegisterPersonalDetailsViewModel rpdvm) {
-	
-	PersonalDetails personalDetails = new PersonalDetails();
-	
-	personalDetails.setName(rpdvm.getName());
-	personalDetails.setBirthday(rpdvm.getBirthday());
-	personalDetails.setFirstname(rpdvm.getFirstname());
-	personalDetails.setJobTitle(rpdvm.getJobTitle());
-	personalDetails.setPhoneNumber(rpdvm.getPhoneNumber());
-	personalDetails.setCreationDate(rpdvm.getCreationDate());
-	
-	entityManager.persist(personalDetails);
-	System.out.println("PersonalDetails :"  + rpdvm.toString() + "persisté");
-	
-	return personalDetails.getId();
-	
+
+	public PersonalDetails registerPersonalDetails(PersonalDetailsViewModel pdvm) {
+
+		PersonalDetails personalDetails = new PersonalDetails();
+
+		personalDetails.setName(pdvm.getName());
+		personalDetails.setBirthday(pdvm.getBirthday());
+		personalDetails.setFirstname(pdvm.getFirstname());
+		personalDetails.setJobTitle(pdvm.getJobTitle());
+		personalDetails.setPhoneNumber(pdvm.getPhoneNumber());
+		personalDetails.setCreationDate(pdvm.getCreationDate());
+
+		entityManager.persist(personalDetails);
+		System.out.println("PersonalDetails :" + pdvm.toString() + "persisté");
+
+		return personalDetails;
 	}
-	
+
 	public void removePersonalDetails(PersonalDetails personalDetails) {
 		entityManager.remove(personalDetails);
 		System.out.println("les données personnelles sont supprimées ========================");
 	}
-	
-	
+
 	public void updatePersonalDetails(PersonalDetails personalDetails) {
 		entityManager.merge(personalDetails);
-	
+
 	}
 
 	public PersonalDetails findPersonalDetailsById(Long id) {
-		return entityManager.find(PersonalDetails.class,id);
+		return entityManager.find(PersonalDetails.class, id);
 	}
-	
-}
-	
 
+}

@@ -2,43 +2,31 @@ package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.IOException;
 
-import javax.annotation.ManagedBean;
-import fr.isika.cda23.project3.business.RegisterPersonalDetailsService;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterPersonalDetailsViewModel;
-import fr.isika.cda23.project3.utils.NavigationUtils;
+import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+
+import fr.isika.cda23.project3.business.PersonalDetailsServices;
+import fr.isika.cda23.project3.presentation.viewModels.PersonalDetailsViewModel;
 
 @ManagedBean
-public class RegisterPersonalDetailsBean {
+public class PersonalDetailsBean {
 	
-	private RegisterPersonalDetailsService rpdService;
+	@Inject
+	private PersonalDetailsServices personalDetailsServices;
 	
-	private RegisterPersonalDetailsViewModel rpdvm = new RegisterPersonalDetailsViewModel();
+	private PersonalDetailsViewModel personalDetailsVm = new PersonalDetailsViewModel();
 	
 	public void registerPersonalDetails() throws IOException{
 		
-		rpdService.registerPersonalDetails(rpdvm);
-		rpdvm = new RegisterPersonalDetailsViewModel();
-		
-		NavigationUtils.redirectToUserList("");
-		
+//		personalDetailsServices.registerPersonalDetails(personalDetailsVm);
+//		personalDetailsVm = new PersonalDetailsViewModel();		
 	}
 
-	public RegisterPersonalDetailsService getRpdService() {
-		return rpdService;
+	public PersonalDetailsViewModel getPersonalDetailsVm() {
+		return personalDetailsVm;
 	}
 
-	public void setRpdService(RegisterPersonalDetailsService rpdService) {
-		this.rpdService = rpdService;
+	public void setPersonalDetailsVm(PersonalDetailsViewModel personalDetailsVm) {
+		this.personalDetailsVm = personalDetailsVm;
 	}
-
-	public RegisterPersonalDetailsViewModel getRpdvm() {
-		return rpdvm;
-	}
-
-	public void setRpdvm(RegisterPersonalDetailsViewModel rpdvm) {
-		this.rpdvm = rpdvm;
-	}
-	
-	
-
 }

@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.CompanyDetails;
+import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterCompanyDetailsViewModel;
 
 @Stateless 
@@ -13,19 +14,19 @@ public class CompanyDetailsDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public Long registerCompanyDetails(RegisterCompanyDetailsViewModel rcdvm) {
+	public CompanyDetails registerCompanyDetails(CompanyDetailsViewModel cdvm) {
 		
 		CompanyDetails companyDetails = new CompanyDetails();
 		
-		companyDetails.setBrand(rcdvm.getBrand());
-		companyDetails.setCreationDate(rcdvm.getCreationDate());
-		companyDetails.setEmail(rcdvm.getEmail());
+		companyDetails.setBrand(cdvm.getBrand());
+		companyDetails.setCreationDate(cdvm.getCreationDate());
+		companyDetails.setEmail(cdvm.getEmail());
 		
 		entityManager.persist(companyDetails);
 		
-		System.out.println("CompanyDetails :" +rcdvm.toString()+"persisté");
+		System.out.println("CompanyDetails :" + cdvm.toString()+"persisté");
 		
-		return companyDetails.getId();
+		return companyDetails;
 		
 	}
 	
