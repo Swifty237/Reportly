@@ -13,31 +13,31 @@
 			<h:panelGrid columns="2" cellpadding="5">
 			
 				<h:outputLabel for="brand" value="Raison Sociale:" />
-				<p:inputText id="brand" value="#{companyDetailsBean.companyDetailsVm.brand}" />
+				<p:inputText id="brand" value="#{customerManagedBean.customerVm.companyDetailsVm.brand}" />
 				
 				<h:outputLabel for="rue" value="Rue :" />
-				<p:inputText id="rue" value="#{adressDetailsBean.adressDetailsVm.adress}"/>
+				<p:inputText id="rue" value="#{customerManagedBean.customerVm.adressDetailsVm.adress}"/>
 
 				<h:outputLabel for="ville" value="Ville :" />
-				<p:inputText id="ville" value="#{adressDetailsBean.adressDetailsVm.city}"/>
+				<p:inputText id="ville" value="#{customerManagedBean.customerVm.adressDetailsVm.city}"/>
 
 				<h:outputLabel for="codePostal" value="Code Postal :" />
-				<p:inputText id="codePostal" value="#{adressDetailsBean.adressDetailsVm.postalCode}"/>
+				<p:inputText id="codePostal" value="#{customerManagedBean.customerVm.adressDetailsVm.postalCode}"/>
 
 				<h:outputLabel for="pays" value="Pays :" />
-				<p:inputText id="pays" value="#{adressDetailsBean.adressDetailsVm.country}"/>
+				<p:inputText id="pays" value="#{customerManagedBean.customerVm.adressDetailsVm.country}"/>
 
 				<h:outputLabel for="prenom" value="Prénom du représentant :" />
-				<p:inputText id="prenom" value="#{personalDetailsBean.personalDetailsVm.firstname}"/>
+				<p:inputText id="prenom" value="#{customerManagedBean.customerVm.personalDetailsVm.firstname}"/>
 				
 				<h:outputLabel for="nom" value="Nom du représentant  :" />
-				<p:inputText id="nom" value="#{personalDetailsBean.personalDetailsVm.name}"/>
+				<p:inputText id="nom" value="#{customerManagedBean.customerVm.personalDetailsVm.name}"/>
 
 				<h:outputLabel for="email" value="Email :" />
-				<p:inputText id="email" value="#{companyDetailsBean.companyDetailsVm.email}"/>
+				<p:inputText id="email" value="#{customerManagedBean.customerVm.companyDetailsVm.email}"/>
 
                 <h:outputLabel for="telephone" value="Téléphone :" />
-				<p:inputText id="telephone"/>
+				<p:inputText id="telephone" value="#{customerManagedBean.customerVm.personalDetailsVm.phoneNumber}"/>
 
 			</h:panelGrid>
 

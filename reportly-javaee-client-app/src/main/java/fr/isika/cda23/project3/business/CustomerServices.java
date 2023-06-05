@@ -7,14 +7,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.contract.Customer;
-import fr.isika.cda23.project3.presentation.managedBeans.CompanyDetailsBean;
-import fr.isika.cda23.project3.presentation.managedBeans.PersonalDetailsBean;
-import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.CustomerViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.PersonalDetailsViewModel;
 import fr.isika.cda23.project3.repository.Contract.CustomerDao;
-import fr.isika.cda23.project3.repository.common.CompanyDetailsDao;
-import fr.isika.cda23.project3.repository.common.PersonalDetailsDao;
 
 @Stateless
 public class CustomerServices {
@@ -22,9 +16,8 @@ public class CustomerServices {
 	@Inject
 	private CustomerDao customerDao;
 		
-	public void registerCustomerService(CustomerViewModel cvm) {
-				
-		Long id = customerDao.register(cvm);
+	public Long registerCustomerService(CustomerViewModel cvm) {
+		return customerDao.register(cvm);
 	}
 	
 	public void deleteCustomerService(Long id) {

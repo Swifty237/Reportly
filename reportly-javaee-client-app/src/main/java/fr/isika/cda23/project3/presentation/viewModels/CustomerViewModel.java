@@ -1,16 +1,18 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
-import fr.isika.cda.entities.common.AdressDetails;
-import fr.isika.cda.entities.common.CompanyDetails;
-import fr.isika.cda.entities.common.PersonalDetails;
-
 public class CustomerViewModel {
 
 	private Long id;
 	
-	private CompanyDetails companyDetails;
-	private AdressDetails adressDetails;
-	private PersonalDetails personalDetails;
+	private AdressDetailsViewModel adressDetailsVm = new AdressDetailsViewModel();
+	private CompanyDetailsViewModel companyDetailsVm = new CompanyDetailsViewModel();
+	private PersonalDetailsViewModel personalDetailsVm = new PersonalDetailsViewModel();
+	
+	public CustomerViewModel() {
+		adressDetailsVm = new AdressDetailsViewModel();
+		companyDetailsVm = new CompanyDetailsViewModel();
+		personalDetailsVm = new PersonalDetailsViewModel();
+	}
 	
 	public Long getId() {
 		return id;
@@ -20,27 +22,29 @@ public class CustomerViewModel {
 		this.id = id;
 	}
 
-	public CompanyDetails getCompanyDetails() {
-		return companyDetails;
+	public AdressDetailsViewModel getAdressDetailsVm() {
+		return adressDetailsVm;
 	}
 
-	public void setCompanyDetails(CompanyDetails companyDetails) {
-		this.companyDetails = companyDetails;
+	public void setAdressDetailsVm(AdressDetailsViewModel adressDetailsVm) {
+		this.adressDetailsVm = adressDetailsVm;
 	}
 
-	public PersonalDetails getPersonalDetails() {
-		return personalDetails;
+	public CompanyDetailsViewModel getCompanyDetailsVm() {
+		return companyDetailsVm;
 	}
 
-	public void setPersonalDetails(PersonalDetails personalDetails) {
-		this.personalDetails = personalDetails;
+	public void setCompanyDetailsVm(CompanyDetailsViewModel companyDetailsVm) {
+		this.companyDetailsVm = companyDetailsVm;
 	}
 
-	public AdressDetails getAdressDetails() {
-		return adressDetails;
+	public PersonalDetailsViewModel getPersonalDetailsVm() {
+		return personalDetailsVm;
 	}
 
-	public void setAdressDetails(AdressDetails adressDetails) {
-		this.adressDetails = adressDetails;
-	}	
+	public void setPersonalDetailsVm(PersonalDetailsViewModel personalDetailsVm) {
+		this.personalDetailsVm = personalDetailsVm;
+	}
+
+	
 }
