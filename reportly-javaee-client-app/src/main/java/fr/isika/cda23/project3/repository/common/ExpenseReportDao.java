@@ -2,14 +2,14 @@ package fr.isika.cda23.project3.repository.common;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
 import fr.isika.cda.entities.common.ExpenseReport;
 
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 
+@Stateless
 public class ExpenseReportDao {
 
 	@PersistenceContext
@@ -26,13 +26,11 @@ public class ExpenseReportDao {
 
 		entityManager.persist(expensereport);
 
-		System.out.println("ExpenseReport : " + ervm.toString() + " persisté");
-
 		return expensereport.getId();
 	}
 
 	public ExpenseReport getExpenseReportById(Long id) {
-		return entityManager.find(ExpenseReport.class, id);
+	    return entityManager.find(ExpenseReport.class, id);
 	}
 
 	public List<ExpenseReport> getAllExpenseReports() {
@@ -55,13 +53,8 @@ public class ExpenseReportDao {
 		}
 	}
 
-	public void deleteExpenseReport(Long id) {
-		ExpenseReport expensereport = entityManager.find(ExpenseReport.class, id);
-
-		if (expensereport != null) {
-			entityManager.remove(expensereport);
-
-			System.out.println("ExpenseReport with ID " + id + " deleted");
-		}
+	public void deleteExpenseReport(ExpenseReport expenseReport) {
+	    ExpenseReport managedExpenseReport = entityManager.find(ExpenseReport.class, expenseReport.getId());
+	    entityManager.remove(managedExpenseReport);
 	}
 }
