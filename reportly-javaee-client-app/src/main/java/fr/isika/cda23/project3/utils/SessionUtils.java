@@ -17,17 +17,17 @@ public final class SessionUtils {
 		session.setAttribute("email", email);
 	}
 
-//	public static String getEsnNameFromSession() {
-//		HttpSession session = getSession();
-//		// Lire une propriété depuis la session 
-//		return (String) session.getAttribute("nameEsn");
-//	}
-//	
-//	public static void setEsnNameIntoSession(final String nameEsn) {
-//		HttpSession session = getSession();
-//		// Ajoute une entrée (clé, valeur) dans la map de la session
-//		session.setAttribute("nameEsn", nameEsn);
-//	}
+	public static String getEsnNameFromSession() {
+		HttpSession session = getSession();
+		// Lire une propriété depuis la session 
+		return (String) session.getAttribute("nameEsn");
+	}
+	
+	public static void setEsnNameIntoSession(final String nameEsn) {
+		HttpSession session = getSession();
+		// Ajoute une entrée (clé, valeur) dans la map de la session
+		session.setAttribute("nameEsn", nameEsn);
+	}
 	public static Long getEsnIdFromSession() {
 		HttpSession session = getSession();
 		// Lire une propriété depuis la session 

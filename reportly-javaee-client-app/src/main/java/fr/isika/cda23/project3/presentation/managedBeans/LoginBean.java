@@ -47,7 +47,6 @@ public class LoginBean implements Serializable {
 		if (account != null) {
 			System.out.println("user ok");
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
-//			SessionUtils.setUserNameIntoSession(account.getPers().getName());
 			return "index.xhtml";
 		} else {
 			CompanyDetails esn = esnDao.findByEmail(loginViewModel);
@@ -57,7 +56,7 @@ public class LoginBean implements Serializable {
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
-//				SessionUtils.setEsnNameIntoSession(esn.getBrand());
+				SessionUtils.setEsnNameIntoSession(esn.getBrand());
 				setEsnName(esn.getBrand());
 				try {
 					NavigationUtils.redirectToUserList("ecranEsn.xhtml");

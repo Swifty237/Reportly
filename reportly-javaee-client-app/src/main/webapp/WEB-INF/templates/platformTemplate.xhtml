@@ -32,8 +32,6 @@
 					<div class="row lien">
 						<!-- Affiché tout le temps (fragment de page) -->
 
-<<<<<<< HEAD
-
 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
 							<p:link outcome="index.xhtml">Home</p:link>
 						</ui:fragment>
@@ -48,38 +46,23 @@
 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
 							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
 						</ui:fragment>
-=======
-						<div class="col-4">
-							<p:link outcome="register.xhtml">Sign up <i class="fa-solid fa-user-plus text-white p-2"></i></p:link>
-						</div>
->>>>>>> uc_activity_creation
-
 
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
-
 							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
-
 						</ui:fragment>
 
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
-
 							<div class="col-4">
 								<p:link outcome="login.xhtml">Sign in <i class="fa-solid fa-arrow-right-to-bracket text-white p-2"></i></p:link>
 							</div>
-
 						</ui:fragment>
-<<<<<<< HEAD
-=======
-
+						
 						<ui:fragment rendered="true">
-
 							<div class="col-4 d-flex flex-column align-items-center">
 								<i class="fa-solid fa-circle-info text-white"></i>
 								<p:link outcome="examplePageOfTemplate.xhtml">Help</p:link>
 							</div>
-
 						</ui:fragment>
->>>>>>> uc_activity_creation
 					</div>
 				</h:form>
 			</div>
