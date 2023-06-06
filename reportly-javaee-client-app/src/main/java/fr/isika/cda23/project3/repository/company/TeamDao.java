@@ -22,6 +22,13 @@ public class TeamDao {
 		return team.getId();
 	}
 
+	public void removeProjectTeam(Long projectId) {
+		String query = "SELECT p FROM ProjectTeam p WHERE p.id = :projectId";
+		ProjectTeam project = entityManager.createQuery(query, ProjectTeam.class).setParameter("projectId", projectId)
+				.getSingleResult();
+		entityManager.remove(project);
+	}
+
 	public List<Object[]> getProjectTeamsWithManagerByEsnId(Long esnId) {
 		String query = "SELECT pt.id, pt.projectName, e.pers.firstname, e.pers.name, e.userRole FROM ProjectTeam pt JOIN pt.employeeList e JOIN e.esn es WHERE es.id = :esnId AND e.userRole = :userRole";
 		TypedQuery<Object[]> typedQuery = entityManager.createQuery(query, Object[].class);
@@ -48,7 +55,7 @@ public class TeamDao {
 	}
 
 	public List<Employee> getAvailableEmployees() {
-		String query = "SELECT e FROM Employee e WHERE e.busy = false AND e.userRole = 'EMPLOYEE'";
+		String query = "SELECT e FROM Employee e WHERE e.busy = false";
 		return entityManager.createQuery(query, Employee.class).getResultList();
 	}
 
@@ -62,5 +69,21 @@ public class TeamDao {
 
 		entityManager.merge(employee);
 		entityManager.merge(project);
+	}
+
+	public void deleteEmployeeFromTeam(Employee employee, final Long id) {
+		String query = "SELECT p FROM ProjectTeam p LEFT JOIN FETCH p.employeeList WHERE p.id = :projectId";
+		ProjectTeam project = entityManager.createQuery(query, ProjectTeam.class).setParameter("projectId", id)
+				.getSingleResult();
+
+		project.deleteEmployeeFromTeam(employee);
+
+		entityManager.merge(employee);
+		entityManager.merge(project);
+	}
+
+	public List<ProjectTeam> getProjectTeamByEsnId(Long id) {
+		String query = "SELECT p FROM ProjectTeam p WHERE p.esn.id= :esnId";
+		return entityManager.createQuery(query, ProjectTeam.class).setParameter("esnId", id).getResultList();
 	}
 }

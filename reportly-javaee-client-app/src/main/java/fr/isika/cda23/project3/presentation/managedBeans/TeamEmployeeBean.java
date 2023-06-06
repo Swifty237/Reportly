@@ -60,9 +60,25 @@ public class TeamEmployeeBean implements Serializable {
 		NavigationUtils.redirectToUserList("teamEmployee.xhtml");
 	}
 
-	private void reloadEmployeesAndAvailableUsers() {
+	public void deleteEmployeeFromTeam(Employee employee) throws IOException {
+
+		employee.setBusy(false);
+		tService.deleteEmployeeFromTeam(employee, tvm.getId());
+		reloadViewModel();
+		reloadEmployeesAndAvailableUsers();
+		if (employeesOfSelectedProjectTeam.size() == 0) {
+			tService.deleteProjectTeam(tvm.getId());
+			NavigationUtils.redirectToUserList("team.xhtml");
+		}else {
+			
+			NavigationUtils.redirectToUserList("teamEmployee.xhtml");
+		}
+
+	}
+
+	private void reloadEmployeesAndAvailableUsers() throws IOException {
 		availableEmployees = tService.getAvailableEmployees();
-		employeesOfSelectedProjectTeam = tService.getEmployeesByProjectTeamId(tvm.getId());
+		employeesOfSelectedProjectTeam = tService.getEmployeesByProjectTeamId(tvm.getId());	
 	}
 
 	private void reloadViewModel() {

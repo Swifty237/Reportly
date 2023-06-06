@@ -6,23 +6,34 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;
+import fr.isika.cda23.project3.repository.company.EsnDao;
 import fr.isika.cda23.project3.repository.company.TeamDao;
 import fr.isika.cda23.project3.repository.user.UserDao;
+import fr.isika.cda23.project3.utils.SessionUtils;
 
 @Stateless
 public class TeamService {
+	@Inject
+	private EsnDao esnDao;
 
 	@Inject
-	TeamDao teamDao;
+	private TeamDao teamDao;
 
 	@Inject
-	UserDao userDao;
+	private UserDao userDao;
 
 	public void addToTeam(ProjectTeam team) {
-		Long id = teamDao.addToTeam(team);
-		System.out.println("projectTeam ajouté avec id: " + id);
+		Esn esn = esnDao.getEsnById(SessionUtils.getEsnIdFromSession());
+		if (esn != null) {
+			team.setEsn(esn);
+			Long id = teamDao.addToTeam(team);
+			System.out.println("projectTeam ajouté avec id: " + id);
+		} else {
+			System.out.println("ajouter team failed");
+		}
 	}
 
 	@Transactional
@@ -50,5 +61,18 @@ public class TeamService {
 
 	public ProjectTeam getProjectTeamById(Long teamId) {
 		return teamDao.getProjectTeamById(teamId);
+	}
+
+	public void deleteEmployeeFromTeam(Employee employee, final Long id) {
+		teamDao.deleteEmployeeFromTeam(employee, id);
+	}
+
+	public List<ProjectTeam> getProjectTeamByEsnId(Long id) {
+		return teamDao.getProjectTeamByEsnId(id);
+	}
+
+	public void deleteProjectTeam(Long id) {
+		teamDao.removeProjectTeam(id);
+
 	}
 }
