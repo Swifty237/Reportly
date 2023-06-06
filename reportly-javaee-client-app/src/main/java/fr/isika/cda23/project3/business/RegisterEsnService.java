@@ -1,102 +1,18 @@
 package fr.isika.cda23.project3.business;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.util.Date;
 
-=======
->>>>>>> 54dbdcd (user)
-=======
-import java.util.Date;
-
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> 3d333c7 (user)
-=======
-import java.util.Date;
-
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> b7c6b2a (user)
-=======
-import java.util.Date;
-
->>>>>>> a6ba52f (register esn ok)
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.AdressDetails;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda.entities.esn.Esn;
-<<<<<<< HEAD
-<<<<<<< HEAD
 //import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
-=======
->>>>>>> e2bb782 (Refactoring)
-=======
->>>>>>> 15eb741 (Suppression not use files)
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
 import fr.isika.cda23.project3.repository.company.EsnDao;
-=======
-=======
-import fr.isika.cda.entities.common.CompanyDetails;
-import fr.isika.cda.entities.common.Document;
-import fr.isika.cda.entities.common.DocumentType;
->>>>>>> 84f94f9 (register esn ok)
-import fr.isika.cda.entities.esn.Esn;
-import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
-<<<<<<< HEAD
-import fr.isika.cda23.project3.repository.EsnDao;
-import fr.isika.cda23.project3.repository.user.UserDao;
->>>>>>> 54dbdcd (user)
-=======
-import fr.isika.cda23.project3.repository.company.EsnDao;
->>>>>>> 84f94f9 (register esn ok)
-=======
-=======
-import fr.isika.cda.entities.common.CompanyDetails;
-import fr.isika.cda.entities.common.Document;
-import fr.isika.cda.entities.common.DocumentType;
->>>>>>> ab3abe1 (register esn ok)
-import fr.isika.cda.entities.esn.Esn;
-import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
-<<<<<<< HEAD
-import fr.isika.cda23.project3.repository.EsnDao;
-import fr.isika.cda23.project3.repository.user.UserDao;
->>>>>>> 3d333c7 (user)
-=======
-import fr.isika.cda23.project3.repository.company.EsnDao;
->>>>>>> ab3abe1 (register esn ok)
-=======
-=======
-import fr.isika.cda.entities.common.CompanyDetails;
-import fr.isika.cda.entities.common.Document;
-import fr.isika.cda.entities.common.DocumentType;
->>>>>>> a6ba52f (register esn ok)
-import fr.isika.cda.entities.esn.Esn;
-import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
-<<<<<<< HEAD
-import fr.isika.cda23.project3.repository.EsnDao;
-import fr.isika.cda23.project3.repository.user.UserDao;
->>>>>>> b7c6b2a (user)
-=======
-import fr.isika.cda23.project3.repository.company.EsnDao;
->>>>>>> a6ba52f (register esn ok)
 
 @Stateless
 public class RegisterEsnService {
@@ -104,51 +20,8 @@ public class RegisterEsnService {
 	@Inject
 	private EsnDao esnDao;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-//	@Inject
-//	private AddDocumentManagedBean addDocumentManagedBean;
-=======
-	@Inject
-	private AddDocumentManagedBean addDocumentManagedBean;
->>>>>>> ab3abe1 (register esn ok)
-
 	private static Document document;
 
-	public void register(RegisterEsnViewModel viewModel) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-=======
-	@Inject
-	private AddDocumentManagedBean addDocumentManagedBean;
-=======
-//	@Inject
-//	private AddDocumentManagedBean addDocumentManagedBean;
->>>>>>> e2bb782 (Refactoring)
-
-	private static Document document;
-
->>>>>>> 84f94f9 (register esn ok)
-	public void register(RegisterEsnViewModel viewModel) {
-=======
->>>>>>> ab3abe1 (register esn ok)
-
-=======
-=======
-	@Inject
-	private AddDocumentManagedBean addDocumentManagedBean;
-
-	private static Document document;
-
->>>>>>> a6ba52f (register esn ok)
 	public void register(RegisterEsnViewModel viewModel) {
 
 		AdressDetails adressDetails = new AdressDetails();
@@ -167,116 +40,12 @@ public class RegisterEsnService {
 		companyDetails.setDocument(document);
 
 		Esn esn = new Esn();
-<<<<<<< HEAD
-		
-<<<<<<< HEAD
->>>>>>> b7c6b2a (user)
-		AdressDetails adressDetails = new AdressDetails();
-		adressDetails.setAdress(viewModel.getAdress());
-		adressDetails.setCity(viewModel.getCity());
-		adressDetails.setCountry(viewModel.getCountry());
-		adressDetails.setPostalCode(viewModel.getPostalCode());
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-		Esn esn = new Esn();
-		
-=======
->>>>>>> aa13acd (subscription company)
-=======
-//	@Inject
-//	private AddDocumentManagedBean addDocumentManagedBean;
-//
-//	private static Document document;
-//
-//	public void register(RegisterEsnViewModel viewModel) {
-//
->>>>>>> 15eb741 (Suppression not use files)
-//		AdressDetails adressDetails = new AdressDetails();
-//		adressDetails.setAdress(viewModel.getAdress());
-//		adressDetails.setCity(viewModel.getCity());
-//		adressDetails.setCountry(viewModel.getCountry());
-//		adressDetails.setPostalCode(viewModel.getPostalCode());
-<<<<<<< HEAD
-//		
-//		CompanyDetails
-<<<<<<< HEAD
->>>>>>> d3087e5 (subscription company)
-
-		CompanyDetails companyDetails = new CompanyDetails();
-		companyDetails.setBrand(viewModel.getBrand());
-		companyDetails.setEmail(viewModel.getEmail());
-		companyDetails.setPassword(viewModel.getPassword());
-		companyDetails.setCreationDate(new Date());
-		companyDetails.setAdressDetails(adressDetails);
-
-		companyDetails.setDocument(document);
-
-		Esn esn = new Esn();
-<<<<<<< HEAD
-		
-<<<<<<< HEAD
->>>>>>> 54dbdcd (user)
-=======
-	public void register(RegisterEsnViewModel viewModel) {
-		Esn esn = new Esn();
-		
->>>>>>> 3d333c7 (user)
-		AdressDetails adressDetails = new AdressDetails();
-		adressDetails.setAdress(viewModel.getAdress());
-		adressDetails.setCity(viewModel.getCity());
-		adressDetails.setCountry(viewModel.getCountry());
-		adressDetails.setPostalCode(viewModel.getPostalCode());
-<<<<<<< HEAD
-=======
-//		AdressDetails adressDetails = new AdressDetails();
-//		adressDetails.setAdress(viewModel.getAdress());
-//		adressDetails.setCity(viewModel.getCity());
-//		adressDetails.setCountry(viewModel.getCountry());
-//		adressDetails.setPostalCode(viewModel.getPostalCode());
-//		
-//		CompanyDetails
->>>>>>> 3cd4aa3 (subscription company)
-
-<<<<<<< HEAD
-		CompanyDetails companyDetails = new CompanyDetails();
-		companyDetails.setBrand(viewModel.getBrand());
-		companyDetails.setEmail(viewModel.getEmail());
-		companyDetails.setPassword(viewModel.getPassword());
-		companyDetails.setCreationDate(new Date());
-		companyDetails.setAdressDetails(adressDetails);
-
-		companyDetails.setDocument(document);
-
-		Esn esn = new Esn();
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
-
-		CompanyDetails companyDetails = new CompanyDetails();
-		companyDetails.setBrand(viewModel.getBrand());
-		companyDetails.setEmail(viewModel.getEmail());
-		companyDetails.setPassword(viewModel.getPassword());
-		companyDetails.setCreationDate(new Date());
-		companyDetails.setAdressDetails(adressDetails);
-
-		companyDetails.setDocument(document);
-
-		Esn esn = new Esn();
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> a6ba52f (register esn ok)
 
 		esn.setCompanyDetails(companyDetails);
 
 		Long id = esnDao.register(esn);
 
 		System.out.println("Esn vient d'etre crée avec :" + id);
-<<<<<<< HEAD
-=======
->>>>>>> aa13acd (subscription company)
-=======
->>>>>>> a6ba52f (register esn ok)
 
 	}
 
@@ -284,49 +53,5 @@ public class RegisterEsnService {
 		doc.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
 		doc.setDocCreation(new Date());
 		document = doc;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 54dbdcd (user)
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
-
->>>>>>> 3d333c7 (user)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
-
->>>>>>> b7c6b2a (user)
-=======
->>>>>>> a6ba52f (register esn ok)
 	}
-=======
-//
-//		CompanyDetails companyDetails = new CompanyDetails();
-//		companyDetails.setBrand(viewModel.getBrand());
-//		companyDetails.setEmail(viewModel.getEmail());
-//		companyDetails.setPassword(viewModel.getPassword());
-//		companyDetails.setCreationDate(new Date());
-//		companyDetails.setAdressDetails(adressDetails);
-//
-//		companyDetails.setDocument(document);
-//
-//		Esn esn = new Esn();
-//
-//		esn.setCompanyDetails(companyDetails);
-//
-//		Long id = esnDao.register(esn);
-//
-//		System.out.println("Esn vient d'etre crée avec :" + id);
-//
-//	}
-//
-//	public static void getDoc(Document doc) {
-//		doc.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
-//		doc.setDocCreation(new Date());
-//		document = doc;
-//	}
->>>>>>> 15eb741 (Suppression not use files)
 }

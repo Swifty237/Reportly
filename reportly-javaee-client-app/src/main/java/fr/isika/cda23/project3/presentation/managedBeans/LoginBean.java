@@ -30,27 +30,10 @@ public class LoginBean implements Serializable {
 	@Inject
 	private EsnDao esnDao;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	private Long id;
 
 	private String esnName;
 
-<<<<<<< HEAD
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> a6ba52f (register esn ok)
-=======
-	private Long id;
-
->>>>>>> b72d5bc (ecranEsn)
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
 	public String login() {
@@ -64,69 +47,23 @@ public class LoginBean implements Serializable {
 		if (account != null) {
 			System.out.println("user ok");
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
-<<<<<<< HEAD
-			SessionUtils.setUserNameIntoSession(account.getPers().getName());
-=======
->>>>>>> 2043bae (Fixed some conflicts after merging)
 			return "index.xhtml";
 		} else {
 			CompanyDetails esn = esnDao.findByEmail(loginViewModel);
 			if (esn != null) {
 				System.out.println("esn ok");
 				SessionUtils.setUserEmailIntoSession(esn.getEmail());
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
 				id = esnId;
 				SessionUtils.setEsnNameIntoSession(esn.getBrand());
 				setEsnName(esn.getBrand());
-<<<<<<< HEAD
-=======
-				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
-				SessionUtils.seEsnIdIntoSession(esnId);
-				id = esnId;
->>>>>>> b72d5bc (ecranEsn)
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
 				try {
 					NavigationUtils.redirectToUserList("ecranEsn.xhtml");
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
-<<<<<<< HEAD
-				return "";
-=======
-				return "index.xhtml";
->>>>>>> 84f94f9 (register esn ok)
-=======
 				return "ecranEsn.xhtml";
->>>>>>> d9ca59d (redirection des pages)
-=======
-				return "index.xhtml";
->>>>>>> ab3abe1 (register esn ok)
-=======
-				return "ecranEsn.xhtml";
->>>>>>> ec41cd3 (redirection des pages)
-=======
-				return "index.xhtml";
->>>>>>> a6ba52f (register esn ok)
-=======
-				return "ecranEsn.xhtml";
->>>>>>> be3e6c2 (redirection des pages)
-=======
-				return"" ;
->>>>>>> b72d5bc (ecranEsn)
-=======
-				return "";
->>>>>>> cfae081 (ecran Esn former les équipes)
 			}
 			System.out.println("not login 1");
 		}
@@ -140,23 +77,6 @@ public class LoginBean implements Serializable {
 		loginViewModel = new LoginViewModel();
 		// vider la session http
 		SessionUtils.resetSession();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> 84f94f9 (register esn ok)
-=======
-		
->>>>>>> ab3abe1 (register esn ok)
-=======
-		
->>>>>>> a6ba52f (register esn ok)
-=======
-
->>>>>>> b72d5bc (ecranEsn)
 		NavigationUtils.redirectToUserList("index.xhtml");
 	}
 
@@ -180,10 +100,6 @@ public class LoginBean implements Serializable {
 		this.id = id;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
 	public String getEsnName() {
 		return esnName;
 	}
@@ -192,9 +108,4 @@ public class LoginBean implements Serializable {
 		this.esnName = esnName;
 	}
 
-<<<<<<< HEAD
-=======
->>>>>>> b72d5bc (ecranEsn)
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
 }

@@ -3,6 +3,7 @@ package fr.isika.cda23.project3.utils;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+	
 public final class SessionUtils {	
 	public static String getUserEmailFromSession() {
 		HttpSession session = getSession();
@@ -15,34 +16,10 @@ public final class SessionUtils {
 		// Ajoute une entrée (clé, valeur) dans la map de la session
 		session.setAttribute("email", email);
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 2043bae (Fixed some conflicts after merging)
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
 	public static String getEsnNameFromSession() {
 		HttpSession session = getSession();
 		// Lire une propriété depuis la session 
 		return (String) session.getAttribute("nameEsn");
-<<<<<<< HEAD
-=======
-	public static Long getEsnIdFromSession() {
-		HttpSession session = getSession();
-		// Lire une propriété depuis la session 
-		return (Long) session.getAttribute("esnId");
-	}
-	
-	public static void seEsnIdIntoSession(final Long esnId) {
-		HttpSession session = getSession();
-		// Ajoute une entrée (clé, valeur) dans la map de la session
-		session.setAttribute("esnId", esnId);
->>>>>>> b72d5bc (ecranEsn)
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
 	}
 	
 	public static void setEsnNameIntoSession(final String nameEsn) {
@@ -62,22 +39,6 @@ public final class SessionUtils {
 		session.setAttribute("esnId", esnId);
 	}
 	
-=======
-
-	public static String getUserNameFromSession() {
-		HttpSession session = getSession();
-		// Lire une propriété depuis la session
-		return (String) session.getAttribute("name");
-	}
-
-	public static void setUserNameIntoSession(String name) {
-
-		HttpSession session = getSession();
-		// Ajoute une entrée (clé, valeur) dans la map de la session
-		session.setAttribute("name", name);
-	}
-
->>>>>>> d4fffa6 (createAbsence)
 //	public static List<Role> getUserRolesFromSession() {
 //		HttpSession session = getSession();
 //		// Lire une propriété depuis la session 

@@ -6,20 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.esn.Esn;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import fr.isika.cda.entities.users.Employee;
-=======
->>>>>>> cfae081 (ecran Esn former les équipes)
-=======
-import fr.isika.cda.entities.users.Employee;
->>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
-import fr.isika.cda23.project3.utils.SessionUtils;
 
 public class UserDao {
 
@@ -50,13 +41,10 @@ public class UserDao {
 					.setParameter("emailParam", loginViewModel.getEmail())
 					.setParameter("pwdParam", loginViewModel.getPassword()).getSingleResult();
 		} catch (NoResultException e) {
-<<<<<<< HEAD
 			return null;
 		}
 	}
-<<<<<<< HEAD
 
-=======
 	public UserAccount findByEmail(final String email) {
 		try {
 			return entityManager
@@ -67,41 +55,18 @@ public class UserDao {
 			return null;
 		}
 	}
-	
->>>>>>> d4fffa6 (createAbsence)
-=======
-			return null;
-		}
-	}
 
->>>>>>> cfae081 (ecran Esn former les équipes)
 //	find un user avec son id 
 	public UserAccount findOneUser(long id) {
 		return entityManager.find(UserAccount.class, id);
 	}
 
 //	find all Manager not busy with EsnId
-<<<<<<< HEAD
-<<<<<<< HEAD
 	public List<Employee> getManagerNotBusy(Long id) {
 		try {
 			return entityManager.createQuery(
 					"SELECT u FROM Employee u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
 					Employee.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
-=======
-	public List<UserAccount> getManagerNotBusy(Long id) {
-		try {
-			return entityManager.createQuery(
-					"SELECT u FROM UserAccount u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
-					UserAccount.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
->>>>>>> cfae081 (ecran Esn former les équipes)
-=======
-	public List<Employee> getManagerNotBusy(Long id) {
-		try {
-			return entityManager.createQuery(
-					"SELECT u FROM Employee u JOIN u.esn e WHERE u.userRole = :role AND u.busy = :busy AND e.id = :id",
-					Employee.class).setParameter("role", UserRole.TEAM_MANAGER).setParameter("busy", false)
->>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
 					.setParameter("id", id).getResultList();
 		} catch (NoResultException e) {
 			return null;

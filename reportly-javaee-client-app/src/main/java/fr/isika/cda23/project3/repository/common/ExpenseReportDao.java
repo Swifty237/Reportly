@@ -18,16 +18,6 @@ public class ExpenseReportDao {
 
 	public Long addExpenseReport(ExpenseReportViewModel ervm) {
 
-<<<<<<< HEAD
-		ExpenseReport expenseReport = new ExpenseReport();
-
-		expenseReport.setExpenseDate(ervm.getExpenseDate());
-		expenseReport.setCreationDate(ervm.getCreationDate());
-		expenseReport.setReason(ervm.getReason());
-		expenseReport.setAmount(ervm.getAmount());
-
-		entityManager.persist(expenseReport);
-=======
 		Document document = new Document();
 		document.setName(ervm.getFileName());
 		document.setDocCreation(ervm.getCreationDate());
@@ -41,15 +31,8 @@ public class ExpenseReportDao {
 		expensereport.setDocument( document);
 		
 		entityManager.persist(expensereport);
->>>>>>> a2bb553 (Final UC)
 
-<<<<<<< HEAD
-		System.out.println("ExpenseReport : " + ervm.toString() + " persisté");
-
-		return expenseReport.getId();
-=======
 		return expensereport.getId();
->>>>>>> 2269e5e (Full ExpenseReport Page)
 	}
 
 	public ExpenseReport getExpenseReportById(Long id) {
@@ -60,7 +43,12 @@ public class ExpenseReportDao {
 		String query = "SELECT e FROM ExpenseReport e";
 		return entityManager.createQuery(query, ExpenseReport.class).getResultList();
 	}
-
+	
+	public Long countExpenseReports() {
+		String query = "SELECT count(e) FROM ExpenseReport e";
+		return (Long) entityManager.createQuery(query).getSingleResult();
+	}
+	
 	public void updateExpenseReport(ExpenseReportViewModel ervm) {
 		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, ervm.getId());
 		if (expenseReport != null) {
@@ -73,24 +61,8 @@ public class ExpenseReportDao {
 		}
 	}
 
-<<<<<<< HEAD
-//	public void deleteExpenseReport(Long id) {
-//		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, id);
-//
-//		if (expenseReport != null) {
-//			entityManager.remove(expenseReport);
-//
-//			System.out.println("ExpenseReport with ID " + id + " deleted");
-//		}
-//	}
-	
-	public void deleteExpenseReport(ExpenseReport expenseReport) {
-			entityManager.remove(expenseReport);
-			System.out.println("Note de frais supprimé ================================================");
-=======
 	public void deleteExpenseReport(ExpenseReport expenseReport) {
 	    ExpenseReport managedExpenseReport = entityManager.find(ExpenseReport.class, expenseReport.getId());
 	    entityManager.remove(managedExpenseReport);
->>>>>>> 2269e5e (Full ExpenseReport Page)
 	}
 }

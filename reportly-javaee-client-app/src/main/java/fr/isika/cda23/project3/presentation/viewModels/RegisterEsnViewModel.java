@@ -1,31 +1,7 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.util.Date;
 
-=======
->>>>>>> 54dbdcd (user)
-=======
-import java.util.Date;
-
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> 3d333c7 (user)
-=======
-import java.util.Date;
-
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> b7c6b2a (user)
-=======
-import java.util.Date;
-
->>>>>>> a6ba52f (register esn ok)
 public class RegisterEsnViewModel {
 
 	private String brand;
@@ -35,18 +11,6 @@ public class RegisterEsnViewModel {
 	private String city;
 	private String postalCode;
 	private String country;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> a6ba52f (register esn ok)
 	private Date creationDate;
 
 	public Date getCreationDate() {
@@ -56,21 +20,6 @@ public class RegisterEsnViewModel {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 54dbdcd (user)
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> 3d333c7 (user)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> b7c6b2a (user)
-=======
->>>>>>> a6ba52f (register esn ok)
 
 	public String getBrand() {
 		return brand;
@@ -128,18 +77,6 @@ public class RegisterEsnViewModel {
 		this.country = country;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> a6ba52f (register esn ok)
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -165,19 +102,4 @@ public class RegisterEsnViewModel {
 	
 	
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 54dbdcd (user)
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> 3d333c7 (user)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> b7c6b2a (user)
-=======
->>>>>>> a6ba52f (register esn ok)
 }

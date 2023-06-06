@@ -6,47 +6,13 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.esn.Esn;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
-=======
-import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
->>>>>>> 84f94f9 (register esn ok)
-=======
-import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
->>>>>>> ab3abe1 (register esn ok)
-=======
-import fr.isika.cda.entities.users.UserAccount;
-import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
->>>>>>> a6ba52f (register esn ok)
-=======
-import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
->>>>>>> b72d5bc (ecranEsn)
 
 public class EsnDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-//	Enregistrer un user
->>>>>>> 84f94f9 (register esn ok)
-=======
-//	Enregistrer un user
->>>>>>> ab3abe1 (register esn ok)
-=======
-//	Enregistrer un user
->>>>>>> a6ba52f (register esn ok)
 	public Long register(Esn esn) {
 //		 - persister l'entité
 		entityManager.persist(esn);
@@ -68,12 +34,6 @@ public class EsnDao {
 		}
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b72d5bc (ecranEsn)
 	public Long getESNIdByEmail(String email) {
 		try {
 			return entityManager
@@ -92,13 +52,4 @@ public class EsnDao {
 			return null;
 		}
 	}
-<<<<<<< HEAD
-=======
->>>>>>> 84f94f9 (register esn ok)
-=======
->>>>>>> ab3abe1 (register esn ok)
-=======
->>>>>>> a6ba52f (register esn ok)
-=======
->>>>>>> b72d5bc (ecranEsn)
 }
