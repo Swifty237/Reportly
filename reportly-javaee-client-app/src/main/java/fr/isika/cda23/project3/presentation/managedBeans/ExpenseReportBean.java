@@ -9,6 +9,9 @@ import java.util.List;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 =======
@@ -28,11 +31,14 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fr.isika.cda.entities.common.ExpenseReport;
 >>>>>>> 5f75810 (Latest changes)
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 import fr.isika.cda23.project3.utils.NavigationUtils;
 =======
+=======
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 

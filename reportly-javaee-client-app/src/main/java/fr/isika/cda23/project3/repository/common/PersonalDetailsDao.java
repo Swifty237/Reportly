@@ -6,9 +6,10 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.PersonalDetails;
 import fr.isika.cda23.project3.presentation.viewModels.PersonalDetailsViewModel;
+import fr.isika.cda23.projet3.repository.GenericDao;
 
 @Stateless
-public class PersonalDetailsDao {
+public class PersonalDetailsDao extends GenericDao<PersonalDetails, Long> {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -26,20 +27,6 @@ public class PersonalDetailsDao {
 
 		entityManager.persist(personalDetails);
 		return personalDetails;
-	}
-
-	public void removePersonalDetails(PersonalDetails personalDetails) {
-		entityManager.remove(personalDetails);
-		System.out.println("les données personnelles sont supprimées ========================");
-	}
-
-	public void updatePersonalDetails(PersonalDetails personalDetails) {
-		entityManager.merge(personalDetails);
-
-	}
-
-	public PersonalDetails findPersonalDetailsById(Long id) {
-		return entityManager.find(PersonalDetails.class, id);
 	}
 
 }

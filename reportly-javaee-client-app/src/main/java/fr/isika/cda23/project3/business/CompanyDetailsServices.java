@@ -5,7 +5,6 @@ import javax.inject.Inject;
 
 import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.CustomerViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterCompanyDetailsViewModel;
 import fr.isika.cda23.project3.repository.common.CompanyDetailsDao;
 
 @Stateless

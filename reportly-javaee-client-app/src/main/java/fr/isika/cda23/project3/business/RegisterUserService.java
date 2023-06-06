@@ -8,7 +8,6 @@ import fr.isika.cda.entities.common.PersonalDetails;
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
-import fr.isika.cda23.project3.repository.company.EsnDao;
 import fr.isika.cda23.project3.repository.user.UserDao;
 
 @Stateless

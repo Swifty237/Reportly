@@ -16,6 +16,7 @@ import fr.isika.cda23.project3.presentation.viewModels.AddDocumentViewModel;
 =======
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
 =======
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
@@ -37,9 +38,12 @@ import fr.isika.cda23.project3.business.RegisterEsnService;
 =======
 import fr.isika.cda23.project3.business.RegisterEsnService;
 >>>>>>> a6ba52f (register esn ok)
+=======
+import fr.isika.cda23.projet3.repository.GenericDao;
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 
 @Stateless
-public class DocumentDao {
+public class DocumentDao extends GenericDao<Document, Long>{
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -47,12 +51,16 @@ public class DocumentDao {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 
 	public Long addDocument(AddDocumentViewModel advm) {
 
 =======
 	
 	public Long addDocument(DocumentViewModel advm) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 		
 >>>>>>> 6f97582 (Renaming creating methods beans and viewModel -- suppression AddDocumentService DeleteDocumentService and corresponding beans and viewModels)
@@ -81,30 +89,14 @@ public class DocumentDao {
 >>>>>>> e2bb782 (Refactoring)
 =======
 >>>>>>> a6ba52f (register esn ok)
+=======
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 		Document document = new Document();
-
 		document.setName(advm.getName());
 		document.setTypeOfDoc(advm.getTypeOfDoc());
 		document.setDocCreation(advm.getDocCreation());
 		entityManager.persist(document);
-
-		System.out.println("Document : " + advm.toString() + " persisté");
-
 		return document.getId();
-	}
-
-	public void removeDocument(Document document) {
-		entityManager.remove(document);
-		System.out.println("Document supprimé ================================================");
-	}
-
-	public void updateDocument(Document document) {
-		// A faire en fonction de la propriété (ou des propriétés) qu'on aura besoin de
-		// modifier
-	}
-
-	public Document findDocumentById(Long id) {
-		return entityManager.find(Document.class, id);
 	}
 
 	public List<Document> findAllDocuments() {

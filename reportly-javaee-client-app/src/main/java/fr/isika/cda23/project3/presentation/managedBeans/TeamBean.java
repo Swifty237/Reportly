@@ -9,9 +9,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import javax.transaction.Transactional;
 >>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
+=======
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;

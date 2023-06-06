@@ -5,15 +5,17 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
-	<f:metadata>
-		<f:viewAction action="#{teamBean.init}" />
-	</f:metadata>
-
 <<<<<<< HEAD
 	<f:metadata>
 		<f:viewAction action="#{teamBean.init}" />
 	</f:metadata>
 
+<<<<<<< HEAD
+=======
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
+	<f:metadata>
+		<f:viewAction action="#{teamBean.init}" />
+	</f:metadata>
 	<ui:define name="content">
 		<h:form id="addTeamForm" styleClass="team-form">
 			<p:panel header="Création d'une équipe" styleClass="team-panel">
@@ -22,7 +24,6 @@
 						styleClass="team-label" />
 					<p:inputText id="projectTeam" value="#{teamBean.teamName}"
 						disabled="#{empty teamBean.userAccounts}" styleClass="team-input" />
-
 					<h:outputLabel for="employee" value="Responsable :"
 						styleClass="team-label" />
 					<p:selectOneMenu value="#{teamBean.employee}"
@@ -35,7 +36,6 @@
 							itemValue="#{user}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
-
 				<h:panelGroup>
 					<p:commandButton value="Enregistrer" update="@form"
 						action="#{teamBean.addToTeam()}" styleClass="team-button"
@@ -46,11 +46,9 @@
 		<h:form id="teamTableForm">
 			<p:dataTable id="teamTable" value="#{teamBean.listProjectTeams}"
 				var="team" emptyMessage="No Teams found" styleClass="team-table">
-
 				<p:column headerText="Team" styleClass="team-column">
 					<div class="team-name">#{team.projectName}</div>
 				</p:column>
-
 				<p:column styleClass="team-buttons-column">
 					<p:commandButton value="Ajouter un membre"
 						action="#{teamEmployeeBean.init()}"
@@ -58,7 +56,6 @@
 						<f:param name="teamId" value="#{team.id}" />
 					</p:commandButton>
 				</p:column>
-
 				<p:column styleClass="team-buttons-column">
 					<p:commandButton value="Voir les membres"
 						action="#{teamEmployeeBean.init()}"
@@ -66,7 +63,6 @@
 						<f:param name="teamId" value="#{team.id}" />
 					</p:commandButton>
 				</p:column>
-
 			</p:dataTable>
 		</h:form>
 	</ui:define>
@@ -75,55 +71,46 @@
 .team-form {
 	margin-bottom: 20px;
 }
-
 .team-panel {
 	width: 400px;
 	margin: 20px auto;
 }
-
 .team-label {
 	width: 150px;
 }
-
 .team-input {
 	width: 200px;
 }
-
 .team-button {
 	margin-top: 10px;
 }
-
 .team-table {
 	width: 100%;
 	margin-top: 20px;
 }
-
-
 .team-member-button {
 	margin-top: 10px;
 	padding: 5px 10px;
-	background-color: #28a745;
+	background-color: #28A745;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
 }
-
 .team-name {
 	display: inline-block;
 	white-space: nowrap;
 	float: left
 }
-
 .team-buttons-column {
 	text-align: right;
 }
-
 .team-member-button:hover {
-	background-color: #1a682c;
+	background-color: #1A682C;
 	cursor: pointer;
 }
 </style>
 	</ui:define>
+<<<<<<< HEAD
 =======
 	<ui:define name="content">
 		<h:form id="addTeamForm">
@@ -164,3 +151,6 @@
 	</ui:define>
 >>>>>>> cfae081 (ecran Esn former les équipes)
 </ui:composition>
+=======
+</ui:composition>
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)

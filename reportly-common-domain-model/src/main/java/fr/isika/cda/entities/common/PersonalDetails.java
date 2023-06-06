@@ -52,6 +52,7 @@ public class PersonalDetails implements Serializable {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public PersonalDetails(String name, String firstname, Date birdhday, String phoneNumber, String jobTitle) {
 =======
 	public PersonalDetails(String name, String firstname, Date birdhday, int phoneNumber, String jobTitle, Date creationDate) {
@@ -79,6 +80,19 @@ public class PersonalDetails implements Serializable {
 
 =======
 >>>>>>> 55dc1c0 (esn admin former projectTeam à finir)
+=======
+	public PersonalDetails() {
+	}
+	
+	public PersonalDetails(String string, String string2, Date date, String i, String string3) {
+		firstname = string;
+		name = string2;
+		birthday = date;
+		phoneNumber = i;
+		jobTitle = string3;
+	}
+
+>>>>>>> 8f765aa (Fixed some conflicts and integration errors + refactoring some classes)
 	public Long getId() {
 		return Id;
 	}

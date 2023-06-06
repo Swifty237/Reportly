@@ -8,13 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import fr.isika.cda.entities.contract.Customer;
-import fr.isika.cda23.project3.business.AdressDetailsServices;
 import fr.isika.cda23.project3.business.CompanyDetailsServices;
 import fr.isika.cda23.project3.business.CustomerServices;
 import fr.isika.cda23.project3.business.PersonalDetailsServices;
-import fr.isika.cda23.project3.presentation.viewModels.CompanyDetailsViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.CustomerViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.PersonalDetailsViewModel;
 import fr.isika.cda23.project3.utils.NavigationUtils;
 
 @ManagedBean
