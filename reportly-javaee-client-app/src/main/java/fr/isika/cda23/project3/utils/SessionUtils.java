@@ -16,6 +16,10 @@ public final class SessionUtils {
 		session.setAttribute("email", email);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 	public static String getEsnNameFromSession() {
 		HttpSession session = getSession();
 		// Lire une propriété depuis la session 

@@ -47,7 +47,10 @@ public class LoginBean implements Serializable {
 		if (account != null) {
 			System.out.println("user ok");
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
+<<<<<<< HEAD
 			SessionUtils.setUserNameIntoSession(account.getPers().getName());
+=======
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 			return "index.xhtml";
 		} else {
 			CompanyDetails esn = esnDao.findByEmail(loginViewModel);

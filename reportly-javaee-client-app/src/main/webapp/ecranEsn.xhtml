@@ -5,13 +5,18 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
+<<<<<<< HEAD
 
 	<ui:define name="content">
 <<<<<<< HEAD
+=======
+	<ui:define name="content">
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 		<h:form id="userTableForm">
 			<p:panel header="Liste des collaborateurs de #{loginBean.esnName}" styleClass="panel">
 				<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
 					var="user" emptyMessage="No users found" lazy="false" styleClass="user-table">
+<<<<<<< HEAD
 
 					<p:column headerText="Nom">
 						<h:outputText value="#{user.pers.name}" />
@@ -25,17 +30,34 @@
 						<h:outputText value="#{user.email}" />
 					</p:column>
 
+=======
+					<p:column headerText="Nom">
+						<h:outputText value="#{user.pers.name}" />
+					</p:column>
+					<p:column headerText="Prénom">
+						<h:outputText value="#{user.pers.firstname}" />
+					</p:column>
+					<p:column headerText="Email">
+						<h:outputText value="#{user.email}" />
+					</p:column>
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 					<p:column headerText="Rôle">
 						<h:outputText value="Employé"
 							rendered="#{user.userRole eq 'EMPLOYEE'}" />
 						<h:outputText value="Manager"
 							rendered="#{user.userRole ne 'EMPLOYEE'}" />
 					</p:column>
+<<<<<<< HEAD
 
 					<p:column headerText="Téléphone">
 						<h:outputText value="#{user.pers.phoneNumber}" />
 					</p:column>
 
+=======
+					<p:column headerText="Téléphone">
+						<h:outputText value="#{user.pers.phoneNumber}" />
+					</p:column>
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 					<p:column headerText="Poste">
 						<h:outputText value="#{user.pers.jobTitle}" />
 					</p:column>
@@ -43,11 +65,17 @@
 					<p:column headerText="Disponibilité">
 						<h:outputText value="#{user.busy ? 'Non' : 'Oui'}" />
 					</p:column>
+<<<<<<< HEAD
 
 					<p:column headerText="Tjm">
 						<h:outputText value="#{user.tjm}" />
 					</p:column>
 
+=======
+					<p:column headerText="Tjm">
+						<h:outputText value="#{user.tjm}" />
+					</p:column>
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 					<p:column styleClass="button-column">
 						<p:commandButton value="Modifier"
 							action="#{registerUserBean.viewUser(user.userId)}"
@@ -58,11 +86,15 @@
 							action="#{registerUserBean.deleteUser(user.userId)}"
 							icon="pi pi-trash" styleClass="ui-button-warning" />
 					</p:column>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2043bae (Fixed some conflicts after merging)
 				</p:dataTable>
 			</p:panel>
 		</h:form>
 	</ui:define>
+<<<<<<< HEAD
 </ui:composition>
 =======
 		<f:view>
@@ -326,3 +358,6 @@
 	</ui:define>
 </ui:composition>
 >>>>>>> 9c5f43b (conflict fixed)
+=======
+</ui:composition>
+>>>>>>> 2043bae (Fixed some conflicts after merging)
