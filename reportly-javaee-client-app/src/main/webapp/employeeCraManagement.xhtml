@@ -42,9 +42,10 @@
 
 
 			<div class="col-10">
-			
-			<h4 class="text-secondary text-center">Edition compte Rendu d'activités</h4>
-			
+
+				<h4 class="text-secondary text-center">Edition compte Rendu
+					d'activités</h4>
+
 				<div class="row justify-content-between align-items-center">
 					<div class="col-4">
 						<ul class="nav">
@@ -59,7 +60,7 @@
 							<li class="nav-item px-2 me-2 border-end"><p:link>Formation</p:link></li>
 						</ul>
 					</div>
-					
+
 					<div class="d-flex col-5">
 						<p:inputText id="search-input" placeholder="Recherche..."
 							type="search" size="50" />
@@ -106,13 +107,69 @@
 					</div>
 				</div>
 
-				<div class="row justify-content-around mb-4 bg-info">
-					<div>
+				<div class="row justify-content-around mb-4">
+					<div class="col-11">
 					
-					</div>					
+						<div class="row">
+							<div class="col-5 d-flex justify-content-center align-items-center">
+								<i class="fa-solid fa-business-time fs-3 me-3"></i>
+								
+								<div>
+									<span class="text-secondary">Feuille de temps principale</span>
+									<h4>Février 2023</h4>
+								</div>
+							</div>
+
+							<div class="col-5 d-flex justify-content-end align-items-center">
+								<p:commandButton styleClass="btn btn-primary" value="Soumettre" />
+							</div>
+						</div>
+
+						<div class="row justify-content-center">
+							<div class="col-11 d-flex justify-content-center">
+								<span class="me-4 my-2">Période : du 01 au 28 Février</span>
+								<span class="me-4 my-2">Agence : esn brand here !</span>
+								<span class="my-2">Unité d'oeuvre moyenne : 1 uo / j</span>
+							</div>
+						</div>
+
+						<div class="row justify-content-center mb-2">
+							<div class="col-11 d-flex justify-content-around py-2">
+								<button class="btn btn-secondary">
+									<i class="fa-solid fa-floppy-disk me-2"></i>
+									<span>Enregistrer</span>
+								</button>
+								
+								<button class="btn btn-primary">
+									<span>Historique total de production</span>
+								</button>
+								
+								<button class="btn btn-info">
+									<i class="fa-solid fa-file-pdf me-2"></i>
+									<span>PDF client</span>
+								</button>																
+							</div>
+														
+						</div>
+
+						<div class="row calendar-container">
+						
+							<!-- <p:calendar 
+								value="#{calendarManagedBean.selectedDate}"
+								mode="inline" 
+								disabledWeekends="true" 
+                				pattern="dd/MM/yyyy"
+                				onSelect="handleDateSelect" /> -->
+                				
+                				
+							
+							<span class="text-secondary mt-2">Nombre de jour ouvrés : 20</span>
+						</div>	
+											
+					</div>
 				</div>
+			</div>
 		</div>
-</div>
 
 	</ui:define>
 </ui:composition>
