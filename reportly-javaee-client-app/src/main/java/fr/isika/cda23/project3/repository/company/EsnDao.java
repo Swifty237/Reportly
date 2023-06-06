@@ -13,7 +13,6 @@ public class EsnDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-//	Enregistrer un user
 	public Long register(Esn esn) {
 //		 - persister l'entité
 		entityManager.persist(esn);

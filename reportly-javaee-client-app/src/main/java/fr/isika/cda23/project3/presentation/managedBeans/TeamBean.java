@@ -39,10 +39,13 @@ public class TeamBean implements Serializable {
 
 	private List<Object[]> teamMembers;
 
+	private List<ProjectTeam> listProjectTeams;
+
 	@PostConstruct
 	public void init() {
 		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
 		teamMembers = tService.getProjectTeamsWithManagerByEsnId(SessionUtils.getEsnIdFromSession());
+		listProjectTeams = tService.getProjectTeamByEsnId(SessionUtils.getEsnIdFromSession());
 	}
 
 	public void addToTeam() throws IOException {
@@ -52,10 +55,10 @@ public class TeamBean implements Serializable {
 		ProjectTeam pTeam = new ProjectTeam();
 		pTeam.setProjectName(teamName);
 		pTeam.addManager(employee);
-		
+
 		tService.modifyEmployee(employee);
 		tService.addToTeam(pTeam);
-		
+
 		resetFieldsAndReloadData();
 
 		NavigationUtils.redirectToUserList("team.xhtml");
@@ -64,9 +67,10 @@ public class TeamBean implements Serializable {
 	private void resetFieldsAndReloadData() {
 		this.employee = null;
 		this.teamName = null;
-		
+
 		userAccounts = userDao.getManagerNotBusy(SessionUtils.getEsnIdFromSession());
 		teamMembers = tService.getProjectTeamsWithManagerByEsnId(SessionUtils.getEsnIdFromSession());
+		listProjectTeams = tService.getProjectTeamByEsnId(SessionUtils.getEsnIdFromSession());
 	}
 
 	public List<Employee> getUserAccounts() {
@@ -99,6 +103,14 @@ public class TeamBean implements Serializable {
 
 	public void setTeamMembers(List<Object[]> teamMembers) {
 		this.teamMembers = teamMembers;
+	}
+
+	public List<ProjectTeam> getListProjectTeams() {
+		return listProjectTeams;
+	}
+
+	public void setListProjectTeams(List<ProjectTeam> listProjectTeams) {
+		this.listProjectTeams = listProjectTeams;
 	}
 
 }

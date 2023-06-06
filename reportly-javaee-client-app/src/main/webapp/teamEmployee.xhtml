@@ -17,7 +17,7 @@
 							noSelectionOption="true" />
 						<f:selectItems id="employee"
 							value="#{teamEmployeeBean.availableEmployees}" var="user"
-							itemLabel="#{user.pers.jobTitle}: #{user.pers.firstname} #{user.pers.name}"
+							itemLabel="#{user.pers.jobTitle}: #{user.pers.firstname} #{user.pers.name} #{(user.userRole eq 'EMPLOYEE') ? 'Salarié' : 'Manager'}"
 							itemValue="#{user}" />
 					</p:selectOneMenu>
 
@@ -68,7 +68,7 @@
 				
 				<p:column styleClass="delete-column">
 					<p:commandButton value="Supprimer"
-						action="#{registerUserBean.deleteUser(user.userId)}"
+						action="#{teamEmployeeBean.deleteEmployeeFromTeam(user)}"
 						icon="pi pi-trash" styleClass="ui-button-warning" />
 				</p:column>
 
