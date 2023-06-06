@@ -92,4 +92,8 @@ public class ServiceBasic implements Serializable {
 		this.serviceDetails = serviceDetails;
 	}
 
+	public String getServiceName() {
+		String simpleName = this.getClass().getSimpleName();
+		return simpleName;
+	}
 }

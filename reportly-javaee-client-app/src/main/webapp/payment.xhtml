@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+		<h1>Interface de Paiement en Ligne</h1>
+
+		<div class="container">
+			<div class="payment-info">
+				<h2>Informations de la Transaction</h2>
+				<div class="grid-container">
+					<div class="grid-item">
+						<label for="nom">Nom du Client :</label> <span id="nom">Isika</span>
+					</div>
+					<div class="grid-item">
+						<label for="montant">Montant de la Transaction :</label> <span
+							id="montant">11 euro</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="payment-method">
+				<h2>Paiement</h2>
+				<div class="grid-container">
+					<div class="grid-item">
+						<h:outputLabel for="numero" value="Numéro de carte :" />
+						<h:inputText id="numero" value="#{paymentBean.cardNumber}"
+							required="true" />
+					</div>
+					<div class="grid-item">
+						<h:outputLabel for="Date" value="Date d'expiration :" />
+						<h:inputText id="expiration" value="#{paymentBean.expirationDate}"
+							required="true" />
+					</div>
+					<div class="grid-item">
+						<h:outputLabel for="CVV" value="CVV :" />
+						<h:inputText id="cvv" value="#{paymentBean.cvv}" required="true" />
+					</div>
+					<div class="grid-item">
+
+						<h:commandButton type="submit" value="Payer"
+							action="#{paymentBean.processPayment}"
+							onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

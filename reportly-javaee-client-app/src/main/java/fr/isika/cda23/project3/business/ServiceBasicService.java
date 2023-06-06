@@ -1,36 +1,27 @@
 package fr.isika.cda23.project3.business;
 
+import java.util.List;
+
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import fr.isika.cda.entities.esn.BankCard;
-import fr.isika.cda.entities.esn.Paypal;
-import fr.isika.cda23.project3.presentation.viewModels.ServiceBasicViewModel;
+import fr.isika.cda.entities.esn.ServiceBasic;
 import fr.isika.cda23.project3.repository.esn.ServiceBasicDao;
 import fr.isika.cda23.project3.repository.payment.BankCardDao;
 import fr.isika.cda23.project3.repository.payment.PaypalDao;
 
+@Stateless
 public class ServiceBasicService {
 
 	@Inject
 	private ServiceBasicDao serviceBasicDao;
-	@Inject
-	private PaypalDao paypalDao;
-	@Inject
-	private BankCardDao bankCardDao;
-	
-	
-	public void registerServiceBasic(ServiceBasicViewModel rsvm) {
-		Paypal paypal = new Paypal();
-		BankCard bankcard = new BankCard();
-	// à decomposer	
-		if ((paypal.getId()!= null && rsvm.getPrice()== 11) || (bankcard.getId()!= null && rsvm.getPrice()== 11) ) {
-			Long id = serviceBasicDao.register(rsvm);		
-		}
-		
+
+	public Long registerServiceBasic(ServiceBasic service) {
+		return serviceBasicDao.registerSubscription(service);
 	}
-	
-	
-	
-	
-	
+
+	public List<? extends ServiceBasic> getAllServices() {
+		return serviceBasicDao.getAllServices();
+	}
+
 }

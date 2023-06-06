@@ -3,6 +3,7 @@ package fr.isika.cda23.project3.presentation.viewModels;
 import java.util.Date;
 
 import fr.isika.cda.entities.esn.ServiceDetails;
+import fr.isika.cda.entities.esn.ServicePremium;
 
 public class ServiceBasicViewModel {
 
@@ -15,7 +16,18 @@ public class ServiceBasicViewModel {
 	private double price;
 
 	private ServiceDetails serviceDetails;
+
+	private int usersLimitation;
+
+	private int contractsLimitation;
+
+	private boolean activeExpenseReport;
+
+	private boolean activeStatisticReport;
+
+	private boolean activeCustomDesign;
 	
+	private ServicePremium premium;
 
 	public Long getId() {
 		return id;
@@ -55,6 +67,57 @@ public class ServiceBasicViewModel {
 
 	public void setServiceDetails(ServiceDetails serviceDetails) {
 		this.serviceDetails = serviceDetails;
+	}
+
+	
+	
+	public int getUsersLimitation() {
+		return usersLimitation;
+	}
+
+	public void setUsersLimitation(int usersLimitation) {
+		this.usersLimitation = usersLimitation;
+	}
+
+	public int getContractsLimitation() {
+		return contractsLimitation;
+	}
+
+	public void setContractsLimitation(int contractsLimitation) {
+		this.contractsLimitation = contractsLimitation;
+	}
+
+	public boolean isActiveExpenseReport() {
+		return activeExpenseReport;
+	}
+
+	public void setActiveExpenseReport(boolean activeExpenseReport) {
+		this.activeExpenseReport = activeExpenseReport;
+	}
+
+	public boolean isActiveStatisticReport() {
+		return activeStatisticReport;
+	}
+
+	public void setActiveStatisticReport(boolean activeStatisticReport) {
+		this.activeStatisticReport = activeStatisticReport;
+	}
+
+	public boolean isActiveCustomDesign() {
+		return activeCustomDesign;
+	}
+
+	public void setActiveCustomDesign(boolean activeCustomDesign) {
+		this.activeCustomDesign = activeCustomDesign;
+	}
+	
+
+	public ServicePremium getPremium() {
+		return premium;
+	}
+
+	public void setPremium(ServicePremium premium) {
+		this.premium = premium;
 	}
 
 	@Override

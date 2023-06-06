@@ -3,14 +3,13 @@ package fr.isika.cda23.project3.presentation.managedBeans;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import fr.isika.cda.entities.esn.Subscription;
 import fr.isika.cda23.project3.business.SubscriptionService;
 import fr.isika.cda23.project3.presentation.viewModels.SubscriptionViewModel;
 
-@ManagedBean
+@javax.faces.bean.ManagedBean
 public class SubscriptionManagedBean implements Serializable {
 
 	/**
@@ -24,6 +23,10 @@ public class SubscriptionManagedBean implements Serializable {
 	private SubscriptionViewModel rsvm = new SubscriptionViewModel();
 	private List<Subscription> listSubscriptions;
 	
+	@PostConstruct
+	private void init() {
+		listSubscriptions = subscriptionService.showAllSubscriptions();
+	}
 
 	/**
 	 * enregistrer un abonnement
@@ -48,13 +51,6 @@ public class SubscriptionManagedBean implements Serializable {
 	public String deleteSubscription(long id) throws IOException {
 		subscriptionService.deleteSubscription(id);
 		return	"subscription.xhtml";
-	}
-	/**
-	 * afficher les abonnement
-	 */
-	@PostConstruct
-	public void init() {
-		listSubscriptions = subscriptionService.showAllSubscriptions();	
 	}
 
 	public List<Subscription> getListSubscriptions() {

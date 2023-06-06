@@ -20,4 +20,9 @@ public class ServicePremium extends ServiceBasic implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomDesignDetails customDesignDetails;
+	
+	public String getServiceName() {
+		String simpleName = this.getClass().getSimpleName();
+		return simpleName;
+	}
 }

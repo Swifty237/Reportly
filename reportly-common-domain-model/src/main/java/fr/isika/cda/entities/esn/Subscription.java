@@ -52,7 +52,7 @@ public class Subscription implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Payment payment;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	private ServiceBasic serviceBasic;
 
 	public Long getId() {

@@ -37,4 +37,55 @@ public class ServiceDetails implements Serializable {
 	@Column(name = "active_custom_design")
 	private boolean activeCustomDesign;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getUsersLimitation() {
+		return usersLimitation;
+	}
+
+	public void setUsersLimitation(int usersLimitation) {
+		this.usersLimitation = usersLimitation;
+	}
+
+	public int getContractsLimitation() {
+		return contractsLimitation;
+	}
+
+	public void setContractsLimitation(int contractsLimitation) {
+		this.contractsLimitation = contractsLimitation;
+	}
+
+	public boolean isActiveExpenseReport() {
+		return activeExpenseReport;
+	}
+
+	public void setActiveExpenseReport(boolean activeExpenseReport) {
+		this.activeExpenseReport = activeExpenseReport;
+	}
+
+	public boolean isActiveStatisticReport() {
+		return activeStatisticReport;
+	}
+
+	public void setActiveStatisticReport(boolean activeStatisticReport) {
+		this.activeStatisticReport = activeStatisticReport;
+	}
+
+	public boolean isActiveCustomDesign() {
+		return activeCustomDesign;
+	}
+
+	public void setActiveCustomDesign(boolean activeCustomDesign) {
+		this.activeCustomDesign = activeCustomDesign;
+	}
+	
+	
+	
+
 }
