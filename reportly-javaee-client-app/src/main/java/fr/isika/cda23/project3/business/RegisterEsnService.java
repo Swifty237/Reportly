@@ -10,7 +10,7 @@ import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda.entities.esn.Esn;
-import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
+//import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
 import fr.isika.cda23.project3.repository.company.EsnDao;
 
@@ -20,8 +20,8 @@ public class RegisterEsnService {
 	@Inject
 	private EsnDao esnDao;
 
-	@Inject
-	private AddDocumentManagedBean addDocumentManagedBean;
+//	@Inject
+//	private AddDocumentManagedBean addDocumentManagedBean;
 
 	private static Document document;
 
