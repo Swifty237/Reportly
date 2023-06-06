@@ -33,6 +33,7 @@ public class ExpenseReportBean implements Serializable {
  
 	private List<ExpenseReportViewModel> expenseReports;
     private ExpenseReportViewModel expenseReportViewModel;
+    
     private UploadedFile uploadedFile;
  
     @PostConstruct
@@ -61,7 +62,11 @@ public class ExpenseReportBean implements Serializable {
  
 		FileUploadUtils.uploadFileToApp(uploadedFile, fileName);
     }
- 
+    
+    public Integer countExpenseReports() {
+    	return expenseReportDao.getAllExpenseReports().size();
+    }
+    
     public void deleteExpenseReport(ExpenseReportViewModel expenseReport) {
         expenseReports.remove(expenseReport);
     }

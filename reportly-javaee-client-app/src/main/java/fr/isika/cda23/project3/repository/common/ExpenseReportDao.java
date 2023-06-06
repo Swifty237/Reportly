@@ -44,7 +44,12 @@ public class ExpenseReportDao {
 		String query = "SELECT e FROM ExpenseReport e";
 		return entityManager.createQuery(query, ExpenseReport.class).getResultList();
 	}
-
+	
+	public Long countExpenseReports() {
+		String query = "SELECT count(e) FROM ExpenseReport e";
+		return (Long) entityManager.createQuery(query).getSingleResult();
+	}
+	
 	public void updateExpenseReport(ExpenseReportViewModel ervm) {
 		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, ervm.getId());
 

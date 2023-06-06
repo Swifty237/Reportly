@@ -5,12 +5,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
+<<<<<<< HEAD
 
+=======
+>>>>>>> uc_dashboard_employee
 	<f:metadata>
 		<f:viewAction action="#{teamBean.init}" />
 	</f:metadata>
 
 	<ui:define name="content">
+<<<<<<< HEAD
 		<h:form id="addTeamForm" styleClass="team-form">
 			<p:panel header="Création d'une équipe" styleClass="team-panel">
 				<h:panelGrid columns="2" cellpadding="5">
@@ -25,6 +29,18 @@
 						converter="employeeConverter"
 						disabled="#{empty teamBean.userAccounts}" styleClass="team-input">
 						<f:selectItem itemLabel="Sélection" itemValue="#{null}"
+=======
+		<h:form id="addTeamForm">
+			<p:panel header="Création d'un team">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="nom" value="Nom du Team :" />
+					<p:inputText id="projectTeam" value="#{teamBean.teamName}" />
+
+					<h:outputLabel for="employee" value="Manager :" />
+					<p:selectOneMenu value="#{teamBean.employee}"
+						converter="employeeConverter">
+						<f:selectItem itemLabel="sélection" itemValue="#{null}"
+>>>>>>> uc_dashboard_employee
 							noSelectionOption="true" />
 						<f:selectItems id="employee" value="#{teamBean.userAccounts}"
 							var="user" itemLabel="#{user.pers.firstname} #{user.pers.name}"
@@ -34,12 +50,17 @@
 
 				<h:panelGroup>
 					<p:commandButton value="Enregistrer" update="@form"
+<<<<<<< HEAD
 						action="#{teamBean.addToTeam()}" styleClass="team-button"
 						disabled="#{empty teamBean.userAccounts}" />
+=======
+						action="#{teamBean.addToTeam()}" style="margin-right: 10px;" />
+>>>>>>> uc_dashboard_employee
 				</h:panelGroup>
 			</p:panel>
 		</h:form>
 		<h:form id="teamTableForm">
+<<<<<<< HEAD
 			<p:dataTable id="teamTable" value="#{teamBean.listProjectTeams}"
 				var="team" emptyMessage="No Teams found" styleClass="team-table">
 
@@ -120,4 +141,18 @@
 }
 </style>
 	</ui:define>
+=======
+			<ui:repeat value="#{teamBean.teamMembers}" var="team">
+				<p:panel header="Team de #{team[0]}">
+					<!-- <p:dataTable value="#{team}" var="user"
+						emptyMessage="No Team found" lazy="false">
+						<p:column headerText="Nom du ProjectTeam">
+							<h:outputText value="#{user}" />
+						</p:column>
+					</p:dataTable> -->
+				</p:panel>
+			</ui:repeat>
+		</h:form>
+	</ui:define>
+>>>>>>> uc_dashboard_employee
 </ui:composition>

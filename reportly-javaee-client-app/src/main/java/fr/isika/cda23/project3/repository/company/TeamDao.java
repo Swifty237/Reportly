@@ -2,18 +2,15 @@ package fr.isika.cda23.project3.repository.company;
 
 import java.util.Collections;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;
 import fr.isika.cda.entities.users.UserRole;
 
 public class TeamDao {
-
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -64,9 +61,7 @@ public class TeamDao {
 		String query = "SELECT p FROM ProjectTeam p LEFT JOIN FETCH p.employeeList WHERE p.id = :projectId";
 		ProjectTeam project = entityManager.createQuery(query, ProjectTeam.class).setParameter("projectId", id)
 				.getSingleResult();
-
 		project.addEmployee(employee);
-
 		entityManager.merge(employee);
 		entityManager.merge(project);
 	}
@@ -75,9 +70,7 @@ public class TeamDao {
 		String query = "SELECT p FROM ProjectTeam p LEFT JOIN FETCH p.employeeList WHERE p.id = :projectId";
 		ProjectTeam project = entityManager.createQuery(query, ProjectTeam.class).setParameter("projectId", id)
 				.getSingleResult();
-
 		project.deleteEmployeeFromTeam(employee);
-
 		entityManager.merge(employee);
 		entityManager.merge(project);
 	}

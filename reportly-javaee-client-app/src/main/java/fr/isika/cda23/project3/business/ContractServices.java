@@ -20,8 +20,8 @@ public class ContractServices {
 		return contractDao.findAllContracts();
 	}
 	
-	public int countAllContracts() {
-		return getAllContracts().size();
+	public long countAllContracts() {
+		return contractDao.countContracts();
 	}
 	
 	public Date getCreationDate(Long id) {

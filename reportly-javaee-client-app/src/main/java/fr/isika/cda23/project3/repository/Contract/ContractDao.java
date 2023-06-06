@@ -46,4 +46,9 @@ public class ContractDao {
 	public List<Contract> findAllContracts(){
 		return entityManager.createQuery("SELECT c FROM Contract c", Contract.class).getResultList();
 	}
+	
+	public Long countContracts() {
+		String query = "SELECT count(c) FROM Contract c";
+		return (Long) entityManager.createQuery(query).getSingleResult();
+	}
 }

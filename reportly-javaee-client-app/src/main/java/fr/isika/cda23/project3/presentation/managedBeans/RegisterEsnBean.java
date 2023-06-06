@@ -7,6 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import fr.isika.cda23.project3.business.RegisterEsnService;
+
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
 
 @ManagedBean
@@ -25,11 +26,11 @@ public class RegisterEsnBean implements Serializable {
 
 	public String register() {
 		reService.register(registerEsnVm);
-		
+
 		registerEsnVm = new RegisterEsnViewModel();
-		
+
 		return "index.xhtml";
-		
+
 	}
 
 	public RegisterEsnViewModel getRegisterEsnVm() {
@@ -39,5 +40,4 @@ public class RegisterEsnBean implements Serializable {
 	public void setRegisterEsnVm(RegisterEsnViewModel registerEsnVm) {
 		this.registerEsnVm = registerEsnVm;
 	}
-
 }

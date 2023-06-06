@@ -18,13 +18,15 @@ public class ContractManagedBean {
 	private ContractServices contractServices;
 	
 	private List<Contract> listContracts;
-	private int countContracts;
 
 	
 	@PostConstruct
 	public void init() {
 		listContracts = contractServices.getAllContracts();
-		countContracts = contractServices.countAllContracts();
+	}
+	
+	public long countContracts() {
+		return contractServices.countAllContracts();
 	}
 	
 	public Date getCreationDate(Long id) {
@@ -59,11 +61,4 @@ public class ContractManagedBean {
 		this.listContracts = listContracts;
 	}
 
-	public int getCountContracts() {
-		return countContracts;
-	}
-
-	public void setCountContracts(int countContracts) {
-		this.countContracts = countContracts;
-	}
 }

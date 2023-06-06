@@ -20,9 +20,6 @@ public class RegisterEsnService {
 	@Inject
 	private EsnDao esnDao;
 
-//	@Inject
-//	private AddDocumentManagedBean addDocumentManagedBean;
-
 	private static Document document;
 
 	public void register(RegisterEsnViewModel viewModel) {

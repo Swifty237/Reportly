@@ -63,7 +63,7 @@ public class LoginBean implements Serializable {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				return "";
+				return "ecranEsn.xhtml";
 			}
 			System.out.println("not login 1");
 		}
@@ -77,7 +77,6 @@ public class LoginBean implements Serializable {
 		loginViewModel = new LoginViewModel();
 		// vider la session http
 		SessionUtils.resetSession();
-
 		NavigationUtils.redirectToUserList("index.xhtml");
 	}
 

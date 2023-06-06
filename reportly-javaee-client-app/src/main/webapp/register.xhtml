@@ -67,14 +67,15 @@
 					<p:inputText id="tjm"
 						value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" />
 
-				</h:panelGrid>
-
 				<h:panelGroup>
 					<p:commandButton type="submit" value="Enregistrer"
 						action="#{registerUserBean.register()}"
 						styleClass="ui-button-raised ui-button-primary" style="margin-right:5px;"/>
 					<p:commandButton value="Annuler" styleClass="ui-button-raised ui-button-secondary"
 						action="#{registerUserBean.clear()}" immediate="true"/>
+						style="margin-right: 10px;" />
+					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
+						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" action="#{registerUserBean.clear()}"/>
 				</h:panelGroup>
 			</p:panel>
 		</h:form>

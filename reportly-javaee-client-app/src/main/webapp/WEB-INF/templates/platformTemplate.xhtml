@@ -50,6 +50,17 @@
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
 						</ui:fragment>
+						
+						<!-- Ecran Admin d'Esn -->
+						<ui:fragment rendered="#{loginBean.id !=null}">
+							<p:link outcome="ecranEsn.xhtml">Home</p:link>
+							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
+							<p:link outcome="team.xhtml">Former les équipes</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
+							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
+						</ui:fragment>
 
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
 							<div class="col-4">
