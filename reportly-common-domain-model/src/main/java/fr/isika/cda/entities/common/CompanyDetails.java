@@ -40,31 +40,32 @@ public class CompanyDetails implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private AdressDetails adressDetails;
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> d089a19 (commit for merging)
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public Date getCreationDate() {
 		return creationDate;
 	}
-
 
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 
-
 	public String getBrand() {
 		return brand;
 	}
-
 
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -78,15 +79,17 @@ public class CompanyDetails implements Serializable {
 >>>>>>> ab3abe1 (register esn ok)
 =======
 >>>>>>> a6ba52f (register esn ok)
+=======
+>>>>>>> d089a19 (commit for merging)
 	public String getPassword() {
 		return password;
 	}
-
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -105,24 +108,24 @@ public class CompanyDetails implements Serializable {
 >>>>>>> a6ba52f (register esn ok)
 =======
 
+=======
+>>>>>>> d089a19 (commit for merging)
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public Document getDocument() {
 		return document;
 	}
 
-
 	public void setDocument(Document document) {
 		this.document = document;
 	}
+<<<<<<< HEAD
 
 
 >>>>>>> c192cbb (Refactoring of many files to fix the bug with the form in registerCustomer.xhtml)
@@ -136,6 +139,17 @@ public class CompanyDetails implements Serializable {
 	}
 
 
+=======
+
+	public AdressDetails getAdressDetails() {
+		return adressDetails;
+	}
+	
+	public void setAdressDetails(AdressDetails adressDetails) {
+		this.adressDetails = adressDetails;
+	}
+
+>>>>>>> d089a19 (commit for merging)
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
