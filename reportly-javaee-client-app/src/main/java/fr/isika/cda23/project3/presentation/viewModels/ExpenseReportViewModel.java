@@ -1,70 +1,95 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ExpenseReportViewModel {
+import fr.isika.cda.entities.common.DocumentType;
 
+public class ExpenseReportViewModel implements Serializable {
+
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2572134454652257059L;
+	
 	private Long id;
-	private Date ExpenseDate;
-	private Date CreationDate;
-	private String Reason;
-	private Double Amount;
+    private Date expenseDate;
+    private Date creationDate;
+    private String reason;
+    private Double amount;
+    private String fileName;
+    private DocumentType documentType;
 
-	public Long getId() {
-		return id;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getExpenseDate() {
+        return expenseDate;
+    }
+
+    public void setExpenseDate(Date expenseDate) {
+        this.expenseDate = expenseDate;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    public DocumentType getDocumentType() {
+		return documentType;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
+    public void setDocumentType(DocumentType documentType) {
+		this.documentType = documentType;
 	}
-
-	public Date getExpenseDate() {
-		return ExpenseDate;
-	}
-
-	public void setExpenseDate(Date expenseDate) {
-		ExpenseDate = expenseDate;
-	}
-
-	public Date getCreationDate() {
-		return CreationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		CreationDate = creationDate;
-	}
-
-	public String getReason() {
-		return Reason;
-	}
-
-	public void setReason(String reason) {
-		Reason = reason;
-	}
-
-	public Double getAmount() {
-		return Amount;
-	}
-
-	public void setAmount(Double amount) {
-		Amount = amount;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("ExpenseReportViewModel [id=");
 		builder.append(id);
-		builder.append(", ExpenseDate=");
-		builder.append(ExpenseDate);
-		builder.append(", CreationDate=");
-		builder.append(CreationDate);
-		builder.append(", Reason=");
-		builder.append(Reason);
-		builder.append(", Amount=");
-		builder.append(Amount);
+		builder.append(", expenseDate=");
+		builder.append(expenseDate);
+		builder.append(", creationDate=");
+		builder.append(creationDate);
+		builder.append(", reason=");
+		builder.append(reason);
+		builder.append(", amount=");
+		builder.append(amount);
+		builder.append(", fileName=");
+		builder.append(fileName);
 		builder.append("]");
 		return builder.toString();
 	}
-
 }
