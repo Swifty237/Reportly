@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+
+
+
+
+
+
+
+<div class="card">
+    <h5>Horizontal</h5>
+    <p:splitter style="height: 960px" styleClass="mb-5">
+        <p:splitterPanel styleClass="flex align-items-right ">
+            Panel 1
+            <div class="card">
+			<h:form>
+				<p:breadCrumb>
+					<p:menuitem value="Electronics" />
+					<p:menuitem value="Computer" />
+					<p:menuitem value="Notebook" />
+					<p:menuitem value="Accessories" />
+					<p:menuitem value="Backpacks" />
+					<p:menuitem value="Item" />
+				</p:breadCrumb>
+			</h:form>
+		</div>
+            
+            
+		<p:panel header="Choix horaire">
+			<p class="m-0"></p>
+
+			<h:form>
+
+				<p:selectOneRadio id="console" value="#{radioView.console}">
+					<f:selectItem itemLabel="matin" itemValue="Option1" />
+					<f:selectItem itemLabel="apres-midi" itemValue="Option2" />
+
+					<f:selectItem itemLabel="Personnaliser" itemValue="Option3" />
+
+				</p:selectOneRadio>
+			</h:form>
+			<div class="field col-6 md:col-4">
+				<p:outputLabel for="matin" value="matin " />
+				<p:datePicker id="matin" value="#{calendarView.date15}"
+					timeOnly="true" pattern="HH:mm" mindate="#{calendarView.matin}"
+					maxdate="#{calendarView.matin}" />
+			</div>
+
+			<div class="field col-12 md:col-4">
+				<p:outputLabel for="soir" value="soir " />
+				<p:datePicker id="soir" value="#{calendarView.date15}"
+					timeOnly="true" pattern="HH:mm" mindate="#{calendarView.soir}"
+					maxdate="#{calendarView.soir}" />
+			</div>
+		</p:panel>
+            
+            
+             <p:panel header="Type d'activité ">
+			<p class="m-20"></p>
+            
+            <h6 class="mt-0"> projet</h6>
+        <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel=""/>
+            </p:panel>
+            
+            
+       
+            
+            
+            <p:panel header="projet ">
+			<p class="m-20"></p>
+
+
+
+			<div class="ui-fluid grid formgrid">
+				<div class="field col-12 md:col-4">
+					<p:outputLabel for="debut" value="debut " />
+					<p:datePicker id="debut" value="#{calendarView.date}" />
+				</div>
+			</div>
+
+			<div class="ui-fluid grid formgrid">
+				<div class="field col-12 md:col-4">
+					<p:outputLabel for="fin" value="Fin " />
+					<p:datePicker id="fin" value="#{calendarView.date}" />
+				</div>
+			</div>
+
+			<h6>Client Final</h6>
+			<p:selectCheckboxMenu id="multiple"
+				value="#{checkboxView.selectedCities2}" label="Cities"
+				style="min-width: 15rem" multiple="true" filter="true"
+				filterMatchMode="startsWith" panelStyle="width: 30rem"
+				scrollHeight="250" emptyLabel="Please select..." updateLabel="true">
+				<p:ajax event="itemUnselect"
+					listener="#{checkboxView.onItemUnselect}" />
+				<f:selectItems value="#{checkboxView.cities}" />
+			</p:selectCheckboxMenu>
+
+
+			<h6 class="mt-0">libellé de projet</h6>
+			<div class="formgrid ">
+				<div class="field col-12 md:col-4">
+					<p:outputLabel value="" for="@next" />
+					<p:autoComplete id="acSimple" value="#{autoCompleteView.txt1}"
+						completeMethod="#{autoCompleteView.completeText}"
+						scrollHeight="250" />
+
+				</div>
+			</div>
+
+		</p:panel>
+
+
+		<p:panel header="Formation ">
+			<p class="m-20"></p>
+
+
+			<h6>Type de Formation</h6>
+
+			<p:selectCheckboxMenu id="typeFormation"
+				value="#{checkboxView.selectedCities2}" label="Cities"
+				style="min-width: 15rem" multiple="true" filter="true"
+				filterMatchMode="startsWith" panelStyle="width: 30rem"
+				scrollHeight="250" emptyLabel="Please select..." updateLabel="true">
+				<p:ajax event="itemUnselect"
+					listener="#{checkboxView.onItemUnselect}" />
+				<f:selectItems value="#{checkboxView.cities}" />
+			</p:selectCheckboxMenu>
+
+
+
+
+		</p:panel>
+            
+        </p:splitterPanel>
+        <p:splitterPanel styleClass="flex align-items-center justify-content-center">
+            Panel 2
+            
+            
+            
+           <p:panel header="Salarié ">
+			<p class="m-20"></p>
+
+
+			<h6>salarié</h6>
+
+			<p:selectCheckboxMenu id="salarié"
+				value="#{checkboxView.selectedCities2}" label="Cities"
+				style="min-width: 15rem" multiple="true" filter="true"
+				filterMatchMode="startsWith" panelStyle="width: 60rem"
+				scrollHeight="250" emptyLabel="Please select..." updateLabel="true">
+				<p:ajax event="itemUnselect"
+					listener="#{checkboxView.onItemUnselect}" />
+				<f:selectItems value="#{checkboxView.cities}" />
+			</p:selectCheckboxMenu>
+
+
+<h5>commentaire</h5>
+						<div class="ui-fluid">
+							<div class="field">
+								<p:inputTextarea id="customDropZone" widgetVar="textarea"
+									rows="5" value="#{fileUploadView.dropZoneText}" />
+								<small> Drop on the text area to upload, or <p:link
+										value="choose" onclick="PF('uploadDnd').show();return false"
+										style="font-size:inherit" />.
+								</small>
+							</div>
+						</div>
+
+		</p:panel>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="card">
+    <h:form>
+        <p:growl id="message" showDetail="true"/>
+
+        <p:commandButton value="Confirm" action="#{confirmView.confirm}" update="message" styleClass="mr-2" icon="pi pi-check">
+            <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
+        </p:commandButton>
+
+        <p:commandButton value="Delete" action="#{confirmView.delete}" update="message" styleClass="ui-button-danger" icon="pi pi-times">
+            <p:confirm header="Confirmation" message="Do you want to delete this record?" icon="pi pi-info-circle"/>
+        </p:commandButton>
+
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+        </p:confirmDialog>
+    </h:form>
+</div>
+        </p:splitterPanel>
+    </p:splitter>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+		
+
+
+
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

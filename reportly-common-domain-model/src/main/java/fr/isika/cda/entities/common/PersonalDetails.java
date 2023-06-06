@@ -61,6 +61,9 @@ public class PersonalDetails implements Serializable {
 	public PersonalDetails() {
 	}
 
+	public String getFullName() {
+		return String.join(" ", name.toUpperCase(), firstname);
+	}
 	public String getName() {
 		return name;
 	}
@@ -107,6 +110,14 @@ public class PersonalDetails implements Serializable {
 
 	public void setAdressDetails(AdressDetails adressDetails) {
 		this.adressDetails = adressDetails;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	@Override

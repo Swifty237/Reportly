@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/platformTemplate.xhtml">
+
+	<ui:define name="content">
+		<h1>création d'une nouvelle absence</h1>
+		<div class="col-4">
+			<ul class="nav">
+				<li class="nav-item px-2 me-2 border-end"><p:link
+						outcome="dashboardEmployee.xhtml">Mon Espace</p:link></li>
+				<li class="nav-item px-2 me-2 border-end"><p:link>Planning</p:link></li>
+
+				<li class="nav-item px-2 me-2 border-end"><p:link
+						outcome="showAllDocuments">Documents</p:link></li>
+
+				<li class="nav-item px-2 me-2 border-end"><p:link>Acceuil</p:link></li>
+			</ul>
+		</div>
+		<!-- champ nom du salarié -->
+
+		<h:form>
+			<h5>Salarié</h5>
+			<p:inputText id="float-input" value="#{createAbsenceBean.name}"></p:inputText>
+			<p:outputLabel for="@previous"></p:outputLabel>
+
+		</h:form>
+
+		<!-- champ calendrier debut -->
+		<h:form>
+			<p:calendar id="datePicker"
+				value="#{createAbsenceBean.createAbsenceVm.startAt}" showOn="button"
+				size="20" pattern="dd/MM/yyyy" />
+
+		</h:form>
+		
+		
+	
+
+			<!-- champ calendrier fin -->
+		<span> <h:form>
+				<p:calendar id="datePicker2"
+					value="#{createAbsenceBean.createAbsenceVm.endAt}" showOn="button"
+					size="20" pattern="dd/MM/yyyy" />
+
+
+			</h:form>
+		</span>
+
+
+
+		<br />
+
+		<!-- liste déroulante type d'absence  -->
+		<div class="Type d'absence">
+			<h:selectOneMenu
+				value="#{createAbsenceBean.createAbsenceVm.typeAbsence}">
+				<f:selectItem itemValue="#{null}"
+					itemLabel="Sélectionnez un type d'absence" />
+				<f:selectItems value="#{AbsenceType.values()}" var="typeAbsence"
+					itemLabel="#{type}" itemValue="#{type}" />
+				<f:selectItem itemLabel="congé" itemValue="0" />
+				<f:selectItem itemLabel="vacances" itemValue="1" />
+				<f:selectItem itemLabel="arret maladie" itemValue="2" />
+				<f:selectItem itemLabel="Congé de maternité " itemValue="3" />
+				<f:selectItem itemLabel="Four" itemValue="autre" />
+				<f:selectItem itemLabel="Five" itemValue="5" />
+			</h:selectOneMenu>
+		</div>
+
+
+
+
+		<br />
+
+		<div class="card">
+			<h:form>
+				<p:growl id="messages" showDetail="true" />
+				<div class="formgroup-inline">
+
+					<h5>Justificatif</h5>
+
+					<p:fileUpload listener="#{fileUploadView.handleFileUpload}"
+						mode="advanced" dragDropSupport="true" update="messages"
+						sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+					<br />
+					<h5>Description</h5>
+
+					<div class="ui-fluid">
+						<div class="field">
+							<p:inputTextarea id="comentaire"
+								value="#{createAbsenceBean.createAbsenceVm.description}" />
+						</div>
+					</div>
+				</div>
+				
+			</h:form>
+		</div>
+
+
+
+
+		<div class="card">
+			<h:form>
+				<p:growl id="message" showDetail="true" />
+
+				<!-- bouton confirmer -->
+
+				<p:commandButton value="save" action="#{createAbsenceBean.save()}"
+					update="message" styleClass="mr-2" icon="pi pi-check">
+					<p:confirm header="save"
+						message="Are you sure you want to proceed?"
+						icon="pi pi-exclamation-triangle" />
+				</p:commandButton>
+
+
+
+				<!-- bouton delete -->
+
+				<p:commandButton value="Delete"
+					action="#{createAbsenceBean.clear()}" update="message"
+					styleClass="ui-button-danger" icon="pi pi-times">
+					<p:confirm header="Confirmation"
+						message="Do you want to delete this record?"
+						icon="pi pi-info-circle" />
+				</p:commandButton>
+
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+					responsive="true" width="350">
+					<p:commandButton value="No" type="button"
+						styleClass="ui-confirmdialog-no ui-button-flat" />
+					<p:commandButton value="Yes" type="button"
+						styleClass="ui-confirmdialog-yes" />
+				</p:confirmDialog>
+			</h:form>
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+

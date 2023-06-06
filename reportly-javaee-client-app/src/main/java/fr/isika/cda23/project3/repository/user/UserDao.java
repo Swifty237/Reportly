@@ -6,13 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
-import fr.isika.cda23.project3.utils.SessionUtils;
 
 public class UserDao {
 
@@ -43,6 +41,17 @@ public class UserDao {
 					.setParameter("emailParam", loginViewModel.getEmail())
 					.setParameter("pwdParam", loginViewModel.getPassword()).getSingleResult();
 		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
+	public UserAccount findByEmail(final String email) {
+		try {
+			return entityManager
+					.createQuery("SELECT u FROM UserAccount u WHERE u.email = :emailParam", UserAccount.class)
+					.setParameter("emailParam", email)
+					.getSingleResult();
+		} catch(NoResultException e) {
 			return null;
 		}
 	}

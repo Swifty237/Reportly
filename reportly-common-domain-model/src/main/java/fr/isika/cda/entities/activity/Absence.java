@@ -1,6 +1,7 @@
 package fr.isika.cda.entities.activity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,9 +37,9 @@ public class Absence extends Activity implements Serializable {
 		this.document = document;
 	}
 
-
-
 	
+	
+
 	
 
 	
