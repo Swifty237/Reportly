@@ -61,6 +61,9 @@ public class PersonalDetails implements Serializable {
 	public PersonalDetails() {
 	}
 
+	public String getFullName() {
+		return String.join(" ", name.toUpperCase(), firstname);
+	}
 	public String getName() {
 		return name;
 	}
