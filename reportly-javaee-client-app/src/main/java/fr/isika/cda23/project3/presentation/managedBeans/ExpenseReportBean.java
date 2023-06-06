@@ -1,97 +1,92 @@
 package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import fr.isika.cda.entities.common.ExpenseReport;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.file.UploadedFile;
+
+import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 import fr.isika.cda23.project3.repository.common.ExpenseReportDao;
+import fr.isika.cda23.project3.utils.FileUploadUtils;
 
 @ManagedBean
 @SessionScoped
 public class ExpenseReportBean implements Serializable {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -4433798209344858186L;
-
+	private static final long serialVersionUID = 6669005664250781823L;
+	
 	@Inject
 	private ExpenseReportDao expenseReportDao;
-
-	private ExpenseReportViewModel expenseReportViewModel;
-
+	
 	private List<ExpenseReportViewModel> expenseReports;
+    private ExpenseReportViewModel expenseReportViewModel;
+    private UploadedFile uploadedFile;
 
-	public ExpenseReportBean() {
-		expenseReportViewModel = new ExpenseReportViewModel();
-		expenseReports = new ArrayList<>();
-	}
+    @PostConstruct
+    public void init() {
+        expenseReports = new ArrayList<>();
+        expenseReportViewModel = new ExpenseReportViewModel();
+    }
 
-	public void addExpenseReport() {
-		Long id = expenseReportDao.addExpenseReport(expenseReportViewModel);
-		expenseReportViewModel.setId(id);
-		expenseReports.add(expenseReportViewModel);
+    public void addExpenseReport() {
+        // Add the expense report to the list
+        expenseReports.add(expenseReportViewModel);
+        expenseReportDao.addExpenseReport(expenseReportViewModel);
 
-		expenseReportViewModel = new ExpenseReportViewModel(); // Reset the object
+        // Reset the form
+        expenseReportViewModel = new ExpenseReportViewModel();
+        uploadedFile = null;
+    }
+    
+    public void uploadFile(FileUploadEvent event) throws Exception {
+    	String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("ddMMyyyyHHmmss"));
 
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Success", "Expense report added successfully!"));
-	}
+    	UploadedFile uploadedFile = event.getFile();
+		String fileName = String.join("_", timestamp, uploadedFile.getFileName());
+        
+		expenseReportViewModel.setFileName(fileName);
 
-	public String editExpenseReport(ExpenseReportViewModel ervm) {
-		expenseReportViewModel = ervm;
-		return "editExpenseReport";
-	}
+		FileUploadUtils.uploadFileToApp(uploadedFile, fileName);
+    }
+    
+    public void deleteExpenseReport(ExpenseReportViewModel expenseReport) {
+        expenseReports.remove(expenseReport);
+    }
 
-	public String updateExpenseReport() {
-		expenseReportDao.updateExpenseReport(expenseReportViewModel);
-		expenseReportViewModel = new ExpenseReportViewModel();
-		return "expenseReports";
-	}
+    public void editExpenseReport(ExpenseReportViewModel expenseReport) {
+        expenseReportViewModel = expenseReport;
+    }
 
-	public void deleteExpenseReport(ExpenseReportViewModel ervm) {
-		ExpenseReport expenseReport = expenseReportDao.getExpenseReportById(ervm.getId());
-		expenseReportDao.deleteExpenseReport(expenseReport);
-		expenseReports.remove(ervm);
-		
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Success", "Expense report deleted successfully!"));
-	}
+    public List<ExpenseReportViewModel> getExpenseReports() {
+        return expenseReports;
+    }
 
-	public List<ExpenseReportViewModel> getExpenseReports() {
-		expenseReports = mapToViewModel(expenseReportDao.getAllExpenseReports());
-		return expenseReports;
-	}
+    public ExpenseReportViewModel getExpenseReportViewModel() {
+        return expenseReportViewModel;
+    }
 
-	private List<ExpenseReportViewModel> mapToViewModel(List<ExpenseReport> expenseReports) {
-		List<ExpenseReportViewModel> viewModels = new ArrayList<>();
-		for (ExpenseReport er : expenseReports) {
-			ExpenseReportViewModel viewModel = new ExpenseReportViewModel();
-			viewModel.setId(er.getId());
-			viewModel.setExpenseDate(er.getExpenseDate());
-			viewModel.setCreationDate(er.getCreationDate());
-			viewModel.setReason(er.getReason());
-			viewModel.setAmount(er.getAmount());
-			viewModels.add(viewModel);
-		}
-		return viewModels;
-	}
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
 
-	public ExpenseReportViewModel getExpenseReportViewModel() {
-		return expenseReportViewModel;
-	}
-
-	public void setExpenseReportViewModel(ExpenseReportViewModel expenseReportViewModel) {
-		this.expenseReportViewModel = expenseReportViewModel;
-	}
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
+    }
+    
+    public DocumentType[] documentTypes() {
+    	return DocumentType.values();
+    }
 }

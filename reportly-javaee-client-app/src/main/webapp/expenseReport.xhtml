@@ -14,6 +14,13 @@
 				<p:panel header="Expense Report">
 					<p:growl id="messages" showDetail="true" sticky="false" life="3500" />
 					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="docType" value="Document type:" />
+						<h:selectOneMenu value="#{expenseReportBean.expenseReportViewModel.documentType}">
+							<f:selectItem itemLabel="Selection" itemValue="null" noSelectionOption="true" />
+							<f:selectItems var="type" itemLabel="#{type.label}" itemValue="#{type}" 
+								value="#{expenseReportBean.documentTypes()}"/>
+						</h:selectOneMenu>
+						
 						<h:outputLabel for="expenseDate" value="Date:" />
 						<p:calendar id="expenseDate"
 							value="#{expenseReportBean.expenseReportViewModel.expenseDate}"
@@ -32,9 +39,14 @@
 							value="#{expenseReportBean.expenseReportViewModel.reason}"
 							rows="6" cols="30" />
 
+						<h:outputLabel for="expenseFile" value="File:" />
+						<p:fileUpload id="expenseFile"
+							listener="#{expenseReportBean.uploadFile}"
+							mode="advanced" dragDropSupport="false" update="messages"/>
+							
 						<p:commandButton value="Submit"
 							action="#{expenseReportBean.addExpenseReport}"
-							update="messages expenseTable" process="@form" />
+							update="messages expenseTable expenseForm" process="@form" />
 					</h:panelGrid>
 				</p:panel>
 			</h:form>
@@ -60,14 +72,7 @@
 					</p:column>
 					<p:column styleClass="delete-column">
 						<h:form>
-							<p:growl id="messages" showDetail="true" sticky="false"
-								life="3500" />
 							<p:commandButton icon="pi pi-trash" styleClass="delete-button"
-								action="#{expenseReportBean.deleteExpenseReport(expense)}"
-								update="messages expenseTablePanel" />
-						</h:form>
-						<h:form>
-							<p:commandButton icon="pi pi-pencil" styleClass="update-button"
 								action="#{expenseReportBean.deleteExpenseReport(expense)}"
 								update="expenseTablePanel" />
 						</h:form>

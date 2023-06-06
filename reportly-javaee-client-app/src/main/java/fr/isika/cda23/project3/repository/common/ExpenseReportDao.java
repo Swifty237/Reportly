@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.ExpenseReport;
 
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
@@ -17,13 +19,18 @@ public class ExpenseReportDao {
 
 	public Long addExpenseReport(ExpenseReportViewModel ervm) {
 
-		ExpenseReport expensereport = new ExpenseReport();
+		Document document = new Document();
+		document.setName(ervm.getFileName());
+		document.setDocCreation(ervm.getCreationDate());
+		document.setTypeOfDoc(ervm.getDocumentType());
 
+		ExpenseReport expensereport = new ExpenseReport();
 		expensereport.setExpenseDate(ervm.getExpenseDate());
 		expensereport.setCreationDate(ervm.getCreationDate());
 		expensereport.setReason(ervm.getReason());
 		expensereport.setAmount(ervm.getAmount());
-
+		expensereport.setDocument( document);
+		
 		entityManager.persist(expensereport);
 
 		return expensereport.getId();
