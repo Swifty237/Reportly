@@ -6,9 +6,10 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.esn.Esn;
-import fr.isika.cda.entities.users.UserAccount;
+//import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
-import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
+//import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
+//import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 
 public class EsnDao {
 
@@ -37,4 +38,22 @@ public class EsnDao {
 		}
 	}
 
+	public Long getESNIdByEmail(String email) {
+		try {
+			return entityManager
+					.createQuery("SELECT esn.id FROM Esn esn WHERE esn.companyDetails.email = :email", Long.class)
+					.setParameter("email", email).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	public Esn getEsnById(Long id) {
+		try {
+			return entityManager
+					.createQuery("SELECT esn FROM Esn esn WHERE esn.id = :id", Esn.class)
+					.setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }

@@ -57,6 +57,47 @@ public class LoginBean implements Serializable {
 		// Rester sur la même page pour afficher les erreurs
 		return "";
 	}
+	private Long id;
+
+	private String esnName;
+
+//	public String login() {
+//		// vérifier que le vm contient des données valides
+//		if (!loginViewModel.isValid()) {
+//			return "";
+//		}
+
+		// vérifier que le user existe en bdd
+//		UserAccount account = userDao.findByEmail(loginViewModel);
+//		if (account != null) {
+//			System.out.println("user ok");
+//			SessionUtils.setUserEmailIntoSession(account.getEmail());
+//			return "index.xhtml";
+//		} else {
+//			CompanyDetails esn = esnDao.findByEmail(loginViewModel);
+//			if (esn != null) {
+//				System.out.println("esn ok");
+//				SessionUtils.setUserEmailIntoSession(esn.getEmail());
+//				return "ecranEsn.xhtml";
+//				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
+//				SessionUtils.seEsnIdIntoSession(esnId);
+//				id = esnId;
+//				SessionUtils.setEsnNameIntoSession(esn.getBrand());
+//				setEsnName(esn.getBrand());
+//				try {
+//					NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				return "";
+//			}
+//			System.out.println("not login 1");
+//		}
+//		System.out.println("not login 2");
+//		// Rester sur la même page pour afficher les erreurs
+//		return "";
+//	}
 
 	public void logout() throws IOException {
 		// vider le vm
@@ -78,4 +119,21 @@ public class LoginBean implements Serializable {
 	public void setLoginViewModel(LoginViewModel loginViewModel) {
 		this.loginViewModel = loginViewModel;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getEsnName() {
+		return esnName;
+	}
+
+	public void setEsnName(String esnName) {
+		this.esnName = esnName;
+	}
+
 }

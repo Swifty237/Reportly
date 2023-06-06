@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
-import fr.isika.cda23.project3.business.RegisterEsnService;
+//import fr.isika.cda23.project3.business.RegisterEsnService;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
 
 @ManagedBean
@@ -18,13 +18,13 @@ public class RegisterEsnBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -5469910363275392680L;
 
-	@Inject
-	private RegisterEsnService reService;
+//	@Inject
+//	private RegisterEsnService reService;
 
 	private RegisterEsnViewModel registerEsnVm = new RegisterEsnViewModel();
 
 	public String register() {
-		reService.register(registerEsnVm);
+//		reService.register(registerEsnVm);
 		
 		registerEsnVm = new RegisterEsnViewModel();
 		
@@ -39,5 +39,25 @@ public class RegisterEsnBean implements Serializable {
 	public void setRegisterEsnVm(RegisterEsnViewModel registerEsnVm) {
 		this.registerEsnVm = registerEsnVm;
 	}
-
+//	@Inject
+//	private RegisterEsnService reService;
+//
+//	private RegisterEsnViewModel registerEsnVm = new RegisterEsnViewModel();
+//
+//	public String register() {
+//		reService.register(registerEsnVm);
+//		
+//		registerEsnVm = new RegisterEsnViewModel();
+//		
+//		return "index.xhtml";
+//		
+//	}
+//
+//	public RegisterEsnViewModel getRegisterEsnVm() {
+//		return registerEsnVm;
+//	}
+//
+//	public void setRegisterEsnVm(RegisterEsnViewModel registerEsnVm) {
+//		this.registerEsnVm = registerEsnVm;
+//	}
 }

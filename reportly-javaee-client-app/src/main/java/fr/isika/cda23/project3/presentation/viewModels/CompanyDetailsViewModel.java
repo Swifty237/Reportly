@@ -2,41 +2,40 @@ package fr.isika.cda23.project3.presentation.viewModels;
 
 import java.util.Date;
 
+import fr.isika.cda.entities.common.AdressDetails;
+
 public class CompanyDetailsViewModel {
 	
-	
-	private Date CreationDate;
-	private String Brand;
-	private String Email;
+	private Date creationDate = new Date();
+	private String brand;
+	private String email;
+	private AdressDetails adressDetails;
 	
 	
 	public Date getCreationDate() {
-		return CreationDate;
+		return creationDate;
 	}
-
-	
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 	public String getBrand() {
-		return Brand;
+		return brand;
 	}
-	
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 	public String getEmail() {
-		return Email;
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
-	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("AddCompanyDetailsViewModel [CreationDate=");
-		builder.append(CreationDate);
-		builder.append(", Brand=");
-		builder.append(Brand);
-		builder.append(", Email=");
-		builder.append(Email);
-		builder.append("]");
-		return builder.toString();
+	public AdressDetails getAdressDetails() {
+		return adressDetails;
 	}
-	
-	
 
+	public void setAdressDetails(AdressDetails adressDetails) {
+		this.adressDetails = adressDetails;
+	}
 }
