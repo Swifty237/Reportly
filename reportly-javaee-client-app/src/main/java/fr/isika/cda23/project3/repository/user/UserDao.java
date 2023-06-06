@@ -41,6 +41,16 @@ public class UserDao {
 			return null;
 		}
 	}
+	public UserAccount findByEmail(final String email) {
+		try {
+			return entityManager
+					.createQuery("SELECT u FROM UserAccount u WHERE u.email = :emailParam", UserAccount.class)
+					.setParameter("emailParam", email)
+					.getSingleResult();
+		} catch(NoResultException e) {
+			return null;
+		}
+	}
 	
 //	find un user avec son id 
 	public UserAccount findOneUser(long id) {

@@ -1,6 +1,7 @@
 package fr.isika.cda.entities.activity;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -47,4 +48,74 @@ public abstract class Activity implements Serializable {
 	public Long getId() {
 		return id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getStartAt() {
+		return startAt;
+	}
+
+	public void setStartAt(Date startAt) {
+		this.startAt = startAt;
+	}
+
+	public Date getEndAt() {
+		return endAt;
+	}
+
+	public void setEndAt(Date endAt) {
+		this.endAt = endAt;
+	}
+
+	public int getOvertime() {
+		return overtime;
+	}
+
+	public void setOvertime(int overtime) {
+		this.overtime = overtime;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Boolean getOnCall() {
+		return onCall;
+	}
+
+	public void setOnCall(Boolean onCall) {
+		this.onCall = onCall;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Cra getCra() {
+		return cra;
+	}
+
+	public void setCra(Cra cra) {
+		this.cra = cra;
+	}
+	
+	
 }

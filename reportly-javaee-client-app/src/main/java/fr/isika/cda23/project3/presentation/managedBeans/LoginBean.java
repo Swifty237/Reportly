@@ -35,6 +35,7 @@ public class LoginBean implements Serializable {
 		UserAccount account = userDao.findByEmail(loginViewModel);
 		if(account != null) {
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
+			SessionUtils.setUserNameIntoSession(account.getPers().getName());
 			return "index.xhtml";
 		}
 		
