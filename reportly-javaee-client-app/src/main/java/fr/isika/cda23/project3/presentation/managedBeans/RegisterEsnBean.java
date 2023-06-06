@@ -7,7 +7,6 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import fr.isika.cda23.project3.business.RegisterEsnService;
-
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
 
 @ManagedBean

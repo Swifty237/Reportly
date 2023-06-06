@@ -50,6 +50,17 @@ public class PersonalDetails implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private AdressDetails adressDetails;
 
+	public PersonalDetails() {
+	}
+	
+	public PersonalDetails(String string, String string2, Date date, String i, String string3) {
+		firstname = string;
+		name = string2;
+		birthday = date;
+		phoneNumber = i;
+		jobTitle = string3;
+	}
+
 	public Long getId() {
 		return Id;
 	}

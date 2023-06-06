@@ -1,6 +1,7 @@
 package fr.isika.cda23.project3.presentation.managedBeans;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -19,7 +20,6 @@ import fr.isika.cda23.project3.business.DocumentServices;
 import fr.isika.cda23.project3.presentation.viewModels.DocumentViewModel;
 import fr.isika.cda23.project3.utils.FileUploadUtils;
 import fr.isika.cda23.project3.utils.NavigationUtils;
-import java.io.Serializable;
 
 @ManagedBean
 @SessionScoped
@@ -30,26 +30,26 @@ public class DocumentBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 8982587388756946010L;
 
-//	@Inject
-//	private DocumentServices documentServices;
+	@Inject
+	private DocumentServices documentServices;
 	
 	private DocumentViewModel documentVm = new DocumentViewModel();
 	
 	private List<Document> listDocs;
 	
-//	@PostConstruct
-//	public void init() {
-//		listDocs = documentServices.showAllDocumentsService();
-//	}
+	@PostConstruct
+	public void init() {
+		listDocs = documentServices.showAllDocumentsService();
+	}
 	
 	public void addDocument() throws IOException {
-//		documentServices.addDocumentService(documentVm);
+		documentServices.addDocumentService(documentVm);
 		documentVm = new DocumentViewModel();
 		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
 	}
 	
 	public void deleteDoc(Long id) throws IOException {
-//		documentServices.deleteDocumentService(id);
+		documentServices.deleteDocumentService(id);
 		NavigationUtils.redirectToUserList("showAllDocuments.xhtml");
 	}
 	

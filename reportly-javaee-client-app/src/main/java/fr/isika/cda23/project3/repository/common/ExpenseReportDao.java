@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.common.Document;
 import fr.isika.cda.entities.common.ExpenseReport;
-
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 
 @Stateless
@@ -52,7 +51,6 @@ public class ExpenseReportDao {
 	
 	public void updateExpenseReport(ExpenseReportViewModel ervm) {
 		ExpenseReport expenseReport = entityManager.find(ExpenseReport.class, ervm.getId());
-
 		if (expenseReport != null) {
 			expenseReport.setExpenseDate(ervm.getExpenseDate());
 			expenseReport.setCreationDate(ervm.getCreationDate());
@@ -60,8 +58,6 @@ public class ExpenseReportDao {
 			expenseReport.setAmount(ervm.getAmount());
 
 			entityManager.merge(expenseReport);
-
-			System.out.println("ExpenseReport: " + ervm.toString() + " updated");
 		}
 	}
 
