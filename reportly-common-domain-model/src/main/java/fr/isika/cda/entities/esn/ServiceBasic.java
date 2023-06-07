@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "service_basic")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class ServiceBasic implements Serializable {
+public class ServiceBasic implements Serializable {
 
 	/**
 	 * 
@@ -39,4 +39,45 @@ public abstract class ServiceBasic implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private ServiceDetails serviceDetails;
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public ServiceDetails getServiceDetails() {
+		return serviceDetails;
+	}
+
+	public void setServiceDetails(ServiceDetails serviceDetails) {
+		this.serviceDetails = serviceDetails;
+	}
+
+	public Long getId() {
+		return id;
+	}
+	
+	public String getServiceName() {
+		String simpleName = this.getClass().getSimpleName();
+		return simpleName;
+	}
 }
