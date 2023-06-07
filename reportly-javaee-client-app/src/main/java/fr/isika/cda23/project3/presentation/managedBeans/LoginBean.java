@@ -45,13 +45,11 @@ public class LoginBean implements Serializable {
 		// vérifier que le user existe en bdd
 		UserAccount account = userDao.findByEmail(loginViewModel);
 		if (account != null) {
-			System.out.println("user ok");
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
 			return "index.xhtml";
 		} else {
 			CompanyDetails esn = esnDao.findByEmail(loginViewModel);
 			if (esn != null) {
-				System.out.println("esn ok");
 				SessionUtils.setUserEmailIntoSession(esn.getEmail());
 				Long esnId = esnDao.getESNIdByEmail(esn.getEmail());
 				SessionUtils.seEsnIdIntoSession(esnId);
@@ -65,9 +63,7 @@ public class LoginBean implements Serializable {
 				}
 				return "ecranEsn.xhtml";
 			}
-			System.out.println("not login 1");
 		}
-		System.out.println("not login 2");
 		// Rester sur la même page pour afficher les erreurs
 		return "";
 	}
@@ -80,6 +76,20 @@ public class LoginBean implements Serializable {
 		NavigationUtils.redirectToUserList("index.xhtml");
 	}
 
+	public boolean isUserConnectedAsEsnAdmin() {
+		/*
+		 * S'il y un esnId renseigné dans la session 
+		 * => le user connecté est l'admin de l'esn en question (car y a pas de role adminb !!) 
+		 */
+		if( isUserLoggedIn() ) {
+			Long esnId = SessionUtils.getEsnIdFromSession();
+			return esnId != null;
+		} 
+		
+		// dans tous les cas 
+		return false;
+	}
+	
 	public boolean isUserLoggedIn() {
 		return SessionUtils.isUserLoggedIn();
 	}

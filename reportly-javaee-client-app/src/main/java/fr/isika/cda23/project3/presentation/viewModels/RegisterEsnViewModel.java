@@ -2,6 +2,8 @@ package fr.isika.cda23.project3.presentation.viewModels;
 
 import java.util.Date;
 
+import fr.isika.cda.entities.common.Document;
+
 public class RegisterEsnViewModel {
 
 	private String brand;
@@ -12,7 +14,16 @@ public class RegisterEsnViewModel {
 	private String postalCode;
 	private String country;
 	private Date creationDate;
-
+	
+	private Document document;
+	
+	public Document getDocument() {
+		return document;
+	}
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+	
 	public Date getCreationDate() {
 		return creationDate;
 	}

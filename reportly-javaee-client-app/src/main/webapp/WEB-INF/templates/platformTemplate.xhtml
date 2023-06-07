@@ -16,81 +16,57 @@
 
 <h:body>
 	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
-	<script src="https://kit.fontawesome.com/64a8132751.js"
-		crossorigin="anonymous"></script>
-		
-	
+	<script src="https://kit.fontawesome.com/64a8132751.js" crossorigin="anonymous"></script>
 	
 	<div id="container">
 
 		<div id="header">
-
 			<div>
-				<h:graphicImage library="images" name="logo.png"
-					alt="Wildfly dual brand logo" class="logo" />
+				<h:graphicImage library="images" name="logo.png" alt="Reportly platform logo ..." class="logo" />
 			</div>
 
 			<div class="me-4">
 				<h:form>
 					<div class="row lien">
+						
 						<!-- Affiché tout le temps (fragment de page) -->
-
-						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-							<!-- <p:link outcome="index.xhtml">Home</p:link> -->
-						</ui:fragment>
-						
-						<!-- Ecran Admin d'Esn -->
-						<ui:fragment rendered="#{loginBean.id !=null}">
-							<p:link outcome="ecranEsn.xhtml">Home</p:link>
-							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
-							<p:link outcome="team.xhtml">Former les équipes</p:link>
-						</ui:fragment>
-
-						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-							<div class="col-4">
-								 <p:link outcome="register.xhtml">
-								 	<i class="fa-solid fa-user-plus pe-2"></i>
-							 		Sign Up
-							 	</p:link>
-							</div>
-						</ui:fragment>
-
-						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
-							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
-						</ui:fragment>
-						
-						<!-- Ecran Admin d'Esn -->
-						<ui:fragment rendered="#{loginBean.id !=null}">
-							<p:link outcome="ecranEsn.xhtml">Home</p:link>
-							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
-							<p:link outcome="team.xhtml">Former les équipes</p:link>
-						</ui:fragment>
-
-						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
-							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
-						</ui:fragment>
-
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
-							<div class="col-4">
+<!-- 							<div class="col-4"> -->
+								 <p:link outcome="index.xhtml"><i class="fa-solid fa-home text-white pe-2"></i>Home</p:link>
+								 <p:link outcome="registerEsn.xhtml">
+								 	<i class="fa-solid fa-user-plus pe-2"></i>Sign Up
+							 	 </p:link>
+<!-- 							</div> -->
+<!-- 							<div class="col-4"> -->
 								<p:link outcome="login.xhtml">
 									<i class="fa-solid fa-arrow-right-to-bracket pe-2"></i> 
 									Sign in
 								</p:link>
-							</div>
+<!-- 							</div> -->
 						</ui:fragment>
-						
+
+						<!-- Ecran Admin d'Esn -->
+						<ui:fragment rendered="#{loginBean.isUserConnectedAsEsnAdmin()}">
+							<p:link outcome="ecranEsn.xhtml">Home</p:link>
+							<p:link outcome="register.xhtml">Ajouter un membre</p:link>
+							<p:link outcome="team.xhtml">Former les équipes</p:link>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
+							<p:commandLink action="#{loginBean.logout()}">Sign Out (#{loginBean.loginViewModel.email})</p:commandLink>
+						</ui:fragment>
+
 						<ui:fragment rendered="true">
-							<div class="col-4 d-flex flex-column align-items-center">
-								<i class="fa-solid fa-circle-info text-white"></i>
-								<p:link outcome="examplePageOfTemplate.xhtml">Help</p:link>
-							</div>
+<!-- 							<div class="col-4 d-flex flex-column align-items-center"> -->
+								<p:link outcome="aboutUs.xhtml"><i class="fa-solid fa-circle-info text-white pe-2"></i>Help</p:link>
+<!-- 							</div> -->
 						</ui:fragment>
 					</div>
 				</h:form>
 			</div>
 		</div>
 
-		<div id="content" style="border: double; padding: 10px; margin: 10px;">
+		<div id="content">
 			<ui:insert name="content">
                 [Template content will be inserted here]
          	</ui:insert>
@@ -98,10 +74,8 @@
 
 		<div id="footer">
 			<div>
-				<p>You have successfully deployed a Java EE 7 Enterprise
-					Application.</p>
-				<h:graphicImage library="images" name="wildfly_400x130.jpg"
-					alt="Wildfly logo" />
+				<p>Copyright -- 2023 -- Reportly Dev Team.</p>
+<!-- 				<h:graphicImage library="images" name="logo.png" alt="Reportly platform footer banner ..." height="50%" width="50%"/> -->
 			</div>
 		</div>
 	</div>

@@ -14,7 +14,8 @@
 		<div class="row justify-content-center">
 
 			<h:form id="registrationForm" class="col-4">
-				<p:panel header="Enregistrement de l' ESN">
+				
+				<p:panel header="Enregistrement de l'ESN">
 					<p:growl id="messages" showDetail="true" />
 
 					<h:panelGrid columns="2" cellpadding="5"
@@ -49,7 +50,7 @@
 							value="#{registerEsnBean.registerEsnVm.country}" />
 
 						<h:outputLabel id="fileUploadLbl" value="Kbis : " />
-						<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
+						<p:fileUpload listener="#{registerEsnBean.uploadFile}"
 							styleClass="w-100" mode="advanced" dragDropSupport="false"
 							update="messages" />
 
@@ -59,9 +60,8 @@
 						<div class="mt-4 d-flex justify-content-center">
 							<p:commandButton type="submit" value="Enregistrer"
 								styleClass="me-4" action="#{registerEsnBean.register()}" />
-							<p:commandButton value="Annuler"
-								styleClass="ui-button-secondary ms-4"
-								onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
+							<p:commandButton value="Annuler" action="index.xhtml"
+								styleClass="ui-button-secondary ms-4" />
 						</div>
 
 					</h:panelGroup>

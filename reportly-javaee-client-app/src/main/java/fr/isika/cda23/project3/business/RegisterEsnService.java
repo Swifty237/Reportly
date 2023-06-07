@@ -7,8 +7,6 @@ import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.AdressDetails;
 import fr.isika.cda.entities.common.CompanyDetails;
-import fr.isika.cda.entities.common.Document;
-import fr.isika.cda.entities.common.DocumentType;
 import fr.isika.cda.entities.esn.Esn;
 //import fr.isika.cda23.project3.presentation.managedBeans.AddDocumentManagedBean;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterEsnViewModel;
@@ -20,9 +18,7 @@ public class RegisterEsnService {
 	@Inject
 	private EsnDao esnDao;
 
-	private static Document document;
-
-	public void register(RegisterEsnViewModel viewModel) {
+	public Long register(RegisterEsnViewModel viewModel) {
 
 		AdressDetails adressDetails = new AdressDetails();
 		adressDetails.setAdress(viewModel.getAdress());
@@ -36,22 +32,12 @@ public class RegisterEsnService {
 		companyDetails.setPassword(viewModel.getPassword());
 		companyDetails.setCreationDate(new Date());
 		companyDetails.setAdressDetails(adressDetails);
-
-		companyDetails.setDocument(document);
+		companyDetails.setDocument(viewModel.getDocument());
 
 		Esn esn = new Esn();
-
 		esn.setCompanyDetails(companyDetails);
 
-		Long id = esnDao.register(esn);
-
-		System.out.println("Esn vient d'etre crée avec :" + id);
-
+		return esnDao.register(esn);
 	}
 
-	public static void getDoc(Document doc) {
-		doc.setTypeOfDoc(DocumentType.ESN_CERTIFICATION);
-		doc.setDocCreation(new Date());
-		document = doc;
-	}
 }
