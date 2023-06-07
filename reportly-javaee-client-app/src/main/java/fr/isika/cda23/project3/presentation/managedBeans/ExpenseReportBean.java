@@ -1,5 +1,5 @@
 package fr.isika.cda23.project3.presentation.managedBeans;
- 
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +15,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import fr.isika.cda.entities.common.DocumentType;
+import fr.isika.cda.entities.common.ExpenseReportState;
 import fr.isika.cda23.project3.presentation.viewModels.ExpenseReportViewModel;
 import fr.isika.cda23.project3.repository.common.ExpenseReportDao;
 import fr.isika.cda23.project3.utils.FileUploadUtils;
@@ -41,8 +42,10 @@ public class ExpenseReportBean implements Serializable {
         expenseReports = new ArrayList<>();
         expenseReportViewModel = new ExpenseReportViewModel();
     }
- 
+
     public void addExpenseReport() {
+    	expenseReportViewModel.setExpenseReportState(ExpenseReportState.PENDING);
+
         // Add the expense report to the list
         expenseReports.add(expenseReportViewModel);
         expenseReportDao.addExpenseReport(expenseReportViewModel);
@@ -95,4 +98,3 @@ public class ExpenseReportBean implements Serializable {
     	return DocumentType.values();
     }
 }
- 

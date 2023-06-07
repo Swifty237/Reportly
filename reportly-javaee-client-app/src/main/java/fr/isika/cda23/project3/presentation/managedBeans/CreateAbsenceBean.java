@@ -13,7 +13,6 @@ import fr.isika.cda.entities.activity.AbsenceType;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda23.project3.presentation.viewModels.CreateAbsenceViewModel;
 import fr.isika.cda23.project3.repository.user.UserDao;
-import fr.isika.cda23.project3.utils.NavigationUtils;
 import fr.isika.cda23.project3.utils.SessionUtils;
 import fr.isika.cda23.projet3.repository.Activity.CreateAbsenceRepositoryDao;
 
@@ -49,13 +48,13 @@ public class CreateAbsenceBean implements Serializable {
 		createAbsenceRepositoryDao.Create(createAbsenceVm);
 		createAbsenceVm = new CreateAbsenceViewModel();
 		listAbsences = createAbsenceRepositoryDao.findAbsenceByUserid(SessionUtils.getUserIdFromSession());
+
 	}
 
 	// Méthode Annuler les champs du view model (du formulaire)
 	public void clear() throws IOException {
 		System.out.println("hahahahahahahahahah");
 		createAbsenceVm = new CreateAbsenceViewModel();
-		NavigationUtils.redirectToUserList("creationAbsence.xhtml");
 	}
 
 	// Methode téléchagrer justificatif

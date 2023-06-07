@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
-	<ui:define name="content">
+	<ui:define name="content-2">
 		<h:form id="loginForm">
 			<p:growl id="messages" showDetail="true" />
 
@@ -18,8 +18,9 @@
 					<h:outputLabel for="password" value="Password:" />
 					<p:password id="passwordTxt" size="20" value="#{loginBean.loginViewModel.password}"/>
 				</h:panelGrid>
-				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" action="#{loginBean.login()}" />
 			</p:panel>
+				
+				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" action="#{loginBean.login()}" />
 		</h:form>
 	</ui:define>
 </ui:composition>

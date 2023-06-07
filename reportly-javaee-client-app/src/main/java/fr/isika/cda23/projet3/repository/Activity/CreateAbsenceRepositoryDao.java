@@ -24,6 +24,7 @@ public class CreateAbsenceRepositoryDao {
 	public Long Create(CreateAbsenceViewModel viewModel) {
 
 		// 1- creer mon entité
+
 				Absence absence = new Absence();
 				// 2- mapper le contenu du vm dans l'entité creee
 				absence.setUserId(viewModel.getUserId());
@@ -34,6 +35,7 @@ public class CreateAbsenceRepositoryDao {
 				// 3- persister l'entité
 				entityManager.persist(absence);
 				return absence.getId();
+
 	}
 
 	public void removeCustomer(Absence absence) {

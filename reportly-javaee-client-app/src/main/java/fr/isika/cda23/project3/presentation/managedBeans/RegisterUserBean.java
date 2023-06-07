@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda.entities.users.Employee;
-import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.business.RegisterUserService;
 import fr.isika.cda23.project3.presentation.viewModels.RegisterUserViewModel;
@@ -20,6 +19,9 @@ import fr.isika.cda23.project3.utils.SessionUtils;
 @ManagedBean
 @SessionScoped
 public class RegisterUserBean implements Serializable {
+
+	private static final String REGISTER_XHTML = "register.xhtml";
+	private static final String ECRAN_ESN_XHTML = "ecranEsn.xhtml";
 
 	/**
 	 * 
@@ -34,8 +36,6 @@ public class RegisterUserBean implements Serializable {
 
 	private RegisterUserViewModel registerUserVm = new RegisterUserViewModel();
 
-	private Employee user;
-
 // enregistre l'user
 	public void register() throws IOException {
 		Esn esn = esnDao.getEsnById(SessionUtils.getEsnIdFromSession());
@@ -43,23 +43,19 @@ public class RegisterUserBean implements Serializable {
 
 //		on vérifie si registerUserVm.getUserId()==0 si oui on crée un nouveau user, sinon on le modifie
 		if (registerUserVm.getUserId() == 0) {
-
-			ruService.register(registerUserVm);
+			Long id = ruService.register(registerUserVm);
+			System.out.println("user regsitered with id = " + id);
 		} else {
-
 			ruService.modifyUser(registerUserVm);
 		}
-
+		// Dans tous les cas : (création/update) => on reset
 		registerUserVm = new RegisterUserViewModel();
-
-		NavigationUtils.redirectToUserList("ecranEsn.xhtml");
-
+		NavigationUtils.redirectToUserList(ECRAN_ESN_XHTML);
 	}
 
 //	avoir les infos de l'user dans un formulaire register
 	public void viewUser(long userId) throws IOException {
-		UserAccount userAccount = ruService.findOneUser(userId);
-		user = (Employee) userAccount;
+		Employee user = (Employee) ruService.findOneUser(userId);
 		registerUserVm.setUserId(userId);
 		registerUserVm.setName(user.getPers().getName());
 		registerUserVm.setFirstname(user.getPers().getFirstname());
@@ -74,7 +70,7 @@ public class RegisterUserBean implements Serializable {
 		registerUserVm.setJobTitle(user.getPers().getJobTitle());
 		registerUserVm.setTjm(user.getTjm());
 		registerUserVm.setUserRole(user.getUserRole());
-		NavigationUtils.redirectToUserList("register.xhtml");
+		NavigationUtils.redirectToUserList(REGISTER_XHTML);
 
 	}
 
@@ -85,23 +81,20 @@ public class RegisterUserBean implements Serializable {
 //	clear tous les champs du formulaire de register
 	public void clear() {
 		try {
-			if (registerUserVm == null) {
-
-				System.out.println("lolo++++++++++++++++++++++++++++++++++++++++++");
-				NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+			if (registerUserVm.getUserId() == 0) {
+				NavigationUtils.redirectToUserList(REGISTER_XHTML);
 			} else {
 				registerUserVm = new RegisterUserViewModel();
-				NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+				NavigationUtils.redirectToUserList(ECRAN_ESN_XHTML);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	public void deleteUser(long id) throws IOException {
 		ruService.deleteUser(id);
-		NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+		NavigationUtils.redirectToUserList(ECRAN_ESN_XHTML);
 	}
 
 	public RegisterUserViewModel getRegisterUserVm() {

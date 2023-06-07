@@ -5,8 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
-
-
+	
 	<ui:define name="content">
 		<h:outputStylesheet library="css" name="expenseStyle.css" />
 		<div id="expense-container">
@@ -25,13 +24,10 @@
 									itemValue="#{type}"
 									value="#{expenseReportBean.documentTypes()}" />
 							</p:selectOneMenu>
-
-
 							<h:outputLabel for="expenseDate" value="Date:" />
 							<p:calendar id="expenseDate"
 								value="#{expenseReportBean.expenseReportViewModel.expenseDate}"
 								showOn="button" />
-
 							<h:outputLabel for="expenseAmount" value="Amount:" />
 							<p:inputText id="expenseAmount"
 								value="#{expenseReportBean.expenseReportViewModel.amount}"
@@ -39,17 +35,14 @@
 								<f:convertNumber maxFractionDigits="2" />
 								<f:validateDoubleRange minimum="0.01" />
 							</p:inputText>
-
 							<h:outputLabel for="expenseDescription" value="Description:" />
 							<p:inputTextarea id="expenseDescription"
 								value="#{expenseReportBean.expenseReportViewModel.reason}"
 								rows="6" cols="30" />
-
 							<h:outputLabel for="expenseFile" value="File:" />
 							<p:fileUpload id="expenseFile"
 								listener="#{expenseReportBean.uploadFile}" mode="advanced"
 								dragDropSupport="false" update="messages" />
-
 							<p:commandButton value="Submit"
 								action="#{expenseReportBean.addExpenseReport}"
 								update="messages expenseTable expenseForm" process="@form" />
@@ -57,7 +50,6 @@
 					</p:panel>
 				</h:form>
 			</div>
-
 			<div id="table-expense-container">
 				<h:panelGroup id="expenseTablePanel">
 					<p:dataTable id="expenseTable" var="expense"
@@ -75,6 +67,9 @@
 						</p:column>
 						<p:column headerText="Description">
 							<h:outputText value="#{expense.reason}" />
+						</p:column>
+						<p:column headerText="Status">
+						<p:badge value="#{expense.expenseReportState}" severity="warning" rendered="#{expense.expenseReportState eq 'PENDING'}" />
 						</p:column>
 						<p:column styleClass="delete-column">
 							<h:form>

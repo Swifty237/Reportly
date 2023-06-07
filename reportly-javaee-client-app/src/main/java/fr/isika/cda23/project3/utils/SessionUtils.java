@@ -5,8 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda.entities.users.UserRole;
 
-	
-public final class SessionUtils {	
+public final class SessionUtils {
 	public static String getUserEmailFromSession() {
 		HttpSession session = getSession();
 		// Lire une propriété depuis la session
@@ -18,29 +17,31 @@ public final class SessionUtils {
 		// Ajoute une entrée (clé, valeur) dans la map de la session
 		session.setAttribute("email", email);
 	}
+
 	public static String getEsnNameFromSession() {
 		HttpSession session = getSession();
-		// Lire une propriété depuis la session 
+		// Lire une propriété depuis la session
 		return (String) session.getAttribute("nameEsn");
 	}
-	
+
 	public static void setEsnNameIntoSession(final String nameEsn) {
 		HttpSession session = getSession();
 		// Ajoute une entrée (clé, valeur) dans la map de la session
 		session.setAttribute("nameEsn", nameEsn);
 	}
+
 	public static Long getEsnIdFromSession() {
 		HttpSession session = getSession();
-		// Lire une propriété depuis la session 
+		// Lire une propriété depuis la session
 		return (Long) session.getAttribute("esnId");
 	}
-	
+
 	public static void seEsnIdIntoSession(final Long esnId) {
 		HttpSession session = getSession();
 		// Ajoute une entrée (clé, valeur) dans la map de la session
 		session.setAttribute("esnId", esnId);
 	}
-	
+
 //	public static List<Role> getUserRolesFromSession() {
 //		HttpSession session = getSession();
 //		// Lire une propriété depuis la session 
@@ -75,14 +76,26 @@ public final class SessionUtils {
 		HttpSession session = getSession();
 		// Ajoute une entrée (clé, valeur) dans la map de la session
 		session.setAttribute("userRole", userRole);
-		
+
 	}
-	
+
 	public static UserRole getUserRoleFromSession() {
 		HttpSession session = getSession();
-		// Lire une propriété depuis la session 
+		// Lire une propriété depuis la session
 		return (UserRole) session.getAttribute("userRole");
 	}
-	
+
+	public static void setUserIdIntoSession(Long userId) {
+		HttpSession session = getSession();
+		// Ajoute une entrée (clé, valeur) dans la map de la session
+		session.setAttribute("userId", userId);
+
+	}
+
+	public static Long getUserIdFromSession() {
+		HttpSession session = getSession();
+		// Lire une propriété depuis la session
+		return (Long) session.getAttribute("userId");
+	}
 
 }

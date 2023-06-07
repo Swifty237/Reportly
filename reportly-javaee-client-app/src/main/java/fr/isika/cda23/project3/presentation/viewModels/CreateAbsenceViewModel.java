@@ -12,6 +12,7 @@ import fr.isika.cda.entities.activity.AbsenceType;
 
 public class CreateAbsenceViewModel {
 
+	private Long userId;
 	private AbsenceType typeAbsence ;
 	private Date creationDate ; 
 	private Date startAt ;
@@ -51,6 +52,12 @@ public Date getStartAt() {
 public String toString() {
 	return "CreateAbsenceViewModel [typeAbsence=" + typeAbsence + ", creationDate=" + creationDate + ", startAt="
 			+ startAt + ", endAt=" + endAt + ", description=" + description + "]";
+}
+public Long getUserId() {
+	return userId;
+}
+public void setUserId(Long userId) {
+	this.userId = userId;
 }
 
 
