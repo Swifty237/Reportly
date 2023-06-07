@@ -18,7 +18,7 @@ public class RegisterUserService {
 	@Inject
 	private UserDao userDao;
 
-	public void register(RegisterUserViewModel viewModel) {
+	public Long register(RegisterUserViewModel viewModel) {
 		Employee emp = new Employee();
 		emp.setEmail(viewModel.getEmail());
 		emp.setPassword(viewModel.getPassword());
@@ -44,8 +44,7 @@ public class RegisterUserService {
 
 		viewModel.setEmp(emp);
 
-		Long id = userDao.register(viewModel);
-		System.out.println("register =========================================================================================");
+		return userDao.register(viewModel);
 	}
 
 	public List<UserAccount> findAllUsers(Long id) {

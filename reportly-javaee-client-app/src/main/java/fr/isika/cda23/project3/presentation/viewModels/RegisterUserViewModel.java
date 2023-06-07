@@ -1,5 +1,6 @@
 package fr.isika.cda23.project3.presentation.viewModels;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,11 @@ import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 
-public class RegisterUserViewModel {
+public class RegisterUserViewModel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8086027706248254251L;
 	private long userId;
 	private String name;
 	private String firstname;
@@ -26,15 +31,7 @@ public class RegisterUserViewModel {
 	private double tjm;
 	private Employee emp;
 
-	List<UserAccount> userAccounts;
-
-//	
-//	public RegisterUserViewModel() {
-//		
-//		this.emp=new Employee(this.email, this.password, this.tjm, this.name,this.firstname,this.adress,this.city,this.country,this.postalCode,this.birthday,this.phoneNumber, this.jobTitle);
-//		
-//	}
-//
+	private List<UserAccount> userAccounts;
 
 	public long getUserId() {
 		return userId;

@@ -68,52 +68,33 @@
 						<p:inputText id="telephone"
 							value="#{registerUserBean.registerUserVm.phoneNumber}"
 							styleClass="w-100" />
+						
+					<h:outputLabel for="poste" value="Poste :" styleClass="label" />
+					<p:inputText id="poste" value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" />
 
-						<!-- <h:outputLabel for="poste" value="Poste :" styleClass="label" />
-					<p:inputText id="poste"
-						value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" /> -->
-
-						<!-- <h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
-					<p:selectOneMenu
-						value="#{registerUserBean.registerUserVm.userRole}" styleClass="input">
+					<h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
+					<p:selectOneMenu value="#{registerUserBean.registerUserVm.userRole}" styleClass="input">
 						<f:selectItem itemLabel="sélection" itemValue="null" noSelectionOption="true" />
 						<f:selectItems var="type" itemLabel="#{type.label}"
 							itemValue="#{type}" value="#{registerUserBean.typesOfRoles()}" />
-					</p:selectOneMenu> -->
+					</p:selectOneMenu> 
 
-						<!-- <h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
-					<p:inputText id="tjm"
-						value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" /> -->
-
+					<h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
+ 					<p:inputText id="tjm" value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" /> 
+						
 						<h:panelGroup>
 							<div class="mt-4 d-flex justify-content-center">
-
 								<p:commandButton type="submit" value="Enregistrer"
 									action="#{registerUserBean.register()}"
 									styleClass="ui-button-raised ui-button-primary me-4"
 									style="margin-right:5px;" />
 
-								<p:commandButton value="Annuler"
-									styleClass="ui-button-raised ui-button-secondary mx-4"
-									action="#{registerUserBean.clear()}" immediate="true"
-									style="margin-right: 10px;" />
-
-								<!-- <p:commandButton value="Annuler"
-									styleClass="ui-button-secondary ms-4"
-									onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'"
-									action="#{registerUserBean.clear()}" />
- -->
 							</div>
-
 						</h:panelGroup>
-
 					</h:panelGrid>
 				</p:panel>
 			</h:form>
-
 		</div>
-
-
 
 	</ui:define>
 </ui:composition>
