@@ -18,8 +18,9 @@
 					<h:outputLabel for="password" value="Password:" />
 					<p:password id="passwordTxt" size="20" value="#{loginBean.loginViewModel.password}"/>
 				</h:panelGrid>
-				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" action="#{loginBean.login()}" />
 			</p:panel>
+				
+				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" action="#{loginBean.login()}" />
 		</h:form>
 	</ui:define>
 </ui:composition>

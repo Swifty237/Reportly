@@ -53,8 +53,7 @@
 											Sign in
 										</p:link></li>
 
-
-						</ui:fragment>
+							</ui:fragment>
 
 
 
@@ -190,9 +189,8 @@
 					</div>
 
 					<div class="row justify-content-around mb-4">
+					
 						<div class="col-11">
-
-
 							<div id="content">
 								<ui:insert name="content">
                 				[Template content will be inserted here]
@@ -200,6 +198,7 @@
 							</div>
 
 						</div>
+						
 					</div>
 				</div>
 
@@ -208,7 +207,7 @@
 
 
 		<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-			<div>
+			<div class="">
 				<ui:insert name="content-2">
                 		[Template content will be inserted here]
          		</ui:insert>
