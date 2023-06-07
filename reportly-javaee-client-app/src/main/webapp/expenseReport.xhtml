@@ -5,82 +5,87 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
-	
+
 
 	<ui:define name="content">
-	<h:outputStylesheet library="css" name="expenseStyle.css" />
+		<h:outputStylesheet library="css" name="expenseStyle.css" />
 		<div id="expense-container">
-		<div id="form-expense-container">
-			<h:form id="expenseForm" enctype="multipart/form-data">
-				<p:panel header="Expense Report">
-					<p:growl id="messages" showDetail="true" sticky="false" life="3500" />
-					<h:panelGrid columns="2" cellpadding="5">
-						<h:outputLabel for="docType" value="Document type:" />
-						<h:selectOneMenu value="#{expenseReportBean.expenseReportViewModel.documentType}">
-							<f:selectItem itemLabel="Selection" itemValue="null" noSelectionOption="true" />
-							<f:selectItems var="type" itemLabel="#{type.label}" itemValue="#{type}" 
-								value="#{expenseReportBean.documentTypes()}"/>
-						</h:selectOneMenu>
- 
-						<h:outputLabel for="expenseDate" value="Date:" />
-						<p:calendar id="expenseDate"
-							value="#{expenseReportBean.expenseReportViewModel.expenseDate}"
-							showOn="button" />
- 
-						<h:outputLabel for="expenseAmount" value="Amount:" />
-						<p:inputText id="expenseAmount"
-							value="#{expenseReportBean.expenseReportViewModel.amount}"
-							validatorMessage="Invalid amount">
-							<f:convertNumber maxFractionDigits="2" />
-							<f:validateDoubleRange minimum="0.01" />
-						</p:inputText>
- 
-						<h:outputLabel for="expenseDescription" value="Description:" />
-						<p:inputTextarea id="expenseDescription"
-							value="#{expenseReportBean.expenseReportViewModel.reason}"
-							rows="6" cols="30" />
- 
-						<h:outputLabel for="expenseFile" value="File:" />
-						<p:fileUpload id="expenseFile"
-							listener="#{expenseReportBean.uploadFile}"
-							mode="advanced" dragDropSupport="false" update="messages"/>
- 
-						<p:commandButton value="Submit"
-							action="#{expenseReportBean.addExpenseReport}"
-							update="messages expenseTable expenseForm" process="@form" />
-					</h:panelGrid>
-				</p:panel>
-			</h:form>
+			<div id="form-expense-container">
+				<h:form id="expenseForm" enctype="multipart/form-data">
+					<p:panel header="Expense Report">
+						<p:growl id="messages" showDetail="true" sticky="false"
+							life="3500" />
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputLabel for="docType" value="Document type:" />
+							<p:selectOneMenu
+								value="#{expenseReportBean.expenseReportViewModel.documentType}">
+								<f:selectItem itemLabel="Selection" itemValue="null"
+									noSelectionOption="true" />
+								<f:selectItems var="type" itemLabel="#{type.label}"
+									itemValue="#{type}"
+									value="#{expenseReportBean.documentTypes()}" />
+							</p:selectOneMenu>
+
+
+							<h:outputLabel for="expenseDate" value="Date:" />
+							<p:calendar id="expenseDate"
+								value="#{expenseReportBean.expenseReportViewModel.expenseDate}"
+								showOn="button" />
+
+							<h:outputLabel for="expenseAmount" value="Amount:" />
+							<p:inputText id="expenseAmount"
+								value="#{expenseReportBean.expenseReportViewModel.amount}"
+								validatorMessage="Invalid amount">
+								<f:convertNumber maxFractionDigits="2" />
+								<f:validateDoubleRange minimum="0.01" />
+							</p:inputText>
+
+							<h:outputLabel for="expenseDescription" value="Description:" />
+							<p:inputTextarea id="expenseDescription"
+								value="#{expenseReportBean.expenseReportViewModel.reason}"
+								rows="6" cols="30" />
+
+							<h:outputLabel for="expenseFile" value="File:" />
+							<p:fileUpload id="expenseFile"
+								listener="#{expenseReportBean.uploadFile}" mode="advanced"
+								dragDropSupport="false" update="messages" />
+
+							<p:commandButton value="Submit"
+								action="#{expenseReportBean.addExpenseReport}"
+								update="messages expenseTable expenseForm" process="@form" />
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</div>
+
+			<div id="table-expense-container">
+				<h:panelGroup id="expenseTablePanel">
+					<p:dataTable id="expenseTable" var="expense"
+						value="#{expenseReportBean.getExpenseReports()}"
+						emptyMessage="No expenses found">
+						<p:column headerText="Date">
+							<h:outputText value="#{expense.expenseDate}">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:outputText>
+						</p:column>
+						<p:column headerText="Amount">
+							<h:outputText value="#{expense.amount}">
+								<f:convertNumber currencySymbol="€" type="currency" />
+							</h:outputText>
+						</p:column>
+						<p:column headerText="Description">
+							<h:outputText value="#{expense.reason}" />
+						</p:column>
+						<p:column styleClass="delete-column">
+							<h:form>
+								<p:commandButton icon="pi pi-trash" styleClass="delete-button"
+									action="#{expenseReportBean.deleteExpenseReport(expense)}"
+									update="expenseTablePanel" />
+							</h:form>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</div>
 		</div>
- 
-		<div id="table-expense-container">
-			<h:panelGroup id="expenseTablePanel">
-				<p:dataTable id="expenseTable" var="expense"
-					value="#{expenseReportBean.getExpenseReports()}"
-					emptyMessage="No expenses found">
-					<p:column headerText="Date">
-						<h:outputText value="#{expense.expenseDate}">
-							<f:convertDateTime pattern="MM/dd/yyyy" />
-						</h:outputText>
-					</p:column>
-					<p:column headerText="Amount">
-						<h:outputText value="#{expense.amount}">
-							<f:convertNumber currencySymbol="€" type="currency" />
-						</h:outputText>
-					</p:column>
-					<p:column headerText="Description">
-						<h:outputText value="#{expense.reason}" />
-					</p:column>
-					<p:column styleClass="delete-column">
-						<h:form>
-							<p:commandButton icon="pi pi-trash" styleClass="delete-button"
-								action="#{expenseReportBean.deleteExpenseReport(expense)}"
-								update="expenseTablePanel" />
-						</h:form>
-					</p:column>
-				</p:dataTable>
-			</h:panelGroup>
-		</div>
-	</div>
 	</ui:define>
 </ui:composition>

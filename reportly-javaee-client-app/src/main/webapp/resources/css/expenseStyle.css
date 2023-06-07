@@ -11,33 +11,6 @@
     width: 49%;
 }
 
-/* Style for the messages component */
-.ui-messages {
-  margin-bottom: 10px;
-}
-
-.ui-messages-info {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #3c763d;
-}
-
-.ui-messages-error {
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #a94442;
-}
-
-/* Style for the close button */
-.ui-messages .ui-messages-close {
-  color: #000;
-  font-weight: bold;
-  opacity: 0.5;
-}
-
-.ui-messages .ui-messages-close:hover {
-  opacity: 1;
-}
 
 
 
