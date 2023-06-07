@@ -24,7 +24,7 @@ public class DashboardStatsDao {
 		for(int i=1;i<20;i++) {
 			Cra c = new Cra();
 			c.setCreationDate(new Date());
-			c.setState( Math.random() > 0.5 ? CraState.VALIDATED: CraState.DENIED );
+			c.setState( Math.random() > 0.5 ? CraState.DENIED: CraState.VALIDATED );
 			entityManager.persist(c);
 		}
 	}
