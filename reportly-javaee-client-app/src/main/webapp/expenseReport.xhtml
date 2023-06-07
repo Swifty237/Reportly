@@ -5,8 +5,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
+	
 
 	<ui:define name="content">
+	<h:outputStylesheet library="css" name="expenseStyle.css" />
 		<div id="expense-container">
 		<div id="form-expense-container">
 			<h:form id="expenseForm" enctype="multipart/form-data">
