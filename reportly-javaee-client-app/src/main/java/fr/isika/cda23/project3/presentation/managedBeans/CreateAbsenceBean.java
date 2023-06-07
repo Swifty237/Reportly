@@ -43,7 +43,8 @@ public class CreateAbsenceBean implements Serializable {
 
 	// première méthode à appeler depuis la vue
 	public void save() {
-		System.out.println(createAbsenceVm);
+		createAbsenceVm.setUserId(SessionUtils.getUserIdFromSession());
+		createAbsenceRepositoryDao.Create(createAbsenceVm);
 	}
 
 	// Méthode Annuler les champs du view model (du formulaire)

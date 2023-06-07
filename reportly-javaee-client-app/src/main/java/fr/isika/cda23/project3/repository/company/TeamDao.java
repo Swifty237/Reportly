@@ -2,6 +2,8 @@ package fr.isika.cda23.project3.repository.company;
 
 import java.util.Collections;
 import java.util.List;
+
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -10,6 +12,7 @@ import fr.isika.cda.entities.users.Employee;
 import fr.isika.cda.entities.users.ProjectTeam;
 import fr.isika.cda.entities.users.UserRole;
 
+@Stateless
 public class TeamDao {
 	@PersistenceContext
 	private EntityManager entityManager;

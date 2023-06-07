@@ -1,5 +1,6 @@
 package fr.isika.cda23.project3.repository.company;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -8,6 +9,7 @@ import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.esn.Esn;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 
+@Stateless
 public class EsnDao {
 
 	@PersistenceContext

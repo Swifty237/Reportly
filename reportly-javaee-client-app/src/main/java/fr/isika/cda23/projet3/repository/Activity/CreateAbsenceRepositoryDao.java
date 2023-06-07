@@ -20,13 +20,14 @@ public class CreateAbsenceRepositoryDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public String Create(CreateAbsenceViewModel viewModel) {
+	public Long Create(CreateAbsenceViewModel viewModel) {
 
 		// 1- creer mon entité
 		Absence absence = new Absence();
 
 		// 2- mapper le contenu du vm dans l'entité creee
-
+		absence.setUserId(viewModel.getUserId());
+		absence.setTypeOfAbsence(viewModel.getTypeAbsence());
 		absence.setStartAt(viewModel.getStartAt());
 		absence.setEndAt(viewModel.getEndAt());
 		absence.setDescription(viewModel.getDescription());
@@ -34,7 +35,7 @@ public class CreateAbsenceRepositoryDao {
 		// 3- persister l'entité
 
 		entityManager.persist(absence);
-		return "ok";
+		return absence.getId();
 	}
 
 	public void removeCustomer(Absence absence) {
