@@ -76,8 +76,8 @@ public class DashboardManagerChartsBean implements Serializable {
 
         data.addChartDataSet(dataSet);
         List<String> labels = new ArrayList<>();
-        labels.add(CraState.VALIDATED.name());
         labels.add(CraState.DENIED.name());
+        labels.add(CraState.VALIDATED.name());
         data.setLabels(labels);
         
         pieModel.setData(data);

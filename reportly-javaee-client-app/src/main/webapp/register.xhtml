@@ -7,77 +7,113 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
-		<h:form id="registrationForm">
-			<p:panel header="Formulaire d'inscription utilisateur" styleClass="registration-panel">
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="nom" value="Nom :" styleClass="label" />
-					<p:inputText id="nom"
-						value="#{registerUserBean.registerUserVm.name}" styleClass="input" />
+		<div class="row justify-content-center">
 
-					<h:outputLabel for="prenom" value="Prénom :" styleClass="label" />
-					<p:inputText id="prenom"
-						value="#{registerUserBean.registerUserVm.firstname}" styleClass="input" />
+			<h:form id="registrationForm" class="col-4">
+				<p:panel header="Formulaire d'inscription utilisateur">
 
-					<h:outputLabel for="email" value="Email :" styleClass="label" />
-					<p:inputText id="email"
-						value="#{registerUserBean.registerUserVm.email}" styleClass="input" />
+					<h:panelGrid columns="2" cellpadding="5"
+						class="d-flex justify-content-center">
+						<h:outputLabel for="nom" value="Nom :" />
+						<p:inputText id="nom"
+							value="#{registerUserBean.registerUserVm.name}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="password" value="Mot de passe :" styleClass="label" />
-					<p:password id="password"
-						value="#{registerUserBean.registerUserVm.password}"
-						feedback="true" redisplay="true" toggleMask="true" styleClass="input" />
+						<h:outputLabel for="prenom" value="Prénom :" styleClass="label" />
+						<p:inputText id="prenom"
+							value="#{registerUserBean.registerUserVm.firstname}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="dateNaissance" value="Date de naissance :" styleClass="label" />
-					<p:calendar id="dateNaissance" locale="fr"
-						value="#{registerUserBean.registerUserVm.birthday}" styleClass="input" />
+						<h:outputLabel for="email" value="Email :" styleClass="label" />
+						<p:inputText id="email"
+							value="#{registerUserBean.registerUserVm.email}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="rue" value="Rue :" styleClass="label" />
-					<p:inputText id="rue"
-						value="#{registerUserBean.registerUserVm.adress}" styleClass="input" />
+						<h:outputLabel for="password" value="Mot de passe :"
+							styleClass="label" />
+						<p:password id="password"
+							value="#{registerUserBean.registerUserVm.password}"
+							feedback="true" redisplay="true" toggleMask="true"
+							styleClass="w-100" />
 
-					<h:outputLabel for="ville" value="Ville :" styleClass="label" />
-					<p:inputText id="ville"
-						value="#{registerUserBean.registerUserVm.city}" styleClass="input" />
+						<h:outputLabel for="dateNaissance" value="Date de naissance :"
+							styleClass="label" />
+						<p:calendar id="dateNaissance" locale="fr"
+							value="#{registerUserBean.registerUserVm.birthday}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="codePostal" value="Code Postal :" styleClass="label" />
-					<p:inputText id="codePostal"
-						value="#{registerUserBean.registerUserVm.postalCode}" styleClass="input" />
+						<h:outputLabel for="rue" value="Rue :" styleClass="label" />
+						<p:inputText id="rue"
+							value="#{registerUserBean.registerUserVm.adress}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="pays" value="Pays :" styleClass="label" />
-					<p:inputText id="pays"
-						value="#{registerUserBean.registerUserVm.country}" styleClass="input" />
+						<h:outputLabel for="ville" value="Ville :" styleClass="label" />
+						<p:inputText id="ville"
+							value="#{registerUserBean.registerUserVm.city}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="telephone" value="Téléphone :" styleClass="label" />
-					<p:inputText id="telephone"
-						value="#{registerUserBean.registerUserVm.phoneNumber}" styleClass="input" />
+						<h:outputLabel for="codePostal" value="Code Postal :"
+							styleClass="label" />
+						<p:inputText id="codePostal"
+							value="#{registerUserBean.registerUserVm.postalCode}"
+							styleClass="w-100" />
 
-					<h:outputLabel for="poste" value="Poste :" styleClass="label" />
+						<h:outputLabel for="pays" value="Pays :" styleClass="label" />
+						<p:inputText id="pays"
+							value="#{registerUserBean.registerUserVm.country}"
+							styleClass="w-100" />
+
+						<h:outputLabel for="telephone" value="Téléphone :"
+							styleClass="label" />
+						<p:inputText id="telephone"
+							value="#{registerUserBean.registerUserVm.phoneNumber}"
+							styleClass="w-100" />
+
+						<!-- <h:outputLabel for="poste" value="Poste :" styleClass="label" />
 					<p:inputText id="poste"
-						value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" />
+						value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" /> -->
 
-					<h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
+						<!-- <h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
 					<p:selectOneMenu
 						value="#{registerUserBean.registerUserVm.userRole}" styleClass="input">
 						<f:selectItem itemLabel="sélection" itemValue="null" noSelectionOption="true" />
 						<f:selectItems var="type" itemLabel="#{type.label}"
 							itemValue="#{type}" value="#{registerUserBean.typesOfRoles()}" />
-					</p:selectOneMenu>
+					</p:selectOneMenu> -->
 
-					<h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
+						<!-- <h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
 					<p:inputText id="tjm"
-						value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" />
+						value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" /> -->
 
-				<h:panelGroup>
-					<p:commandButton type="submit" value="Enregistrer"
-						action="#{registerUserBean.register()}"
-						styleClass="ui-button-raised ui-button-primary" style="margin-right:5px;"/>
-					<p:commandButton value="Annuler" styleClass="ui-button-raised ui-button-secondary"
-						action="#{registerUserBean.clear()}" immediate="true"/>
-						style="margin-right: 10px;" />
-					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
-						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" action="#{registerUserBean.clear()}"/>
-				</h:panelGroup>
-			</p:panel>
-		</h:form>
+						<h:panelGroup>
+							<div class="mt-4 d-flex justify-content-center">
+
+								<p:commandButton type="submit" value="Enregistrer"
+									action="#{registerUserBean.register()}"
+									styleClass="ui-button-raised ui-button-primary me-4"
+									style="margin-right:5px;" />
+
+								<p:commandButton value="Annuler"
+									styleClass="ui-button-raised ui-button-secondary mx-4"
+									action="#{registerUserBean.clear()}" immediate="true"
+									style="margin-right: 10px;" />
+
+								<!-- <p:commandButton value="Annuler"
+									styleClass="ui-button-secondary ms-4"
+									onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'"
+									action="#{registerUserBean.clear()}" />
+ -->
+							</div>
+
+						</h:panelGroup>
+
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+
+		</div>
+
+
+
 	</ui:define>
 </ui:composition>

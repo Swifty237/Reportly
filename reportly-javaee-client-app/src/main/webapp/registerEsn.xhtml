@@ -10,53 +10,65 @@
 		<h:outputStylesheet library="css" name="registerEsnStyle.css" />
 	</ui:define>
 	<ui:define name="content">
-		<h:form id="registrationForm" class="registration-form">
-			<p:panel header="Formulaire d'inscription Esn"
-				class="registration-panel">
-				<p:growl id="messages" showDetail="true" />
 
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="nom" value="Nom d'Entreprise :" />
-					<p:inputText id="nom"
-						value="#{registerEsnBean.registerEsnVm.brand}" />
+		<div class="row justify-content-center">
 
-					<h:outputLabel for="email" value="Email :" />
-					<p:inputText id="email"
-						value="#{registerEsnBean.registerEsnVm.email}" />
+			<h:form id="registrationForm" class="col-4">
+				<p:panel header="Enregistrement de l' ESN">
+					<p:growl id="messages" showDetail="true" />
 
-					<h:outputLabel for="password" value="Mot de passe :" />
-					<p:password id="password"
-						value="#{registerEsnBean.registerEsnVm.password}" feedback="true"
-						redisplay="true" toggleMask="true" />
+					<h:panelGrid columns="2" cellpadding="5"
+						styleClass="d-flex justify-content-center">
+						<h:outputLabel for="nom" value="Nom d'Entreprise :" />
+						<p:inputText id="nom"
+							value="#{registerEsnBean.registerEsnVm.brand}" styleClass="w-100" />
 
-					<h:outputLabel for="rue" value="Rue :" />
-					<p:inputText id="rue"
-						value="#{registerEsnBean.registerEsnVm.adress}" />
+						<h:outputLabel for="email" value="Email :" />
+						<p:inputText id="email"
+							value="#{registerEsnBean.registerEsnVm.email}" styleClass="w-100" />
 
-					<h:outputLabel for="ville" value="Ville :" />
-					<p:inputText id="ville"
-						value="#{registerEsnBean.registerEsnVm.city}" />
+						<h:outputLabel for="password" value="Mot de passe :" />
+						<p:password id="password" styleClass="w-100"
+							value="#{registerEsnBean.registerEsnVm.password}" feedback="true"
+							redisplay="true" toggleMask="true" />
 
-					<h:outputLabel for="codePostal" value="Code Postal :" />
-					<p:inputText id="codePostal"
-						value="#{registerEsnBean.registerEsnVm.postalCode}" />
+						<h:outputLabel for="rue" value="Rue :" />
+						<p:inputText id="rue" styleClass="w-100"
+							value="#{registerEsnBean.registerEsnVm.adress}" />
 
-					<h:outputLabel for="pays" value="Pays :" />
-					<p:inputText id="pays"
-						value="#{registerEsnBean.registerEsnVm.country}" />
+						<h:outputLabel for="ville" value="Ville :" />
+						<p:inputText id="ville" styleClass="w-100"
+							value="#{registerEsnBean.registerEsnVm.city}" />
 
-					<h:outputLabel id="fileUploadLbl" value="Kbis : " />
-					<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
-						mode="advanced" dragDropSupport="false" update="messages" />
+						<h:outputLabel for="codePostal" value="Code Postal :" />
+						<p:inputText id="codePostal" styleClass="w-100"
+							value="#{registerEsnBean.registerEsnVm.postalCode}" />
 
-				</h:panelGrid>
-				<h:panelGroup>
-					<p:commandButton type="submit" value="Enregistrer"
-						style="margin-right: 10px;" action="#{registerEsnBean.register()}"/>
-					<p:commandButton value="Annuler" styleClass="ui-button-secondary"
-						onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
-				</h:panelGroup>
-			</p:panel>
-		</h:form>
+						<h:outputLabel for="pays" value="Pays :" />
+						<p:inputText id="pays" styleClass="w-100"
+							value="#{registerEsnBean.registerEsnVm.country}" />
+
+						<h:outputLabel id="fileUploadLbl" value="Kbis : " />
+						<p:fileUpload listener="#{addDocumentManagedBean.uploadFile}"
+							styleClass="w-100" mode="advanced" dragDropSupport="false"
+							update="messages" />
+
+					</h:panelGrid>
+					<h:panelGroup>
+
+						<div class="mt-4 d-flex justify-content-center">
+							<p:commandButton type="submit" value="Enregistrer"
+								styleClass="me-4" action="#{registerEsnBean.register()}" />
+							<p:commandButton value="Annuler"
+								styleClass="ui-button-secondary ms-4"
+								onclick="window.location.href='/reportly-javaee-client-app/index.xhtml'" />
+						</div>
+
+					</h:panelGroup>
+				</p:panel>
+			</h:form>
+
+		</div>
+
 	</ui:define>
 </ui:composition>

@@ -36,7 +36,7 @@
 						<!-- Affiché tout le temps (fragment de page) -->
 
 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-							<p:link outcome="index.xhtml">Home</p:link>
+							<!-- <p:link outcome="index.xhtml">Home</p:link> -->
 						</ui:fragment>
 						
 						<!-- Ecran Admin d'Esn -->
@@ -47,7 +47,12 @@
 						</ui:fragment>
 
 						<ui:fragment rendered="#{!loginBean.isUserLoggedIn()}">
-							<p:link outcome="registerEsn.xhtml">Sign Up</p:link>
+							<div class="col-4">
+								 <p:link outcome="register.xhtml">
+								 	<i class="fa-solid fa-user-plus pe-2"></i>
+							 		Sign Up
+							 	</p:link>
+							</div>
 						</ui:fragment>
 
 						<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
@@ -67,7 +72,10 @@
 
 						<ui:fragment rendered="#{not loginBean.isUserLoggedIn()}">
 							<div class="col-4">
-								<p:link outcome="login.xhtml">Sign in <i class="fa-solid fa-arrow-right-to-bracket text-white p-2"></i></p:link>
+								<p:link outcome="login.xhtml">
+									<i class="fa-solid fa-arrow-right-to-bracket pe-2"></i> 
+									Sign in
+								</p:link>
 							</div>
 						</ui:fragment>
 						
