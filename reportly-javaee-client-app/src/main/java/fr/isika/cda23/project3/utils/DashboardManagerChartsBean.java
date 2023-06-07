@@ -89,8 +89,9 @@ public class DashboardManagerChartsBean implements Serializable {
 
         BarChartDataSet barDataSet = new BarChartDataSet();
         barDataSet.setLabel("TJM de mon équipe");
-
+        barDataSet.setBackgroundColor("rgba(255, 0, 0, 0.2)");
         List<Number> values = new ArrayList<>();
+        
         values.add(65);
         values.add(59);
         values.add(80);
