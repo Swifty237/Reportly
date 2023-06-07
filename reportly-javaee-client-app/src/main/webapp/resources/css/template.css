@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 body {
-	height: 100%;
+	display: grid;
+	grid-template-rows: minmax(100vh, auto) auto;
 }
 
 #header {
@@ -40,6 +41,7 @@ body {
 
 .h-size {
 	/* min-height: 67vh; */
+	
 }
 
 .side-nav {
@@ -55,11 +57,9 @@ body {
 	width: 20vw;
 }
 
-/* footer */
 #footer {
 	background-color: #F8F4F4;
 	padding: 5px;
 	text-align: center;
-	bottom: 0;
-	margin-top: auto;
+	grid-row: 2;
 }
