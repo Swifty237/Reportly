@@ -61,23 +61,32 @@ public class DashboardManagerChartsBean implements Serializable {
 
     private void createPieModel() {
         pieModel = new PieChartModel();
+        
+        
         ChartData data = new ChartData();
 
         PieChartDataSet dataSet = new PieChartDataSet();
+        
+        
         List<Number> values = new ArrayList<>();
         values.add(craStatsByStatus.getNbCrasInValidatedState());
         values.add(craStatsByStatus.getNbCrasInDeniedState());
+        
+        
         dataSet.setData(values);
 
         List<String> bgColors = new ArrayList<>();
-        bgColors.add("rgb(255, 99, 132)");
-        bgColors.add("rgb(54, 162, 235)");
+        bgColors.add("rgb(0, 100, 0)");
+        bgColors.add("rgb(255, 165, 0)");
+        
         dataSet.setBackgroundColor(bgColors);
-
         data.addChartDataSet(dataSet);
         List<String> labels = new ArrayList<>();
         labels.add(CraState.DENIED.name());
         labels.add(CraState.VALIDATED.name());
+        labels.set(0, "Cra validé");
+        labels.set(1, "Cra en attente de validation");
+
         data.setLabels(labels);
         
         pieModel.setData(data);
@@ -88,9 +97,13 @@ public class DashboardManagerChartsBean implements Serializable {
         ChartData data = new ChartData();
 
         BarChartDataSet barDataSet = new BarChartDataSet();
-        barDataSet.setLabel("TJM de mon équipe");
+
+        barDataSet.setLabel("Chiffre d'affaires");
+        barDataSet.setBackgroundColor("rgb(30, 48, 80)");
+        
 
         List<Number> values = new ArrayList<>();
+        
         values.add(65);
         values.add(59);
         values.add(80);

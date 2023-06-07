@@ -41,14 +41,6 @@ public class Subscription implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date EndAt;
 
-	@Column(name = "start_at")
-	@Temporal(TemporalType.DATE)
-	private Date startAt;
-
-	@Column(name = "end_at")
-	@Temporal(TemporalType.DATE)
-	private Date endAt;
-
 	@Column(name = "automatic_renewal")
 	private boolean automaticRenewal;
 
@@ -59,7 +51,75 @@ public class Subscription implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Payment payment;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	private ServiceBasic serviceBasic;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public SubscriptionState getStateOfSubscription() {
+		return StateOfSubscription;
+	}
+
+	public void setStateOfSubscription(SubscriptionState stateOfSubscription) {
+		StateOfSubscription = stateOfSubscription;
+	}
+
+	public Date getStartAt() {
+		return StartAt;
+	}
+
+	public void setStartAt(Date startAt) {
+		StartAt = startAt;
+	}
+
+	public Date getEndAt() {
+		return EndAt;
+	}
+
+	public void setEndAt(Date endAt) {
+		EndAt = endAt;
+	}
+
+	public boolean isAutomaticRenewal() {
+		return automaticRenewal;
+	}
+
+	public void setAutomaticRenewal(boolean automaticRenewal) {
+		this.automaticRenewal = automaticRenewal;
+	}
+
+	public PaymentChoice getTypeOfPayment() {
+		return typeOfPayment;
+	}
+
+	public void setTypeOfPayment(PaymentChoice typeOfPayment) {
+		this.typeOfPayment = typeOfPayment;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
+	public ServiceBasic getServiceBasic() {
+		return serviceBasic;
+	}
+
+	public void setServiceBasic(ServiceBasic serviceBasic) {
+		this.serviceBasic = serviceBasic;
+	}
+
+	public Long getId() {
+		return Id;
+	}
+	
 }

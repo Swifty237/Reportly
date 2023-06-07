@@ -52,4 +52,17 @@ public class EsnDao {
 			return null;
 		}
 	}
+
+	public Esn findByEmail(String email) {
+		try {
+			return entityManager
+					.createQuery(
+							"SELECT e FROM Esn e WHERE e.companyDetails.email = :emailParam",
+							Esn.class)
+					.setParameter("emailParam", email)
+					.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }

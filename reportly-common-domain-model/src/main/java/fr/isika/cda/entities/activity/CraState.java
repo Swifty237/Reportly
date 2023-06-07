@@ -4,7 +4,7 @@ public enum CraState {
 
 	DRAFT, 
 	SENT, 
-	VALIDATED, 
-	DENIED
-
+	DENIED,
+	VALIDATED
+	
 }
