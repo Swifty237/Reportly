@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import fr.isika.cda.entities.common.DocumentType;
+import fr.isika.cda.entities.common.ExpenseReportState;
 
 public class ExpenseReportViewModel implements Serializable {
 
@@ -20,6 +21,7 @@ public class ExpenseReportViewModel implements Serializable {
     private Double amount;
     private String fileName;
     private DocumentType documentType;
+    private ExpenseReportState expenseReportState;
 
     public Long getId() {
         return id;
@@ -74,6 +76,15 @@ public class ExpenseReportViewModel implements Serializable {
     public void setDocumentType(DocumentType documentType) {
 		this.documentType = documentType;
 	}
+    
+	public ExpenseReportState getExpenseReportState() {
+		return expenseReportState;
+	}
+
+	public void setExpenseReportState(ExpenseReportState expenseReportState) {
+		this.expenseReportState = expenseReportState;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -89,6 +100,10 @@ public class ExpenseReportViewModel implements Serializable {
 		builder.append(amount);
 		builder.append(", fileName=");
 		builder.append(fileName);
+		builder.append(", documentType=");
+		builder.append(documentType);
+		builder.append(", expenseReportState=");
+		builder.append(expenseReportState);
 		builder.append("]");
 		return builder.toString();
 	}

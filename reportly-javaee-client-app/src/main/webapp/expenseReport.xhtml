@@ -76,6 +76,9 @@
 						<p:column headerText="Description">
 							<h:outputText value="#{expense.reason}" />
 						</p:column>
+						<p:column headerText="Status">
+							<h:outputText value="#{expense.expenseReportState}" />
+						</p:column>
 						<p:column styleClass="delete-column">
 							<h:form>
 								<p:commandButton icon="pi pi-trash" styleClass="delete-button"
