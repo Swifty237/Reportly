@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import fr.isika.cda.entities.common.CompanyDetails;
 import fr.isika.cda.entities.users.UserAccount;
+import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
 import fr.isika.cda23.project3.repository.company.EsnDao;
 import fr.isika.cda23.project3.repository.user.UserDao;
@@ -34,9 +35,11 @@ public class LoginBean implements Serializable {
 
 	private String esnName;
 
+	private UserRole userRole;
+
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
-	public String login() {
+	public String login() throws IOException {
 		// vérifier que le vm contient des données valides
 		if (!loginViewModel.isValid()) {
 			return "";
@@ -46,7 +49,14 @@ public class LoginBean implements Serializable {
 		UserAccount account = userDao.findByEmail(loginViewModel);
 		if (account != null) {
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
-			return "index.xhtml";
+			SessionUtils.setUserRoleIntoSession(account.getUserRole());
+			userRole = SessionUtils.getUserRoleFromSession();
+			if (userRole == userRole.EMPLOYEE) {
+
+				NavigationUtils.redirectToUserList("dashboardEmployee.xhtml");
+			} else {
+				NavigationUtils.redirectToUserList("dashboardManager.xhtml");
+			}
 		} else {
 			CompanyDetails esn = esnDao.findByEmail(loginViewModel);
 			if (esn != null) {
@@ -78,18 +88,18 @@ public class LoginBean implements Serializable {
 
 	public boolean isUserConnectedAsEsnAdmin() {
 		/*
-		 * S'il y un esnId renseigné dans la session 
-		 * => le user connecté est l'admin de l'esn en question (car y a pas de role adminb !!) 
+		 * S'il y un esnId renseigné dans la session => le user connecté est l'admin de
+		 * l'esn en question (car y a pas de role adminb !!)
 		 */
-		if( isUserLoggedIn() ) {
+		if (isUserLoggedIn()) {
 			Long esnId = SessionUtils.getEsnIdFromSession();
 			return esnId != null;
-		} 
-		
-		// dans tous les cas 
+		}
+
+		// dans tous les cas
 		return false;
 	}
-	
+
 	public boolean isUserLoggedIn() {
 		return SessionUtils.isUserLoggedIn();
 	}
@@ -116,6 +126,14 @@ public class LoginBean implements Serializable {
 
 	public void setEsnName(String esnName) {
 		this.esnName = esnName;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 }
