@@ -39,6 +39,8 @@ public class LoginBean implements Serializable {
 
 	private LoginViewModel loginViewModel = new LoginViewModel();
 
+	private UserAccount account;
+
 	public String login() throws IOException {
 		// vérifier que le vm contient des données valides
 		if (!loginViewModel.isValid()) {
@@ -46,7 +48,7 @@ public class LoginBean implements Serializable {
 		}
 
 		// vérifier que le user existe en bdd
-		UserAccount account = userDao.findByEmail(loginViewModel);
+		account = userDao.findByEmail(loginViewModel);
 		if (account != null) {
 			SessionUtils.setUserEmailIntoSession(account.getEmail());
 			SessionUtils.setUserRoleIntoSession(account.getUserRole());
@@ -135,6 +137,14 @@ public class LoginBean implements Serializable {
 
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
+	}
+
+	public UserAccount getAccount() {
+		return account;
+	}
+
+	public void setAccount(UserAccount account) {
+		this.account = account;
 	}
 
 }
