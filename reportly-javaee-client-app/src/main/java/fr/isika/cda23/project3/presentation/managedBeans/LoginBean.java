@@ -71,7 +71,7 @@ public class LoginBean implements Serializable {
 				SessionUtils.setEsnNameIntoSession(esn.getBrand());
 				setEsnName(esn.getBrand());
 				try {
-					NavigationUtils.redirectToUserList("ecranEsn.xhtml");
+					NavigationUtils.redirectToUserList("espaceAbonnements.xhtml");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
