@@ -5,20 +5,22 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
-
 	<ui:define name="content-2">
-
-		<p:panel header="Page d'accueil">
-			<p>Welcome sur notre site !</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-				rhoncus enim nec ligula viverra, ac bibendum mauris pharetra.</p>
-			<p>Nulla facilisi. Vestibulum sodales consectetur maximus.</p>
-		</p:panel>
-		
-		<div class="front">
-			
+		<h:outputStylesheet library="css" name="style.css" />
+		<div id="texte">
+			<h1>Welcome to Reportly</h1>
+			<p>Libérez le potentiel de votre entreprise grâce aux solutions
+				Reportly.</p>
+			<p:graphicImage id="landing-image" name="images/Tech.png"
+				alt="Landing Image" />
+			<h2>Nous contacter</h2>
+			<p>Si vous avez des questions ou des demandes de renseignements,
+				n'hésitez pas à nous contacter :</p>
+			<p>
+				Email: info@reportly.com<br /> Phone: 123-456-7890<br /> Adresse:
+				123 Tech Street, Paris, France
+			</p>
 		</div>
-
 	</ui:define>
 </ui:composition>
 
