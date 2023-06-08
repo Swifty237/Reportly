@@ -54,6 +54,7 @@ public class LoginBean implements Serializable {
 			SessionUtils.setUserRoleIntoSession(account.getUserRole());
 			userRole = SessionUtils.getUserRoleFromSession();
 			SessionUtils.setUserIdIntoSession(account.getUserId());
+			System.out.println("fullname " + account.getPers().getFullName());
 			if (UserRole.EMPLOYEE.equals(userRole)) {
 
 				NavigationUtils.redirectToUserList("dashboardEmployee.xhtml");
