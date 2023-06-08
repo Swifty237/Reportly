@@ -85,16 +85,18 @@
 		<ui:fragment rendered="#{loginBean.isUserLoggedIn()}">
 			<div class="row bg-light">
 
-				<div class="col-2 border-end shadow bg-light">
 
 					<h2
 						class="text-center fw-bold text-decoration-underline border bg-reportly-lbl py-2 rounded text-white mt-4">REPORTLY</h2>
 
 					<div class="d-flex side-nav align-items-center">
-						<ul class="nav flex-column ms-4">
-
-
-							<ui:fragment rendered="#{loginBean.userRole == 'EMPLOYEE'}">
+						<ul class="nav flex-column ms-4">							
+							
+								<ui:fragment rendered="#{loginBean.userRole == 'EMPLOYEE'}" >
+							
+								<li class="nav-item mb-3 mt-4"><i
+								class="fa-solid fa-house text-primary me-2"></i> 
+								<p:link outcome="dashboardEmployee.xhtml">Accueil</p:link></li>
 
 								<li class="nav-item mb-3"><i
 									class="fa-solid fa-house text-primary me-2"></i> <p:link
@@ -116,15 +118,21 @@
 								</li>
 								<li class="nav-item mb-3"><i
 									class="fa-solid fa-diagram-project text-primary me-2" outcome="showAllContracts.xhtml"></i> <p:link>Projets</p:link>
+								<li class="nav-item mb-4"><i
+									class="fa-solid fa-diagram-project text-primary me-2"></i> <p:link>Projets</p:link>
 								</li>
 
 							</ui:fragment>
+							
 
 							<ui:fragment rendered="#{loginBean.isUserConnectedAsEsnAdmin()}">
 
 								<li class="nav-item mb-3"><i
 									class="fa-solid fa-house text-primary me-2"></i> <p:link
 										outcome="ecranEsn.xhtml">Accueil</p:link></li>
+								<li class="nav-item mb-3 mt-4"><i
+								class="fa-solid fa-house text-primary me-2"></i> 
+								<p:link outcome="ecranEsn.xhtml">Accueil</p:link></li>
 
 								<li class="nav-item mb-3"><p:link outcome="register.xhtml">
 										<i class="fa-solid fa-user-plus me-2"></i> Ajouter un membre</p:link></li>
@@ -140,6 +148,14 @@
 								<li class="nav-item mb-3"><p:link
 										outcome="showAllCustomers.xhtml">
 										<i class="fa-solid fa-building me-2"></i> Mes clients</p:link></li>
+								<li class="nav-item mb-3"><p:link outcome="team.xhtml"> <i class="fa-solid fa-users me-2" ></i> Former les équipes</p:link>
+								</li>
+								
+								<li class="nav-item mb-3"><p:link outcome="espaceAbonnements.xhtml"> <i class="fa-solid fa-list me-2"></i> Mes abonnements</p:link>
+								</li>
+								
+								<li class="nav-item mb-4"><p:link outcome="showAllCustomers.xhtml"> <i class="fa-solid fa-building me-2"></i> Mes clients</p:link>
+								</li>
 
 							</ui:fragment>
 
@@ -149,6 +165,9 @@
 								<li class="nav-item mb-3"><i
 									class="fa-solid fa-house text-primary me-2"></i> <p:link
 										outcome="dashboardManager.xhtml">Accueil</p:link></li>
+								<li class="nav-item mb-3 mt-4"><i
+								class="fa-solid fa-house text-primary me-2"></i> 
+								<p:link outcome="dashboardManager.xhtml">Accueil</p:link></li>
 
 								<li class="nav-item mb-3"><p:link outcome="listUser.xhtml">
 										<i class="fa-solid fa-users me-2"></i> Mon équipe</p:link></li>
@@ -163,10 +182,19 @@
 								<li class="nav-item mb-3"><p:link
 										outcome="showAllCustomers.xhtml">
 										<i class="fa-solid fa-building me-2"></i> Mes clients</p:link></li>
+								<li class="nav-item mb-3"><p:link outcome="team.xhtml"> <i class="fa-solid fa-file"></i> Les C.R.A. </p:link>
+								</li>
+								
+								<li class="nav-item mb-3"><p:link outcome="showAllContracts.xhtml"> <i class="fa-solid fa-list me-2"></i> Les projets</p:link>
+								</li>
+								
+								<li class="nav-item mb-4"><p:link outcome="showAllCustomers.xhtml"> <i class="fa-solid fa-building me-2"></i> Mes clients</p:link>
+								</li>
 
 							</ui:fragment>
 
 						</ul>
+						
 					</div>
 				</div>
 
@@ -215,9 +243,8 @@
 											</f:facet>
 
 											<f:facet name="title">
-												<h6 class="text-center">#{empty
-													loginBean.account.pers.fullName ? 'admin' :
-													loginBean.account.pers.fullName}</h6>
+												<h6 class="text-center">#{emptyloginBean.account.pers.fullName ? 'admin' : loginBean.account.pers.fullName}</h6>
+												<h6 class="text-center">#{createAbsenceBean.account.pers.fullName!=null?createAbsenceBean.account.pers.fullName : 'admin'}</h6>
 											</f:facet>
 
 										</p:card>
@@ -258,7 +285,6 @@
 		</ui:fragment>
 
 
-	</div>
 
 	<div id="footer">
 		<div>
