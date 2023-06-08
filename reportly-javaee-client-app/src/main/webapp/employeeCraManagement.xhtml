@@ -29,8 +29,8 @@
 
 				<div class="row justify-content-center">
 					<div class="col-8 d-flex justify-content-around my-4">
-						<span class="me-4 my-2">Agence : esn brand here !</span> 
-						<span class="my-2">Unité d'oeuvre moyenne : 1 uo / j</span>
+						<span class="me-4 my-2">Agence : esn brand here !</span> <span
+							class="my-2">Unité d'oeuvre moyenne : 1 uo / jours</span>
 					</div>
 				</div>
 
@@ -59,29 +59,67 @@
 				<div class="col-12 shadow">
 
 					<h:form>
-						<p:dataTable value="#{craManagedBean.dates}" var="date"
-							rowIndexVar="index">
+
+						<p:dataTable id="checkboxDT" var="date"
+							value="#{craManagedBean.dates}"
+							selection="#{craManagedBean.selectedDates}"
+							rowKey="#{craManagedBean.findPosition(date)}"
+							style="margin-bottom:0" paginator="true" rows="5"
+							selectionPageOnly="false">
+
+							<p:column selectionMode="multiple" />
+
 							<p:column headerText="Jour">
-							 	#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : craManagedBean.getDayOfWeek(date)}
-    						</p:column>
+								<h:outputText
+									value="#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : craManagedBean.getDayOfWeek(date)}" />
+							</p:column>
 
 							<p:column headerText="Date">
-								#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : date}
-    							</p:column>
-    							
-    							<p:column headerText="Activité">
-    							#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : 'Mon activité'}
-    							</p:column>
+								<h:outputText
+									value="#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : date}" />
+							</p:column>
 
-							<p:column headerText="1 uo">
-								<p:selectBooleanCheckbox />
+							<p:column headerText="Activité">
+
+								<div class="ui-fluid formgrid grid">
+									<div class="field col-12 md:col-4">
+
+										<p:selectOneMenu id="option"
+											value="#{craManagedBean.activityVm.typeOfDuty}">
+											<f:selectItem itemLabel="Choisissez une activité"
+												itemValue="" noSelectionOption="true" />
+											<f:selectItems var="activity" itemLabel="#{activity.label}"
+												itemValue="#{activity}"
+												value="#{craManagedBean.typesOfDuties()}" />
+										</p:selectOneMenu>
+
+									</div>
+								</div>
+
+							</p:column>
+
+							<p:column headerText="Heures supplémentaires">
+							
+								<p:selectBooleanCheckbox/>
+								
+								<ui:fragment rendered="#{craManagedBean}">
+									<p:selectOneMenu id="option2"
+										value="#{craManagedBean.numbers}">
+										<f:selectItem itemLabel="" itemValue=""
+											noSelectionOption="true" />
+										<f:selectItems var="number" itemLabel="#{number}"
+											itemValue="#{number}"
+											value="#{craManagedBean.numbers}" />
+									</p:selectOneMenu>
+								</ui:fragment>
+								
 							</p:column>
 
 							<p:column headerText="Observations">
 								<h:inputTextarea />
 							</p:column>
-
 						</p:dataTable>
+
 					</h:form>
 
 				</div>

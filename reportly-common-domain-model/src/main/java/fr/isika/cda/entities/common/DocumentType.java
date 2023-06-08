@@ -2,11 +2,11 @@ package fr.isika.cda.entities.common;
 
 public enum DocumentType {
 	
-	ESN_CERTIFICATION ("Cerfitifcation ESN"),
-	SICK_LEAVE ("Sickness Leave"),
-	OTHER_ACTIVITY ("Other Activity"),
-	EXPENSE_REPORT_INVOICE ("Invoice for an expense report"), 
-	SUBSCRIPTION_INVOICE ("Invoice for subscription");
+	ESN_CERTIFICATION ("Kbis ESN"),
+	SICK_LEAVE ("Arrêt Maladie"),
+	OTHER_ACTIVITY ("Autres justificatifs"),
+	EXPENSE_REPORT_INVOICE ("Notes de frais"), 
+	SUBSCRIPTION_INVOICE ("Facture abonnement");
 	
 	private String label;
 	
