@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.registration-panel {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 20px;
+  
+}
+
+.registration-grid {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.button-submit {
+  background-color: #384C5C  !important;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.button-submit:hover {
+  background-color: #45a049;
+}
+
+/* Autres styles */
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+/* Styles spécifiques à PrimeFaces */
+
+.ui-panelgrid .ui-panelgrid-cell {
+  padding: 5px;
+}
+
+.ui-panelgrid .ui-panelgrid-cell .ui-inputtext,
+.ui-panelgrid .ui-panelgrid-cell .ui-selectonemenu {
+  width: 100%;
+}
+
+.ui-selectonemenu .ui-selectonemenu-label {
+  padding: 6px 8px;
+}
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+  top: 5px;
+  right: 5px;
+}
+
+.ui-selectonemenu-panel .ui-selectonemenu-items-wrapper {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ui-calendar {
+  width: 100%;
+}
+
+.ui-button {
+  margin-top: 10px;
+}
+
+/* Styles pour les messages d'erreur */
+
+.ui-message-error {
+  color: #b30000 !important;
+  margin-top: 5px;
+  font-size: 12px;
+}

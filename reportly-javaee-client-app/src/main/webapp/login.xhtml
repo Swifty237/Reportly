@@ -6,21 +6,36 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
-	<ui:define name="content-2">
-		<h:form id="loginForm">
-			<p:growl id="messages" showDetail="true" />
 
-			<p:panel header="User Sign In">
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="email" value="Email:" />
-					<p:inputText id="emailTxt" size="25" value="#{loginBean.loginViewModel.email}"/>
-
-					<h:outputLabel for="password" value="Password:" />
-					<p:password id="passwordTxt" size="20" value="#{loginBean.loginViewModel.password}"/>
-				</h:panelGrid>
-			</p:panel>
-				
-				<p:commandButton type="submit" value="SignIn" class="btn btn-primary" action="#{loginBean.login()}" />
-		</h:form>
+<ui:define name="styles">
+		<h:outputStylesheet library="css" name="EspaceLogin.css" />
 	</ui:define>
+	
+	
+	<ui:define name="content-2">
+    <h:form id="loginForm" styleClass="login-form">
+        <p:growl id="messages" showDetail="true" />
+
+        <p:panel header="Espace d'authentification" styleClass="login-panel">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="email" value="Email:" />
+                <p:inputText id="emailTxt" size="25" value="#{loginBean.loginViewModel.email}" styleClass="input-field"/>
+
+                <h:outputLabel for="password" value="Mot de passe :" />
+                <p:password id="passwordTxt" size="20" value="#{loginBean.loginViewModel.password}" styleClass="input-field" />
+            </h:panelGrid>
+
+            <div class="button-container">
+                <p:commandButton type="submit" value="Retour" styleClass="btn btn-secondary login-button"  />
+                <span class="button-space"></span>
+                <p:commandButton type="submit" value="Se connecter" styleClass="btn btn-primary login-button" action="#{loginBean.login()}" />
+            </div>
+
+            <p class="forgot-password-text">
+                <a href="#">Mot de passe oublié ?</a>
+            </p>
+        </p:panel>
+    </h:form>
+</ui:define>
+
 </ui:composition>
