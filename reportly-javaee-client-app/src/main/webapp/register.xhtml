@@ -1,100 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	template="/WEB-INF/templates/platformTemplate.xhtml">
-
-	<ui:define name="content">
-		<div class="row justify-content-center">
-
-			<h:form id="registrationForm" class="col-4">
-				<p:panel header="Formulaire d'inscription utilisateur">
-
-					<h:panelGrid columns="2" cellpadding="5"
-						class="d-flex justify-content-center">
-						<h:outputLabel for="nom" value="Nom :" />
-						<p:inputText id="nom"
-							value="#{registerUserBean.registerUserVm.name}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="prenom" value="Prénom :" styleClass="label" />
-						<p:inputText id="prenom"
-							value="#{registerUserBean.registerUserVm.firstname}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="email" value="Email :" styleClass="label" />
-						<p:inputText id="email"
-							value="#{registerUserBean.registerUserVm.email}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="password" value="Mot de passe :"
-							styleClass="label" />
-						<p:password id="password"
-							value="#{registerUserBean.registerUserVm.password}"
-							feedback="true" redisplay="true" toggleMask="true"
-							styleClass="w-100" />
-
-						<h:outputLabel for="dateNaissance" value="Date de naissance :"
-							styleClass="label" />
-						<p:calendar id="dateNaissance" locale="fr"
-							value="#{registerUserBean.registerUserVm.birthday}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="rue" value="Rue :" styleClass="label" />
-						<p:inputText id="rue"
-							value="#{registerUserBean.registerUserVm.adress}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="ville" value="Ville :" styleClass="label" />
-						<p:inputText id="ville"
-							value="#{registerUserBean.registerUserVm.city}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="codePostal" value="Code Postal :"
-							styleClass="label" />
-						<p:inputText id="codePostal"
-							value="#{registerUserBean.registerUserVm.postalCode}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="pays" value="Pays :" styleClass="label" />
-						<p:inputText id="pays"
-							value="#{registerUserBean.registerUserVm.country}"
-							styleClass="w-100" />
-
-						<h:outputLabel for="telephone" value="Téléphone :"
-							styleClass="label" />
-						<p:inputText id="telephone"
-							value="#{registerUserBean.registerUserVm.phoneNumber}"
-							styleClass="w-100" />
-						
-					<h:outputLabel for="poste" value="Poste :" styleClass="label" />
-					<p:inputText id="poste" value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" />
-
-					<h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
-					<p:selectOneMenu value="#{registerUserBean.registerUserVm.userRole}" styleClass="input">
-						<f:selectItem itemLabel="sélection" itemValue="null" noSelectionOption="true" />
-						<f:selectItems var="type" itemLabel="#{type.label}"
-							itemValue="#{type}" value="#{registerUserBean.typesOfRoles()}" />
-					</p:selectOneMenu> 
-
-					<h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
- 					<p:inputText id="tjm" value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" /> 
-						
-						<h:panelGroup>
-							<div class="mt-4 d-flex justify-content-center">
-								<p:commandButton type="submit" value="Enregistrer"
-									action="#{registerUserBean.register()}"
-									styleClass="ui-button-raised ui-button-primary me-4"
-									style="margin-right:5px;" />
-
-							</div>
-						</h:panelGroup>
-					</h:panelGrid>
-				</p:panel>
-			</h:form>
-		</div>
-
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/templates/platformTemplate.xhtml">
+    
+    
+    <ui:define name="styles">
+		<h:outputStylesheet library="css" name="register.css" />
 	</ui:define>
+
+    <ui:define name="content">
+        <div class="row justify-content-center">
+
+            <h:form id="registrationForm" class="col-8">
+                <p:panel header="FORMULAIRE D'INSCRIPTION UTILISATEUR" styleClass="registration-panel">
+
+                    <h:panelGrid columns="2" cellpadding="5" styleClass="registration-grid">
+                        <h:outputLabel for="nom" value="Nom :" styleClass="label" />
+                        <p:inputText id="nom" value="#{registerUserBean.registerUserVm.name}" styleClass="input" />
+
+                        <h:outputLabel for="prenom" value="Prénom :" styleClass="label" />
+                        <p:inputText id="prenom" value="#{registerUserBean.registerUserVm.firstname}" styleClass="input" />
+
+                        <h:outputLabel for="email" value="Email :" styleClass="label" />
+                        <p:inputText id="email" value="#{registerUserBean.registerUserVm.email}" styleClass="input" />
+
+                        <h:outputLabel for="password" value="Mot de passe :" styleClass="label" />
+                        <p:password id="password" value="#{registerUserBean.registerUserVm.password}" feedback="true" redisplay="true" toggleMask="true" styleClass="input" />
+
+                        <h:outputLabel for="dateNaissance" value="Date de naissance :" styleClass="label" />
+                        <p:calendar id="dateNaissance" locale="fr" value="#{registerUserBean.registerUserVm.birthday}" styleClass="input" />
+
+                        <h:outputLabel for="rue" value="Rue :" styleClass="label" />
+                        <p:inputText id="rue" value="#{registerUserBean.registerUserVm.adress}" styleClass="input" />
+
+                        <h:outputLabel for="ville" value="Ville :" styleClass="label" />
+                        <p:inputText id="ville" value="#{registerUserBean.registerUserVm.city}" styleClass="input" />
+
+                        <h:outputLabel for="codePostal" value="Code Postal :" styleClass="label" />
+                        <p:inputText id="codePostal" value="#{registerUserBean.registerUserVm.postalCode}" styleClass="input" />
+
+                        <h:outputLabel for="pays" value="Pays :" styleClass="label" />
+                        <p:inputText id="pays" value="#{registerUserBean.registerUserVm.country}" styleClass="input" />
+
+                        <h:outputLabel for="telephone" value="Téléphone :" styleClass="label" />
+                        <p:inputText id="telephone" value="#{registerUserBean.registerUserVm.phoneNumber}" styleClass="input" />
+
+                        <h:outputLabel for="poste" value="Poste :" styleClass="label" />
+                        <p:inputText id="poste" value="#{registerUserBean.registerUserVm.jobTitle}" styleClass="input" />
+
+                        <h:outputLabel for="role" value="Rôle du Membre :" styleClass="label" />
+                        <p:selectOneMenu value="#{registerUserBean.registerUserVm.userRole}" styleClass="input">
+                            <f:selectItem itemLabel="Sélectionner" itemValue="null" noSelectionOption="true" />
+                            <f:selectItems var="type" itemLabel="#{type.label}" itemValue="#{type}" value="#{registerUserBean.typesOfRoles()}" />
+                        </p:selectOneMenu> 
+
+                        <h:outputLabel for="tjm" value="Tjm :" styleClass="label" />
+                        <p:inputText id="tjm" value="#{registerUserBean.registerUserVm.tjm}" styleClass="input" /> 
+
+                        <h:panelGroup>
+                            <div class="mt-4 d-flex justify-content-center">
+                                <p:commandButton type="submit" value="Enregistrer" action="#{registerUserBean.register()}" styleClass="button-submit" />
+                            </div>
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
 </ui:composition>
