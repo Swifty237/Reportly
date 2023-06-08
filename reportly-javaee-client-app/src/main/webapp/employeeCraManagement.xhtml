@@ -10,65 +10,120 @@
 
 		<div class="row bg-light">
 
+			<div class="col-11">
 
+				<div class="row">
+					<div class="col-5 d-flex justify-content-center align-items-center">
+						<i class="fa-solid fa-business-time fs-3 me-3"></i>
 
-			<div class="col-10">
-
-
-				<div class="row justify-content-around mb-4">
-					<div class="col-11">
-					
-						<div class="row">
-							<div class="col-5 d-flex justify-content-center align-items-center">
-								<i class="fa-solid fa-business-time fs-3 me-3"></i>
-								
-								<div>
-									<span class="text-secondary">Feuille de temps principale</span>
-									<h4>Février 2023</h4>
-								</div>
-							</div>
-
-							<div class="col-5 d-flex justify-content-end align-items-center">
-								<p:commandButton styleClass="btn btn-primary" value="Soumettre" />
-							</div>
+						<div>
+							<span class="text-secondary">Feuille de temps principale</span>
+							<h4>#{craManagedBean.currentMonthYear}</h4>
 						</div>
+					</div>
 
-						<div class="row justify-content-center">
-							<div class="col-11 d-flex justify-content-center">
-								<span class="me-4 my-2">Période : du 01 au 28 Février</span>
-								<span class="me-4 my-2">Agence : esn brand here !</span>
-								<span class="my-2">Unité d'oeuvre moyenne : 1 uo / j</span>
-							</div>
-						</div>
-
-						<div class="row justify-content-center mb-2">
-							<div class="col-11 d-flex justify-content-around py-2">
-								<button class="btn btn-secondary">
-									<i class="fa-solid fa-floppy-disk me-2"></i>
-									<span>Enregistrer</span>
-								</button>
-								
-								<button class="btn btn-primary">
-									<span>Historique total de production</span>
-								</button>
-								
-								<button class="btn btn-info">
-									<i class="fa-solid fa-file-pdf me-2"></i>
-									<span>PDF client</span>
-								</button>																
-							</div>
-														
-						</div>
-
-						<div class="row bg-info">
-						
-                				
-                				
-							
-						</div>	
-											
+					<div class="col-5 d-flex justify-content-end align-items-center">
+						<p:commandButton styleClass="btn btn-primary" value="Soumettre" />
 					</div>
 				</div>
+
+				<div class="row justify-content-center">
+					<div class="col-8 d-flex justify-content-around my-4">
+						<span class="me-4 my-2">Agence : esn brand here !</span> <span
+							class="my-2">Unité d'oeuvre moyenne : 1 uo / jours</span>
+					</div>
+				</div>
+
+				<div class="row justify-content-center mb-4">
+					<div class="col-11 d-flex justify-content-around py-2">
+						<button class="btn btn-secondary">
+							<i class="fa-solid fa-floppy-disk me-2"></i> <span>Enregistrer</span>
+						</button>
+
+						<button class="btn btn-primary">
+							<span>Historique total de production</span>
+						</button>
+
+						<button class="btn btn-info">
+							<i class="fa-solid fa-file-pdf me-2"></i> <span>PDF client</span>
+						</button>
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<div class="row">
+
+				<div class="col-12 shadow">
+
+					<h:form>
+
+						<p:dataTable id="checkboxDT" var="date"
+							value="#{craManagedBean.dates}"
+							selection="#{craManagedBean.selectedDates}"
+							rowKey="#{craManagedBean.findPosition(date)}"
+							style="margin-bottom:0" paginator="true" rows="5"
+							selectionPageOnly="false">
+
+							<p:column selectionMode="multiple" />
+
+							<p:column headerText="Jour">
+								<h:outputText
+									value="#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : craManagedBean.getDayOfWeek(date)}" />
+							</p:column>
+
+							<p:column headerText="Date">
+								<h:outputText
+									value="#{craManagedBean.getDayOfWeek(date)== 'Dimanche' || craManagedBean.getDayOfWeek(date)== 'Samedi' ? '--' : date}" />
+							</p:column>
+
+							<p:column headerText="Activité">
+
+								<div class="ui-fluid formgrid grid">
+									<div class="field col-12 md:col-4">
+
+										<p:selectOneMenu id="option"
+											value="#{craManagedBean.activityVm.typeOfDuty}">
+											<f:selectItem itemLabel="Choisissez une activité"
+												itemValue="" noSelectionOption="true" />
+											<f:selectItems var="activity" itemLabel="#{activity.label}"
+												itemValue="#{activity}"
+												value="#{craManagedBean.typesOfDuties()}" />
+										</p:selectOneMenu>
+
+									</div>
+								</div>
+
+							</p:column>
+
+							<p:column headerText="Heures supplémentaires">
+							
+								<p:selectBooleanCheckbox/>
+								
+								<ui:fragment rendered="#{craManagedBean}">
+									<p:selectOneMenu id="option2"
+										value="#{craManagedBean.numbers}">
+										<f:selectItem itemLabel="" itemValue=""
+											noSelectionOption="true" />
+										<f:selectItems var="number" itemLabel="#{number}"
+											itemValue="#{number}"
+											value="#{craManagedBean.numbers}" />
+									</p:selectOneMenu>
+								</ui:fragment>
+								
+							</p:column>
+
+							<p:column headerText="Observations">
+								<h:inputTextarea />
+							</p:column>
+						</p:dataTable>
+
+					</h:form>
+
+				</div>
+
 			</div>
 		</div>
 

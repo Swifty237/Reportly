@@ -39,10 +39,10 @@ public abstract class Activity implements Serializable {
 	protected Boolean onCall;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Customer customer;
+	protected Customer customer;
 
 	@ManyToOne
-	private Cra cra;
+	protected Cra cra;
 
 	public Long getId() {
 		return id;
