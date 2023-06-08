@@ -17,13 +17,6 @@ public class CraRepositoryDao {
 		return cra.getId();
 	}
 
-	public void update(Cra cra) {
-		entityManager.merge(cra);
-	}
-
-	public void remove(Cra cra) {
-		entityManager.remove(cra);
-	}
 
 	public Cra findById(Long id) {
 		return entityManager.find(Cra.class, id);
