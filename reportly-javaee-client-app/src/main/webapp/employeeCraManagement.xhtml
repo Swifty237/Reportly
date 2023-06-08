@@ -7,6 +7,7 @@
 	template="/WEB-INF/templates/platformTemplate.xhtml">
 
 	<ui:define name="content">
+	<h:outputStylesheet library="css" name="expenseStyle.css" />
 
 		<div class="row bg-light">
 
@@ -56,15 +57,82 @@
 
 			<div class="row">
 
-				<div class="col-12 shadow">
+	<div class="col-12 shadow">
 
-					<h:form>
+		<div id="expense-container">
+			<div id="form-expense-container">
+			
+				<h:form id="craForm" enctype="multipart/form-data">
+					<p:panel header="Compte rendu d'activité">
+						<p:growl id="messages" showDetail="true" sticky="false"
+							life="3500" />
+						<h:panelGrid columns="2" cellpadding="5">
 						
+							<h:outputLabel for="docType" value="type:" />
+							<p:selectOneMenu
+								value="#{managementCra.cvm.dutyType}">
+								<f:selectItem itemLabel="Selection" itemValue="null"
+									noSelectionOption="true" />
+								<f:selectItems var="type" itemLabel="#{type.label}"
+									itemValue="#{type}"
+									value="#{managementCra.typesOfDuty()}" />
+							</p:selectOneMenu>
+							
+							<h:outputLabel for="startDate" value="Début:" />
+							<p:calendar id="startDate"
+								value="#{managementCra.cvm.startAt}"
+								showOn="button" />
+								
+								<h:outputLabel for="endDate" value="Fin:" />
+							<p:calendar id="endDate"
+								value="#{managementCra.cvm.endAt}"
+								showOn="button" />
+							
+							<h:outputLabel for="desc" value="Description:" />
+							<p:inputTextarea id="desc"
+								value="#{managementCra.cvm.description}"
+								rows="6" cols="30" />
+								
+							<p:commandButton value="Submit"
+								action="#{managementCra.createActivity()}" process="@form" />
+								
+						</h:panelGrid>
+					</p:panel>
+					
+				</h:form>
+			</div>
+			
+			<div id="table-expense-container">
+				<h:panelGroup id="expenseTablePanel">
+					<p:dataTable id="expenseTable" var="duty"
+						value="#{managementCra.listDuties}"
+						emptyMessage="No expenses found">
 						
+						<p:column headerText="Début">
+							<h:outputText value="#{duty.startAt}">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:outputText>
+						</p:column>
+						<p:column headerText="Fin">
+							<h:outputText value="#{duty.endAt}">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:outputText>
+						</p:column>
 						
-
-					</h:form>
-
+						<p:column headerText="Début">
+							<p:column headerText="Type">
+							<h:outputText value="#{duty.typeOfDuty.label}" />
+						</p:column>
+						</p:column>
+						
+						<p:column headerText="Description">
+							<h:outputText value="#{duty.description}" />
+						</p:column>
+					</p:dataTable>
+					
+				</h:panelGroup>
+			</div>
+		</div>
 				</div>
 
 			</div>
