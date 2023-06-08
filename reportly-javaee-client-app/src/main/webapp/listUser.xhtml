@@ -1,75 +1,44 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:managedBean="http://xmlns.jcp.org/jsf/composite/managedBean">
+	template="/WEB-INF/templates/platformTemplate.xhtml">
 
-<h:head>
-</h:head>
+	<ui:define name="content">
+		<h:form id="userTableForm">
+			<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
+				var="user" emptyMessage="No users found" lazy="false">
 
-<h:body>
-<h:form id="userTableForm">
-	<p:link outcome="/index.xhtml">Accueil</p:link>
-		<p:dataTable id="userTable" value="#{showUsersBean.accounts}"
-			var="user" emptyMessage="No users found" lazy="false">
+				<p:column headerText="Nom">
+					<h:outputText value="#{user.pers.name}" />
+				</p:column>
 
-			<p:column headerText="Nom">
-				<h:outputText value="#{user.pers.name}" />
-			</p:column>
+				<p:column headerText="Prénom">
+					<h:outputText value="#{user.pers.firstname}" />
+				</p:column>
 
-			<p:column headerText="Prénom">
-				<h:outputText value="#{user.pers.firstname}" />
-			</p:column>
+				<p:column headerText="Email">
+					<h:outputText value="#{user.email}" />
+				</p:column>
 
-			<p:column headerText="Email">
-				<h:outputText value="#{user.email}" />
-			</p:column>
+				<p:column headerText="Téléphone">
+					<h:outputText value="#{user.pers.phoneNumber}" />
+				</p:column>
 
-			<p:column headerText="Date de naissance">
-				<h:outputText value="#{user.pers.birthday}" />
-			</p:column>
+				<p:column headerText="Poste">
+					<h:outputText value="#{user.pers.jobTitle}" />
+				</p:column>
 
-			<p:column headerText="Rue">
-				<h:outputText value="#{user.pers.adressDetails.adress}" />
-			</p:column>
+				<p:column headerText="Rôle">
+					<h:outputText value="#{user.userRole}" />
+				</p:column>
 
-			<p:column headerText="Ville">
-				<h:outputText value="#{user.pers.adressDetails.city}" />
-			</p:column>
-
-			<p:column headerText="Code Postal">
-				<h:outputText value="#{user.pers.adressDetails.postalCode}" />
-			</p:column>
-
-			<p:column headerText="Pays">
-				<h:outputText value="#{user.pers.adressDetails.country}" />
-			</p:column>
-
-			<p:column headerText="Téléphone">
-				<h:outputText value="#{user.pers.phoneNumber}" />
-			</p:column>
-
-			<p:column headerText="Poste">
-				<h:outputText value="#{user.pers.jobTitle}" />
-			</p:column>
-
-			<p:column headerText="Tjm">
-				<h:outputText value="#{user.tjm}" />
-			</p:column>
-
-			<p:column style="width: 70px;">
-				<p:commandButton value="show"
-					action="#{registerUserBean.viewUser(user.userId)}"
-					icon="pi pi-search" styleClass="ui-button-raised ui-button-info">
-					<f:param name="userId" value="#{user.userId}" />
-				</p:commandButton>
-			</p:column>
-			<p:column style="width: 70px;">
-				<p:commandButton value="delete" action="#{registerUserBean.deleteUser(user.userId)}" icon="pi pi-trash"
-					styleClass="ui-button-raised ui-button-danger" />
-			</p:column>
-
-		</p:dataTable>
-	</h:form>
-</h:body>
-</html>
+				<p:column headerText="Tjm">
+					<h:outputText value="#{user.tjm}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

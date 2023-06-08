@@ -47,8 +47,8 @@ public class RegisterUserService {
 		return userDao.register(viewModel);
 	}
 
-	public List<UserAccount> findAllUsers(Long id) {
-		return userDao.findAllUsers(id);
+	public List<Employee> findUsersByTeam(Long id) {
+		return userDao.findAllEmployeesOfTeamWithUserId(id);
 	}
 
 	public UserAccount findOneUser(long id) {
@@ -82,6 +82,10 @@ public class RegisterUserService {
 		UserAccount user = userDao.findOneUser(id);
 		userDao.deleteUser(user);
 
+	}
+
+	public List<Employee> findAllUsers(Long id) {
+	return userDao.findAllUsersWithEsnId(id);
 	}
 
 }

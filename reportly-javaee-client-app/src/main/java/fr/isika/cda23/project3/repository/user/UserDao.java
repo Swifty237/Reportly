@@ -1,12 +1,16 @@
 package fr.isika.cda23.project3.repository.user;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda.entities.users.Employee;
+import fr.isika.cda.entities.users.ProjectTeam;
 import fr.isika.cda.entities.users.UserAccount;
 import fr.isika.cda.entities.users.UserRole;
 import fr.isika.cda23.project3.presentation.viewModels.LoginViewModel;
@@ -27,10 +31,25 @@ public class UserDao {
 	}
 
 //	Select all users dans une list
-	public List<UserAccount> findAllUsers(Long id) {
-		return entityManager.createQuery("SELECT ua FROM UserAccount ua WHERE ua.esn.id = :id", UserAccount.class)
-				.setParameter("id", id).getResultList();
+	public List<Employee> findAllEmployeesOfTeamWithUserId(Long id) {
+		String query = "SELECT p FROM ProjectTeam p LEFT JOIN FETCH p.employeeList";
+		List<ProjectTeam> projects = entityManager
+				.createQuery(query, ProjectTeam.class)
+				.getResultList();
+		
+		Optional<ProjectTeam> p = projects.parallelStream()
+				.filter(proj -> isProjectContainsUserId(id, proj))
+				.findFirst();
+		
+		return p.isPresent() ? p.get().getEmployeeList() : Collections.emptyList();
+	}
 
+	private boolean isProjectContainsUserId(Long id, ProjectTeam proj) {
+		List<Long> emps = proj.getEmployeeList()
+				.stream()
+				.map(emp -> emp.getUserId())
+				.collect(Collectors.toList());
+		return emps.contains(id);
 	}
 
 	public UserAccount findByEmail(LoginViewModel loginViewModel) {
@@ -49,9 +68,8 @@ public class UserDao {
 		try {
 			return entityManager
 					.createQuery("SELECT u FROM UserAccount u WHERE u.email = :emailParam", UserAccount.class)
-					.setParameter("emailParam", email)
-					.getSingleResult();
-		} catch(NoResultException e) {
+					.setParameter("emailParam", email).getSingleResult();
+		} catch (NoResultException e) {
 			return null;
 		}
 	}
@@ -76,14 +94,21 @@ public class UserDao {
 	public void modifyUser(UserAccount user) {
 		entityManager.merge(user);
 	}
+
 	public Long modifyEmployee(Employee emp) {
 		entityManager.merge(emp);
-		
+
 		return emp.getUserId();
 	}
 
 	public void deleteUser(UserAccount user) {
 		entityManager.remove(user);
+
+	}
+
+	public List<Employee> findAllUsersWithEsnId(Long id) {
+		return entityManager.createQuery("SELECT e FROM Employee e WHERE e.esn.id = :esnId", Employee.class)
+				.setParameter("esnId", id).getResultList();
 
 	}
 }
